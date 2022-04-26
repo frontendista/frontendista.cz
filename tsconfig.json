@@ -13,7 +13,6 @@
 		"sourceMap": true,
 		"strict": true,
 		"target": "es2020",
-
 		"paths": {
 			"$common/*": ["src/lib/components/__common__/*"],
 			"$components/*": ["src/lib/components/*"],
