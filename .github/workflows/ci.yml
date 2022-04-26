@@ -123,10 +123,20 @@ jobs:
           node-version: 16
           cache: "pnpm"
 
+      - name: 📀 Cache playwright binaries
+        uses: actions/cache@v2
+        id: playwright-cache
+        with:
+          path: |
+            ~/.cache/ms-playwright
+          # TODO: Automatically get playwright version from manifest
+          key: cache-playwright-linux-1.21.0
+
       - name: 🔧 Install dependencies
         run: pnpm install --frozen-lockfile
 
       - name: 🔧 Install playwright
+        if: steps.playwright-cache.outputs.cache-hit != 'true'
         run: pnpm playwright install --with-deps
 
       - name: 👟 Run your tests
