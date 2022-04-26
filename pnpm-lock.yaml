@@ -2,7 +2,7 @@ lockfileVersion: 5.3
 
 specifiers:
   "@playwright/test": ^1.21.0
-  "@sveltejs/adapter-auto": next
+  "@sveltejs/adapter-vercel": ^1.0.0-next.50
   "@sveltejs/kit": next
   "@typescript-eslint/eslint-plugin": ^5.10.1
   "@typescript-eslint/parser": ^5.10.1
@@ -18,7 +18,7 @@ specifiers:
   typescript: ~4.6.2
 
 dependencies:
-  "@sveltejs/adapter-auto": 1.0.0-next.39
+  "@sveltejs/adapter-vercel": 1.0.0-next.50
   "@sveltejs/kit": 1.0.0-next.322_svelte@3.47.0
   svelte: 3.47.0
 
@@ -752,13 +752,6 @@ packages:
       }
     dev: true
 
-  /@iarna/toml/2.2.5:
-    resolution:
-      {
-        integrity: sha512-trnsAYxU3xnS1gPHPyU961coFyLkh4gAD/0zQ5mymY4yOZ+CYvsPqUbOFSw0aDM4y0tV7tiFxL/1XfXPNC6IPg==
-      }
-    dev: false
-
   /@jest/types/27.5.1:
     resolution:
       {
@@ -860,38 +853,6 @@ packages:
     dependencies:
       estree-walker: 2.0.2
       picomatch: 2.3.1
-    dev: false
-
-  /@sveltejs/adapter-auto/1.0.0-next.39:
-    resolution:
-      {
-        integrity: sha512-mscydZQzI9HZ+IjD+/yxyuKKd4/KxZv/M43BaeBvpuhToEe3crmatIHDQIZc0GBZZgTVpvk8yp3yIM8q3RugLw==
-      }
-    dependencies:
-      "@sveltejs/adapter-cloudflare": 1.0.0-next.18
-      "@sveltejs/adapter-netlify": 1.0.0-next.55
-      "@sveltejs/adapter-vercel": 1.0.0-next.50
-    dev: false
-
-  /@sveltejs/adapter-cloudflare/1.0.0-next.18:
-    resolution:
-      {
-        integrity: sha512-iIb7ScN2hnnfVQPhRjw0FYpovYJrw4n22BFAQIg6QvOwmmGz1E3QkyBkm/tRmyY7emDfnljgXtvk4Hsoszp5Ug==
-      }
-    dependencies:
-      esbuild: 0.14.38
-      worktop: 0.8.0-next.12
-    dev: false
-
-  /@sveltejs/adapter-netlify/1.0.0-next.55:
-    resolution:
-      {
-        integrity: sha512-LbqupuX8SdvUdCLSLiazPdU+JwwVhWGmoAopwlFkdlGOsGEag6jB+CjEYPmy81SVMSKxtYA2RqNzBPpPbURDtw==
-      }
-    dependencies:
-      "@iarna/toml": 2.2.5
-      esbuild: 0.14.38
-      tiny-glob: 0.2.9
     dev: false
 
   /@sveltejs/adapter-vercel/1.0.0-next.50:
@@ -2368,13 +2329,6 @@ packages:
       type-fest: 0.20.2
     dev: true
 
-  /globalyzer/0.1.0:
-    resolution:
-      {
-        integrity: sha512-40oNTM9UfG6aBmuKxk/giHn5nQ8RVz/SS4Ir6zgzOv9/qC3kKZ9v4etGTcJbEl/NyVQH7FGU7d+X1egr57Md2Q==
-      }
-    dev: false
-
   /globby/11.1.0:
     resolution:
       {
@@ -2389,13 +2343,6 @@ packages:
       merge2: 1.4.1
       slash: 3.0.0
     dev: true
-
-  /globrex/0.1.2:
-    resolution:
-      {
-        integrity: sha512-uHJgbwAMwNFf5mLst7IWLNg14x1CkeqglJb/K3doi4dw6q2IvAAmM/Y81kevy83wP+Sst+nutFTYOGg3d1lsxg==
-      }
-    dev: false
 
   /graceful-fs/4.2.10:
     resolution:
@@ -2833,14 +2780,6 @@ packages:
       }
     engines: { node: ">=4" }
 
-  /mrmime/1.0.0:
-    resolution:
-      {
-        integrity: sha512-a70zx7zFfVO7XpnQ2IX1Myh9yY4UYvfld/dikWRnsXxbyvMcfz+u6UfgNAtH+k2QqtJuzVpv6eLTx1G2+WKZbQ==
-      }
-    engines: { node: ">=10" }
-    dev: false
-
   /ms/2.1.2:
     resolution:
       {
@@ -3176,14 +3115,6 @@ packages:
     engines: { node: ">=8.10.0" }
     dependencies:
       picomatch: 2.3.1
-
-  /regexparam/2.0.0:
-    resolution:
-      {
-        integrity: sha512-gJKwd2MVPWHAIFLsaYDZfyKzHNS4o7E/v8YmNf44vmeV2e4YfVoDToTOKTvE7ab68cRJ++kLuEXJBaEeJVt5ow==
-      }
-    engines: { node: ">=8" }
-    dev: false
 
   /regexpp/3.2.0:
     resolution:
@@ -3647,16 +3578,6 @@ packages:
     resolution: { integrity: sha1-f17oI66AUgfACvLfSoTsP8+lcLQ= }
     dev: true
 
-  /tiny-glob/0.2.9:
-    resolution:
-      {
-        integrity: sha512-g/55ssRPUjShh+xkfx9UPDXqhckHEsHr4Vd9zX55oSdGZc/MD0m3sferOkwWtp98bv+kcVfEHtRJgBVJzelrzg==
-      }
-    dependencies:
-      globalyzer: 0.1.0
-      globrex: 0.1.2
-    dev: false
-
   /to-fast-properties/2.0.0:
     resolution: { integrity: sha1-3F5pjL0HkmW8c+A3doGk5Og/YW4= }
     engines: { node: ">=4" }
@@ -3786,17 +3707,6 @@ packages:
       }
     engines: { node: ">=0.10.0" }
     dev: true
-
-  /worktop/0.8.0-next.12:
-    resolution:
-      {
-        integrity: sha512-ZXdgI9XOf0uB4IegFoViLdQ0Bf7hish0XMHwuV3nopOXygfLJkwAC5+HyA+sihBMSM2sLLQ5uGnD5aknL8+NQg==
-      }
-    engines: { node: ">=12" }
-    dependencies:
-      mrmime: 1.0.0
-      regexparam: 2.0.0
-    dev: false
 
   /wrappy/1.0.2:
     resolution: { integrity: sha1-tSQ9jz7BqjXxNkYFvA0QNuMKtp8= }
