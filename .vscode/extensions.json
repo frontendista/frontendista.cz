@@ -1,0 +1,11 @@
+{
+	"recommendations": [
+		"svelte.svelte-vscode",
+		"dbaeumer.vscode-eslint",
+		"esbenp.prettier-vscode",
+		"EditorConfig.EditorConfig",
+		"GraphQL.vscode-graphql",
+		"ms-playwright.playwright"
+	],
+	"unwantedRecommendations": []
+}
