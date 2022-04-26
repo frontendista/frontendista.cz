@@ -1,0 +1,14 @@
+name: 🚚 Continuous Delivery
+
+on:
+  release:
+    types: created
+
+jobs:
+  deploy:
+    name: ⬆️ Deploy
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: TODO
+        run: echo TODO
