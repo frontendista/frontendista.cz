@@ -5,7 +5,6 @@ import preprocess from "svelte-preprocess";
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
 	preprocess: preprocess(),
-
 	kit: {
 		// TODO: See usage https://github.com/sveltejs/kit/tree/master/packages/adapter-vercel#usage
 		adapter: vercel(),
@@ -19,6 +18,10 @@ const config = {
 					$stylesheets: resolve("./src/lib/stylesheets"),
 					$utils: resolve("./src/lib/utils")
 				}
+			},
+			server: {
+				host: "frontendista.test",
+				port: 80
 			}
 		}
 	}
