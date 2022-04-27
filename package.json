@@ -20,11 +20,13 @@
 	},
 	"devDependencies": {
 		"@playwright/test": "^1.21.0",
+		"@types/html-minifier-terser": "^6.1.0",
 		"@typescript-eslint/eslint-plugin": "^5.10.1",
 		"@typescript-eslint/parser": "^5.10.1",
 		"eslint": "^7.32.0",
 		"eslint-config-prettier": "^8.3.0",
 		"eslint-plugin-svelte3": "^3.2.1",
+		"html-minifier-terser": "^7.0.0-alpha.2",
 		"husky": "^7.0.0",
 		"prettier": "^2.5.1",
 		"prettier-plugin-svelte": "^2.5.0",
