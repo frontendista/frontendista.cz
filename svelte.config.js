@@ -1,6 +1,7 @@
 import { resolve } from "path";
 import vercel from "@sveltejs/adapter-vercel";
 import preprocess from "svelte-preprocess";
+import { readFileSync } from "fs";
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
@@ -19,6 +20,15 @@ const config = {
 					$stylesheets: resolve("./src/lib/stylesheets"),
 					$utils: resolve("./src/lib/utils")
 				}
+			},
+			server: {
+				host: "frontendista.test"
+				// TODO: Conditionally enable https
+				// port: 443,
+				// https: {
+				// 	cert: readFileSync("./certs/frontendista.cert.pem"),
+				// 	key: readFileSync("./certs/frontendista.key.pem")
+				// }
 			}
 		}
 	}
