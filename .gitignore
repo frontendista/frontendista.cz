@@ -2,7 +2,7 @@
 /build
 /.svelte-kit
 /package
-
+/.vercel_build_output
 
 # Logs
 logs
