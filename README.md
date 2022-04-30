@@ -18,7 +18,11 @@
 
 ### 1.2 Environment variables
 
-TODO
+You can also check the [.env.example](./.env.example) file.
+
+| Name | Required |
+| ---- | -------- |
+| TODO | ✅       |
 
 ### 1.3 Installation
 
