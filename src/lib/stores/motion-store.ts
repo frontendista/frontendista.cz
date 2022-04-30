@@ -4,9 +4,11 @@ import { writable, type Readable } from "svelte/store";
 const MEDIA_QUERY = "(prefers-reduced-motion: reduce)";
 const STORAGE_KEY = "reduce-motion";
 
+type IMotionStoreSource = "USER" | "SYSTEM";
+
 interface IMotionStoreValue {
 	value: boolean;
-	source: "USER" | "SYSTEM";
+	source: IMotionStoreSource;
 }
 
 interface IMotionStore extends Readable<IMotionStoreValue> {
