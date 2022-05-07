@@ -7,6 +7,7 @@ export default defineConfig({
 	plugins: [svelte({ hot: !process.env.VITEST })],
 	test: {
 		globals: true,
+		watch: false,
 		environment: "happy-dom"
 	}
 });
