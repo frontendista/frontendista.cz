@@ -9,3 +9,9 @@ declare namespace App {
 	// interface Session {}
 	// interface Stuff {}
 }
+
+declare global {
+	namespace Vi {
+		type Assertion<T = any> = TestingLibraryMatchers<T, void>;
+	}
+}
