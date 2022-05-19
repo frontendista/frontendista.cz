@@ -8,6 +8,7 @@ specifiers:
   "@testing-library/jest-dom": ^5.16.4
   "@testing-library/svelte": ^3.1.1
   "@types/html-minifier-terser": ^6.1.0
+  "@types/testing-library__jest-dom": ^5.14.3
   "@typescript-eslint/eslint-plugin": ^5.10.1
   "@typescript-eslint/parser": ^5.10.1
   "@vitest/ui": ^0.10.5
@@ -36,7 +37,7 @@ specifiers:
 
 dependencies:
   "@sveltejs/adapter-vercel": 1.0.0-next.50
-  "@sveltejs/kit": 1.0.0-next.334_sass@1.51.0+svelte@3.47.0
+  "@sveltejs/kit": 1.0.0-next.335_sass@1.51.0+svelte@3.47.0
   svelte: 3.47.0
 
 devDependencies:
@@ -45,6 +46,7 @@ devDependencies:
   "@testing-library/jest-dom": 5.16.4
   "@testing-library/svelte": 3.1.1_svelte@3.47.0
   "@types/html-minifier-terser": 6.1.0
+  "@types/testing-library__jest-dom": 5.14.3
   "@typescript-eslint/eslint-plugin": 5.20.0_ji4fg6zi2yp3cueefoarkkdwk4
   "@typescript-eslint/parser": 5.20.0_hrkuebk64jiu2ut2d2sm4oylnu
   "@vitest/ui": 0.10.5
@@ -964,10 +966,10 @@ packages:
       esbuild: 0.14.38
     dev: false
 
-  /@sveltejs/kit/1.0.0-next.334_sass@1.51.0+svelte@3.47.0:
+  /@sveltejs/kit/1.0.0-next.335_sass@1.51.0+svelte@3.47.0:
     resolution:
       {
-        integrity: sha512-HPMF1oYBfyOG6wfU0Y6F4SID8jphue9yF+PXJqVTDBL5Z2WBG2ogum6MavE8aWhq+g2H6w5y0jNT8+8DO2KTCA==
+        integrity: sha512-iZutvIJSSNJJGceZOX2ZWqcyRqp9MIPnNWOgOLXqBG/Z/+KLoN8MRI0U79XIw232SAEXhhkwaJtB3UnXQSu85A==
       }
     engines: { node: ">=16" }
     hasBin: true
