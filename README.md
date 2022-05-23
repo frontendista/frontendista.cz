@@ -39,3 +39,4 @@ pnpm install
 # Start development server
 pnpm dev
 ```
+## 2. Used tools
