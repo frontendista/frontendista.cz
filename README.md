@@ -12,8 +12,8 @@
 
 ### 1.1 Prerequisites
 
-1. Install node.js (>16)
-2. Install pnpm
+1. Install node.js (>=16)
+2. Install pnpm (>=7)
 3. Configure your hosts file to map `127.0.0.1 frontendista.test`
 
 ### 1.2 Environment variables
