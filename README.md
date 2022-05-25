@@ -4,7 +4,10 @@
 
 <p align="center">
   <a aria-label="Figma design" href="https://www.figma.com/file/G70pDeXJ3Pgggs1X0x2dWo/frontendista.cz">
-    <img src="https://img.shields.io/badge/figma-%23F24E1E.svg?style=for-the-badge&logo=figma&logoColor=white">
+    <img src="https://img.shields.io/badge/figma-%23F24E1E.svg?style=for-the-badge&logo=figma&logoColor=white" alt="Figma design file">
+  </a>
+  <a aria-label="Figma design" href="https://github.com/frontendista/frontendista.cz/actions/workflows/ci.yml">
+    <img src="https://github.com/frontendista/frontendista.cz/actions/workflows/ci.yml/badge.svg?branch=main" alt="CI status">
   </a>
 </p>
 
@@ -39,4 +42,5 @@ pnpm install
 # Start development server
 pnpm dev
 ```
+
 ## 2. Used tools
