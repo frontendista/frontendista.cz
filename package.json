@@ -1,57 +1,16 @@
 {
-	"name": "frontendista.cz",
-	"version": "0.0.1",
+	"name": "2.frontendista.cz",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
 	"scripts": {
-		"dev": "svelte-kit dev",
-		"build": "svelte-kit build",
-		"package": "svelte-kit package",
-		"preview": "svelte-kit preview",
-		"prepare": "svelte-kit sync && husky install",
-		"test:e2e": "playwright test",
-		"test:unit": "vitest",
-		"test:unit:ui": "vitest --ui",
-		"test:unit:coverage": "vitest --coverage",
-		"check": "svelte-check --tsconfig ./tsconfig.json",
-		"check:watch": "svelte-check --tsconfig ./tsconfig.json --watch",
-		"lint:code": "prettier --ignore-path .gitignore --check --plugin-search-dir=. . && eslint --ignore-path .gitignore .",
-		"format": "prettier --ignore-path .gitignore --write --plugin-search-dir=. ."
+		"pretty-quick": "pretty-quick"
 	},
-	"dependencies": {
-		"@sveltejs/adapter-vercel": "^1.0.0-next.50",
-		"@sveltejs/kit": "next",
-		"svelte": "^3.44.0"
-	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
 	"devDependencies": {
-		"@playwright/test": "^1.21.0",
-		"@sveltejs/vite-plugin-svelte": "^1.0.0-next.42",
-		"@testing-library/jest-dom": "^5.16.4",
-		"@testing-library/svelte": "^3.1.1",
-		"@types/html-minifier-terser": "^6.1.0",
-		"@types/testing-library__jest-dom": "^5.14.3",
-		"@typescript-eslint/eslint-plugin": "^5.10.1",
-		"@typescript-eslint/parser": "^5.10.1",
-		"@vitest/ui": "^0.10.5",
-		"autoprefixer": "^10.4.5",
-		"c8": "^7.11.2",
-		"cssnano": "^5.1.7",
-		"eslint": "^7.32.0",
-		"eslint-config-prettier": "^8.3.0",
-		"eslint-plugin-svelte3": "^3.2.1",
-		"happy-dom": "^3.1.1",
-		"html-minifier-terser": "^7.0.0-alpha.2",
-		"husky": "^7.0.0",
-		"postcss": "^8.4.12",
-		"prettier": "^2.5.1",
-		"prettier-plugin-svelte": "^2.5.0",
-		"pretty-quick": "^3.1.3",
-		"sass": "^1.51.0",
-		"svelte-check": "^2.2.6",
-		"svelte-preprocess": "^4.10.1",
-		"tslib": "^2.3.1",
-		"typescript": "~4.6.2",
-		"vercel": "^24.1.0",
-		"vite": "^2.9.8",
-		"vitest": "^0.10.5"
-	},
-	"type": "module"
+		"prettier": "^2.6.2",
+		"pretty-quick": "^3.1.3"
+	}
 }
