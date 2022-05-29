@@ -1,14 +1,8 @@
 {
-	"name": "2.frontendista.cz",
-	"version": "1.0.0",
-	"description": "",
-	"main": "index.js",
+	"name": "frontendista.cz",
 	"scripts": {
 		"pretty-quick": "pretty-quick"
 	},
-	"keywords": [],
-	"author": "",
-	"license": "ISC",
 	"devDependencies": {
 		"prettier": "^2.6.2",
 		"pretty-quick": "^3.1.3"
