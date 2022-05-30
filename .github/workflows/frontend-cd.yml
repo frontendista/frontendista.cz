@@ -1,5 +1,6 @@
-name: 🚚 Continuous Delivery
+name: 🚚 FRONTEND CD
 
+# TODO: Change to manual dispatch
 on:
   release:
     types: [created]
