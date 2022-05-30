@@ -1,10 +1,14 @@
-name: 👀 Continuous Integration
+name: 👀 FRONTEND CI
 
 on:
   push:
     branches: [main]
+    paths:
+      - "apps/frontend/**"
   pull_request:
     branches: [main]
+    paths:
+      - "apps/frontend/**"
 
 jobs:
   build:
