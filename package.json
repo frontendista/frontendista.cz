@@ -1,6 +1,7 @@
 {
 	"name": "frontendista.cz",
 	"scripts": {
+		"dev": "pnpm -r dev",
 		"pretty-quick": "pretty-quick",
 		"prettier:check": "prettier --check --plugin-search-dir=. .",
 		"prettier:format": "prettier --write --plugin-search-dir=. .",
