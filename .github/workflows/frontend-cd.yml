@@ -1,15 +1,24 @@
 name: 🚚 FRONTEND CD
 
-# TODO: Change to manual dispatch
 on:
-  release:
-    types: [created]
+  [workflow_dispatch]
 
 jobs:
   deploy:
     name: ⬆️ Deploy
+    environment:
+      name: production
+      url: https://frontendista.cz
     runs-on: ubuntu-latest
 
+    env:
+      VERCEL_DEPLOYMENT_TOKEN: ${{ secrets.VERCEL_DEPLOYMENT_TOKEN }}
+      VERCEL_PROJECT_ID: ${{ secrets.VERCEL_FRONTEND_PROJECT_ID }}
+      VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+
     steps:
-      - name: TODO
-        run: echo TODO
+      - name: 👉 Checkout
+        uses: actions/checkout@v3
+        
+      - name: ⬆️ Deploy
+        run: vercel --prod -f -t $VERCEL_DEPLOYMENT_TOKEN -S frontendista
