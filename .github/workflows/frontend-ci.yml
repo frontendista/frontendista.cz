@@ -92,7 +92,7 @@ jobs:
         run: pnpm install --frozen-lockfile
 
       - name: 👟 Run ESLint
-        run: pnpm lint:code
+        run: pnpm lint
 
   bundlewatch:
     name: 🔎 BundleWatch
