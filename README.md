@@ -4,9 +4,9 @@ Monorepo containing all repositories related to [frontendista.cz 🚀](https://f
 
 ## 1 Applications
 
-| Name                                      | CI Status                                                                                                                                                             |
-| ----------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **[frontend](./apps/frontend/README.md)** | ![CI status](https://img.shields.io/endpoint.svg?url=https%3A%2F%2Factions-badge.atrox.dev%2Ffrontendista%2Ffrontendista.cz%2Fbadge%3Fref%3Dmain&style=for-the-badge) |
+| Name                            | CI Status                                                                                                                                                             |
+| ------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **[frontend](./apps/frontend)** | ![CI status](https://img.shields.io/endpoint.svg?url=https%3A%2F%2Factions-badge.atrox.dev%2Ffrontendista%2Ffrontendista.cz%2Fbadge%3Fref%3Dmain&style=for-the-badge) |
 
 ## 2 Getting started
 
