@@ -114,6 +114,7 @@ jobs:
           pattern: "./.vercel_build_output/static/**/*.{js,css,html}"
           strip-hash: "\\b-[a-z0-9]{1,}\\b"
           compression: "brotli"
+          cwd: apps/frontend
 
   unit:
     name: 🔎 Unit Testing
