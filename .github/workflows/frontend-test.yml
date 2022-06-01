@@ -1,0 +1,61 @@
+name: 🧪 FRONTEND TEST
+
+on:
+  [workflow_dispatch]
+
+defaults:
+  run:
+    working-directory: apps/frontend
+
+jobs:
+  build:
+    name: 👷🏽‍♂️ Build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 👉 Checkout
+        uses: actions/checkout@v3
+
+      - name: 📦 Setup pnpm
+        uses: pnpm/action-setup@v2.1.0
+        with:
+          version: latest
+
+      - name: 📦 Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 16
+          cache: "pnpm"
+
+      - name: 🔧 Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: 👟 Build
+        run: pnpm build
+
+  deploy:
+    name: ⬆️ Deploy
+    needs: [build]
+    environment:
+      name: staging
+      url: https://staging.frontendista.cz
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: .
+
+    env:
+      VERCEL_DEPLOYMENT_TOKEN: ${{ secrets.VERCEL_DEPLOYMENT_TOKEN }}
+      VERCEL_PROJECT_ID: ${{ secrets.VERCEL_FRONTEND_PROJECT_ID }}
+      VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+
+    steps:
+      - name: 👉 Checkout
+        uses: actions/checkout@v3
+        
+      - name: ⬆️ Deploy
+        run: echo "DEPLOYMENT_URL=$(vercel -f -t $VERCEL_DEPLOYMENT_TOKEN -S frontendista)" >> $GITHUB_ENV
+
+      - name: 🆒 Alias URL to staging URL
+        run: vercel alias set $DEPLOYMENT_URL staging.frontendista.cz -S frontendista -t $VERCEL_DEPLOYMENT_TOKEN
