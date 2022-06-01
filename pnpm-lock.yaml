@@ -33,10 +33,12 @@ importers:
       "@babel/preset-react": ^7.17.12
       "@sanity/base": ^2.30.1
       "@sanity/core": ^2.30.1
+      "@sanity/data-aspects": ^2.29.3
       "@sanity/default-layout": ^2.30.1
       "@sanity/default-login": ^2.30.1
       "@sanity/desk-tool": ^2.30.1
       "@sanity/eslint-config-studio": ^2.0.0
+      "@sanity/form-builder": ^2.30.1
       "@sanity/vision": ^2.30.1
       eslint: ^8.16.0
       prop-types: ^15.7
@@ -46,9 +48,11 @@ importers:
     dependencies:
       "@sanity/base": 2.30.1_e2j7mneen3arr2g7olztmnnfl4
       "@sanity/core": 2.30.1_sfoxds7t5ydpegc3knd667wn6m
+      "@sanity/data-aspects": 2.29.3
       "@sanity/default-layout": 2.30.1_e2j7mneen3arr2g7olztmnnfl4
       "@sanity/default-login": 2.30.1_zxhai4qal7ezfht52cx4u672cu
       "@sanity/desk-tool": 2.30.1_e4q64ok3bzn7pnw7gc7unp3d5y
+      "@sanity/form-builder": 2.30.1_e2j7mneen3arr2g7olztmnnfl4
       "@sanity/vision": 2.30.1_e4q64ok3bzn7pnw7gc7unp3d5y
       prop-types: 15.8.1
       react: 17.0.2
