@@ -1,7 +1,9 @@
 name: 🚚 FRONTEND CD
 
 on:
-  [workflow_dispatch]
+  push:
+    tags:
+      - "frontend@*"
 
 defaults:
   run:
