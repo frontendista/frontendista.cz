@@ -1,0 +1,23 @@
+name: 🚚 API CD
+
+on:
+  push:
+    tags:
+      - "api@*"
+
+jobs:
+  deploy:
+    name: ⬆️ Deploy
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 👉 Checkout
+        uses: actions/checkout@v2
+
+      - name: ⬆️ Deploy
+        uses: cloudflare/wrangler-action@2.0.0
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: publish
+          workingDirectory: apps/api
