@@ -3,13 +3,164 @@ name: 🚚 FRONTEND CD
 on:
   [workflow_dispatch]
 
+defaults:
+  run:
+    working-directory: apps/frontend
+
 jobs:
+  format:
+    name: 🔎 Svelte Check
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 👉 Checkout
+        uses: actions/checkout@v3
+
+      - name: 📦 Setup pnpm
+        uses: pnpm/action-setup@v2.1.0
+        with:
+          version: latest
+
+      - name: 📦 Setup node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 16
+          cache: "pnpm"
+
+      - name: 🔧 Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: 👟 Run check
+        run: pnpm check
+
+  lint:
+    name: 🔎 ESLint
+    needs: [format]
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 👉 Checkout
+        uses: actions/checkout@v3
+
+      - name: 📦 Setup pnpm
+        uses: pnpm/action-setup@v2.1.0
+        with:
+          version: latest
+
+      - name: 📦 Setup node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 16
+          cache: "pnpm"
+
+      - name: 🔧 Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: 👟 Run ESLint
+        run: pnpm lint
+
+  unit:
+    name: 🔎 Unit Testing
+    needs: [lint]
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 👉 Checkout
+        uses: actions/checkout@v3
+
+      - name: 📦 Setup pnpm
+        uses: pnpm/action-setup@v2.1.0
+        with:
+          version: latest
+
+      - name: 📦 Setup node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 16
+          cache: "pnpm"
+
+      - name: 🔧 Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: 👟 Run Vitest
+        run: pnpm test:unit
+
+  build:
+    name: 👷🏽‍♂️ Build
+    needs: [unit]
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 👉 Checkout
+        uses: actions/checkout@v3
+
+      - name: 📦 Setup pnpm
+        uses: pnpm/action-setup@v2.1.0
+        with:
+          version: latest
+
+      - name: 📦 Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 16
+          cache: "pnpm"
+
+      - name: 🔧 Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: 👟 Build
+        run: pnpm build
+
+  e2e:
+    name: 🔎 E2E Testing
+    needs: [build]
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 👉 Checkout
+        uses: actions/checkout@v3
+
+      - name: 📦 Setup pnpm
+        uses: pnpm/action-setup@v2.1.0
+        with:
+          version: latest
+
+      - name: 📦 Setup node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 16
+          cache: "pnpm"
+
+      - name: 📀 Cache playwright binaries
+        uses: actions/cache@v2
+        id: playwright-cache
+        with:
+          path: |
+            ~/.cache/ms-playwright
+          # TODO: Automatically get playwright version from manifest
+          key: cache-playwright-linux-1.21.0
+
+      - name: 🔧 Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: 🔧 Install playwright
+        if: steps.playwright-cache.outputs.cache-hit != 'true'
+        run: pnpm playwright install --with-deps
+
+      - name: 👟 Run your tests
+        run: pnpm test:e2e
+
   deploy:
     name: ⬆️ Deploy
+    needs: [e2e]
     environment:
       name: production
       url: https://frontendista.cz
     runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: .
 
     env:
       VERCEL_DEPLOYMENT_TOKEN: ${{ secrets.VERCEL_DEPLOYMENT_TOKEN }}
