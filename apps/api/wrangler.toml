@@ -1,0 +1,3 @@
+name = "api-frontendista-cz"
+main = "src/index.ts"
+compatibility_date = "2022-06-01"
