@@ -1,0 +1,26 @@
+{
+	"name": "cms.frontendista.cz",
+	"scripts": {
+		"start": "sanity start",
+		"build": "sanity build",
+		"lint": "eslint --ignore-path .gitignore ."
+	},
+	"dependencies": {
+		"@sanity/base": "^2.30.1",
+		"@sanity/core": "^2.30.1",
+		"@sanity/default-layout": "^2.30.1",
+		"@sanity/default-login": "^2.30.1",
+		"@sanity/desk-tool": "^2.30.1",
+		"@sanity/vision": "^2.30.1",
+		"prop-types": "^15.7",
+		"react": "^17.0",
+		"react-dom": "^17.0",
+		"styled-components": "^5.2.0"
+	},
+	"devDependencies": {
+		"@babel/preset-env": "^7.18.2",
+		"@babel/preset-react": "^7.17.12",
+		"@sanity/eslint-config-studio": "^2.0.0",
+		"eslint": "^8.16.0"
+	}
+}
