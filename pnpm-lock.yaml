@@ -32,6 +32,7 @@ importers:
       "@babel/preset-env": ^7.18.2
       "@babel/preset-react": ^7.17.12
       "@sanity/base": ^2.30.1
+      "@sanity/cli": ^2.30.0
       "@sanity/core": ^2.30.1
       "@sanity/data-aspects": ^2.29.3
       "@sanity/default-layout": ^2.30.1
@@ -47,6 +48,7 @@ importers:
       styled-components: ^5.2.0
     dependencies:
       "@sanity/base": 2.30.1_e2j7mneen3arr2g7olztmnnfl4
+      "@sanity/cli": 2.30.0
       "@sanity/core": 2.30.1_sfoxds7t5ydpegc3knd667wn6m
       "@sanity/data-aspects": 2.29.3
       "@sanity/default-layout": 2.30.1_e2j7mneen3arr2g7olztmnnfl4
@@ -3517,6 +3519,15 @@ packages:
     dependencies:
       get-random-values: 1.2.2
       lodash: 4.17.21
+    dev: false
+
+  /@sanity/cli/2.30.0:
+    resolution:
+      {
+        integrity: sha512-+VelHk/Rnr+zIfbKf+60erVUEINth1om37PVRNDtKQRVqKAjtGCRqOoDym9I3a0oAJEMHzvzWP9Q1RPxi7qkcA==
+      }
+    engines: { node: ">=12.0.0" }
+    hasBin: true
     dev: false
 
   /@sanity/client/3.3.1:
@@ -11859,6 +11870,7 @@ packages:
       {
         integrity: sha512-oNkuqVTA8jqG1Q6c+UglTOD1xhC1BtjKI7XkCXRkZHrN5m18/XsnUp8Q89GkQO/z+0WjonSvl0FLhDYftp46nQ==
       }
+    dev: true
 
   /import-cwd/2.1.0:
     resolution:
@@ -17891,6 +17903,7 @@ packages:
       chokidar: 3.5.3
       immutable: 4.1.0
       source-map-js: 1.0.2
+    dev: true
 
   /sax/1.2.4:
     resolution:
