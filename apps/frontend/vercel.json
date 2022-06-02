@@ -1,0 +1,8 @@
+{
+	"redirects": [
+		{
+			"source": "/cms",
+			"destination": "https://cms.frontendista.cz"
+		}
+	]
+}
