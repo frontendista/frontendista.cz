@@ -1,6 +1,9 @@
 name = "api-frontendista-cz"
 main = "src/index.ts"
 compatibility_date = "2022-06-01"
+
+workers_dev = false
+
 vars = { ENVIRONMENT = "dev" }
 
 [env.staging]
