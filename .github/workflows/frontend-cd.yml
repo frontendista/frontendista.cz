@@ -156,13 +156,9 @@ jobs:
     name: ⬆️ Deploy
     needs: [e2e]
     environment:
-      name: production
+      name: production:web
       url: https://frontendista.cz
     runs-on: ubuntu-latest
-
-    defaults:
-      run:
-        working-directory: .
 
     env:
       VERCEL_DEPLOYMENT_TOKEN: ${{ secrets.VERCEL_DEPLOYMENT_TOKEN }}

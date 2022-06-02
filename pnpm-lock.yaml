@@ -46,6 +46,7 @@ importers:
       react: ^17.0
       react-dom: ^17.0
       styled-components: ^5.2.0
+      vercel: ^24.2.5
     dependencies:
       "@sanity/base": 2.30.1_e2j7mneen3arr2g7olztmnnfl4
       "@sanity/cli": 2.30.0
@@ -65,6 +66,7 @@ importers:
       "@babel/preset-react": 7.17.12
       "@sanity/eslint-config-studio": 2.0.0_eslint@8.16.0
       eslint: 8.16.0
+      vercel: 24.2.5_sfoxds7t5ydpegc3knd667wn6m
 
   apps/frontend:
     specifiers:
@@ -94,6 +96,7 @@ importers:
       svelte-preprocess: ^4.10.1
       tslib: ^2.3.1
       typescript: ~4.6.2
+      vercel: ^24.2.5
       vite: ^2.9.8
       vitest: ^0.10.5
     dependencies:
@@ -124,6 +127,7 @@ importers:
       svelte-preprocess: 4.10.6_v7kzu3ea26bjehho45dmq4up4e
       tslib: 2.4.0
       typescript: 4.6.4
+      vercel: 24.2.5
       vite: 2.9.9_sass@1.52.1
       vitest: 0.10.5_5jtkeq5ndl5bjv6ktldgasbbeq
 
@@ -3368,6 +3372,29 @@ packages:
       - react-dom
     dev: true
 
+  /@remix-run/node/1.4.3_sfoxds7t5ydpegc3knd667wn6m:
+    resolution:
+      {
+        integrity: sha512-2x3BQ2qrA1v4Viu+GYMNMxxflnT5QcyOsPNCNvLjLm4o1pODHxYmp+2TEcZRgDqSTXgA7PNYlsEgG0BN/T33QA==
+      }
+    dependencies:
+      "@remix-run/server-runtime": 1.4.3_sfoxds7t5ydpegc3knd667wn6m
+      "@types/busboy": 0.3.2
+      "@types/node-fetch": 2.6.1
+      "@web-std/file": 3.0.2
+      abort-controller: 3.0.0
+      blob-stream: 0.1.3
+      busboy: 0.3.1
+      cookie-signature: 1.2.0
+      form-data: 4.0.0
+      node-fetch: 2.6.7
+      source-map-support: 0.5.21
+    transitivePeerDependencies:
+      - encoding
+      - react
+      - react-dom
+    dev: true
+
   /@remix-run/server-runtime/1.4.3:
     resolution:
       {
@@ -3385,6 +3412,25 @@ packages:
       source-map: 0.7.3
     dev: true
 
+  /@remix-run/server-runtime/1.4.3_sfoxds7t5ydpegc3knd667wn6m:
+    resolution:
+      {
+        integrity: sha512-NgzoEAlIuZWv53oZRgxGz+jqkEtAa+veAuxlp5/UcZ/VhygpYIcfKwdx4eCOqJOi1TqILNWrh3cedEVvV0jccQ==
+      }
+    peerDependencies:
+      react: ">=16.8"
+      react-dom: ">=16.8"
+    dependencies:
+      "@types/cookie": 0.4.1
+      cookie: 0.4.2
+      jsesc: 3.0.2
+      react: 17.0.2
+      react-dom: 17.0.2_react@17.0.2
+      react-router-dom: 6.3.0_sfoxds7t5ydpegc3knd667wn6m
+      set-cookie-parser: 2.4.8
+      source-map: 0.7.3
+    dev: true
+
   /@remix-run/vercel/1.4.3_@vercel+node@1.15.4:
     resolution:
       {
@@ -3394,6 +3440,22 @@ packages:
       "@vercel/node": ^1.8.3
     dependencies:
       "@remix-run/node": 1.4.3
+      "@vercel/node": 1.15.4
+    transitivePeerDependencies:
+      - encoding
+      - react
+      - react-dom
+    dev: true
+
+  /@remix-run/vercel/1.4.3_mj6nxm5uwa7yzrgoslaab2f544:
+    resolution:
+      {
+        integrity: sha512-ZNDmn/j8mU0rK+6VdMqZmWx50thlXtioNLJ0U6qic3hSFFr4vO1weRTUwRIFE3Gm3AxmmvcLxx581W2aTnReVQ==
+      }
+    peerDependencies:
+      "@vercel/node": ^1.8.3
+    dependencies:
+      "@remix-run/node": 1.4.3_sfoxds7t5ydpegc3knd667wn6m
       "@vercel/node": 1.15.4
     transitivePeerDependencies:
       - encoding
@@ -4680,7 +4742,7 @@ packages:
         integrity: sha512-eHE4cQPoj6ngxBZMvVf6Hw7Mh4jMW4U9lpGmS5GBPB9RYxlFg+CHaVN7ErNY4W9XfLIEn20b4VDYaIrbq0q4uA==
       }
     dependencies:
-      "@types/node": 8.10.66
+      "@types/node": 17.0.36
     dev: true
 
   /@types/cookie/0.4.1:
@@ -4700,7 +4762,7 @@ packages:
   /@types/form-data/0.0.33:
     resolution: { integrity: sha1-yayFsqX9GENbjIXZ7LUObWyJP/g= }
     dependencies:
-      "@types/node": 8.10.66
+      "@types/node": 17.0.36
     dev: true
 
   /@types/glob/7.2.0:
@@ -5282,6 +5344,22 @@ packages:
       }
     dependencies:
       "@remix-run/vercel": 1.4.3_@vercel+node@1.15.4
+      "@vercel/nft": 0.19.1
+    transitivePeerDependencies:
+      - "@vercel/node"
+      - encoding
+      - react
+      - react-dom
+      - supports-color
+    dev: true
+
+  /@vercel/remix/0.0.2_mj6nxm5uwa7yzrgoslaab2f544:
+    resolution:
+      {
+        integrity: sha512-5mIpMbPUh6byNJrcpKfk95spgxK30o5cE2mAM3KbPJYSjsGYu56Bhf1OZOxiumce8e0aYE9R7TlGfeY+0ZVAlg==
+      }
+    dependencies:
+      "@remix-run/vercel": 1.4.3_mj6nxm5uwa7yzrgoslaab2f544
       "@vercel/nft": 0.19.1
     transitivePeerDependencies:
       - "@vercel/node"
@@ -14609,7 +14687,10 @@ packages:
     dev: false
 
   /once/1.4.0:
-    resolution: { integrity: sha1-WDsap3WWHUsROsF9nFC6753Xa9E= }
+    resolution:
+      {
+        integrity: sha512-lNaJgI+2Q5URQBkccEKHTQOPaXdUxnZZElQTZY0MFUAuaEqe1E+Nyvgdz/aIyNi6Z9MzO5dv1H8n58/GELp3+w==
+      }
     dependencies:
       wrappy: 1.0.2
 
@@ -14714,7 +14795,10 @@ packages:
     dev: false
 
   /os-tmpdir/1.0.2:
-    resolution: { integrity: sha1-u+Z0BseaqFxc/sdm/lc0VV36EnQ= }
+    resolution:
+      {
+        integrity: sha512-D2FR03Vir7FIu45XBY20mTb+/ZSWB00sjU9jdQXt83gDrI4Ztz5Fs7/yy74g2N5SVQY4xY1qDr4rNddwYRVX0g==
+      }
     engines: { node: ">=0.10.0" }
 
   /osenv/0.1.5:
@@ -15071,7 +15155,10 @@ packages:
     engines: { node: ">=8" }
 
   /path-is-absolute/1.0.1:
-    resolution: { integrity: sha1-F0uSaHNVNP+8es5r9TpanhtcX18= }
+    resolution:
+      {
+        integrity: sha512-AVbw3UJ2e9bq64vSaS9Am0fje1Pa8pbGqTTsmXfaIiMpnr5DlDhfJOuLj9Sf95ZPVDAUerDfEk88MPmPe7UCQg==
+      }
     engines: { node: ">=0.10.0" }
 
   /path-key/2.0.1:
@@ -16479,7 +16566,10 @@ packages:
     dev: true
 
   /prepend-http/2.0.0:
-    resolution: { integrity: sha1-6SQ0v6XqjBn0HN/UAddBo8gZ2Jc= }
+    resolution:
+      {
+        integrity: sha512-ravE6m9Atw9Z/jjttRUZ+clIXogdghyZAuWJ3qEzjT+jI/dL1ifAqhZeC5VHzQp1MSt1+jxKkFNemj/iO7tVUA==
+      }
     engines: { node: ">=4" }
     dev: true
 
@@ -16709,11 +16799,17 @@ packages:
     dev: false
 
   /punycode/1.3.2:
-    resolution: { integrity: sha1-llOgNvt8HuQjQvIyXM7v6jkmxI0= }
+    resolution:
+      {
+        integrity: sha512-RofWgt/7fL5wP1Y7fxE7/EmTLzQVnB0ycyibJ0OOHIlJqTNzglYFxVwETOcIoJqJmpDXJ9xImDv+Fq34F/d4Dw==
+      }
     dev: false
 
   /punycode/1.4.1:
-    resolution: { integrity: sha1-wNWmOycYgArY4esPpSachN1BhF4= }
+    resolution:
+      {
+        integrity: sha512-jmYNElW7yvO7TV33CjSmvSiE2yco3bV2czu/OzDKdMNVZQWfxCblURLhf+47syQRBntjfLdd/H0egrzIG+oaFQ==
+      }
     dev: false
 
   /punycode/2.1.1:
@@ -17115,6 +17211,21 @@ packages:
       react-router: 6.3.0
     dev: true
 
+  /react-router-dom/6.3.0_sfoxds7t5ydpegc3knd667wn6m:
+    resolution:
+      {
+        integrity: sha512-uaJj7LKytRxZNQV8+RbzJWnJ8K2nPsOOEuX7aQstlMZKQT0164C+X2w6bnkqU3sjtLvpd5ojrezAyfZ1+0sStw==
+      }
+    peerDependencies:
+      react: ">=16.8"
+      react-dom: ">=16.8"
+    dependencies:
+      history: 5.3.0
+      react: 17.0.2
+      react-dom: 17.0.2_react@17.0.2
+      react-router: 6.3.0_react@17.0.2
+    dev: true
+
   /react-router/6.3.0:
     resolution:
       {
@@ -17124,6 +17235,18 @@ packages:
       react: ">=16.8"
     dependencies:
       history: 5.3.0
+    dev: true
+
+  /react-router/6.3.0_react@17.0.2:
+    resolution:
+      {
+        integrity: sha512-7Wh1DzVQ+tlFjkeo+ujvjSqSJmkt1+8JO+T5xklPlgrh70y7ogx75ODRW0ThWhY7S+6yEDks8TYrtQe/aoboBQ==
+      }
+    peerDependencies:
+      react: ">=16.8"
+    dependencies:
+      history: 5.3.0
+      react: 17.0.2
     dev: true
 
   /react-rx/1.0.1_react@17.0.2+rxjs@6.6.7:
@@ -20047,6 +20170,32 @@ packages:
       "@vercel/python": 2.3.4
       "@vercel/redwood": 0.8.4
       "@vercel/remix": 0.0.2_@vercel+node@1.15.4
+      "@vercel/ruby": 1.3.7
+      "@vercel/static-build": 0.26.0
+      update-notifier: 4.1.0
+    transitivePeerDependencies:
+      - encoding
+      - react
+      - react-dom
+      - supports-color
+    dev: true
+
+  /vercel/24.2.5_sfoxds7t5ydpegc3knd667wn6m:
+    resolution:
+      {
+        integrity: sha512-ZEpjZorugQRPoMhVHvTVEvuVrtl8o8scjs4zBKPbc91niIGlHWnieA+dVmoh5fK3jx+TrD5ZBAlbtP3AaxGr/A==
+      }
+    engines: { node: ">= 12" }
+    hasBin: true
+    requiresBuild: true
+    dependencies:
+      "@vercel/build-utils": 3.1.1
+      "@vercel/go": 1.4.4
+      "@vercel/next": 2.9.0
+      "@vercel/node": 1.15.4
+      "@vercel/python": 2.3.4
+      "@vercel/redwood": 0.8.4
+      "@vercel/remix": 0.0.2_mj6nxm5uwa7yzrgoslaab2f544
       "@vercel/ruby": 1.3.7
       "@vercel/static-build": 0.26.0
       update-notifier: 4.1.0
