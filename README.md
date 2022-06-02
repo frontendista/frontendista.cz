@@ -7,7 +7,7 @@ Monorepo containing all repositories related to **[frontendista.cz 🚀](https:/
 | Name                            | CI Status                                                                                        | CD Status                                                                                        |
 | ------------------------------- | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ |
 | **[frontend](./apps/frontend)** | ![](https://github.com/frontendista/frontendista.cz/actions/workflows/frontend-ci.yml/badge.svg) | ![](https://github.com/frontendista/frontendista.cz/actions/workflows/frontend-cd.yml/badge.svg) |
-| **[cms](./apps/cms)**           | -                                                                                                | -                                                                                                |
+| **[cms](./apps/cms)**           | ![](https://github.com/frontendista/frontendista.cz/actions/workflows/cms-ci.yml/badge.svg)      | ![](https://github.com/frontendista/frontendista.cz/actions/workflows/cms-cd.yml/badge.svg)      |
 | **[api](./apps/api)**           | -                                                                                                | ![](https://github.com/frontendista/frontendista.cz/actions/workflows/api-cd.yml/badge.svg)      |
 
 ## 2 Getting started
