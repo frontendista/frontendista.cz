@@ -1,16 +1,14 @@
-name: 🚚 API CD
+name: 🧪 API TEST
 
 on:
-  push:
-    tags:
-      - "api@*"
+  [workflow_dispatch]
 
 jobs:
   deploy:
     name: ⬆️ Deploy
     environment:
-      name: production:api
-      url: https://api.frontendista.cz
+      name: staging:api
+      url: https://staging.api.frontendista.cz
     runs-on: ubuntu-latest
 
     steps:
@@ -22,5 +20,5 @@ jobs:
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          command: publish --env production
+          command: publish --env staging
           workingDirectory: apps/api
