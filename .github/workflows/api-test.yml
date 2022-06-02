@@ -8,7 +8,7 @@ jobs:
     name: ⬆️ Deploy
     environment:
       name: staging:api
-      url: https://staging.api.frontendista.cz
+      url: https://api-staging.frontendista.cz
     runs-on: ubuntu-latest
 
     steps:

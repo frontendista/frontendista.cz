@@ -17,10 +17,12 @@ export interface Env {
 	//
 	// Example binding to R2. Learn more at https://developers.cloudflare.com/workers/runtime-apis/r2/
 	// MY_BUCKET: R2Bucket;
+
+	ENVIRONMENT: string;
 }
 
 export default {
 	async fetch(request: Request, env: Env, ctx: ExecutionContext): Promise<Response> {
-		return new Response("Hello World!");
+		return new Response("This is " + env.ENVIRONMENT);
 	}
 };

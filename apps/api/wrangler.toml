@@ -1,11 +1,12 @@
 name = "api-frontendista-cz"
 main = "src/index.ts"
 compatibility_date = "2022-06-01"
+vars = { ENVIRONMENT = "dev" }
 
 [env.staging]
 name = "api-frontendista-cz-staging"
-route = "staging.api.frontendista.cz/*"
+vars = { ENVIRONMENT = "staging" }
 
 [env.production]
 name = "api-frontendista-cz-production"
-route = "api.frontendista.cz/*"
+vars = { ENVIRONMENT = "production" }
