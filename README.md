@@ -18,11 +18,7 @@ Monorepo containing all repositories related to **[frontendista.cz 🚀](https:/
 2. Install **[pnpm](https://pnpm.io/installation)** (>=7)
 3. Configure your **[hosts file](<https://en.wikipedia.org/wiki/Hosts_(file)>)** to map `127.0.0.1 frontendista.test`
 
-### 2.2 Environment variables
-
-TODO
-
-### 2.3 Installation
+### 2.2 Installation
 
 ```sh
 # Clone repository
@@ -35,7 +31,7 @@ cd frontendista.cz
 pnpm install
 ```
 
-### 2.4 Common commands
+### 2.3 Common commands
 
 ```sh
 # Start development server
