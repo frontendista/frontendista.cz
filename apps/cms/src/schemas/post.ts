@@ -6,7 +6,12 @@ export default {
 		{
 			name: "title",
 			title: "Title",
-			type: "string"
+			type: "string",
+			validation: (Rule) => [
+				Rule.required().error("Title is required"),
+				Rule.min(2).error("Title must be at least 2 characters"),
+				Rule.max(50).error("Title must be less than 50 characters")
+			]
 		},
 		{
 			name: "slug",
@@ -21,15 +26,17 @@ export default {
 			name: "author",
 			title: "Author",
 			type: "reference",
-			to: { type: "author" }
+			to: { type: "author" },
+			validation: (Rule) => [Rule.required().error("Author is required")]
 		},
 		{
-			name: "mainImage",
-			title: "Main image",
+			name: "thumbnail",
+			title: "Thumbnail",
 			type: "image",
 			options: {
 				hotspot: true
-			}
+			},
+			validation: (Rule) => [Rule.required().error("Thumbnail is required")]
 		},
 		{
 			name: "categories",
@@ -38,6 +45,7 @@ export default {
 			of: [{ type: "reference", to: { type: "category" } }]
 		},
 		{
+			// TODO: It would be cool to make this readonly after publish.
 			name: "publishedAt",
 			title: "Published at",
 			type: "datetime"
@@ -48,12 +56,11 @@ export default {
 			type: "blockContent"
 		}
 	],
-
 	preview: {
 		select: {
 			title: "title",
 			author: "author.name",
-			media: "mainImage"
+			media: "thumbnail"
 		},
 		prepare(selection) {
 			const { author } = selection;
@@ -61,5 +68,9 @@ export default {
 				subtitle: author && `by ${author}`
 			});
 		}
+	},
+	initialValue: {
+		categories: [],
+		publishedAt: new Date().toISOString()
 	}
 };
