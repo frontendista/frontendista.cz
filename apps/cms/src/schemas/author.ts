@@ -6,15 +6,19 @@ export default {
 		{
 			name: "name",
 			title: "Name",
-			type: "string"
+			type: "string",
+			validation: (Rule) => [
+				Rule.required().error("Name is required"),
+				Rule.min(2).error("Name must be at least 2 characters"),
+				Rule.max(50).error("Name must be less than 50 characters")
+			]
 		},
 		{
 			name: "slug",
 			title: "Slug",
 			type: "slug",
 			options: {
-				source: "name",
-				maxLength: 96
+				source: "name"
 			}
 		},
 		{
@@ -42,6 +46,7 @@ export default {
 	preview: {
 		select: {
 			title: "name",
+			subtitle: "bio",
 			media: "image"
 		}
 	}
