@@ -22,19 +22,19 @@ export default {
 			}
 		},
 		{
-			name: "image",
-			title: "Image",
+			name: "avatar",
+			title: "Avatar",
 			type: "image",
 			options: {
 				hotspot: true
 			},
-			validation: (Rule) => Rule.required().error("Image is required")
+			validation: (Rule) => Rule.required().error("Avatar is required")
 		}
 	],
 	preview: {
 		select: {
 			title: "name",
-			media: "image"
+			media: "avatar"
 		}
 	}
 };
