@@ -11,6 +11,17 @@
   </a>
 </p>
 
-## 1 Used tooling for the project
+## 1 Getting started
+
+### 1.1 Environment variables
+
+| Name                  | Description                                        | Required |
+| --------------------- | -------------------------------------------------- | -------- |
+| **SANITY_AUTH_TOKEN** | Token used for API authorization                   | ✅       |
+| **SANITY_AUTH_TOKEN** | Token used for API authorization                   | ✅       |
+| **SANITY_DATASET_ID** | Name of your dataset for data fetching             | ✅       |
+| **SANITY_PROJECT_ID** | Your **[Sanity.io](https://sanity.io)** project id | ✅       |
+
+## 2 Used tooling for the project
 
 TODO
