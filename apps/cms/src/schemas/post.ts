@@ -27,7 +27,7 @@ export default {
 			title: "Author",
 			type: "reference",
 			to: { type: "author" },
-			validation: (Rule) => [Rule.required().error("Author is required")]
+			validation: (Rule) => Rule.required().error("Author is required")
 		},
 		{
 			name: "thumbnail",
@@ -36,7 +36,8 @@ export default {
 			options: {
 				hotspot: true
 			},
-			validation: (Rule) => [Rule.required().error("Thumbnail is required")]
+			validation: (Rule) => Rule.required().error("Thumbnail is required"),
+			description: "The image should be at least TODOxTODO pixels"
 		},
 		{
 			name: "categories",
@@ -53,7 +54,8 @@ export default {
 		{
 			name: "body",
 			title: "Body",
-			type: "blockContent"
+			type: "blockContent",
+			validation: (Rule) => Rule.required().error("Body is required")
 		}
 	],
 	preview: {
