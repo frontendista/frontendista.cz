@@ -75,6 +75,7 @@ importers:
   apps/frontend:
     specifiers:
       "@playwright/test": ^1.21.0
+      "@portabletext/svelte": ^1.0.1
       "@sanity/client": ^3.3.1
       "@sveltejs/adapter-vercel": ^1.0.0-next.50
       "@sveltejs/kit": next
@@ -106,6 +107,7 @@ importers:
       vitest: ^0.10.5
       zod: ^3.17.3
     dependencies:
+      "@portabletext/svelte": 1.0.1_svelte@3.48.0
       "@sanity/client": 3.3.1
       "@sveltejs/adapter-vercel": 1.0.0-next.58
       "@sveltejs/kit": 1.0.0-next.348_sass@1.52.2+svelte@3.48.0
@@ -3518,6 +3520,18 @@ packages:
       "@portabletext/toolkit": 1.0.5
       "@portabletext/types": 1.0.3
       react: 17.0.2
+    dev: false
+
+  /@portabletext/svelte/1.0.1_svelte@3.48.0:
+    resolution:
+      {
+        integrity: sha512-37nyWavAl/MykqN5mrCmog9rYy+Bj6v64qn5oO2aj5GLF/BVz+zJThhdO2Ks70B6gkJXjVHDrcNs3qeIdZ53EA==
+      }
+    peerDependencies:
+      svelte: ^3.47.0
+    dependencies:
+      "@portabletext/toolkit": 1.0.5
+      svelte: 3.48.0
     dev: false
 
   /@portabletext/toolkit/1.0.5:
