@@ -90,6 +90,7 @@ importers:
       autoprefixer: ^10.4.5
       c8: ^7.11.2
       cssnano: ^5.1.7
+      dotenv: ^16.0.1
       eslint: ^7.32.0
       eslint-config-prettier: ^8.3.0
       eslint-plugin-svelte3: ^3.2.1
@@ -126,6 +127,7 @@ importers:
       autoprefixer: 10.4.7_postcss@8.4.14
       c8: 7.11.3
       cssnano: 5.1.11_postcss@8.4.14
+      dotenv: 16.0.1
       eslint: 7.32.0
       eslint-config-prettier: 8.5.0_eslint@7.32.0
       eslint-plugin-svelte3: 3.4.1_6wevxxng4y4ff26nzlndg2wnpa
@@ -9293,6 +9295,14 @@ packages:
         integrity: sha512-rlBi9d8jpv9Sf1klPjNfFAuWDjKLwTIJJ/VxtoTwIR6hnZxcEOQCZg2oIL3MWBYw5GpUDKOEnND7LXTbIpQ03Q==
       }
     engines: { node: ">=10" }
+    dev: true
+
+  /dotenv/16.0.1:
+    resolution:
+      {
+        integrity: sha512-1K6hR6wtk2FviQ4kEiSjFiH5rpzEVi8WW0x96aztHVMhEspNpc4DVOUTEHtEva5VThQ8IaBX1Pe4gSzpVVUsKQ==
+      }
+    engines: { node: ">=12" }
     dev: true
 
   /dotenv/8.6.0:
