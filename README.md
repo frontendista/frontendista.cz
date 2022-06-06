@@ -16,7 +16,13 @@ Monorepo containing all repositories related to **[frontendista.cz 🚀](https:/
 
 1. Install **[node.js](https://nodejs.org/en)** (>=16)
 2. Install **[pnpm](https://pnpm.io/installation)** (>=7)
-3. Configure your **[hosts file](<https://en.wikipedia.org/wiki/Hosts_(file)>)** to map `127.0.0.1 frontendista.test`
+3. Configure your **[hosts file](<https://en.wikipedia.org/wiki/Hosts_(file)>)** to map addresses below
+
+```
+127.0.0.1       frontendista.internal
+127.0.0.1       api.frontendista.internal
+127.0.0.1       cms.frontendista.internal
+```
 
 ### 2.2 Installation
 

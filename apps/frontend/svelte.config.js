@@ -20,7 +20,7 @@ const config = {
 				}
 			},
 			server: {
-				host: "frontendista.test",
+				host: "frontendista.internal",
 				port: 80
 			}
 		}
