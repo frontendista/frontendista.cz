@@ -32,7 +32,7 @@ export const GROQ_POST_PREVIEWS = `*[_type == "post"] | order(publishedAt desc) 
 		name,
 		"avatar": 
 		avatar.asset-> {
-		assetId
+			assetId
 		}
 	},
 	publishedAt,
