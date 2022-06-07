@@ -1,24 +1,28 @@
 import { z } from "zod";
 
-export const SCHEMA_POST_PREVIEW = z.object({
-	_id: z.string(),
-	_updatedAt: z.string(),
-	title: z.string(),
-	author: z.object({
-		name: z.string(),
-		avatar: z.object({
-			assetId: z.string()
+export const SCHEMA_POST_PREVIEWS = z.array(
+	z
+		.object({
+			_id: z.string(),
+			_updatedAt: z.string(),
+			title: z.string(),
+			author: z.object({
+				name: z.string(),
+				avatar: z.object({
+					assetId: z.string()
+				})
+			}),
+			publishedAt: z.string(),
+			thumbnail: z.object({
+				assetId: z.string(),
+				lqip: z.string(),
+				height: z.number(),
+				width: z.number(),
+				aspectRatio: z.number()
+			})
 		})
-	}),
-	publishedAt: z.string(),
-	thumbnail: z.object({
-		assetId: z.string(),
-		lqip: z.string(),
-		height: z.number(),
-		width: z.number(),
-		aspectRatio: z.number()
-	})
-});
+		.strict()
+);
 
 export const GROQ_POST_PREVIEWS = `*[_type == "post"] | order(publishedAt desc) {
 	_id,
@@ -41,4 +45,5 @@ export const GROQ_POST_PREVIEWS = `*[_type == "post"] | order(publishedAt desc) 
 	}
 }`;
 
-export type BlogPostPreview = z.infer<typeof SCHEMA_POST_PREVIEW>;
+export type BlogPostPreviews = z.infer<typeof SCHEMA_POST_PREVIEWS>;
+export type BlogPostPreview = BlogPostPreviews[0];
