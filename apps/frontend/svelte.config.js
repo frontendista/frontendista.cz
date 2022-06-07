@@ -8,6 +8,9 @@ const config = {
 	kit: {
 		// TODO: See usage https://github.com/sveltejs/kit/tree/master/packages/adapter-vercel#usage
 		adapter: vercel(),
+		prerender: {
+			default: true
+		},
 		vite: {
 			resolve: {
 				alias: {
