@@ -1,14 +1,15 @@
 <script lang="ts">
-	import type { BlogPostPreview } from "$utils/queries/post-previews";
+	import type { BlogPostPreviews } from "$utils/queries/post-previews";
 
-	export let posts: BlogPostPreview[];
+	export let posts: BlogPostPreviews;
 </script>
 
 <main>
 	<h1>Blog</h1>
-	{#each posts as { title, author }}
+	{#each posts as { title, author, publishedAt }}
 		<article>
 			<h1>{title}</h1>
+			<time datetime={publishedAt}>{new Date(publishedAt)}</time>
 			<div>
 				<span>By {author.name}</span>
 			</div>
