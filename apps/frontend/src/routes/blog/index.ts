@@ -1,6 +1,6 @@
 import { dev } from "$app/env";
 import { sanityClient } from "$utils/sanity-client";
-import { z } from "zod";
+import { ZodError } from "zod";
 
 import {
 	GROQ_POST_PREVIEWS,
@@ -22,7 +22,7 @@ export const get: RequestHandler = async () => {
 			}
 		};
 	} catch (error) {
-		if (error instanceof z.ZodError) {
+		if (error instanceof ZodError) {
 			console.error(JSON.stringify(error.format(), undefined, 2));
 		} else {
 			console.error(error);
