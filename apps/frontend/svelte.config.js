@@ -1,19 +1,6 @@
 import { resolve } from "path";
 import vercel from "@sveltejs/adapter-vercel";
 import preprocess from "svelte-preprocess";
-import "dotenv/config";
-
-(function () {
-	const requiredVars = ["SANITY_AUTH_TOKEN", "SANITY_DATASET_ID", "SANITY_PROJECT_ID"];
-
-	requiredVars.reduce((hasFailed, variable) => {
-		const isMissing = !process.env[variable];
-
-		isMissing ? console.error(`'${variable}' is required`) : console.info(`'${variable}' found.`);
-
-		return hasFailed || isMissing;
-	}, false) && process.exit(1);
-})();
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
