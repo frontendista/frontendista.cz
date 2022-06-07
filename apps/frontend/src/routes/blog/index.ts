@@ -1,14 +1,12 @@
 import { dev } from "$app/env";
-import { sanityClient } from "$utils/sanity-client";
-import { ZodError } from "zod";
-
 import {
 	GROQ_POST_PREVIEWS,
 	SCHEMA_POST_PREVIEWS,
 	type BlogPostPreviews
 } from "$utils/queries/post-previews";
-
+import { sanityClient } from "$utils/sanity-client";
 import type { RequestHandler } from ".svelte-kit/types/src/routes/blog/__types/index";
+import { ZodError } from "zod";
 
 export const get: RequestHandler = async () => {
 	try {

@@ -1,7 +1,7 @@
 {
 	"name": "cms.frontendista.cz",
 	"scripts": {
-		"start": "sanity start",
+		"dev": "sanity start",
 		"build": "sanity build",
 		"lint": "eslint --ignore-path .gitignore ."
 	},
