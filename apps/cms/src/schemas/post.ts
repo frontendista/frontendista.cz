@@ -46,7 +46,8 @@ export default {
 			of: [{ type: "reference", to: { type: "category" } }],
 			validation: [
 				(Rule) => Rule.required().error("Categories is required"),
-				(Rule) => Rule.min(1).error("At least 1 category is required")
+				(Rule) => Rule.min(1).error("At least 1 category is required"),
+				(Rule) => Rule.max(5).error("No more than 5 categories are allowed")
 			],
 			options: {
 				sortable: false
