@@ -19,7 +19,13 @@ export const SCHEMA_POST_CONTENT = z
 			width: z.number(),
 			aspectRatio: z.number()
 		}),
-		body: z.array(z.any())
+		body: z.array(z.any()),
+		categories: z.array(
+			z.object({
+				title: z.string(),
+				color: z.string()
+			})
+		)
 	})
 	.strict();
 
@@ -42,7 +48,11 @@ export const GROQ_POST_CONTENT = `*[_type == "post" && slug.current == $slug] {
 		"width": metadata.dimensions.width,
 		"aspectRatio": metadata.dimensions.aspectRatio
 	},
-    body
+    body,
+	"categories": categories[]->{
+		title,
+		color
+	},
 }[0]`;
 
 export type BlogPostContent = z.infer<typeof SCHEMA_POST_CONTENT>;

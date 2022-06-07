@@ -43,7 +43,11 @@ export default {
 			name: "categories",
 			title: "Categories",
 			type: "array",
-			of: [{ type: "reference", to: { type: "category" } }]
+			of: [{ type: "reference", to: { type: "category" } }],
+			validation: [
+				(Rule) => Rule.required().error("Categories is required"),
+				(Rule) => Rule.min(1).error("At least 1 category is required")
+			]
 		},
 		{
 			// TODO: It would be cool to make this readonly after publish.
