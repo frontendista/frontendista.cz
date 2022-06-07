@@ -8,7 +8,7 @@ import { sanityClient } from "$utils/sanity-client";
 import type { RequestHandler } from ".svelte-kit/types/src/routes/blog/__types/[slug]";
 import { ZodError } from "zod";
 
-type ReturnValue = { post: unknown };
+type ReturnValue = { post: BlogPostContent | null };
 
 export const get: RequestHandler<ReturnValue> = async ({ params }) => {
 	try {
