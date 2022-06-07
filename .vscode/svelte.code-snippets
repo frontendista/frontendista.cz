@@ -1,0 +1,13 @@
+{
+	"script:ts": {
+		"scope": "svelte",
+  		"prefix": "script:ts",
+		"body": [
+			"<script lang=\"ts\">",
+			"    ${1}",
+			"</script>"
+		],
+		"description": "script:ts"
+	}
+}
+
