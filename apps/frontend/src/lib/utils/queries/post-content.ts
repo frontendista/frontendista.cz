@@ -52,7 +52,7 @@ export const GROQ_POST_CONTENT = `*[_type == "post" && slug.current == $slug] {
 	"categories": categories[]->{
 		title,
 		color
-	},
+	} | order(title),
 }[0]`;
 
 export type BlogPostContent = z.infer<typeof SCHEMA_POST_CONTENT>;

@@ -47,7 +47,10 @@ export default {
 			validation: [
 				(Rule) => Rule.required().error("Categories is required"),
 				(Rule) => Rule.min(1).error("At least 1 category is required")
-			]
+			],
+			options: {
+				sortable: false
+			}
 		},
 		{
 			// TODO: It would be cool to make this readonly after publish.
