@@ -48,7 +48,18 @@ export const GROQ_POST_CONTENT = `*[_type == "post" && slug.current == $slug] {
 		"width": metadata.dimensions.width,
 		"aspectRatio": metadata.dimensions.aspectRatio
 	},
-    body,
+	body[] {
+		...,
+		asset != null => {
+			"asset": asset-> {
+				assetId,
+				"lqip": metadata.lqip,
+				"height": metadata.dimensions.height,
+				"width": metadata.dimensions.width,
+				"aspectRatio": metadata.dimensions.aspectRatio
+			}
+		}
+	},
 	"categories": categories[]->{
 		title,
 		color
