@@ -54,10 +54,10 @@ export default {
 			}
 		},
 		{
-			// TODO: It would be cool to make this readonly after publish.
 			name: "publishedAt",
 			title: "Published at",
-			type: "datetime"
+			type: "datetime",
+			readOnly: ({ document: { _id } }) => _id && !_id.startsWith("drafts.")
 		},
 		{
 			name: "body",
