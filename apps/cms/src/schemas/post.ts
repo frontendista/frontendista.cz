@@ -57,7 +57,25 @@ export default {
 			name: "publishedAt",
 			title: "Published at",
 			type: "datetime",
-			readOnly: ({ document: { _id } }) => _id && !_id.startsWith("drafts.")
+			readOnly: ({ document: { _id } }) => _id && !_id.startsWith("drafts."),
+			description:
+				"The date and time this post was published. Note that after publishing, this value can't be changed.",
+			validation: (Rule) =>
+				Rule.custom((value: string, { document: { _id } }) => {
+					// If the document is published we don't want to do any validation
+					if (_id && !_id.startsWith("drafts.")) {
+						return true;
+					}
+
+					const date = new Date(value);
+					const now = new Date();
+
+					if (date.getTime() > now.getTime()) {
+						return true;
+					}
+
+					return "Published date must be in the future.";
+				})
 		},
 		{
 			name: "body",
