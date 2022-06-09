@@ -2,6 +2,12 @@ export default {
 	name: "post",
 	title: "Post",
 	type: "document",
+	groups: [
+		{
+			name: "seo",
+			title: "SEO"
+		}
+	],
 	fields: [
 		{
 			name: "title",
@@ -11,7 +17,8 @@ export default {
 				Rule.required().error("Title is required"),
 				Rule.min(2).error("Title must be at least 2 characters"),
 				Rule.max(50).error("Title must be less than 50 characters")
-			]
+			],
+			group: "seo"
 		},
 		{
 			name: "description",
@@ -22,7 +29,8 @@ export default {
 				Rule.min(50).error("Description must be at least 50 characters"),
 				Rule.max(160).error("Description must be less than 160 characters")
 			],
-			description: "Description of the post used for SEO."
+			description: "Description of the post used for SEO.",
+			group: "seo"
 		},
 		{
 			name: "slug",
@@ -48,7 +56,8 @@ export default {
 				hotspot: true
 			},
 			validation: (Rule) => Rule.required().error("Thumbnail is required"),
-			description: "The image should be at least TODOxTODO pixels"
+			description: "The image should be at least TODOxTODO pixels",
+			group: "seo"
 		},
 		{
 			name: "categories",
