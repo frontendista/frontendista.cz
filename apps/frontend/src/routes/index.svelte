@@ -1,6 +1,5 @@
 <script lang="ts">
 	import Link from "$common/link.svelte";
-	import TemporaryModule from "$modules/temporary-module.svelte";
 </script>
 
 <h1>Welcome to SvelteKit</h1>
@@ -9,4 +8,3 @@
 <Link href="https://seznam.cz" />
 <Link href="/about" />
 <Link href="mailto:test@test.cz" />
-<TemporaryModule />
