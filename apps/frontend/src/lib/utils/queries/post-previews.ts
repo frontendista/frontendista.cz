@@ -19,7 +19,8 @@ export const SCHEMA_POST_PREVIEWS = z.array(
 				height: z.number(),
 				width: z.number(),
 				aspectRatio: z.number()
-			})
+			}),
+			slug: z.string()
 		})
 		.strict()
 );
@@ -42,7 +43,8 @@ export const GROQ_POST_PREVIEWS = `*[_type == "post" && !(_id in path('drafts.**
 		"height": metadata.dimensions.height,
 		"width": metadata.dimensions.width,
 		"aspectRatio": metadata.dimensions.aspectRatio
-	}
+	},
+	"slug": slug.current
 }`;
 
 export type BlogPostPreviews = z.infer<typeof SCHEMA_POST_PREVIEWS>;
