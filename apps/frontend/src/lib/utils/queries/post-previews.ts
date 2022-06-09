@@ -24,7 +24,7 @@ export const SCHEMA_POST_PREVIEWS = z.array(
 		.strict()
 );
 
-export const GROQ_POST_PREVIEWS = `*[_type == "post"] | order(publishedAt desc) {
+export const GROQ_POST_PREVIEWS = `*[_type == "post" && !(_id in path('drafts.**'))] | order(publishedAt desc) {
 	_id,
 	_updatedAt,
 	title,
