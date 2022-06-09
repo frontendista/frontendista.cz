@@ -1,6 +1,8 @@
 <script lang="ts">
+	import Navigation from "$modules/navigation.svelte";
+
 	import "$stylesheets/global.scss";
 </script>
 
-<div>TODO: Layout</div>
+<Navigation />
 <slot />
