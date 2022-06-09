@@ -14,6 +14,17 @@ export default {
 			]
 		},
 		{
+			name: "description",
+			title: "Description",
+			type: "text",
+			validation: (Rule) => [
+				Rule.required().error("Description is required"),
+				Rule.min(50).error("Description must be at least 50 characters"),
+				Rule.max(160).error("Description must be less than 160 characters")
+			],
+			description: "Description of the post used for SEO."
+		},
+		{
 			name: "slug",
 			title: "Slug",
 			type: "slug",
