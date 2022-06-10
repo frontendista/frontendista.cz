@@ -8,12 +8,13 @@ export const SCHEMA_POST_CONTENT = z
 		author: z.object({
 			name: z.string(),
 			avatar: z.object({
-				assetId: z.string()
-			})
+				url: z.string()
+			}),
+			slug: z.string()
 		}),
 		publishedAt: z.string(),
 		thumbnail: z.object({
-			assetId: z.string(),
+			url: z.string(),
 			lqip: z.string(),
 			height: z.number(),
 			width: z.number(),
@@ -38,12 +39,13 @@ export const GROQ_POST_CONTENT = `*[_type == "post" && slug.current == $slug] {
 		name,
 		"avatar": 
 		avatar.asset-> {
-			assetId
-		}
+			url
+		},
+		"slug": slug.current
 	},
 	publishedAt,
 	"thumbnail": thumbnail.asset-> {
-		assetId,
+		url,
 		"lqip": metadata.lqip,
 		"height": metadata.dimensions.height,
 		"width": metadata.dimensions.width,
