@@ -6,6 +6,7 @@
 			stuff: {
 				title: "Contact",
 				description: "TODO: Contact page meta tag description"
+				// TODO: image
 			}
 		};
 	};

@@ -6,6 +6,7 @@
 			stuff: {
 				title: "Home",
 				description: "TODO: Index page meta tag description"
+				// TODO: image
 			}
 		};
 	};
