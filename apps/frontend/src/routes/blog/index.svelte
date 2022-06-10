@@ -1,3 +1,17 @@
+<script context="module" lang="ts">
+	import type { Load } from ".svelte-kit/types/src/routes/blog/__types";
+
+	export const load: Load = async ({ props }) => {
+		return {
+			props,
+			stuff: {
+				title: "Blog",
+				description: "TODO: Blog page meta tag description"
+			}
+		};
+	};
+</script>
+
 <script lang="ts">
 	import type { BlogPostPreviews } from "$utils/queries/post-previews";
 
