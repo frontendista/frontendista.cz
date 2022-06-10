@@ -12,16 +12,16 @@
 	<meta property="og:title" content={$page.stuff.title || DEFAULT_TITLE} />
 	<meta property="og:description" content={$page.stuff.description || DEFAULT_DESCRIPTION} />
 	<meta property="og:url" content={$page.url.href} />
-	{#if $page.stuff.image}
-		<meta property="og:image" content={$page.stuff.image} />
-	{/if}
 	<meta property="og:site_name" content="Frontendista" />
-	<meta name="twitter:title" content={$page.stuff.title} />
-	<meta name="twitter:description" content={$page.stuff.description} />
+	<meta name="twitter:title" content={$page.stuff.title || DEFAULT_TITLE} />
+	<meta name="twitter:description" content={$page.stuff.description || DEFAULT_DESCRIPTION} />
 	<meta name="twitter:card" content="summary_large_image" />
 	<meta name="twitter:site" content="@thesoreon" />
 	<meta name="twitter:creator" content="@thesoreon" />
-	<meta name="twitter:image" content={$page.stuff.image} />
+	{#if $page.stuff.image}
+		<meta property="og:image" content={$page.stuff.image} />
+		<meta name="twitter:image" content={$page.stuff.image} />
+	{/if}
 </svelte:head>
 
 <Navigation />
