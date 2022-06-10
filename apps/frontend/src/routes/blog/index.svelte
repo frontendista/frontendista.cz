@@ -7,6 +7,7 @@
 			stuff: {
 				title: "Blog",
 				description: "TODO: Blog page meta tag description"
+				// TODO: image
 			}
 		};
 	};
@@ -20,8 +21,9 @@
 
 <main>
 	<h1>Blog</h1>
-	{#each posts as { title, author, publishedAt, slug }}
+	{#each posts as { title, author, publishedAt, slug, thumbnail }}
 		<article>
+			<img src={thumbnail.url} alt="" />
 			<h1>{title}</h1>
 			<time datetime={publishedAt}>{new Date(publishedAt)}</time>
 			<div>

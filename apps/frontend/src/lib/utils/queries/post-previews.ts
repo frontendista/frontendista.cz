@@ -1,3 +1,4 @@
+import { SANITY_URL_SCHEMA } from "$utils/schema";
 import { z } from "zod";
 
 export const SCHEMA_POST_PREVIEWS = z.array(
@@ -9,12 +10,12 @@ export const SCHEMA_POST_PREVIEWS = z.array(
 			author: z.object({
 				name: z.string(),
 				avatar: z.object({
-					assetId: z.string()
+					url: SANITY_URL_SCHEMA
 				})
 			}),
 			publishedAt: z.string(),
 			thumbnail: z.object({
-				assetId: z.string(),
+				url: SANITY_URL_SCHEMA,
 				lqip: z.string(),
 				height: z.number(),
 				width: z.number(),
@@ -33,12 +34,12 @@ export const GROQ_POST_PREVIEWS = `*[_type == "post" && !(_id in path('drafts.**
 		name,
 		"avatar": 
 		avatar.asset-> {
-			assetId
+			url
 		}
 	},
 	publishedAt,
 	"thumbnail": thumbnail.asset-> {
-		assetId,
+		url,
 		"lqip": metadata.lqip,
 		"height": metadata.dimensions.height,
 		"width": metadata.dimensions.width,

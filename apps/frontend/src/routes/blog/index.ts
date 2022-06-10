@@ -10,9 +10,8 @@ import { ZodError } from "zod";
 
 export const get: RequestHandler = async () => {
 	try {
-		const posts = await sanityClient.fetch<BlogPostPreviews>(GROQ_POST_PREVIEWS);
-
-		await SCHEMA_POST_PREVIEWS.parseAsync(posts);
+		const response = await sanityClient.fetch<BlogPostPreviews>(GROQ_POST_PREVIEWS);
+		const posts = await SCHEMA_POST_PREVIEWS.parseAsync(response);
 
 		return {
 			body: {

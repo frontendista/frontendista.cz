@@ -15,7 +15,6 @@ export const get: RequestHandler<ReturnValue> = async ({ params }) => {
 		const result = await sanityClient.fetch<BlogPostContent>(GROQ_POST_CONTENT, {
 			slug: params.slug
 		});
-
 		const post = await SCHEMA_POST_CONTENT.parseAsync(result);
 
 		return {
