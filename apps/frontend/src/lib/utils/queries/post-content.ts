@@ -1,4 +1,5 @@
 import { z } from "zod";
+import { SANITY_URL_SCHEMA } from "$utils/schema";
 
 export const SCHEMA_POST_CONTENT = z
 	.object({
@@ -8,13 +9,13 @@ export const SCHEMA_POST_CONTENT = z
 		author: z.object({
 			name: z.string(),
 			avatar: z.object({
-				url: z.string()
+				url: SANITY_URL_SCHEMA
 			}),
 			slug: z.string()
 		}),
 		publishedAt: z.string(),
 		thumbnail: z.object({
-			url: z.string(),
+			url: SANITY_URL_SCHEMA,
 			lqip: z.string(),
 			height: z.number(),
 			width: z.number(),
