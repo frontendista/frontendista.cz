@@ -25,7 +25,8 @@ export const SCHEMA_POST_CONTENT = z
 				title: z.string(),
 				color: z.string()
 			})
-		)
+		),
+		description: z.string()
 	})
 	.strict();
 
@@ -53,6 +54,7 @@ export const GROQ_POST_CONTENT = `*[_type == "post" && slug.current == $slug] {
 		title,
 		color
 	} | order(title),
+	description
 }[0]`;
 
 export type BlogPostContent = z.infer<typeof SCHEMA_POST_CONTENT>;
