@@ -9,6 +9,11 @@ defaults:
   run:
     working-directory: apps/frontend
 
+env:
+  SANITY_AUTH_TOKEN: ${{ secrets.SANITY_AUTH_TOKEN }}
+  SANITY_PROJECT_ID: ${{ secrets.SANITY_PROJECT_ID }}
+  SANITY_DATASET_ID: ${{ secrets.SANITY_DATASET_ID }}
+
 jobs:
   format:
     name: 🔎 Svelte Check
