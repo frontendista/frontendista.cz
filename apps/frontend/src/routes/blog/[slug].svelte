@@ -26,14 +26,9 @@
 	<meta property="article:author" content={`https://frontendista/author/${post.author.slug}`} />
 	<meta property="article:published_time" content={post.publishedAt} />
 	<meta property="article:modified_time" content={post._updatedAt} />
-	{#each post.categories as category}
-		<meta property="article:tag" content={category.title} />
+	{#each post.categories as { title }}
+		<meta property="article:tag" content={title} />
 	{/each}
-	<meta property="og:site_name" content="Frontendista" />
-	<meta property="og:image" content={post.thumbnail.url} />
-	<meta name="twitter:card" content="summary_large_image" />
-	<meta name="twitter:site" content="@thesoreon" />
-	<meta name="twitter:creator" content="@thesoreon" />
 </svelte:head>
 
 <h1>{post.title}</h1>

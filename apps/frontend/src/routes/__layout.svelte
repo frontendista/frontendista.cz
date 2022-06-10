@@ -15,6 +15,13 @@
 	{#if $page.stuff.image}
 		<meta property="og:image" content={$page.stuff.image} />
 	{/if}
+	<meta property="og:site_name" content="Frontendista" />
+	<meta name="twitter:title" content={$page.stuff.title} />
+	<meta name="twitter:description" content={$page.stuff.description} />
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:site" content="@thesoreon" />
+	<meta name="twitter:creator" content="@thesoreon" />
+	<meta name="twitter:image" content={$page.stuff.image} />
 </svelte:head>
 
 <Navigation />
