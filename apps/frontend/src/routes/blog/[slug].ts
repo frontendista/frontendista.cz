@@ -12,11 +12,11 @@ type ReturnValue = { post: BlogPostContent | null };
 
 export const get: RequestHandler<ReturnValue> = async ({ params }) => {
 	try {
-		const post = await sanityClient.fetch<BlogPostContent>(GROQ_POST_CONTENT, {
+		const result = await sanityClient.fetch<BlogPostContent>(GROQ_POST_CONTENT, {
 			slug: params.slug
 		});
 
-		await SCHEMA_POST_CONTENT.parseAsync(post);
+		const post = await SCHEMA_POST_CONTENT.parseAsync(result);
 
 		return {
 			body: {
