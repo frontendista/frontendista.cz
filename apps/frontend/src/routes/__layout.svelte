@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { page } from "$app/stores";
+	import Footer from "$modules/footer.svelte";
 	import Navigation from "$modules/navigation.svelte";
 	import "$stylesheets/global.scss";
 	import { DEFAULT_DESCRIPTION, DEFAULT_TITLE } from "$utils/constants/seo";
@@ -26,3 +27,4 @@
 
 <Navigation />
 <slot />
+<Footer />
