@@ -23,7 +23,7 @@
 
 <svelte:head>
 	<meta property="og:type" content="article" />
-	<meta property="article:author" content={`https://frontendista/author/${post.author.slug}`} />
+	<meta property="article:author" content={`https://frontendista/about`} />
 	<meta property="article:published_time" content={post.publishedAt} />
 	<meta property="article:modified_time" content={post._updatedAt} />
 	{#each post.categories as { title }}
