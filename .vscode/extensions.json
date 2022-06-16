@@ -5,7 +5,8 @@
 		"esbenp.prettier-vscode",
 		"EditorConfig.EditorConfig",
 		"GraphQL.vscode-graphql",
-		"ms-playwright.playwright"
+		"ms-playwright.playwright",
+		"folke.vscode-monorepo-workspace"
 	],
 	"unwantedRecommendations": []
 }
