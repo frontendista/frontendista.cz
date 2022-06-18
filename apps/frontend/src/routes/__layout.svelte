@@ -2,6 +2,7 @@
 	import { page } from "$app/stores";
 	import Footer from "$modules/footer.svelte";
 	import Navigation from "$modules/navigation.svelte";
+	import Sidebar from "$modules/sidebar.svelte";
 	import "$stylesheets/global.scss";
 	import { DEFAULT_DESCRIPTION, DEFAULT_TITLE } from "$utils/constants/seo";
 	import "../app.scss";
@@ -26,6 +27,8 @@
 	{/if}
 </svelte:head>
 
-<Navigation />
-<slot />
+<Sidebar />
+<main>
+	<slot />
+</main>
 <Footer />
