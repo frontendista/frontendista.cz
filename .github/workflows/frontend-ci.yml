@@ -113,6 +113,11 @@ jobs:
         with:
           version: latest
 
+      # HACK: Preactjs size action uses simple algorithm for choosing correct package manager.
+      # As our pnpm-lock.yaml file lives in root of monorepo it doesn't choose correct package manager.
+      - name: HACK
+        run: touch pnpm-lock.yaml
+
       - name: 👟 Run Bundlewatch
         uses: preactjs/compressed-size-action@v2
         with:
