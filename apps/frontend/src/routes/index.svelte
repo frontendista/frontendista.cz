@@ -12,6 +12,4 @@
 	};
 </script>
 
-<script lang="ts">
-	import Link from "$common/link.svelte";
-</script>
+<h1>TODO: Home</h1>

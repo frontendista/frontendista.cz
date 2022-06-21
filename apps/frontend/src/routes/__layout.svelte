@@ -3,6 +3,7 @@
 	import Footer from "$modules/footer.svelte";
 	import Navigation from "$modules/navigation.svelte";
 	import Sidebar from "$modules/sidebar.svelte";
+	import TopBar from "$modules/top-bar.svelte";
 	import "$stylesheets/global.scss";
 	import { DEFAULT_DESCRIPTION, DEFAULT_TITLE } from "$utils/constants/seo";
 	import "../app.scss";
@@ -27,8 +28,8 @@
 	{/if}
 </svelte:head>
 
+<TopBar />
 <Sidebar />
 <main>
 	<slot />
 </main>
-<Footer />
