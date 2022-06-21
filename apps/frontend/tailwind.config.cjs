@@ -9,6 +9,12 @@ const config = {
 		extend: {
 			fontFamily: {
 				sans: ["JM", ...defaultTheme.fontFamily.sans]
+			},
+			height: {
+				topbar: "5rem"
+			},
+			width: {
+				sidebar: "20rem"
 			}
 		}
 	},
