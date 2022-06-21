@@ -28,8 +28,8 @@
 	{/if}
 </svelte:head>
 
-<TopBar />
 <Sidebar />
+<TopBar />
 <main>
 	<slot />
 </main>

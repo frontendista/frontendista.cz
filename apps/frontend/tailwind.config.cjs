@@ -14,7 +14,8 @@ const config = {
 				topbar: "5rem"
 			},
 			width: {
-				sidebar: "20rem"
+				sidebar: "20rem",
+				topbar: "calc(100% - 20rem)"
 			}
 		}
 	},
