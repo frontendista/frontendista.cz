@@ -2,6 +2,7 @@ import { resolve } from "path";
 import vercel from "@sveltejs/adapter-vercel";
 import preprocess from "svelte-preprocess";
 import svg from "@poppanator/sveltekit-svg";
+import { vanillaExtractPlugin } from "@vanilla-extract/vite-plugin";
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
@@ -46,7 +47,8 @@ const config = {
 							}
 						]
 					}
-				})
+				}),
+				vanillaExtractPlugin()
 			]
 		}
 	}
