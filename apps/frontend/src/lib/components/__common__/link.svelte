@@ -20,18 +20,3 @@
 		{url?.hostname || href}
 	</slot>
 </a>
-
-<style lang="scss">
-	a {
-		display: inline-flex;
-		align-items: center;
-		justify-content: center;
-		gap: 0.5em;
-		font-size: 1.25rem;
-
-		& img {
-			width: 1em;
-			height: 1em;
-		}
-	}
-</style>
