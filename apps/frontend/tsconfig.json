@@ -21,7 +21,8 @@
 			"$stylesheets/*": ["src/lib/stylesheets/*"],
 			"$utils/*": ["src/lib/utils/*"],
 			"$lib": ["src/lib"],
-			"$lib/*": ["src/lib/*"]
+			"$lib/*": ["src/lib/*"],
+			"$icons/*": ["src/lib/icons/*"]
 		},
 		"types": ["vitest/globals"]
 	}
