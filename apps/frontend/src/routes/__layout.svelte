@@ -5,6 +5,7 @@
 	import { DEFAULT_DESCRIPTION, DEFAULT_TITLE } from "$utils/constants/seo";
 
 	import "$stylesheets/global.css";
+	import "$stylesheets/reset.css";
 	import "$stylesheets/normalize.css";
 	import "$stylesheets/theme.css";
 </script>
