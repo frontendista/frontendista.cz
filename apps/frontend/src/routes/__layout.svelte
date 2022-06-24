@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { page } from "$app/stores";
-	import Sidebar from "$modules/sidebar.svelte";
+	import SideBar from "$modules/side-bar.svelte";
 	import TopBar from "$modules/top-bar.svelte";
 	import { DEFAULT_DESCRIPTION, DEFAULT_TITLE } from "$utils/constants/seo";
 
@@ -28,7 +28,7 @@
 	{/if}
 </svelte:head>
 
-<Sidebar />
+<SideBar />
 <TopBar />
 <main>
 	<slot />
