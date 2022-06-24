@@ -1,19 +1,28 @@
 import { createGlobalTheme, createGlobalThemeContract } from "@vanilla-extract/css";
 
 export const vars = createGlobalThemeContract({
-	background: {
+	bg: {
 		primary: "bg-primary"
+	},
+	fg: {
+		primary: "fg-primary"
 	}
 });
 
 createGlobalTheme(":root[data-theme=light]", vars, {
-	background: {
-		primary: "white"
+	bg: {
+		primary: "#fff"
+	},
+	fg: {
+		primary: "#000"
 	}
 });
 
 createGlobalTheme(":root[data-theme=dark]", vars, {
-	background: {
-		primary: "black"
+	bg: {
+		primary: "#100E0F"
+	},
+	fg: {
+		primary: "#f2f2f2"
 	}
 });
