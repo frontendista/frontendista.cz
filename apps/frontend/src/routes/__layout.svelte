@@ -1,10 +1,12 @@
 <script lang="ts">
 	import { page } from "$app/stores";
-	import Footer from "$modules/footer.svelte";
-	import Navigation from "$modules/navigation.svelte";
 	import Sidebar from "$modules/sidebar.svelte";
 	import TopBar from "$modules/top-bar.svelte";
 	import { DEFAULT_DESCRIPTION, DEFAULT_TITLE } from "$utils/constants/seo";
+
+	import "$stylesheets/global.css";
+	import "$stylesheets/normalize.css";
+	import "$stylesheets/theme.css";
 </script>
 
 <svelte:head>
