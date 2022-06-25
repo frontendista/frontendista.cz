@@ -1,17 +1,23 @@
 <script lang="ts">
-	import { fade } from "svelte/transition";
+	import { motionStore } from "$stores/motion-store";
+
+	import { fade, fly } from "svelte/transition";
 
 	export let key: string;
+
+	$: transition = $motionStore.value ? fade : fly;
 </script>
 
 {#key key}
 	<main
-		in:fade={{
+		in:transition={{
 			delay: 500,
-			duration: 1000
+			duration: 500,
+			y: -256
 		}}
-		out:fade={{
-			duration: 500
+		out:transition={{
+			duration: 500,
+			y: 256
 		}}
 	>
 		<slot />

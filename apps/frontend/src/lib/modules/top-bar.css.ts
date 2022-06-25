@@ -1,4 +1,4 @@
-import { SIDE_BAR_WIDTH, TOP_BAR_HEIGHT } from "$stylesheets/constants.css";
+import { SIDE_BAR_WIDTH, SIDE_BAR_ZINDEX, TOP_BAR_HEIGHT } from "$stylesheets/constants.css";
 import { vars } from "$stylesheets/theme.css";
 import { style } from "@vanilla-extract/css";
 
@@ -10,7 +10,8 @@ export const container = style({
 	width: "100%",
 	display: "flex",
 	borderBottom: `1px solid ${vars.bg.tertiary}`,
-	background: vars.bg.primary
+	background: vars.bg.primary,
+	zIndex: SIDE_BAR_ZINDEX
 });
 
 export const logo = style({

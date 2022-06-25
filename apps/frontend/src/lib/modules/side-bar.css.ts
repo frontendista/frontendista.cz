@@ -1,4 +1,4 @@
-import { SIDE_BAR_WIDTH, TOP_BAR_HEIGHT } from "$stylesheets/constants.css";
+import { SIDE_BAR_WIDTH, SIDE_BAR_ZINDEX, TOP_BAR_HEIGHT } from "$stylesheets/constants.css";
 import { vars } from "$stylesheets/theme.css";
 import { style } from "@vanilla-extract/css";
 import { calc } from "@vanilla-extract/css-utils";
@@ -14,7 +14,8 @@ export const container = style({
 	padding: "1rem",
 	display: "flex",
 	flexDirection: "column",
-	gap: "2rem"
+	gap: "2rem",
+	zIndex: SIDE_BAR_ZINDEX
 });
 
 export const list = style({
