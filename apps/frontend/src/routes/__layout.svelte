@@ -1,13 +1,25 @@
+<script context="module" lang="ts">
+	import type { Load } from ".svelte-kit/types/src/routes/__types/__layout";
+
+	export const load: Load = async ({ url }) => ({
+		props: {
+			pathname: url.pathname
+		}
+	});
+</script>
+
 <script lang="ts">
 	import { page } from "$app/stores";
+	import PageTransition from "$components/page-transition.svelte";
 	import SideBar from "$modules/side-bar.svelte";
 	import TopBar from "$modules/top-bar.svelte";
+	import "$stylesheets/global.css";
+	import "$stylesheets/normalize.css";
+	import "$stylesheets/reset.css";
+	import "$stylesheets/theme.css";
 	import { DEFAULT_DESCRIPTION, DEFAULT_TITLE } from "$utils/constants/seo";
 
-	import "$stylesheets/global.css";
-	import "$stylesheets/reset.css";
-	import "$stylesheets/normalize.css";
-	import "$stylesheets/theme.css";
+	export let pathname: string;
 </script>
 
 <svelte:head>
@@ -31,6 +43,6 @@
 
 <SideBar />
 <TopBar />
-<main>
+<PageTransition key={pathname}>
 	<slot />
-</main>
+</PageTransition>
