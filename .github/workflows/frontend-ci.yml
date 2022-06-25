@@ -153,9 +153,13 @@ jobs:
         run: pnpm test:unit
 
   e2e:
-    name: 🔎 E2E Testing
-    runs-on: ubuntu-latest
+    name: 🔎 E2E Testing (${{ matrix.os }})
+    runs-on: ${{ matrix.os }}
     needs: [build]
+
+    strategy:
+      matrix:
+        os: ["ubuntu-latest", "windows-latest", "macos-latest"]
 
     steps:
       - name: 👉 Checkout
@@ -173,20 +177,22 @@ jobs:
           cache: "pnpm"
 
       - name: 📀 Cache playwright binaries
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         id: playwright-cache
         with:
           path: |
             ~/.cache/ms-playwright
+            ~/Library/Caches/ms-playwright
+            %USERPROFILE%\AppData\Local\ms-playwright
           # TODO: Automatically get playwright version from manifest
-          key: cache-playwright-linux-1.22.2
+          key: cache-playwright-1.22.2-${{ matrix.os }}
 
       - name: 🔧 Install dependencies
         run: pnpm install --frozen-lockfile
 
       - name: 🔧 Install playwright
         if: steps.playwright-cache.outputs.cache-hit != 'true'
-        run: pnpm playwright install --with-deps
+        run: pnpm playwright install --with-deps chromium firefox webkit 
 
       - name: 👟 Run your tests
-        run: pnpm test:e2e
+        run: pnpm test:e2e:ci
