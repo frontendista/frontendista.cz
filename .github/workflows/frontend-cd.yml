@@ -145,7 +145,7 @@ jobs:
           path: |
             ~/.cache/ms-playwright
           # TODO: Automatically get playwright version from manifest
-          key: cache-playwright-linux-1.21.0
+          key: cache-playwright-linux-1.22.2
 
       - name: 🔧 Install dependencies
         run: pnpm install --frozen-lockfile
