@@ -183,7 +183,7 @@ jobs:
           path: |
             ~/.cache/ms-playwright
             ~/Library/Caches/ms-playwright
-            %USERPROFILE%\AppData\Local\ms-playwright
+            C:\Users\runneradmin\AppData\Local\ms-playwright
           # TODO: Automatically get playwright version from manifest
           key: cache-playwright-1.22.2-${{ matrix.os }}
 
