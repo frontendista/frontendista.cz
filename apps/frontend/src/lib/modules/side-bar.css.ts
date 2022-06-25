@@ -10,5 +10,15 @@ export const container = style({
 	borderRight: "1px solid #333",
 	// TODO: Token
 	background: "#231F23",
-	height: "100%"
+	height: "100%",
+	padding: "1rem"
+});
+
+export const list = style({
+	listStyleType: "none",
+	padding: 0,
+	margin: 0,
+	display: "flex",
+	flexDirection: "column",
+	gap: "0.5rem"
 });

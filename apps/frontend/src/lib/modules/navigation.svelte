@@ -1,16 +1,14 @@
+<script>
+	import SideBarItem from "$components/side-bar-item.svelte";
+	import HiHome from "$icons/hi-home.svg";
+	import { list } from "./side-bar.css";
+</script>
+
 <nav>
-	<ul>
-		<li>
-			<a sveltekit:prefetch href="/">Home</a>
-		</li>
-		<li>
-			<a sveltekit:prefetch href="/about">About</a>
-		</li>
-		<li>
-			<a sveltekit:prefetch href="/blog">Blog</a>
-		</li>
-		<li>
-			<a sveltekit:prefetch href="/contact">Contact</a>
-		</li>
+	<ul class={list}>
+		<SideBarItem href="/" icon={HiHome}>Home</SideBarItem>
+		<SideBarItem href="/about" icon={HiHome}>About</SideBarItem>
+		<SideBarItem href="/blog" icon={HiHome}>Blog</SideBarItem>
+		<SideBarItem href="/contact" icon={HiHome}>Contact</SideBarItem>
 	</ul>
 </nav>
