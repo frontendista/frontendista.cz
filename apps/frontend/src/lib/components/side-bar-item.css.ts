@@ -19,3 +19,7 @@ export const linkText = style({
 	textTransform: "uppercase",
 	fontWeight: 800
 });
+
+export const favicon = style({
+	height: "1em"
+});
