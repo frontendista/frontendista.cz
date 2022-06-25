@@ -9,6 +9,7 @@
 		"prepare": "svelte-kit sync",
 		"test:e2e": "playwright test --quiet",
 		"test:unit": "vitest",
+		"test:unit:watch": "vitest --watch",
 		"test:unit:ui": "vitest --ui",
 		"test:unit:coverage": "vitest --coverage",
 		"check": "svelte-check --tsconfig ./tsconfig.json",

@@ -5,13 +5,18 @@
 
 	export let href: string;
 	export let icon: any = null;
-	export let isActive: boolean = false;
+	export let isActive = false;
 
 	$: isExternal = href.startsWith("http");
 </script>
 
 <li class={container}>
-	<a class={link} {href} aria-current={isActive ? "true" : null}>
+	<a
+		sveltekit:prefetch={!isExternal || null}
+		class={link}
+		{href}
+		aria-current={isActive ? "true" : null}
+	>
 		{#if icon}
 			<svelte:component this={icon} height="1em" />
 		{:else if isExternal}
