@@ -74,7 +74,7 @@ importers:
 
   apps/frontend:
     specifiers:
-      "@playwright/test": ^1.21.0
+      "@playwright/test": 1.22.2
       "@poppanator/sveltekit-svg": ^0.3.4
       "@portabletext/svelte": ^1.0.1
       "@sanity/client": ^3.3.1
