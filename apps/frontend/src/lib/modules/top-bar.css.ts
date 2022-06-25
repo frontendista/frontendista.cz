@@ -1,4 +1,5 @@
 import { SIDE_BAR_WIDTH, TOP_BAR_HEIGHT } from "$stylesheets/constants.css";
+import { vars } from "$stylesheets/theme.css";
 import { style } from "@vanilla-extract/css";
 
 export const container = style({
@@ -8,22 +9,18 @@ export const container = style({
 	height: TOP_BAR_HEIGHT,
 	width: "100%",
 	display: "flex",
-	// TODO: Token
-	borderBottom: "1px solid #333",
-	// TODO: Token
-	background: "#100e0f"
+	borderBottom: `1px solid ${vars.bg.tertiary}`,
+	background: vars.bg.primary
 });
 
 export const logo = style({
 	width: SIDE_BAR_WIDTH,
-	// TODO: Token
-	borderRight: "1px solid #333",
+	borderRight: `1px solid ${vars.bg.tertiary}`,
 	display: "flex",
 	alignItems: "center",
 	justifyContent: "center",
 	fontSize: "1.75rem",
 	textTransform: "uppercase",
 	fontWeight: 800,
-	// TODO: Token
-	background: "#231F23"
+	background: vars.bg.secondary
 });

@@ -2,7 +2,9 @@ import { createGlobalTheme, createGlobalThemeContract } from "@vanilla-extract/c
 
 export const vars = createGlobalThemeContract({
 	bg: {
-		primary: "bg-primary"
+		primary: "bg-primary",
+		secondary: "bg-secondary",
+		tertiary: "bg-tertiary"
 	},
 	fg: {
 		primary: "fg-primary"
@@ -11,7 +13,9 @@ export const vars = createGlobalThemeContract({
 
 createGlobalTheme(":root[data-theme=light]", vars, {
 	bg: {
-		primary: "#fff"
+		primary: "#fff",
+		secondary: "TODO",
+		tertiary: "TODO"
 	},
 	fg: {
 		primary: "#000"
@@ -20,7 +24,9 @@ createGlobalTheme(":root[data-theme=light]", vars, {
 
 createGlobalTheme(":root[data-theme=dark]", vars, {
 	bg: {
-		primary: "#100E0F"
+		primary: "#100E0F",
+		secondary: "#231f23",
+		tertiary: "#333"
 	},
 	fg: {
 		primary: "#f2f2f2"

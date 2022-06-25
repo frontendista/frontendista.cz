@@ -1,3 +1,4 @@
+import { vars } from "$stylesheets/theme.css";
 import { style } from "@vanilla-extract/css";
 
 export const container = style({
@@ -14,8 +15,10 @@ export const link = style({
 	paddingRight: "0.75rem",
 	borderRadius: "0.75rem",
 	":hover": {
-		// TODO: Token, Transition
-		background: "#333"
+		background: vars.bg.tertiary
+	},
+	":focus": {
+		background: vars.bg.tertiary
 	},
 	":active": {
 		// TODO: Token
@@ -26,7 +29,8 @@ export const link = style({
 			// TODO: Token
 			background: "#3A333A"
 		}
-	}
+	},
+	transition: "background 150ms linear"
 });
 
 export const linkText = style({

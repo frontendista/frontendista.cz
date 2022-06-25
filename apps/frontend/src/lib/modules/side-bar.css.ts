@@ -1,4 +1,5 @@
 import { SIDE_BAR_WIDTH, TOP_BAR_HEIGHT } from "$stylesheets/constants.css";
+import { vars } from "$stylesheets/theme.css";
 import { style } from "@vanilla-extract/css";
 import { calc } from "@vanilla-extract/css-utils";
 
@@ -7,10 +8,8 @@ export const container = style({
 	position: "fixed",
 	top: TOP_BAR_HEIGHT,
 	left: 0,
-	// TODO: Token
-	borderRight: "1px solid #333",
-	// TODO: Token
-	background: "#231F23",
+	borderRight: `1px solid ${vars.bg.tertiary}`,
+	background: vars.bg.secondary,
 	height: calc.subtract("100%", TOP_BAR_HEIGHT),
 	padding: "1rem",
 	display: "flex",
