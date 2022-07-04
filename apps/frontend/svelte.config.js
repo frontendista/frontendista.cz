@@ -28,7 +28,6 @@ const config = {
 				}
 			},
 			server: {
-				host: "frontendista.internal",
 				port: 80
 			},
 			plugins: [
