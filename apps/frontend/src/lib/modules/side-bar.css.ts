@@ -15,7 +15,8 @@ export const container = style({
 	display: "flex",
 	flexDirection: "column",
 	gap: "2rem",
-	zIndex: SIDE_BAR_ZINDEX
+	zIndex: SIDE_BAR_ZINDEX,
+	overflow: "auto"
 });
 
 export const list = style({
