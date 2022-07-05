@@ -14,6 +14,7 @@ export const link = style({
 	paddingLeft: "0.75rem",
 	paddingRight: "0.75rem",
 	borderRadius: "0.75rem",
+	outline: "none",
 	":hover": {
 		background: vars.bg.tertiary
 	},
