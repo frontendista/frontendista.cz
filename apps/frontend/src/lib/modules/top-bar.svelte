@@ -4,7 +4,9 @@
 </script>
 
 <div class={container}>
-	<a class={logo} href="/">Frontendista</a>
+	<a class={logo} href="/">
+		<span class="visuallyHidden">Frontendista</span>
+	</a>
 	<div>
 		<SideBarToggle />
 	</div>
