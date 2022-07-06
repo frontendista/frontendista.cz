@@ -16,7 +16,25 @@ export const container = style({
 	flexDirection: "column",
 	gap: "2rem",
 	zIndex: SIDE_BAR_ZINDEX,
-	overflow: "auto"
+	overflow: "auto",
+	"@media": {
+		"(max-width: 768px)": {
+			width: "100vw",
+			transform: "translateX(-100%)"
+		},
+		"(min-width: 768px)": {
+			// NOTE: This is a workaround to disable animation on desktop while navigating
+			animation: "none !important"
+		}
+	}
+});
+
+export const visible = style({
+	"@media": {
+		"(max-width: 768px)": {
+			transform: "translateX(0)"
+		}
+	}
 });
 
 export const list = style({
