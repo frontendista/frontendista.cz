@@ -1,8 +1,5 @@
-import { resolve } from "path";
 import vercel from "@sveltejs/adapter-vercel";
 import preprocess from "svelte-preprocess";
-import svg from "@poppanator/sveltekit-svg";
-import { vanillaExtractPlugin } from "@vanilla-extract/vite-plugin";
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
@@ -14,41 +11,6 @@ const config = {
 		adapter: vercel(),
 		prerender: {
 			default: true
-		},
-		vite: {
-			resolve: {
-				alias: {
-					$common: resolve("./src/lib/components/__common__"),
-					$components: resolve("./src/lib/components"),
-					$modules: resolve("./src/lib/modules"),
-					$stores: resolve("./src/lib/stores"),
-					$stylesheets: resolve("./src/lib/stylesheets"),
-					$utils: resolve("./src/lib/utils"),
-					$icons: resolve("./src/lib/icons")
-				}
-			},
-			server: {
-				port: 80
-			},
-			plugins: [
-				svg({
-					includePaths: ["./src/lib/icons/"],
-					svgoOptions: {
-						multipass: true,
-						plugins: [
-							{
-								name: "preset-default",
-								params: {
-									overrides: {
-										removeViewBox: false
-									}
-								}
-							}
-						]
-					}
-				}),
-				vanillaExtractPlugin()
-			]
 		}
 	}
 };
