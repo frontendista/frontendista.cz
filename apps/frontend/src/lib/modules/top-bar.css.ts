@@ -23,5 +23,16 @@ export const logo = style({
 	fontSize: "1.75rem",
 	textTransform: "uppercase",
 	fontWeight: 800,
-	background: vars.bg.secondary
+	background: vars.bg.secondary,
+	":after": {
+		content: "Frontendista"
+	},
+	"@media": {
+		"(max-width: 768px)": {
+			width: TOP_BAR_HEIGHT,
+			":after": {
+				content: "F"
+			}
+		}
+	}
 });
