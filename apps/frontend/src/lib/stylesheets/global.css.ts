@@ -9,5 +9,10 @@ globalStyle(":root", {
 
 globalStyle("body", {
 	paddingTop: TOP_BAR_HEIGHT,
-	paddingLeft: SIDE_BAR_WIDTH
+	paddingLeft: SIDE_BAR_WIDTH,
+	"@media": {
+		"(max-width: 768px)": {
+			paddingLeft: 0
+		}
+	}
 });
