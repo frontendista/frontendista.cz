@@ -36,3 +36,7 @@ export const logo = style({
 		}
 	}
 });
+
+export const actionBar = style({
+	padding: "1rem"
+});

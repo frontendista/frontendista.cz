@@ -26,3 +26,10 @@ video {
 	max-width: 100%;
 	height: auto;
 }
+
+button {
+	outline: none;
+	padding: 0;
+	border: none;
+	background: none;
+}
