@@ -6,7 +6,7 @@
 		"build": "vite build",
 		"package": "vite package",
 		"preview": "vite preview",
-		"prepare": "vite sync",
+		"prepare": "svelte-kit sync",
 		"test:e2e": "playwright test --quiet",
 		"test:e2e:ci": "playwright test --browser all",
 		"test:unit": "vitest",
