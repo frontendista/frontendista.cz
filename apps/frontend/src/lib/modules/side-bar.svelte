@@ -16,9 +16,10 @@
 	import { container, list, listHeader, visible } from "./side-bar.css";
 	import { isSideBarVisible } from "$stores/side-bar-store";
 	import { beforeNavigate } from "$app/navigation";
+	import { browser } from "$app/env";
 
 	const showHideTransition: FlyParams = {
-		x: -100,
+		x: -(browser ? window.innerWidth : 100),
 		duration: 750
 	};
 
