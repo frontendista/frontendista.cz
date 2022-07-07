@@ -41,8 +41,8 @@
 	{/if}
 </svelte:head>
 
-<SideBar />
 <TopBar />
+<SideBar />
 <PageTransition key={pathname}>
 	<slot />
 </PageTransition>

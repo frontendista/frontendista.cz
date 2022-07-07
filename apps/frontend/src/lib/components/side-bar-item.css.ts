@@ -22,8 +22,6 @@ export const link = style({
 		background: vars.bg.tertiary
 	},
 	":active": {
-		// TODO: Token
-		background: "#555",
 		transform: "scale(0.95)",
 		transition: "0.1s linear"
 	},
