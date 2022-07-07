@@ -1,6 +1,6 @@
 import { SIDE_BAR_WIDTH, SIDE_BAR_ZINDEX, TOP_BAR_HEIGHT } from "$stylesheets/constants.css";
 import { vars } from "$stylesheets/theme.css";
-import { globalStyle, style } from "@vanilla-extract/css";
+import { globalStyle, keyframes, style } from "@vanilla-extract/css";
 
 export const container = style({
 	position: "fixed",
@@ -13,6 +13,15 @@ export const container = style({
 	background: "rgb(16, 14, 15, 0.5)",
 	backdropFilter: "blur(10px) saturate(150%) contrast(150%)",
 	zIndex: SIDE_BAR_ZINDEX
+});
+
+const gradientFlowAnimation = keyframes({
+	from: {
+		backgroundPosition: "0 center"
+	},
+	to: {
+		backgroundPosition: "166% center"
+	}
 });
 
 export const logo = style({
@@ -36,6 +45,15 @@ export const logo = style({
 			}
 		}
 	}
+});
+
+globalStyle(`${logo}:hover:after`, {
+	backgroundSize: "250% auto",
+	backgroundClip: "text",
+	WebkitTextFillColor: "transparent",
+	backgroundImage:
+		"linear-gradient(90deg, rgba(252,0,255,1) 0%, rgba(0,219,222,1) 33%, rgba(0,219,222,1) 66%, rgba(252,0,255,1) 100%)",
+	animation: `5s ${gradientFlowAnimation} linear infinite`
 });
 
 export const actionBar = style({
