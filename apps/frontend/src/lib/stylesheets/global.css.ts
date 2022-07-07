@@ -29,3 +29,9 @@ globalStyle(".visuallyHidden", {
 	width: 1,
 	whiteSpace: "nowrap"
 });
+
+globalStyle("*:focus-visible", {
+	boxShadow: "0 0 0 4px red",
+	outline: "none",
+	transition: "0.3s box-shadow ease-in-out"
+});

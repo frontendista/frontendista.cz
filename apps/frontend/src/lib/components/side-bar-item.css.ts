@@ -23,7 +23,9 @@ export const link = style({
 	},
 	":active": {
 		// TODO: Token
-		background: "#555"
+		background: "#555",
+		transform: "scale(0.95)",
+		transition: "0.1s linear"
 	},
 	selectors: {
 		"&[aria-current=true]": {
@@ -31,7 +33,7 @@ export const link = style({
 			background: "#3A333A"
 		}
 	},
-	transition: "background 150ms linear"
+	transition: "background 0.15s linear, transform 0.3s ease-in-out"
 });
 
 export const linkText = style({

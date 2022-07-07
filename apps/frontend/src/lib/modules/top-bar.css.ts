@@ -1,6 +1,6 @@
 import { SIDE_BAR_WIDTH, SIDE_BAR_ZINDEX, TOP_BAR_HEIGHT } from "$stylesheets/constants.css";
 import { vars } from "$stylesheets/theme.css";
-import { style } from "@vanilla-extract/css";
+import { globalStyle, style } from "@vanilla-extract/css";
 
 export const container = style({
 	position: "fixed",
@@ -41,6 +41,45 @@ export const logo = style({
 export const actionBar = style({
 	padding: "1rem",
 	flexGrow: 1,
-	display: "flex",
-	justifyContent: "space-between"
+	display: "flex"
+});
+
+export const actionBarButtonGroup = style({
+	marginLeft: "auto"
+});
+
+export const actionButton = style({
+	color: vars.fg.primary,
+	display: "inline-flex",
+	gap: "0.75rem",
+	alignItems: "center",
+	justifyContent: "center",
+	height: "100%",
+	padding: "0 1.5rem",
+	fontSize: "1.25rem",
+	fontWeight: "bold",
+	textTransform: "uppercase",
+	borderRadius: "0.75rem",
+	transition: "0.3s ease-in-out",
+	":hover": {
+		// TODO: Token
+		background: "#444"
+	},
+	":active": {
+		transform: "scale(0.95)",
+		transition: "0.1s linear"
+	},
+	"@media": {
+		"(max-width: 768px)": {
+			padding: "0 0.875rem"
+		}
+	}
+});
+
+globalStyle(`${actionButton} span`, {
+	"@media": {
+		"(max-width: 768px)": {
+			display: "none"
+		}
+	}
 });
