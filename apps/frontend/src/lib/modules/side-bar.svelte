@@ -20,7 +20,8 @@
 
 	const showHideTransition: FlyParams = {
 		x: -(browser ? window.innerWidth : 100),
-		duration: 750
+		duration: 750,
+		opacity: 1
 	};
 
 	beforeNavigate(isSideBarVisible.close);

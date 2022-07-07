@@ -10,7 +10,8 @@ export const container = style({
 	width: "100%",
 	display: "flex",
 	borderBottom: `1px solid ${vars.bg.tertiary}`,
-	background: vars.bg.primary,
+	background: "rgb(16, 14, 15, 0.5)",
+	backdropFilter: "blur(10px) saturate(150%) contrast(150%)",
 	zIndex: SIDE_BAR_ZINDEX
 });
 
@@ -38,5 +39,8 @@ export const logo = style({
 });
 
 export const actionBar = style({
-	padding: "1rem"
+	padding: "1rem",
+	flexGrow: 1,
+	display: "flex",
+	justifyContent: "space-between"
 });
