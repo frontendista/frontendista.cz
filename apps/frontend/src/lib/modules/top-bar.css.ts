@@ -24,6 +24,18 @@ const gradientFlowAnimation = keyframes({
 	}
 });
 
+const gradientFlowAnimationSmall = keyframes({
+	from: {
+		color: "#fc00ff"
+	},
+	"50%": {
+		color: "#00dbde"
+	},
+	to: {
+		color: "#fc00ff"
+	}
+});
+
 export const logo = style({
 	width: SIDE_BAR_WIDTH,
 	borderRight: `1px solid ${vars.bg.tertiary}`,
@@ -48,12 +60,18 @@ export const logo = style({
 });
 
 globalStyle(`${logo}:hover:after`, {
-	backgroundSize: "250% auto",
-	backgroundClip: "text",
-	WebkitTextFillColor: "transparent",
-	backgroundImage:
-		"linear-gradient(90deg, rgba(252,0,255,1) 0%, rgba(0,219,222,1) 33%, rgba(0,219,222,1) 66%, rgba(252,0,255,1) 100%)",
-	animation: `5s ${gradientFlowAnimation} linear infinite`
+	"@media": {
+		"(min-width: 768px)": {
+			backgroundSize: "250% auto",
+			backgroundClip: "text",
+			WebkitTextFillColor: "transparent",
+			backgroundImage: "linear-gradient(90deg, #fc00ff 0%, #00dbde 33%, #00dbde 66%, #fc00ff 100%)",
+			animation: `5s ${gradientFlowAnimation} linear infinite`
+		},
+		"(max-width: 768px)": {
+			animation: `5s ${gradientFlowAnimationSmall} linear infinite`
+		}
+	}
 });
 
 export const actionBar = style({
