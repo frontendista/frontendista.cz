@@ -12,6 +12,8 @@
 		delay: iconExitTransition.duration,
 		duration: iconExitTransition.duration
 	};
+
+	// TODO: Change transition to fade in/out when ReduceMotion is enabled.
 </script>
 
 <button
