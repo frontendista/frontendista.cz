@@ -2,6 +2,7 @@ import { browser } from "$app/env";
 import { writable, type Readable } from "svelte/store";
 
 const STORAGE_KEY = "data-theme";
+const MEDIA_QUERY = "(prefers-color-scheme: dark)";
 
 type ITheme = "light" | "dark";
 
@@ -24,11 +25,27 @@ function getDefaultTheme(): ITheme {
 		return userPreference;
 	}
 
-	return "dark";
+	return window.matchMedia(MEDIA_QUERY).matches ? "dark" : "light";
 }
 
 function createThemeStore(): IThemeStore {
-	const { subscribe, update } = writable<ITheme>(getDefaultTheme());
+	const { subscribe, update } = writable<ITheme>(getDefaultTheme(), (set) => {
+		if (!browser) return;
+
+		const onThemeChange = (e: MediaQueryListEvent) => {
+			if (localStorage.getItem(STORAGE_KEY)) return;
+
+			set(e.matches ? "dark" : "light");
+		};
+
+		const mediaQueryList = window.matchMedia(MEDIA_QUERY);
+
+		mediaQueryList.addEventListener("change", onThemeChange);
+
+		return () => {
+			mediaQueryList.removeEventListener("change", onThemeChange);
+		};
+	});
 
 	return {
 		subscribe,

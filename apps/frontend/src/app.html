@@ -37,6 +37,10 @@
 
 			if (themePreference) {
 				document.documentElement.setAttribute("data-theme", themePreference);
+			} else {
+				window.matchMedia("(prefers-color-scheme: dark)").matches
+					? document.documentElement.setAttribute("data-theme", "dark")
+					: document.documentElement.setAttribute("data-theme", "light");
 			}
 		</script>
 		%sveltekit.body%
