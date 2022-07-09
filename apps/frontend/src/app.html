@@ -32,6 +32,13 @@
 		%sveltekit.head%
 	</head>
 	<body>
+		<script>
+			const themePreference = localStorage.getItem("data-theme");
+
+			if (themePreference) {
+				document.documentElement.setAttribute("data-theme", themePreference);
+			}
+		</script>
 		%sveltekit.body%
 	</body>
 </html>
