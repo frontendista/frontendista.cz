@@ -1,10 +1,9 @@
 <script lang="ts">
+	import SettingsLink from "$components/settings-link.svelte";
 	import SideBarToggle from "$components/side-bar-toggle.svelte";
 	import ThemeToggle from "$components/theme-toggle.svelte";
 
-	import HiCog from "$icons/hi-cog.svg";
-
-	import { container, logo, actionBar, actionButton, actionBarButtonGroup } from "./top-bar.css";
+	import { container, logo, actionBar, actionBarButtonGroup } from "./top-bar.css";
 </script>
 
 <div class={container}>
@@ -15,10 +14,7 @@
 		<SideBarToggle />
 		<div class={actionBarButtonGroup}>
 			<ThemeToggle />
-			<button class={actionButton}>
-				<svelte:component this={HiCog} height="1em" />
-				<span>Settings</span>
-			</button>
+			<SettingsLink />
 		</div>
 	</div>
 </div>
