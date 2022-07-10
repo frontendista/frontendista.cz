@@ -12,7 +12,7 @@ export const container = style({
 	borderBottom: `1px solid ${vars.bg.tertiary}`,
 	background: "rgb(16, 14, 15, 0.5)",
 	backdropFilter: "blur(10px) saturate(150%) contrast(150%)",
-	zIndex: SIDE_BAR_ZINDEX
+	zIndex: SIDE_BAR_ZINDEX + 1
 });
 
 const gradientFlowAnimation = keyframes({
