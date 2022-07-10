@@ -4,10 +4,19 @@
 	import { actionButton } from "$modules/top-bar.css";
 	import { Popover, PopoverButton, PopoverPanel } from "@rgossiaux/svelte-headlessui";
 	import { settingsPanel } from "./settings-button.css";
+	import { createPopperActions, type PopperOptions } from "svelte-popperjs";
+
+	const [popperRef, popperContent] = createPopperActions();
+
+	const popperOptions: PopperOptions<any> = {
+		placement: "bottom-end",
+		strategy: "fixed",
+		modifiers: [{ name: "offset", options: { offset: [0, 10] } }]
+	};
 </script>
 
 <Popover>
-	<PopoverButton class={actionButton}>
+	<PopoverButton class={actionButton} use={[popperRef]}>
 		<svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 20 20" fill="currentColor">
 			<path
 				fill-rule="evenodd"
@@ -17,9 +26,9 @@
 		</svg>
 		<span>Settings</span>
 	</PopoverButton>
-	<PopoverPanel class={settingsPanel}>
+	<PopoverPanel class={settingsPanel} use={[[popperContent, popperOptions]]}>
 		<Switch
-			label="Reduce motion"
+			label="REDUCE MOTION"
 			checked={$motionStore.value}
 			onChange={(e) => motionStore.setPreference(e.detail)}
 		/>
