@@ -4,7 +4,8 @@ import { calc } from "@vanilla-extract/css-utils";
 export const switchContaniner = style({
 	display: "inline-flex",
 	alignItems: "center",
-	gap: "0.75rem"
+	gap: "0.75rem",
+	justifyContent: "space-between"
 });
 
 export const switchComponent = style({
@@ -32,7 +33,7 @@ export const switchEnabled = style({
 });
 
 export const switchLabel = style({
-	fontWeight: 700
+	fontWeight: 800
 });
 
 globalStyle(`${switchEnabled} ${switchKnob}`, {
