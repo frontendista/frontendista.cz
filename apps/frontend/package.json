@@ -8,6 +8,7 @@
 		"package": "vite package",
 		"preview": "vite preview",
 		"preview:host": "vite preview --host",
+		"build:preview:host": "vite build && vite preview --host",
 		"prepare": "svelte-kit sync",
 		"test:e2e": "playwright test --quiet",
 		"test:e2e:ci": "playwright test --browser all",
