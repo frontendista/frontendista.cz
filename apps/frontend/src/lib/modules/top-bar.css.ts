@@ -81,7 +81,8 @@ export const actionBar = style({
 });
 
 export const actionBarButtonGroup = style({
-	marginLeft: "auto"
+	marginLeft: "auto",
+	display: "flex"
 });
 
 export const actionButton = style({
