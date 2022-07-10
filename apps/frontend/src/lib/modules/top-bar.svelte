@@ -1,5 +1,5 @@
 <script lang="ts">
-	import SettingsLink from "$components/settings-link.svelte";
+	import SettingsButton from "$components/settings-button.svelte";
 	import SideBarToggle from "$components/side-bar-toggle.svelte";
 	import ThemeToggle from "$components/theme-toggle.svelte";
 
@@ -14,7 +14,7 @@
 		<SideBarToggle />
 		<div class={actionBarButtonGroup}>
 			<ThemeToggle />
-			<SettingsLink />
+			<SettingsButton />
 		</div>
 	</div>
 </div>

@@ -1,5 +1,15 @@
 <script lang="ts">
 	import { actionButton } from "$modules/top-bar.css";
+	import { createPopperActions } from "svelte-popperjs";
+	const [popperRef, popperContent] = createPopperActions({
+		placement: "bottom",
+		strategy: "fixed"
+	});
+	const extraOpts = {
+		modifiers: [{ name: "offset", options: { offset: [0, 8] } }]
+	};
+
+	let showTooltip = false;
 
 	let rotation = 0;
 
@@ -8,7 +18,13 @@
 	}
 </script>
 
-<a sveltekit:prefetch href="/settings" class={actionButton} on:click={onClick}>
+<button
+	class={actionButton}
+	on:click={onClick}
+	use:popperRef
+	on:mouseenter={() => (showTooltip = true)}
+	on:mouseleave={() => (showTooltip = false)}
+>
 	<svg
 		xmlns="http://www.w3.org/2000/svg"
 		height="1em"
@@ -24,4 +40,10 @@
 		/>
 	</svg>
 	<span>Settings</span>
-</a>
+</button>
+{#if showTooltip}
+	<div id="tooltip" use:popperContent={extraOpts}>
+		My tooltip
+		<div id="arrow" data-popper-arrow />
+	</div>
+{/if}
