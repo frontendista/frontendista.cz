@@ -18,7 +18,7 @@ globalStyle("body", {
 	}
 });
 
-globalStyle(".visuallyHidden", {
+globalStyle(".sr-only", {
 	border: 0,
 	clip: "rect(0 0 0 0)",
 	clipPath: "inset(50%)",
@@ -48,7 +48,7 @@ export const buttonStyle = recipe({
 		fontSize: "1.25rem",
 		fontWeight: "bold",
 		borderRadius: "0.75rem",
-		transition: "0.3s ease-in-out",
+		transition: "transform 0.3s ease-in-out",
 		":active": {
 			transform: "scale(0.95)",
 			transition: "0.1s linear"
