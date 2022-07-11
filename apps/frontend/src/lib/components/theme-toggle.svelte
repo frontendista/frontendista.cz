@@ -2,6 +2,8 @@
 	import { scale, type ScaleParams } from "svelte/transition";
 	import { themeStore } from "$stores/theme-store";
 	import { actionButton } from "$modules/top-bar.css";
+	import cx from "clsx";
+	import { buttonStyle } from "$stylesheets/global.css";
 
 	const iconExitTransition: ScaleParams = {
 		duration: 500,
@@ -18,7 +20,12 @@
 
 <button
 	aria-label={`Switch to ${$themeStore === "dark" ? "light" : "dark"} themes`}
-	class={actionButton}
+	class={cx(
+		buttonStyle({
+			type: "secondary"
+		}),
+		actionButton
+	)}
 	on:click={themeStore.toggle}
 >
 	<svg height="1em" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">

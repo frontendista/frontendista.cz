@@ -1,4 +1,5 @@
 import { globalStyle } from "@vanilla-extract/css";
+import { recipe } from "@vanilla-extract/recipes";
 import { SIDE_BAR_WIDTH, TOP_BAR_HEIGHT } from "./constants.css";
 import { vars } from "./theme.css";
 
@@ -34,4 +35,38 @@ globalStyle("*:focus-visible", {
 	boxShadow: "0 0 0 4px red",
 	outline: "none",
 	transition: "0.3s box-shadow ease-in-out"
+});
+
+export const buttonStyle = recipe({
+	base: {
+		color: vars.fg.primary,
+		display: "inline-flex",
+		alignItems: "center",
+		justifyContent: "center",
+		gap: "0.75rem",
+		padding: "0 1.5rem",
+		fontSize: "1.25rem",
+		fontWeight: "bold",
+		borderRadius: "0.75rem",
+		transition: "0.3s ease-in-out",
+		":active": {
+			transform: "scale(0.95)",
+			transition: "0.1s linear"
+		}
+	},
+	variants: {
+		type: {
+			primary: {
+				background: "blue"
+			},
+			secondary: {
+				":hover": {
+					background: "#444"
+				}
+			}
+		}
+	},
+	defaultVariants: {
+		type: "primary"
+	}
 });

@@ -93,6 +93,7 @@ importers:
       '@typescript-eslint/parser': ^5.10.1
       '@vanilla-extract/css': ^1.7.2
       '@vanilla-extract/css-utils': ^0.1.2
+      '@vanilla-extract/recipes': ^0.2.5
       '@vanilla-extract/vite-plugin': ^3.2.1
       '@vitest/ui': ^0.10.5
       autoprefixer: ^10.4.5
@@ -140,6 +141,7 @@ importers:
       '@typescript-eslint/parser': 5.27.0_e4zyhrvfnqudwdx5bevnvkluy4
       '@vanilla-extract/css': 1.7.2
       '@vanilla-extract/css-utils': 0.1.2
+      '@vanilla-extract/recipes': 0.2.5_@vanilla-extract+css@1.7.2
       '@vanilla-extract/vite-plugin': 3.2.1_vite@2.9.13
       '@vitest/ui': 0.10.5
       autoprefixer: 10.4.7_postcss@8.4.14
@@ -4463,6 +4465,14 @@ packages:
 
   /@vanilla-extract/private/1.0.3:
     resolution: {integrity: sha512-17kVyLq3ePTKOkveHxXuIJZtGYs+cSoev7BlP+Lf4916qfDhk/HBjvlYDe8egrea7LNPHKwSZJK/bzZC+Q6AwQ==}
+    dev: true
+
+  /@vanilla-extract/recipes/0.2.5_@vanilla-extract+css@1.7.2:
+    resolution: {integrity: sha512-OWXUUiFJdswD3+Xg8f8avuw/vAHZRFS4oHqFeoV1TcO8cfbDQ0zmkreBHvyspoJU+qsyWK48yPHKSptqNRPy9Q==}
+    peerDependencies:
+      '@vanilla-extract/css': ^1.0.0
+    dependencies:
+      '@vanilla-extract/css': 1.7.2
     dev: true
 
   /@vanilla-extract/vite-plugin/3.2.1_vite@2.9.13:

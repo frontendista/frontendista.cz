@@ -6,6 +6,8 @@
 	import { settingsPanel } from "./settings-button.css";
 	import { createPopperActions, type PopperOptions } from "svelte-popperjs";
 	import { fade } from "svelte/transition";
+	import { buttonStyle } from "$stylesheets/global.css";
+	import cx from "clsx";
 
 	const [popperRef, popperContent] = createPopperActions();
 
@@ -17,7 +19,15 @@
 </script>
 
 <Popover let:open>
-	<PopoverButton class={actionButton} use={[popperRef]}>
+	<PopoverButton
+		class={cx(
+			buttonStyle({
+				type: "secondary"
+			}),
+			actionButton
+		)}
+		use={[popperRef]}
+	>
 		<svg
 			xmlns="http://www.w3.org/2000/svg"
 			height="1em"

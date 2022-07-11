@@ -87,29 +87,11 @@ export const actionBarButtonGroup = style({
 });
 
 export const actionButton = style({
-	color: vars.fg.primary,
-	display: "inline-flex",
-	gap: "0.75rem",
-	alignItems: "center",
-	justifyContent: "center",
-	height: "100%",
-	padding: "0 1.5rem",
-	fontSize: "1.25rem",
-	fontWeight: "bold",
 	textTransform: "uppercase",
-	borderRadius: "0.75rem",
-	transition: "0.3s ease-in-out",
-	":hover": {
-		// TODO: Token
-		background: "#444"
-	},
-	":active": {
-		transform: "scale(0.95)",
-		transition: "0.1s linear"
-	},
+	height: "100%",
 	"@media": {
 		"(max-width: 768px)": {
-			padding: "0 0.875rem"
+			padding: "0 0.875rem !important"
 		}
 	}
 });
