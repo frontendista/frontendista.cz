@@ -14,7 +14,6 @@
 	import SideBar from "$modules/side-bar.svelte";
 	import TopBar from "$modules/top-bar.svelte";
 	import "$stylesheets/global.css";
-	import "$stylesheets/base/normalize.css";
 	import "$stylesheets/base/reset.css";
 	import "$stylesheets/theme.css";
 	import { DEFAULT_DESCRIPTION, DEFAULT_TITLE } from "$utils/constants/seo";
