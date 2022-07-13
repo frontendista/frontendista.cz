@@ -8,6 +8,12 @@ export const vars = createGlobalThemeContract({
 	},
 	fg: {
 		primary: "fg-primary"
+	},
+	brand: {
+		primary: "brand-primary"
+	},
+	transition: {
+		focus: "transition-focus"
 	}
 });
 
@@ -19,6 +25,12 @@ createGlobalTheme(":root[data-theme=light]", vars, {
 	},
 	fg: {
 		primary: "#000"
+	},
+	brand: {
+		primary: "#2563eb"
+	},
+	transition: {
+		focus: "0.5s box-shadow ease"
 	}
 });
 
@@ -30,5 +42,11 @@ createGlobalTheme(":root[data-theme=dark]", vars, {
 	},
 	fg: {
 		primary: "#f2f2f2"
+	},
+	brand: {
+		primary: "#2563eb"
+	},
+	transition: {
+		focus: "0.5s box-shadow ease"
 	}
 });

@@ -31,7 +31,7 @@ export const link = style({
 			background: "#3A333A"
 		}
 	},
-	transition: "background 0.15s linear, transform 0.3s ease-in-out"
+	transition: `background 0.15s linear, transform 0.3s ease-in-out, ${vars.transition.focus}`
 });
 
 export const linkText = style({

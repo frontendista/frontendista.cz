@@ -1,3 +1,4 @@
+import { vars } from "$stylesheets/theme.css";
 import { globalStyle, style } from "@vanilla-extract/css";
 import { calc } from "@vanilla-extract/css-utils";
 
@@ -13,7 +14,8 @@ export const switchComponent = style({
 	height: 32,
 	borderRadius: 999,
 	padding: 2,
-	border: "2px solid #333"
+	border: "2px solid #333",
+	transition: vars.transition.focus
 });
 
 export const switchKnob = style({
@@ -27,7 +29,7 @@ export const switchKnob = style({
 });
 
 export const switchEnabled = style({
-	background: "#3BB2F6",
+	background: vars.brand.primary,
 	border: 0,
 	padding: 4
 });

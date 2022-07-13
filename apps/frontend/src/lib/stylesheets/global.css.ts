@@ -31,10 +31,13 @@ globalStyle(".sr-only", {
 	whiteSpace: "nowrap"
 });
 
+globalStyle("*", {
+	transition: vars.transition.focus
+});
+
 globalStyle("*:focus-visible", {
-	boxShadow: "0 0 0 4px red",
-	outline: "none",
-	transition: "0.3s box-shadow ease-in-out"
+	boxShadow: `0 0 0 4px ${vars.brand.primary}`,
+	outline: "none"
 });
 
 export const buttonStyle = recipe({
@@ -48,7 +51,7 @@ export const buttonStyle = recipe({
 		fontSize: "1.25rem",
 		fontWeight: "bold",
 		borderRadius: "0.75rem",
-		transition: "transform 0.3s ease-in-out",
+		transition: `transform 0.3s ease-in-out, ${vars.transition.focus}`,
 		":active": {
 			transform: "scale(0.95)",
 			transition: "0.1s linear"
