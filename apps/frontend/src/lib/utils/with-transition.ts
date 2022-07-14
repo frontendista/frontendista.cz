@@ -1,4 +1,4 @@
-import { vars } from "$stylesheets/theme.css";
+import { utilities } from "$stylesheets/theme.css";
 
 /**
  * Combines provided transition shorthand with the global transition.
@@ -7,5 +7,5 @@ import { vars } from "$stylesheets/theme.css";
  * @returns Combined transition.
  */
 export function withTransition(transition: string) {
-	return `${vars.transition.global}, ${transition}`;
+	return `${utilities.transitionGlobal}, ${transition}`;
 }
