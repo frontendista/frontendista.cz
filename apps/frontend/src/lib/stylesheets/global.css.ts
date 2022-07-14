@@ -1,3 +1,4 @@
+import { withTransition } from "$utils/with-transition";
 import { globalStyle } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
 import { SIDE_BAR_WIDTH, TOP_BAR_HEIGHT } from "./constants.css";
@@ -32,7 +33,7 @@ globalStyle(".sr-only", {
 });
 
 globalStyle("*", {
-	transition: vars.transition.focus
+	transition: vars.transition.global
 });
 
 globalStyle("*:focus-visible", {
@@ -51,7 +52,7 @@ export const buttonStyle = recipe({
 		fontSize: "1.25rem",
 		fontWeight: "bold",
 		borderRadius: "0.75rem",
-		transition: `transform 0.3s ease-in-out, ${vars.transition.focus}`,
+		transition: withTransition("transform 0.3s ease-in-out"),
 		":active": {
 			transform: "scale(0.95)",
 			transition: "0.1s linear"

@@ -1,4 +1,5 @@
 import { vars } from "$stylesheets/theme.css";
+import { withTransition } from "$utils/with-transition";
 import { style } from "@vanilla-extract/css";
 
 export const container = style({
@@ -23,7 +24,7 @@ export const link = style({
 	},
 	":active": {
 		transform: "scale(0.95)",
-		transition: "0.1s linear"
+		transition: withTransition("transform 0.1s linear")
 	},
 	selectors: {
 		"&[aria-current=true]": {
@@ -31,7 +32,7 @@ export const link = style({
 			background: "#3A333A"
 		}
 	},
-	transition: `background 0.15s linear, transform 0.3s ease-in-out, ${vars.transition.focus}`
+	transition: withTransition(`background 0.15s linear, transform 0.3s ease-in-out`)
 });
 
 export const linkText = style({

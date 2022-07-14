@@ -14,8 +14,7 @@ export const switchComponent = style({
 	height: 32,
 	borderRadius: 999,
 	padding: 2,
-	border: "2px solid #333",
-	transition: vars.transition.focus
+	border: "2px solid #333"
 });
 
 export const switchKnob = style({
