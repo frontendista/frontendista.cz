@@ -20,7 +20,13 @@
 		{#if icon}
 			<svelte:component this={icon} height="1em" />
 		{:else if isExternal}
-			<img src={`https://www.google.com/s2/favicons?domain=${href}&sz=32`} alt="" class={favicon} />
+			<img
+				src={`https://www.google.com/s2/favicons?domain=${href}&sz=32`}
+				height="16"
+				width="16"
+				alt=""
+				class={favicon}
+			/>
 		{/if}
 		<span class={linkText}>
 			<slot />
