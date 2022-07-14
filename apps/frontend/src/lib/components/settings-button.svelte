@@ -14,7 +14,7 @@
 	const popperOptions: PopperOptions<any> = {
 		placement: "bottom-end",
 		strategy: "fixed",
-		modifiers: [{ name: "offset", options: { offset: [0, 16] } }]
+		modifiers: [{ name: "offset", options: { offset: [0, 32] } }]
 	};
 </script>
 

@@ -1,4 +1,4 @@
-import { vars } from "$stylesheets/theme.css";
+import { utilities, vars } from "$stylesheets/theme.css";
 import { style } from "@vanilla-extract/css";
 
 export const settingsPanel = style({
@@ -8,5 +8,6 @@ export const settingsPanel = style({
 	background: vars.bg.primary,
 	display: "flex",
 	flexFlow: "column wrap",
-	gap: "0.75rem"
+	gap: "0.75rem",
+	boxShadow: utilities.shadow.highElevation
 });

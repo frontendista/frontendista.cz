@@ -2,7 +2,7 @@ import { withTransition } from "$utils/with-transition";
 import { globalStyle } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
 import { SIDE_BAR_WIDTH, TOP_BAR_HEIGHT } from "./constants.css";
-import { vars } from "./theme.css";
+import { utilities, vars } from "./theme.css";
 
 globalStyle(":root", {
 	background: vars.bg.primary,
@@ -33,7 +33,7 @@ globalStyle(".sr-only", {
 });
 
 globalStyle("*", {
-	transition: vars.transition.global
+	transition: utilities.transitionGlobal
 });
 
 globalStyle("*:focus-visible", {
