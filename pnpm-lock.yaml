@@ -94,6 +94,7 @@ importers:
       '@vanilla-extract/css': ^1.7.2
       '@vanilla-extract/css-utils': ^0.1.2
       '@vanilla-extract/recipes': ^0.2.5
+      '@vanilla-extract/sprinkles': ^1.4.1
       '@vanilla-extract/vite-plugin': ^3.2.1
       '@vitest/ui': ^0.10.5
       autoprefixer: ^10.4.5
@@ -142,6 +143,7 @@ importers:
       '@vanilla-extract/css': 1.7.2
       '@vanilla-extract/css-utils': 0.1.2
       '@vanilla-extract/recipes': 0.2.5_@vanilla-extract+css@1.7.2
+      '@vanilla-extract/sprinkles': 1.4.1_@vanilla-extract+css@1.7.2
       '@vanilla-extract/vite-plugin': 3.2.1_vite@2.9.13
       '@vitest/ui': 0.10.5
       autoprefixer: 10.4.7_postcss@8.4.14
@@ -4469,6 +4471,14 @@ packages:
 
   /@vanilla-extract/recipes/0.2.5_@vanilla-extract+css@1.7.2:
     resolution: {integrity: sha512-OWXUUiFJdswD3+Xg8f8avuw/vAHZRFS4oHqFeoV1TcO8cfbDQ0zmkreBHvyspoJU+qsyWK48yPHKSptqNRPy9Q==}
+    peerDependencies:
+      '@vanilla-extract/css': ^1.0.0
+    dependencies:
+      '@vanilla-extract/css': 1.7.2
+    dev: true
+
+  /@vanilla-extract/sprinkles/1.4.1_@vanilla-extract+css@1.7.2:
+    resolution: {integrity: sha512-aW6CfMMToX4a+baLuVxwcT0FSACjX3xrNt8wdi/3LLRlLAfhyue8OK7kJxhcYNZfydBeWTP59aRy8p5FUTIeew==}
     peerDependencies:
       '@vanilla-extract/css': ^1.0.0
     dependencies:
