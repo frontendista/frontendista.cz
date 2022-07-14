@@ -29,7 +29,9 @@ export const vars = createGlobalThemeContract({
 		primary: "fg-primary"
 	},
 	brand: {
-		primary: "brand-primary"
+		primary: "brand-primary",
+		secondary: "brand-secondary",
+		tertiary: "brand-tertiary"
 	}
 });
 
@@ -43,7 +45,9 @@ createGlobalTheme(":root[data-theme=light]", vars, {
 		primary: "#000"
 	},
 	brand: {
-		primary: "#2563eb"
+		primary: "#2563eb",
+		secondary: "#3b82f6",
+		tertiary: "#60a5fa"
 	}
 });
 
@@ -57,6 +61,8 @@ createGlobalTheme(":root[data-theme=dark]", vars, {
 		primary: "#f2f2f2"
 	},
 	brand: {
-		primary: "#2563eb"
+		primary: "#2563eb",
+		secondary: "#3b82f6",
+		tertiary: "#60a5fa"
 	}
 });
