@@ -13,15 +13,15 @@ export const vars = createGlobalThemeContract({
 		primary: "brand-primary"
 	},
 	transition: {
-		focus: "transition-focus"
+		global: "transition-global"
 	}
 });
 
 createGlobalTheme(":root[data-theme=light]", vars, {
 	bg: {
 		primary: "#fff",
-		secondary: "TODO",
-		tertiary: "TODO"
+		secondary: "#f2f2f2",
+		tertiary: "#000"
 	},
 	fg: {
 		primary: "#000"
@@ -30,7 +30,7 @@ createGlobalTheme(":root[data-theme=light]", vars, {
 		primary: "#2563eb"
 	},
 	transition: {
-		focus: "0.5s box-shadow ease"
+		global: "box-shadow 0.5s ease, color 0.3s linear, background 0.3s linear"
 	}
 });
 
@@ -47,6 +47,6 @@ createGlobalTheme(":root[data-theme=dark]", vars, {
 		primary: "#2563eb"
 	},
 	transition: {
-		focus: "0.5s box-shadow ease"
+		global: "box-shadow 0.5s ease, color 0.3s linear, background 0.3s linear"
 	}
 });
