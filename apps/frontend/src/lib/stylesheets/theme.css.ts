@@ -1,7 +1,7 @@
 import { createGlobalTheme, createGlobalThemeContract } from "@vanilla-extract/css";
 
 export const utilities = createGlobalTheme(":root", {
-	transitionGlobal: "box-shadow 0.5s ease, color 0.3s linear, background 0.3s linear",
+	transitionGlobal: "box-shadow 0.5s ease, background 0.3s linear",
 	shadow: {
 		lowElevation: "",
 		mediumElevation: "",
