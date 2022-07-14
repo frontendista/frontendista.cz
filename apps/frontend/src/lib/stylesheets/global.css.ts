@@ -61,7 +61,7 @@ export const buttonStyle = recipe({
 	variants: {
 		type: {
 			primary: {
-				background: "blue"
+				background: vars.brand.primary
 			},
 			secondary: {
 				":hover": {
