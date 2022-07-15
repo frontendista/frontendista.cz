@@ -9,6 +9,7 @@ export const container = style([
 	{
 		padding: 0,
 		width: "3rem",
+		height: "100%",
 		fontSize: "1.5rem",
 		"@media": {
 			"(min-width: 768px)": {
