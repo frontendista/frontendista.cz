@@ -7,7 +7,7 @@
 	export let lqip: string;
 	export let width: number;
 	export let height: number;
-	export let aspectRatio: number;
+	// export let aspectRatio: number;
 
 	const SIZES = [320, 560, 768, 1300, 1920, 2560];
 

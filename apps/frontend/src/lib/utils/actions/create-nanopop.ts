@@ -11,6 +11,7 @@ export function createNanopop(options: Options) {
 	let contentNode: HTMLElement | null = null;
 
 	function initPosition() {
+		console.log("called");
 		if (referenceNode && contentNode) {
 			reposition(referenceNode, contentNode, options);
 		}
@@ -19,6 +20,7 @@ export function createNanopop(options: Options) {
 	const referenceAction: Action = (node) => {
 		referenceNode = node;
 		initPosition();
+
 		return {
 			destroy: () => {
 				referenceNode = null;
@@ -31,8 +33,11 @@ export function createNanopop(options: Options) {
 
 		initPosition();
 
+		window.addEventListener("resize", initPosition);
+
 		return {
 			destroy: () => {
+				window.removeEventListener("resize", initPosition);
 				contentNode = null;
 			}
 		};
