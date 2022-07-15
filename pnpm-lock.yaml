@@ -77,7 +77,6 @@ importers:
     specifiers:
       '@playwright/test': 1.22.2
       '@poppanator/sveltekit-svg': ^0.3.4
-      '@popperjs/core': ^2.11.5
       '@portabletext/svelte': ^1.0.1
       '@rgossiaux/svelte-headlessui': ^1.0.2
       '@sanity/client': ^3.3.1
@@ -107,10 +106,10 @@ importers:
       eslint-plugin-svelte3: ^3.2.1
       happy-dom: ^3.1.1
       html-minifier-terser: ^7.0.0-alpha.2
+      nanopop: ^2.1.0
       postcss: ^8.4.12
       svelte: ^3.44.0
       svelte-check: ^2.2.6
-      svelte-popperjs: ^1.2.10
       svelte-preprocess: ^4.10.1
       tslib: ^2.3.1
       typescript: ~4.6.2
@@ -119,15 +118,14 @@ importers:
       vitest: ^0.10.5
       zod: ^3.17.3
     dependencies:
-      '@popperjs/core': 2.11.5
       '@portabletext/svelte': 1.0.1_svelte@3.48.0
       '@rgossiaux/svelte-headlessui': 1.0.2_svelte@3.48.0
       '@sanity/client': 3.3.1
       '@sveltejs/adapter-vercel': 1.0.0-next.58
       '@sveltejs/kit': 1.0.0-next.359_svelte@3.48.0+vite@2.9.13
       clsx: 1.2.1
+      nanopop: 2.1.0
       svelte: 3.48.0
-      svelte-popperjs: 1.2.10_@popperjs+core@2.11.5
       zod: 3.17.3
     devDependencies:
       '@playwright/test': 1.22.2
@@ -11067,6 +11065,10 @@ packages:
     dev: false
     optional: true
 
+  /nanopop/2.1.0:
+    resolution: {integrity: sha512-jGTwpFRexSH+fxappnGQtN9dspgE2ipa1aOjtR24igG0pv6JCxImIAmrLRHX+zUF5+1wtsFVbKyfP51kIGAVNw==}
+    dev: false
+
   /natural-compare/1.4.0:
     resolution: {integrity: sha512-OWND8ei3VtNC9h7V60qff3SVobHr996CTwgxubgyQYEpg290h9J0buyECNNJexkFm5sOajh5G116RYA1c8ZMSw==}
     dev: true
@@ -14706,14 +14708,6 @@ packages:
       svelte: '>=3.19.0'
     dependencies:
       svelte: 3.48.0
-
-  /svelte-popperjs/1.2.10_@popperjs+core@2.11.5:
-    resolution: {integrity: sha512-3jetqQh8q+n2497M397IN2UaiOhCY/sLpH01FSaH+XGi649QDmVWJPNxS/PxSGadoHb+teY/tMAh2YhzT7+vVw==}
-    peerDependencies:
-      '@popperjs/core': 2.x
-    dependencies:
-      '@popperjs/core': 2.11.5
-    dev: false
 
   /svelte-preprocess/4.10.7_duhgfvbo5codih7syhobgij5ny:
     resolution: {integrity: sha512-sNPBnqYD6FnmdBrUmBCaqS00RyCsCpj2BG58A1JBswNF7b0OKviwxqVrOL/CKyJrLSClrSeqQv5BXNg2RUbPOw==}
