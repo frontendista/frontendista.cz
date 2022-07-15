@@ -8,7 +8,7 @@
 
 <div class={container}>
 	<a class={logo} href="/">
-		<span class="sr-only">Frontendista</span>
+		<span data-sr>Frontendista</span>
 	</a>
 	<div class={actionBar}>
 		<SideBarToggle />

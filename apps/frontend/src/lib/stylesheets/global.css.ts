@@ -19,16 +19,16 @@ globalStyle("body", {
 	}
 });
 
-globalStyle(".sr-only", {
-	border: 0,
-	clip: "rect(0 0 0 0)",
-	clipPath: "inset(50%)",
-	height: 1,
-	margin: "0 -1px -1px 0",
-	overflow: "hidden",
-	padding: 0,
+globalStyle("*[data-sr]", {
+	border: "0 !important",
+	clip: "rect(0 0 0 0) !important",
+	clipPath: "inset(50%) !important",
+	height: "1px !important",
+	margin: "0 -1px -1px 0 !important",
+	overflow: "hidden !important",
+	padding: "0 !important",
 	position: "absolute",
-	width: 1,
+	width: "1px !important",
 	whiteSpace: "nowrap"
 });
 
