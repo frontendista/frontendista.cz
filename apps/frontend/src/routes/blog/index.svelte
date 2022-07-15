@@ -14,6 +14,7 @@
 </script>
 
 <script lang="ts">
+	import SanityImage from "$components/sanity-image.svelte";
 	import { BLOG_PAGE_DESCRIPTION, BLOG_PAGE_TITLE } from "$utils/constants/seo";
 
 	import type { BlogPostPreviews } from "$utils/queries/post-previews";
@@ -24,7 +25,7 @@
 <h1>Blog</h1>
 {#each posts as { title, author, publishedAt, slug, thumbnail }}
 	<article>
-		<img src={thumbnail.url} alt="" />
+		<SanityImage {...thumbnail} />
 		<h1>{title}</h1>
 		<time datetime={publishedAt}>{new Date(publishedAt)}</time>
 		<div>
