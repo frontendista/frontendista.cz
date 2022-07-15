@@ -37,7 +37,7 @@ globalStyle("*", {
 });
 
 globalStyle("*:focus-visible", {
-	boxShadow: `0 0 0 4px ${vars.brand.primary}`,
+	boxShadow: `0 0 0 4px ${vars.brand.tertiary}`,
 	outline: "none"
 });
 
