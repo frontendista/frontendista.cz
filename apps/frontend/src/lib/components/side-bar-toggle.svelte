@@ -12,6 +12,7 @@
 	aria-label={$isSideBarVisible ? "Close Sidebar" : "Open Sidebar"}
 	aria-expanded={$isSideBarVisible}
 	on:click={isSideBarVisible.toggle}
+	type="button"
 >
 	{#if $isSideBarVisible}
 		<svelte:component this={HiX} height="1em" />
