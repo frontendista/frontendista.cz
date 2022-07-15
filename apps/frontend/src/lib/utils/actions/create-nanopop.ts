@@ -1,5 +1,8 @@
-import { reposition, type NanoPopOptions } from "nanopop";
+import * as nanopop from "nanopop";
 import type { Action } from "svelte/action";
+import type { NanoPopOptions } from "nanopop";
+
+const { reposition } = nanopop;
 
 type Options = Partial<Omit<NanoPopOptions, "popper" | "reference">>;
 
