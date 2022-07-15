@@ -4,18 +4,15 @@
 	import { actionButton } from "$modules/top-bar.css";
 	import { Popover, PopoverButton, PopoverPanel } from "@rgossiaux/svelte-headlessui";
 	import { settingsPanel } from "./settings-button.css";
-	import { createPopperActions, type PopperOptions } from "svelte-popperjs";
 	import { fade } from "svelte/transition";
 	import { buttonStyle } from "$stylesheets/global.css";
 	import cx from "clsx";
+	import { createNanopop } from "$utils/actions/show-dropdown";
 
-	const [popperRef, popperContent] = createPopperActions();
-
-	const popperOptions: PopperOptions<any> = {
-		placement: "bottom-end",
-		strategy: "fixed",
-		modifiers: [{ name: "offset", options: { offset: [0, 32] } }]
-	};
+	const [reference, popper] = createNanopop({
+		position: "bottom-end",
+		margin: 32
+	});
 </script>
 
 <Popover let:open>
@@ -26,7 +23,7 @@
 			}),
 			actionButton
 		)}
-		use={[popperRef]}
+		use={[reference]}
 	>
 		<svg
 			xmlns="http://www.w3.org/2000/svg"
@@ -45,8 +42,8 @@
 		<span>Settings</span>
 	</PopoverButton>
 	{#if open}
-		<div in:fade out:fade>
-			<PopoverPanel class={settingsPanel} use={[[popperContent, popperOptions]]} static>
+		<div style:position="fixed" in:fade out:fade use:popper>
+			<PopoverPanel class={settingsPanel} static>
 				<Switch
 					label="REDUCE MOTION"
 					checked={$motionStore.value}
