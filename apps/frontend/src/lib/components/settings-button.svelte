@@ -7,7 +7,7 @@
 	import { fade } from "svelte/transition";
 	import { buttonStyle } from "$stylesheets/global.css";
 	import cx from "clsx";
-	import { createNanopop } from "$utils/actions/show-dropdown";
+	import { createNanopop } from "$utils/actions/create-nanopop";
 
 	const [reference, popper] = createNanopop({
 		position: "bottom-end",
