@@ -5,8 +5,8 @@
 		return {
 			props,
 			stuff: {
-				title: "Blog",
-				description: "TODO: Blog page meta tag description"
+				title: BLOG_PAGE_TITLE,
+				description: BLOG_PAGE_DESCRIPTION
 				// TODO: image
 			}
 		};
@@ -14,6 +14,8 @@
 </script>
 
 <script lang="ts">
+	import { BLOG_PAGE_DESCRIPTION, BLOG_PAGE_TITLE } from "$utils/constants/seo";
+
 	import type { BlogPostPreviews } from "$utils/queries/post-previews";
 
 	export let posts: BlogPostPreviews;

@@ -1,11 +1,13 @@
 <script context="module" lang="ts">
+	import { CONTACT_PAGE_DESCRIPTION, CONTACT_PAGE_TITLE } from "$utils/constants/seo";
+
 	import type { Load } from ".svelte-kit/types/src/routes/contact/__types/index";
 
 	export const load: Load = async () => {
 		return {
 			stuff: {
-				title: "Contact",
-				description: "TODO: Contact page meta tag description"
+				title: CONTACT_PAGE_TITLE,
+				description: CONTACT_PAGE_DESCRIPTION
 				// TODO: image
 			}
 		};

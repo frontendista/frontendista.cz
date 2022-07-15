@@ -16,6 +16,6 @@
 	],
 	"theme_color": "#60a5fa",
 	"background_color": "#60a5fa",
-	"start_url": "https://frontendista.cz",
+	"start_url": "/",
 	"display": "standalone"
 }

@@ -22,7 +22,7 @@
 </script>
 
 <svelte:head>
-	<title>{$page.stuff.title || DEFAULT_TITLE}</title>
+	<title>{"frontendista – " + $page.stuff.title || DEFAULT_TITLE}</title>
 	<link rel="canonical" href={$page.url.href} />
 	<meta name="description" content={$page.stuff.description || DEFAULT_DESCRIPTION} />
 	<meta property="og:title" content={$page.stuff.title || DEFAULT_TITLE} />
