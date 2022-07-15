@@ -4,8 +4,8 @@ import type { PlaywrightTestConfig } from "@playwright/test";
 
 const config: PlaywrightTestConfig = {
 	webServer: {
-		command: "npm run build && npm run preview",
-		port: 3000
+		command: "pnpm build && pnpm preview",
+		port: 3300
 	},
 	testMatch: /.*(e2e)\.(js|ts|mjs)/,
 	retries: process.env.CI ? 2 : 0
