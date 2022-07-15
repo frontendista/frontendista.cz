@@ -11,10 +11,10 @@
 		<span data-sr>Frontendista</span>
 	</a>
 	<div class={actionBar}>
-		<SideBarToggle />
 		<div class={actionBarButtonGroup}>
 			<ThemeToggle />
 			<SettingsButton />
 		</div>
+		<SideBarToggle />
 	</div>
 </div>

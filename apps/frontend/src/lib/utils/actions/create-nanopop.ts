@@ -11,7 +11,6 @@ export function createNanopop(options: Options) {
 	let contentNode: HTMLElement | null = null;
 
 	function initPosition() {
-		console.log("called");
 		if (referenceNode && contentNode) {
 			reposition(referenceNode, contentNode, options);
 		}

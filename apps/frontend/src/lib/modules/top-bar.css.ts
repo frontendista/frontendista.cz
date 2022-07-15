@@ -83,7 +83,13 @@ export const actionBar = style({
 export const actionBarButtonGroup = style({
 	marginLeft: "auto",
 	display: "flex",
-	gap: "0.75rem"
+	gap: "0.75rem",
+	"@media": {
+		"(max-width: 768px)": {
+			marginRight: "auto",
+			marginLeft: 0
+		}
+	}
 });
 
 export const actionButton = style({

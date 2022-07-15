@@ -20,11 +20,7 @@ export const container = style({
 	"@media": {
 		"(max-width: 768px)": {
 			width: "100vw",
-			transform: "translateX(-100%)"
-		},
-		"(min-width: 768px)": {
-			// NOTE: This is a workaround to disable animation on desktop while navigating
-			animation: "none !important"
+			display: "none"
 		}
 	}
 });
@@ -32,7 +28,7 @@ export const container = style({
 export const visible = style({
 	"@media": {
 		"(max-width: 768px)": {
-			transform: "translateX(0)"
+			display: "flex"
 		}
 	}
 });
