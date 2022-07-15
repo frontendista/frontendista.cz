@@ -1,4 +1,4 @@
-import { SIDE_BAR_WIDTH, SIDE_BAR_ZINDEX, TOP_BAR_HEIGHT } from "$stylesheets/constants.css";
+import { SIDE_BAR_WIDTH, TOP_BAR_HEIGHT, TOP_BAR_ZINDEX } from "$stylesheets/constants.css";
 import { vars } from "$stylesheets/theme.css";
 import { globalStyle, keyframes, style } from "@vanilla-extract/css";
 
@@ -12,7 +12,7 @@ export const container = style({
 	borderBottom: `1px solid ${vars.bg.tertiary}`,
 	background: "rgb(16, 14, 15, 0.5)",
 	backdropFilter: "blur(10px) saturate(150%) contrast(150%)",
-	zIndex: SIDE_BAR_ZINDEX + 1
+	zIndex: TOP_BAR_ZINDEX
 });
 
 const gradientFlowAnimation = keyframes({

@@ -17,6 +17,7 @@
 	import "$stylesheets/base/reset.css";
 	import "$stylesheets/theme.css";
 	import { DEFAULT_DESCRIPTION, DEFAULT_TITLE } from "$utils/constants/seo";
+	import SkipNavigationLinks from "$components/skip-navigation-links.svelte";
 
 	export let pathname: string;
 </script>
@@ -40,6 +41,7 @@
 	{/if}
 </svelte:head>
 
+<SkipNavigationLinks />
 <TopBar />
 <SideBar />
 <PageTransition key={pathname}>

@@ -52,6 +52,7 @@ export const buttonStyle = recipe({
 		fontSize: "1.25rem",
 		fontWeight: "bold",
 		borderRadius: "0.75rem",
+		whiteSpace: "nowrap",
 		transition: withTransition("transform 0.3s ease-in-out"),
 		":active": {
 			transform: "scale(0.95)",
@@ -59,6 +60,12 @@ export const buttonStyle = recipe({
 		}
 	},
 	variants: {
+		size: {
+			normal: {},
+			large: {
+				height: "3rem"
+			}
+		},
 		type: {
 			primary: {
 				background: vars.brand.primary
@@ -71,6 +78,7 @@ export const buttonStyle = recipe({
 		}
 	},
 	defaultVariants: {
-		type: "primary"
+		type: "primary",
+		size: "normal"
 	}
 });

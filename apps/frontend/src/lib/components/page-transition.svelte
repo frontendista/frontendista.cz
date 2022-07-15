@@ -10,6 +10,7 @@
 
 {#key key}
 	<main
+		id="content"
 		in:transition={{
 			delay: 500,
 			duration: 500,
