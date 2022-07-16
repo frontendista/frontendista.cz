@@ -58,13 +58,25 @@
 
 <form novalidate class={container} on:submit={handleSubmit}>
 	<Label title="First name" error={$errors.firstname} let:props>
-		<input name="firstname" type="text" {...props} on:change={handleChange} />
+		<input name="firstname" placeholder="Walter" type="text" {...props} on:change={handleChange} />
 	</Label>
 	<Label title="Email" error={$errors.email} let:props>
-		<input name="email" type="email" {...props} on:change={handleChange} />
+		<input
+			name="email"
+			placeholder="walter@white.com"
+			type="email"
+			{...props}
+			on:change={handleChange}
+		/>
 	</Label>
 	<Label title="Message" error={$errors.message} required let:props>
-		<textarea name="message" maxlength={255} {...props} on:change={handleChange} />
+		<textarea
+			name="message"
+			placeholder="I'm not in danger, Skyler. I'm the danger."
+			maxlength={255}
+			{...props}
+			on:change={handleChange}
+		/>
 	</Label>
 	<button
 		class={buttonStyle({
