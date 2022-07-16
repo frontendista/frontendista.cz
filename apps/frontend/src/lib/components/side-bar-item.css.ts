@@ -19,9 +19,6 @@ export const link = style({
 	":hover": {
 		background: vars.bg.tertiary
 	},
-	":focus": {
-		background: vars.bg.tertiary
-	},
 	":active": {
 		transform: "scale(0.95)",
 		transition: withTransition("transform 0.1s linear")

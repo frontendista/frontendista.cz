@@ -17,22 +17,22 @@ export const container = style({
 
 const gradientFlowAnimation = keyframes({
 	from: {
-		backgroundPosition: "0 center"
+		backgroundPositionX: "0%"
 	},
 	to: {
-		backgroundPosition: "166% center"
+		backgroundPositionX: "200%"
 	}
 });
 
 const gradientFlowAnimationSmall = keyframes({
 	from: {
-		color: "#fc00ff"
+		color: vars.brand.primary
 	},
 	"50%": {
-		color: "#00dbde"
+		color: vars.brand.tertiary
 	},
 	to: {
-		color: "#fc00ff"
+		color: vars.brand.primary
 	}
 });
 
@@ -62,10 +62,10 @@ export const logo = style({
 globalStyle(`${logo}:hover:after`, {
 	"@media": {
 		"(min-width: 768px)": {
-			backgroundSize: "250% auto",
+			backgroundSize: "200% auto",
 			backgroundClip: "text",
 			WebkitTextFillColor: "transparent",
-			backgroundImage: "linear-gradient(90deg, #fc00ff 0%, #00dbde 33%, #00dbde 66%, #fc00ff 100%)",
+			backgroundImage: `linear-gradient(90deg, ${vars.brand.primary} 0%, ${vars.brand.tertiary} 50%, ${vars.brand.primary} 100%)`,
 			animation: `5s ${gradientFlowAnimation} linear infinite`
 		},
 		"(max-width: 768px)": {
