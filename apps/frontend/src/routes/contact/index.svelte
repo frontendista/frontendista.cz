@@ -1,4 +1,5 @@
 <script context="module" lang="ts">
+	import ContactForm from "$modules/contact-form.svelte";
 	import { CONTACT_PAGE_DESCRIPTION, CONTACT_PAGE_TITLE } from "$utils/constants/seo";
 
 	import type { Load } from ".svelte-kit/types/src/routes/contact/__types/index";
@@ -14,15 +15,5 @@
 	};
 </script>
 
-<label>
-	Name
-	<input type="text" />
-</label>
-<label>
-	Email
-	<input type="text" />
-</label>
-<label>
-	Message
-	<textarea />
-</label>
+<h1>Contact form</h1>
+<ContactForm />
