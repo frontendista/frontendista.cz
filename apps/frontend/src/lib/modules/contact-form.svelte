@@ -1,0 +1,79 @@
+<script lang="ts">
+	import { createForm } from "svelte-forms-lib";
+	import { buttonStyle } from "$stylesheets/global.css";
+	import { container } from "./contact-form.css";
+	import Label from "$common/label.svelte";
+
+	interface IContactFormData {
+		firstname: string;
+		email: string;
+		message: string;
+	}
+
+	function validate({ email, firstname, message }: IContactFormData) {
+		const errors: Partial<IContactFormData> = {};
+
+		if (!message) {
+			errors.message = "Message is required";
+		} else if (message.trim().length < 10) {
+			errors.message = "Message must be at least 10 characters";
+		}
+
+		if (email) {
+			const emailRegex =
+				/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+			if (!emailRegex.test(email)) {
+				errors.email = "Email is invalid";
+			}
+		}
+
+		if (firstname) {
+			if (firstname.trim().length < 2) {
+				errors.firstname = "Firstname is too short";
+			}
+
+			if (firstname.trim().length > 50) {
+				errors.firstname = "Firstname is too long";
+			}
+		}
+
+		return errors;
+	}
+
+	async function onSubmit(data: IContactFormData) {
+		await new Promise((resolve) => setTimeout(resolve, 2500));
+		console.log(data);
+	}
+
+	const { handleChange, handleSubmit, errors, handleReset } = createForm<IContactFormData>({
+		onSubmit,
+		validate,
+		initialValues: {
+			message: "",
+			firstname: "",
+			email: ""
+		}
+	});
+</script>
+
+<form novalidate class={container} on:submit={handleSubmit}>
+	<Label title="First name" error={$errors.firstname} let:props>
+		<input name="firstname" type="text" {...props} on:change={handleChange} />
+	</Label>
+	<Label title="Email" error={$errors.email} let:props>
+		<input name="email" type="email" {...props} on:change={handleChange} />
+	</Label>
+	<Label title="Message" error={$errors.message} required let:props>
+		<textarea name="message" maxlength={255} {...props} on:change={handleChange} />
+	</Label>
+	<button
+		class={buttonStyle({
+			type: "secondary"
+		})}
+		type="reset"
+		on:click={handleReset}
+	>
+		Reset
+	</button>
+	<button class={buttonStyle()} type="submit">Submit</button>
+</form>

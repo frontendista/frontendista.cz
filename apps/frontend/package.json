@@ -29,7 +29,7 @@
 		"clsx": "^1.2.1",
 		"nanopop": "^2.1.0",
 		"svelte": "^3.48.0",
-		"svelte-forms": "^2.3.1",
+		"svelte-forms-lib": "^2.0.1",
 		"zod": "^3.17.3"
 	},
 	"devDependencies": {
