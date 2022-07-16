@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { container } from "./label.css";
+
 	export let title: string;
 	export let error: string | null = null;
 	export let required: true | undefined = undefined;
@@ -7,7 +9,7 @@
 </script>
 
 <!-- svelte-ignore a11y-label-has-associated-control -->
-<label>
+<label class={container}>
 	<span>
 		{title}
 	</span>
