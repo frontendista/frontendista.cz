@@ -121,7 +121,7 @@ jobs:
       - name: 👟 Run Bundlewatch
         uses: preactjs/compressed-size-action@v2
         with:
-          pattern: "./.vercel_build_output/static/**/*.{js,css,html}"
+          pattern: "./.vercel/output/static/_app/**/*.{js,css}"
           strip-hash: "\\b-[a-z0-9]{1,}\\b"
           compression: "brotli"
           cwd: apps/frontend
