@@ -10,7 +10,7 @@ import { ZodError } from "zod";
 
 type ReturnValue = { post: BlogPostContent | null };
 
-export const get: RequestHandler<ReturnValue> = async ({ params }) => {
+export const GET: RequestHandler<ReturnValue> = async ({ params }) => {
 	try {
 		const result = await sanityClient.fetch<BlogPostContent>(GROQ_POST_CONTENT, {
 			slug: params.slug
