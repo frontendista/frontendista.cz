@@ -41,6 +41,14 @@ globalStyle("*:focus-visible", {
 	outline: "none"
 });
 
+globalStyle("input, textarea", {
+	color: vars.fg.primary
+});
+
+globalStyle("input::placeholder, textarea::placeholder", {
+	color: "#555"
+});
+
 export const buttonStyle = recipe({
 	base: {
 		color: vars.fg.primary,

@@ -1,7 +1,9 @@
 <script lang="ts">
 	import cx from "clsx";
 
-	import { container, labelText, requiredField } from "./label.css";
+	import ExclamationCircle from "$icons/hi-exclamation-circle.svg";
+
+	import { container, labelText, requiredField, errorField, errorMessage } from "./label.css";
 
 	export let title: string;
 	export let error: string | null = null;
@@ -11,15 +13,21 @@
 </script>
 
 <!-- svelte-ignore a11y-label-has-associated-control -->
-<label class={container}>
-	<span
-		class={cx(labelText, {
-			[requiredField]: required
-		})}
-	>
-		{title}
+<label
+	class={cx(container, {
+		[errorField]: error
+	})}
+>
+	<span class={labelText}>
+		<span class={required && requiredField}>{title}</span>
 		{#if required}
 			<span data-sr>(Required)</span>
+		{/if}
+		{#if error}
+			<p class={errorMessage} id={errorId}>
+				<svelte:component this={ExclamationCircle} height="1em" />
+				{error}
+			</p>
 		{/if}
 	</span>
 	<slot
@@ -29,7 +37,4 @@
 			required
 		}}
 	/>
-	{#if error}
-		<p id={errorId}>{error}</p>
-	{/if}
 </label>

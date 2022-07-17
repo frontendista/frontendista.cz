@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { createForm } from "svelte-forms-lib";
 	import { buttonStyle } from "$stylesheets/global.css";
-	import { container } from "./contact-form.css";
+	import { container, formButtonGroup } from "./contact-form.css";
 	import Label from "$common/label.svelte";
 
 	interface IContactFormData {
@@ -14,26 +14,26 @@
 		const errors: Partial<IContactFormData> = {};
 
 		if (!message) {
-			errors.message = "Message is required";
+			errors.message = "is required";
 		} else if (message.trim().length < 10) {
-			errors.message = "Message must be at least 10 characters";
+			errors.message = "is too short";
 		}
 
 		if (email) {
 			const emailRegex =
 				/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 			if (!emailRegex.test(email)) {
-				errors.email = "Email is invalid";
+				errors.email = "is invalid";
 			}
 		}
 
 		if (firstname) {
 			if (firstname.trim().length < 2) {
-				errors.firstname = "Firstname is too short";
+				errors.firstname = "is too short";
 			}
 
 			if (firstname.trim().length > 50) {
-				errors.firstname = "Firstname is too long";
+				errors.firstname = "is too long";
 			}
 		}
 
@@ -74,18 +74,21 @@
 			name="message"
 			placeholder="I'm not in danger, Skyler. I'm the danger."
 			maxlength={255}
+			rows={10}
 			{...props}
 			on:change={handleChange}
 		/>
 	</Label>
-	<button
-		class={buttonStyle({
-			type: "secondary"
-		})}
-		type="reset"
-		on:click={handleReset}
-	>
-		Reset
-	</button>
-	<button class={buttonStyle()} type="submit">Submit</button>
+	<div class={formButtonGroup}>
+		<button
+			class={buttonStyle({
+				type: "secondary"
+			})}
+			type="reset"
+			on:click={handleReset}
+		>
+			Reset
+		</button>
+		<button class={buttonStyle()} type="submit">Submit</button>
+	</div>
 </form>
