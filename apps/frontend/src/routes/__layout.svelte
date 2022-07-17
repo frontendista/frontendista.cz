@@ -9,15 +9,18 @@
 </script>
 
 <script lang="ts">
-	import { page } from "$app/stores";
-	import PageTransition from "$components/page-transition.svelte";
-	import SideBar from "$modules/side-bar.svelte";
-	import TopBar from "$modules/top-bar.svelte";
 	import "$stylesheets/global.css";
 	import "$stylesheets/base/reset.css";
 	import "$stylesheets/theme.css";
-	import { DEFAULT_DESCRIPTION, DEFAULT_TITLE } from "$utils/constants/seo";
+
+	import { page } from "$app/stores";
+
 	import SkipNavigationLinks from "$components/skip-navigation-links.svelte";
+	import PageTransition from "$components/page-transition.svelte";
+	import SideBar from "$modules/side-bar.svelte";
+	import TopBar from "$modules/top-bar.svelte";
+
+	import { DEFAULT_DESCRIPTION, DEFAULT_TITLE } from "$utils/constants/seo";
 
 	export let pathname: string;
 </script>

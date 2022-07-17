@@ -5,16 +5,14 @@ import { DESKTOP_START_MQ } from "$stylesheets/constants.css";
 
 export const container = style([
 	buttonStyle({
-		type: "secondary"
+		type: "secondary",
+		square: true
 	}),
 	{
-		padding: 0,
-		width: "3rem",
-		height: "100%",
-		fontSize: "1.5rem",
+		fontSize: "1.5rem !important",
 		"@media": {
 			[DESKTOP_START_MQ]: {
-				display: "none"
+				display: "none !important"
 			}
 		}
 	}

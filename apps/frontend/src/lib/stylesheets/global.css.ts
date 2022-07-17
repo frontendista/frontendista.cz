@@ -67,7 +67,6 @@ export const buttonStyle = recipe({
 		alignItems: "center",
 		justifyContent: "center",
 		gap: "0.75rem",
-		padding: "0 1.5rem",
 		fontSize: "1.25rem",
 		fontWeight: "bold",
 		borderRadius: "0.75rem",
@@ -83,6 +82,15 @@ export const buttonStyle = recipe({
 			normal: {},
 			large: {
 				height: "3rem"
+			}
+		},
+		square: {
+			true: {
+				padding: 0,
+				width: "3rem"
+			},
+			false: {
+				padding: "0 1.5rem"
 			}
 		},
 		type: {
@@ -101,6 +109,7 @@ export const buttonStyle = recipe({
 	},
 	defaultVariants: {
 		type: "primary",
-		size: "normal"
+		size: "normal",
+		square: false
 	}
 });
