@@ -70,3 +70,7 @@ textarea {
 	border: 0;
 	padding: 0;
 }
+
+h1 {
+	text-transform: uppercase;
+}
