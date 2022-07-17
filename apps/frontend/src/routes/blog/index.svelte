@@ -15,7 +15,7 @@
 
 <script lang="ts">
 	import SanityImage from "$components/sanity-image.svelte";
-	import { BLOG_PAGE_DESCRIPTION, BLOG_PAGE_TITLE } from "$utils/constants/seo";
+	import { BLOG_PAGE_DESCRIPTION, BLOG_PAGE_TITLE } from "$root/seo.json";
 
 	import type { BlogPostPreviews } from "$utils/queries/post-previews";
 

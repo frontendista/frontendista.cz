@@ -1,5 +1,5 @@
 <script context="module" lang="ts">
-	import { ABOUT_PAGE_DESCRIPTION, ABOUT_PAGE_TITLE } from "$utils/constants/seo";
+	import { ABOUT_PAGE_DESCRIPTION, ABOUT_PAGE_TITLE } from "$root/seo.json";
 
 	import type { Load } from ".svelte-kit/types/src/routes/about/__types/index";
 

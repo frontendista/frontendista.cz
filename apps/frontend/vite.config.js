@@ -14,7 +14,8 @@ export default defineConfig({
 			$stores: resolve("./src/lib/stores"),
 			$stylesheets: resolve("./src/lib/stylesheets"),
 			$utils: resolve("./src/lib/utils"),
-			$icons: resolve("./src/lib/icons")
+			$icons: resolve("./src/lib/icons"),
+			$root: resolve("./src")
 		}
 	},
 	server: {
