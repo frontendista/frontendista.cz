@@ -4,7 +4,7 @@ import type { PlaywrightTestConfig } from "@playwright/test";
 
 const config: PlaywrightTestConfig = {
 	webServer: {
-		command: "pnpm build && pnpm preview",
+		command: "pnpm cross-env KEEP_TEST_ID=true pnpm build && pnpm preview",
 		port: 3300
 	},
 	testMatch: /.*(e2e)\.(js|ts|mjs)/,

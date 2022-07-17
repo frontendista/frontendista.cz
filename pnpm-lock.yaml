@@ -98,6 +98,7 @@ importers:
       autoprefixer: ^10.4.5
       c8: ^7.11.2
       clsx: ^1.2.1
+      cross-env: ^7.0.3
       cssnano: ^5.1.7
       dotenv: ^16.0.1
       eslint: ^7.32.0
@@ -147,6 +148,7 @@ importers:
       '@vitest/ui': 0.10.5
       autoprefixer: 10.4.7_postcss@8.4.14
       c8: 7.11.3
+      cross-env: 7.0.3
       cssnano: 5.1.11_postcss@8.4.14
       dotenv: 16.0.1
       eslint: 7.32.0
@@ -6446,6 +6448,14 @@ packages:
 
   /cron-schedule/3.0.6:
     resolution: {integrity: sha512-izfGgKyzzIyLaeb1EtZ3KbglkS6AKp9cv7LxmiyoOu+fXfol1tQDC0Cof0enVZGNtudTHW+3lfuW9ZkLQss4Wg==}
+    dev: true
+
+  /cross-env/7.0.3:
+    resolution: {integrity: sha512-+/HKd6EgcQCJGh2PSjZuUitQBQynKor4wrFbRg4DtAgS1aWO+gU52xpH7M9ScGgXSYmAVS9bIJ8EzuaGw0oNAw==}
+    engines: {node: '>=10.14', npm: '>=6', yarn: '>=1'}
+    hasBin: true
+    dependencies:
+      cross-spawn: 7.0.3
     dev: true
 
   /cross-fetch/3.1.5:

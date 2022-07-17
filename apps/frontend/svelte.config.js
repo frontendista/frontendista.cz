@@ -6,7 +6,8 @@ import preprocess from "svelte-preprocess";
  */
 const config = {
 	preprocess: preprocess({
-		postcss: true
+		postcss: true,
+		replace: process.env.KEEP_TEST_ID ? [] : [[/data-test=".*"/g, ""]]
 	}),
 	kit: {
 		adapter: vercel(),
