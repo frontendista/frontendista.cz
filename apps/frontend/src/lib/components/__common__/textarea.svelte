@@ -3,11 +3,11 @@
 	import { container, remainingCharacters, remainingRed, remainingYellow } from "./textarea.css";
 
 	export let name: string;
-	export let placeholder: string = "";
-	export let onChange: (e: Event) => any;
+	export let placeholder = "";
+	export let onChange: (e: Event) => void;
 	export let maxLength: number | null = null;
-	export let rows: number = 5;
-	export let outsideProps: any = {};
+	export let rows = 5;
+	export let outsideProps: Record<string, unknown> = {};
 	export let value: string;
 </script>
 
