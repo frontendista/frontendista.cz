@@ -1,5 +1,7 @@
 <script lang="ts">
-	import { container } from "./label.css";
+	import cx from "clsx";
+
+	import { container, labelText, requiredField } from "./label.css";
 
 	export let title: string;
 	export let error: string | null = null;
@@ -10,8 +12,15 @@
 
 <!-- svelte-ignore a11y-label-has-associated-control -->
 <label class={container}>
-	<span>
+	<span
+		class={cx(labelText, {
+			[requiredField]: required
+		})}
+	>
 		{title}
+		{#if required}
+			<span data-sr>(Required)</span>
+		{/if}
 	</span>
 	<slot
 		props={{
