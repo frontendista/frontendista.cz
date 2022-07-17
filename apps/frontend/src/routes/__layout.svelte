@@ -9,9 +9,8 @@
 </script>
 
 <script lang="ts">
-	import "$stylesheets/global.css";
 	import "$stylesheets/base/reset.css";
-	import "$stylesheets/theme.css";
+	import "$stylesheets/global.css";
 
 	import { page } from "$app/stores";
 
@@ -20,7 +19,7 @@
 	import SideBar from "$modules/side-bar.svelte";
 	import TopBar from "$modules/top-bar.svelte";
 
-	import { DEFAULT_DESCRIPTION, DEFAULT_TITLE } from "$utils/constants/seo";
+	import { DEFAULT_DESCRIPTION, DEFAULT_TITLE } from "$root/seo.json";
 
 	export let pathname: string;
 </script>

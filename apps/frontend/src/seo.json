@@ -1,0 +1,16 @@
+{
+	"DEFAULT_TITLE": "frontendista",
+	"DEFAULT_DESCRIPTION": "TODO: Default SEO description",
+
+	"INDEX_PAGE_TITLE": "Developer, tinkerer, creator.",
+	"INDEX_PAGE_DESCRIPTION": "Pavel Sušický is a Software Engineer from Czech republic with passion for web development.",
+
+	"ABOUT_PAGE_TITLE": "About Pavel Sušický",
+	"ABOUT_PAGE_DESCRIPTION": "TODO",
+
+	"BLOG_PAGE_TITLE": "Writings by Pavel Sušický",
+	"BLOG_PAGE_DESCRIPTION": "Pavel Sušický is writing about tech and software that surrounds him.",
+
+	"CONTACT_PAGE_TITLE": "Contact Pavel Sušický",
+	"CONTACT_PAGE_DESCRIPTION": "TODO"
+}
