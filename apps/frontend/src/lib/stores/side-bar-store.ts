@@ -5,7 +5,7 @@ function createSideBarStore() {
 
 	return {
 		subscribe,
-		toggle: () => update((state) => !state),
+		toggle: () => update(state => !state),
 		close: () => set(false)
 	};
 }

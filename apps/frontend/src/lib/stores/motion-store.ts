@@ -40,7 +40,7 @@ function getMotionPreference(): IMotionStoreValue {
 }
 
 function createMotionStore(): IMotionStore {
-	const { subscribe, set } = writable(getMotionPreference(), (set) => {
+	const { subscribe, set } = writable(getMotionPreference(), set => {
 		if (!browser) return;
 
 		const onReduceMotionChange = (e: MediaQueryListEvent) => {
@@ -63,7 +63,7 @@ function createMotionStore(): IMotionStore {
 
 	return {
 		subscribe,
-		setPreference: (reduceMotion) => {
+		setPreference: reduceMotion => {
 			localStorage.setItem(STORAGE_KEY, reduceMotion ? "1" : "0");
 			set({ source: "USER", value: reduceMotion });
 		},

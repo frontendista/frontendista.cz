@@ -29,7 +29,7 @@ function getDefaultTheme(): ITheme {
 }
 
 function createThemeStore(): IThemeStore {
-	const { subscribe, update } = writable<ITheme>(getDefaultTheme(), (set) => {
+	const { subscribe, update } = writable<ITheme>(getDefaultTheme(), set => {
 		if (!browser) return;
 
 		const onThemeChange = (e: MediaQueryListEvent) => {
@@ -50,7 +50,7 @@ function createThemeStore(): IThemeStore {
 	return {
 		subscribe,
 		toggle: () => {
-			update((currentTheme) => {
+			update(currentTheme => {
 				const newTheme = currentTheme === "light" ? "dark" : "light";
 
 				localStorage.setItem(STORAGE_KEY, newTheme);

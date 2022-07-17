@@ -16,7 +16,7 @@ export function createNanopop(options: Options) {
 		}
 	}
 
-	const referenceAction: Action = (node) => {
+	const referenceAction: Action = node => {
 		referenceNode = node;
 		initPosition();
 
@@ -27,7 +27,7 @@ export function createNanopop(options: Options) {
 		};
 	};
 
-	const contentAction: Action = (node) => {
+	const contentAction: Action = node => {
 		contentNode = node;
 
 		initPosition();
