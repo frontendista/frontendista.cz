@@ -6,7 +6,9 @@ import "dotenv/config";
 	requiredVars.reduce((hasFailed, variable) => {
 		const isMissing = !process.env[variable];
 
-		isMissing ? console.error(`'${variable}' is required`) : console.info(`'${variable}' found.`);
+		if (isMissing) {
+			console.error(`'${variable}' is required`);
+		}
 
 		return hasFailed || isMissing;
 	}, false) && process.exit(1);
