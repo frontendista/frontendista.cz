@@ -1,7 +1,7 @@
 import { defineConfig } from "vite";
 import { resolve } from "path";
 
-import svg from "@poppanator/sveltekit-svg";
+import svg from "vite-plugin-svelte-svg";
 import { vanillaExtractPlugin } from "@vanilla-extract/vite-plugin";
 import { sveltekit } from "@sveltejs/kit/vite";
 
@@ -27,20 +27,7 @@ export default defineConfig({
 	plugins: [
 		sveltekit(),
 		svg({
-			includePaths: ["./src/lib/icons/"],
-			svgoOptions: {
-				multipass: true,
-				plugins: [
-					{
-						name: "preset-default",
-						params: {
-							overrides: {
-								removeViewBox: false
-							}
-						}
-					}
-				]
-			}
+			requireSuffix: false
 		}),
 		vanillaExtractPlugin()
 	]
