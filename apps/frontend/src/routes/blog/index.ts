@@ -8,7 +8,7 @@ import { sanityClient } from "$utils/sanity-client";
 import type { RequestHandler } from ".svelte-kit/types/src/routes/blog/__types/index";
 import { ZodError } from "zod";
 
-export const get: RequestHandler = async () => {
+export const GET: RequestHandler = async () => {
 	try {
 		const response = await sanityClient.fetch<BlogPostPreviews>(GROQ_POST_PREVIEWS);
 		const posts = await SCHEMA_POST_PREVIEWS.parseAsync(response);
