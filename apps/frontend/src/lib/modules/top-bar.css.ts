@@ -1,4 +1,10 @@
-import { SIDE_BAR_WIDTH, TOP_BAR_HEIGHT, TOP_BAR_ZINDEX } from "$stylesheets/constants.css";
+import {
+	DESKTOP_START_MQ,
+	MOBILE_START_MQ,
+	SIDE_BAR_WIDTH,
+	TOP_BAR_HEIGHT,
+	TOP_BAR_ZINDEX
+} from "$stylesheets/constants.css";
 import { vars } from "$stylesheets/theme.css";
 import { globalStyle, keyframes, style } from "@vanilla-extract/css";
 
@@ -50,7 +56,7 @@ export const logo = style({
 		content: "Frontendista"
 	},
 	"@media": {
-		"(max-width: 768px)": {
+		[MOBILE_START_MQ]: {
 			width: TOP_BAR_HEIGHT,
 			":after": {
 				content: "F"
@@ -61,14 +67,14 @@ export const logo = style({
 
 globalStyle(`${logo}:hover:after`, {
 	"@media": {
-		"(min-width: 768px)": {
+		[DESKTOP_START_MQ]: {
 			backgroundSize: "200% auto",
 			backgroundClip: "text",
 			WebkitTextFillColor: "transparent",
 			backgroundImage: `linear-gradient(90deg, ${vars.brand.primary} 0%, ${vars.brand.tertiary} 50%, ${vars.brand.primary} 100%)`,
 			animation: `5s ${gradientFlowAnimation} linear infinite`
 		},
-		"(max-width: 768px)": {
+		[MOBILE_START_MQ]: {
 			animation: `5s ${gradientFlowAnimationSmall} linear infinite`
 		}
 	}
@@ -85,7 +91,7 @@ export const actionBarButtonGroup = style({
 	display: "flex",
 	gap: "0.75rem",
 	"@media": {
-		"(max-width: 768px)": {
+		[MOBILE_START_MQ]: {
 			marginRight: "auto",
 			marginLeft: 0
 		}
@@ -96,7 +102,7 @@ export const actionButton = style({
 	textTransform: "uppercase",
 	height: "100%",
 	"@media": {
-		"(max-width: 768px)": {
+		[MOBILE_START_MQ]: {
 			padding: "0 0.875rem !important"
 		}
 	}
@@ -104,7 +110,7 @@ export const actionButton = style({
 
 globalStyle(`${actionButton} span`, {
 	"@media": {
-		"(max-width: 768px)": {
+		[MOBILE_START_MQ]: {
 			border: 0,
 			clip: "rect(0 0 0 0)",
 			clipPath: "inset(50%)",

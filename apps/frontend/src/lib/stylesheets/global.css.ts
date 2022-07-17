@@ -1,7 +1,7 @@
 import { withTransition } from "$utils/with-transition";
 import { globalStyle } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
-import { SIDE_BAR_WIDTH, TOP_BAR_HEIGHT } from "./constants.css";
+import { DESKTOP_START_MQ, MOBILE_START_MQ, SIDE_BAR_WIDTH, TOP_BAR_HEIGHT } from "./constants.css";
 import { utilities, vars } from "./theme.css";
 
 globalStyle(":root", {
@@ -13,7 +13,7 @@ globalStyle("body", {
 	paddingTop: TOP_BAR_HEIGHT,
 	paddingLeft: SIDE_BAR_WIDTH,
 	"@media": {
-		"(max-width: 768px)": {
+		[MOBILE_START_MQ]: {
 			paddingLeft: 0
 		}
 	}
@@ -54,7 +54,7 @@ globalStyle("#content", {
 	margin: "0 auto",
 	padding: "1rem",
 	"@media": {
-		"(min-width: 768px)": {
+		[DESKTOP_START_MQ]: {
 			padding: 0
 		}
 	}

@@ -1,4 +1,5 @@
 import { globalStyle, style } from "@vanilla-extract/css";
+import { DESKTOP_START_MQ } from "$stylesheets/constants.css";
 
 export const container = style({
 	display: "flex",
@@ -11,7 +12,7 @@ export const formButtonGroup = style({
 	gap: "1rem",
 	flexDirection: "column",
 	"@media": {
-		"(min-width: 768px)": {
+		[DESKTOP_START_MQ]: {
 			flexDirection: "row"
 		}
 	}

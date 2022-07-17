@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { SIDE_BAR_WIDTH } from "$stylesheets/constants.css";
+	import { MOBILE_START_MQ, SIDE_BAR_WIDTH } from "$stylesheets/constants.css";
 
 	import { container } from "./sanity-image.css";
 
@@ -25,7 +25,7 @@
 		{width}
 		{height}
 		{srcset}
-		sizes={`(max-width: 768px) 100vw, calc(100vw - ${SIDE_BAR_WIDTH})`}
+		sizes={`${MOBILE_START_MQ} 100vw, calc(100vw - ${SIDE_BAR_WIDTH})`}
 		alt=""
 		loading="lazy"
 	/>

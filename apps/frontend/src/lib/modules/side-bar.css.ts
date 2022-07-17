@@ -1,4 +1,9 @@
-import { SIDE_BAR_WIDTH, SIDE_BAR_ZINDEX, TOP_BAR_HEIGHT } from "$stylesheets/constants.css";
+import {
+	MOBILE_START_MQ,
+	SIDE_BAR_WIDTH,
+	SIDE_BAR_ZINDEX,
+	TOP_BAR_HEIGHT
+} from "$stylesheets/constants.css";
 import { vars } from "$stylesheets/theme.css";
 import { style } from "@vanilla-extract/css";
 import { calc } from "@vanilla-extract/css-utils";
@@ -18,7 +23,7 @@ export const container = style({
 	zIndex: SIDE_BAR_ZINDEX,
 	overflow: "auto",
 	"@media": {
-		"(max-width: 768px)": {
+		[MOBILE_START_MQ]: {
 			width: "100vw",
 			display: "none"
 		}
@@ -27,7 +32,7 @@ export const container = style({
 
 export const visible = style({
 	"@media": {
-		"(max-width: 768px)": {
+		[MOBILE_START_MQ]: {
 			display: "flex"
 		}
 	}

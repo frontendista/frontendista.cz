@@ -1,6 +1,7 @@
 import { style } from "@vanilla-extract/css";
 
 import { buttonStyle } from "$stylesheets/global.css";
+import { DESKTOP_START_MQ } from "$stylesheets/constants.css";
 
 export const container = style([
 	buttonStyle({
@@ -12,7 +13,7 @@ export const container = style([
 		height: "100%",
 		fontSize: "1.5rem",
 		"@media": {
-			"(min-width: 768px)": {
+			[DESKTOP_START_MQ]: {
 				display: "none"
 			}
 		}
