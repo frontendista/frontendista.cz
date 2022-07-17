@@ -1,4 +1,9 @@
 <script lang="ts">
+	// TODO: Form Level Error
+	// TODO: Loading state in button after submit
+	// TODO: Overall submit count
+	// N2H: Disable all fields while loading
+
 	import { createForm } from "svelte-forms-lib";
 	import { buttonStyle } from "$stylesheets/global.css";
 	import { container, formButtonGroup } from "./contact-form.css";
