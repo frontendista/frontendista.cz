@@ -3,6 +3,7 @@
 	import { buttonStyle } from "$stylesheets/global.css";
 	import { container, formButtonGroup } from "./contact-form.css";
 	import Label from "$common/label.svelte";
+	import Textarea from "$common/textarea.svelte";
 
 	interface IContactFormData {
 		firstname: string;
@@ -45,7 +46,7 @@
 		console.log(data);
 	}
 
-	const { handleChange, handleSubmit, errors, handleReset } = createForm<IContactFormData>({
+	const { handleChange, handleSubmit, errors, handleReset, form } = createForm<IContactFormData>({
 		onSubmit,
 		validate,
 		initialValues: {
@@ -70,25 +71,34 @@
 		/>
 	</Label>
 	<Label title="Message" error={$errors.message} required let:props>
-		<textarea
+		<Textarea
+			value={$form.message}
 			name="message"
 			placeholder="I'm not in danger, Skyler. I'm the danger."
-			maxlength={255}
+			maxLength={255}
 			rows={10}
-			{...props}
-			on:change={handleChange}
+			outsideProps={props}
+			onChange={handleChange}
 		/>
 	</Label>
 	<div class={formButtonGroup}>
 		<button
 			class={buttonStyle({
-				type: "secondary"
+				type: "secondary",
+				size: "large"
 			})}
 			type="reset"
 			on:click={handleReset}
 		>
 			Reset
 		</button>
-		<button class={buttonStyle()} type="submit">Submit</button>
+		<button
+			class={buttonStyle({
+				size: "large"
+			})}
+			type="submit"
+		>
+			SEND
+		</button>
 	</div>
 </form>
