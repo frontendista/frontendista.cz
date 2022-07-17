@@ -1,7 +1,7 @@
 import { createGlobalTheme, createGlobalThemeContract } from "@vanilla-extract/css";
 
 export const utilities = createGlobalTheme(":root", {
-	transitionGlobal: "box-shadow 0.5s ease, background 0.3s linear",
+	transitionGlobal: "box-shadow 0.5s ease, background 0.3s linear, border-color 0.5s ease",
 	shadow: {
 		lowElevation: "",
 		mediumElevation: "",
@@ -32,6 +32,11 @@ export const vars = createGlobalThemeContract({
 		primary: "brand-primary",
 		secondary: "brand-secondary",
 		tertiary: "brand-tertiary"
+	},
+	error: {
+		primary: "error-primary",
+		secondary: "error-secondary",
+		tertiary: "error-tertiary"
 	}
 });
 
@@ -48,6 +53,11 @@ createGlobalTheme(":root[data-theme=light]", vars, {
 		primary: "#2563eb",
 		secondary: "#3b82f6",
 		tertiary: "#60a5fa"
+	},
+	error: {
+		primary: "#DC2626",
+		secondary: "#EF4444",
+		tertiary: "#FCA5A5"
 	}
 });
 
@@ -64,5 +74,10 @@ createGlobalTheme(":root[data-theme=dark]", vars, {
 		primary: "#2563eb",
 		secondary: "#3b82f6",
 		tertiary: "#60a5fa"
+	},
+	error: {
+		primary: "#DC2626",
+		secondary: "#EF4444",
+		tertiary: "#FCA5A5"
 	}
 });
