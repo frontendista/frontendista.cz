@@ -4,6 +4,7 @@
 	import { container, formButtonGroup } from "./contact-form.css";
 	import Label from "$common/label.svelte";
 	import Textarea from "$common/textarea.svelte";
+	import Send from "$icons/send.svg";
 
 	interface IContactFormData {
 		firstname: string;
@@ -99,6 +100,7 @@
 			type="submit"
 		>
 			SEND
+			<svelte:component this={Send} height="1em" />
 		</button>
 	</div>
 </form>

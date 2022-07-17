@@ -49,6 +49,17 @@ globalStyle("input::placeholder, textarea::placeholder", {
 	color: "#555"
 });
 
+globalStyle("#content", {
+	maxWidth: "48rem",
+	margin: "0 auto",
+	padding: "1rem",
+	"@media": {
+		"(min-width: 768px)": {
+			padding: 0
+		}
+	}
+});
+
 export const buttonStyle = recipe({
 	base: {
 		color: vars.fg.primary,
