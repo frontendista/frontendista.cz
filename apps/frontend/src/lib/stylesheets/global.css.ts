@@ -87,7 +87,10 @@ export const buttonStyle = recipe({
 		},
 		type: {
 			primary: {
-				background: vars.brand.primary
+				background: vars.brand.primary,
+				":hover": {
+					background: vars.brand.secondary
+				}
 			},
 			secondary: {
 				":hover": {
