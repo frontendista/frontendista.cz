@@ -1,7 +1,12 @@
 import "dotenv/config";
 
 (function () {
-	const requiredVars = ["SANITY_AUTH_TOKEN", "SANITY_DATASET_ID", "SANITY_PROJECT_ID"];
+	const requiredVars = [
+		"SANITY_AUTH_TOKEN",
+		"SANITY_DATASET_ID",
+		"SANITY_PROJECT_ID",
+		"VITE_API_URL"
+	];
 
 	requiredVars.reduce((hasFailed, variable) => {
 		const isMissing = !process.env[variable];

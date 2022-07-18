@@ -47,8 +47,8 @@
 	}
 
 	async function onSubmit(data: IContactFormData) {
-		await new Promise((resolve) => setTimeout(resolve, 2500));
-		console.log(data);
+		await new Promise(resolve => setTimeout(resolve, 2500));
+		console.log({ data, url: import.meta.env.VITE_API_URL });
 	}
 
 	const { handleChange, handleSubmit, errors, handleReset, form } = createForm<IContactFormData>({
