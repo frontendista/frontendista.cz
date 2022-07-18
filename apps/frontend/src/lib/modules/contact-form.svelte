@@ -10,6 +10,7 @@
 	import Label from "$common/label.svelte";
 	import Textarea from "$common/textarea.svelte";
 	import Send from "$icons/send.svg";
+	import HiTrash from "$icons/hi-trash.svg";
 	import { emailRegex } from "$utils/regex";
 
 	interface IContactFormData {
@@ -96,6 +97,7 @@
 			on:click={handleReset}
 		>
 			Reset
+			<svelte:component this={HiTrash} height="1em" />
 		</button>
 		<button
 			class={buttonStyle({
@@ -104,7 +106,7 @@
 			type="submit"
 		>
 			SEND
-			<svelte:component this={Send} height="1em" />
+			<svelte:component this={Send} height="0.75em" />
 		</button>
 	</div>
 </form>
