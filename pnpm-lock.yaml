@@ -6,6 +6,7 @@ importers:
     specifiers:
       '@commitlint/cli': ^17.0.2
       '@commitlint/config-conventional': ^17.0.2
+      cross-env: ^7.0.3
       husky: ^7.0.0
       prettier: ^2.6.2
       prettier-plugin-svelte: ^2.5.0
@@ -15,6 +16,7 @@ importers:
     devDependencies:
       '@commitlint/cli': 17.0.3
       '@commitlint/config-conventional': 17.0.3
+      cross-env: 7.0.3
       husky: 7.0.4
       prettier: 2.7.1
       prettier-plugin-svelte: 2.7.0_nakrehnrzdf7fdea5k3a4dfy4m
@@ -104,7 +106,6 @@ importers:
       autoprefixer: ^10.4.5
       c8: ^7.11.2
       clsx: ^1.2.1
-      cross-env: ^7.0.3
       cssnano: ^5.1.7
       dotenv: ^16.0.1
       eslint: ^7.32.0
@@ -156,7 +157,6 @@ importers:
       '@vitest/ui': 0.10.5
       autoprefixer: 10.4.7_postcss@8.4.14
       c8: 7.11.3
-      cross-env: 7.0.3
       cssnano: 5.1.11_postcss@8.4.14
       dotenv: 16.0.1
       eslint: 7.32.0
