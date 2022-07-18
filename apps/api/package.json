@@ -3,6 +3,7 @@
 	"version": "0.0.1",
 	"scripts": {
 		"dev": "wrangler dev src/index.ts",
+		"build": "wrangler publish --dry-run --outdir=.worker",
 		"deploy:staging": "wrangler publish --env staging"
 	},
 	"devDependencies": {
