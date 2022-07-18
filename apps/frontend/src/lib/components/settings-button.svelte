@@ -47,7 +47,7 @@
 				<Switch
 					label="REDUCE MOTION"
 					checked={$motionStore.value}
-					onChange={(e) => motionStore.setPreference(e.detail)}
+					onChange={e => motionStore.setPreference(e.detail)}
 				/>
 			</PopoverPanel>
 		</div>

@@ -6,7 +6,8 @@ import { DESKTOP_START_MQ } from "$stylesheets/constants.css";
 export const container = style([
 	buttonStyle({
 		type: "secondary",
-		square: true
+		square: true,
+		size: "large"
 	}),
 	{
 		fontSize: "1.5rem !important",
