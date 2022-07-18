@@ -87,6 +87,7 @@ importers:
       '@types/html-minifier-terser': ^6.1.0
       '@types/node': ^18.0.0
       '@types/testing-library__jest-dom': ^5.14.3
+      '@types/ua-parser-js': ^0.7.36
       '@typescript-eslint/eslint-plugin': ^5.10.1
       '@typescript-eslint/parser': ^5.10.1
       '@vanilla-extract/css': ^1.7.2
@@ -114,6 +115,7 @@ importers:
       svelte-preprocess: ^4.10.1
       tslib: ^2.3.1
       typescript: ~4.6.2
+      ua-parser-js: ^1.0.2
       vercel: ^24.2.5
       vite: ^3.0.0
       vite-plugin-svelte-svg: ^2.0.1
@@ -138,6 +140,7 @@ importers:
       '@types/html-minifier-terser': 6.1.0
       '@types/node': 18.0.0
       '@types/testing-library__jest-dom': 5.14.3
+      '@types/ua-parser-js': 0.7.36
       '@typescript-eslint/eslint-plugin': 5.27.0_azdzx6sj2n22orfmwzezvefwxq
       '@typescript-eslint/parser': 5.27.0_e4zyhrvfnqudwdx5bevnvkluy4
       '@vanilla-extract/css': 1.7.2
@@ -161,6 +164,7 @@ importers:
       svelte-preprocess: 4.10.7_2guo3zspfgvw6oxd2vitq7lsrm
       tslib: 2.4.0
       typescript: 4.6.4
+      ua-parser-js: 1.0.2
       vercel: 24.2.5
       vite: 3.0.0
       vite-plugin-svelte-svg: 2.0.1_svelte@3.49.0+vite@3.0.0
@@ -4209,6 +4213,10 @@ packages:
     resolution: {integrity: sha512-oKZe+Mf4ioWlMuzVBaXQ9WDnEm1+umLx0InILg+yvZVBBDmzV5KfZyLrCvadtWcx8+916jLmHafcmqqffl+iIw==}
     dependencies:
       '@types/jest': 28.1.1
+    dev: true
+
+  /@types/ua-parser-js/0.7.36:
+    resolution: {integrity: sha512-N1rW+njavs70y2cApeIw1vLMYXRwfBy+7trgavGuuTfOd7j1Yh7QTRc/yqsPl6ncokt72ZXuxEU0PiCp9bSwNQ==}
     dev: true
 
   /@types/unist/2.0.6:
@@ -15619,6 +15627,10 @@ packages:
   /ua-parser-js/0.7.31:
     resolution: {integrity: sha512-qLK/Xe9E2uzmYI3qLeOmI0tEOt+TBBQyUIAh4aAgU05FVYzeZrKUdkAZfBNVGRaHVgV0TDkdEngJSw/SyQchkQ==}
     dev: false
+
+  /ua-parser-js/1.0.2:
+    resolution: {integrity: sha512-00y/AXhx0/SsnI51fTc0rLRmafiGOM4/O+ny10Ps7f+j/b8p/ZY11ytMgznXkOVo4GQ+KwQG5UQLkLGirsACRg==}
+    dev: true
 
   /uglify-js/2.8.29:
     resolution: {integrity: sha512-qLq/4y2pjcU3vhlhseXGGJ7VbFO4pBANu0kwl8VCa9KEI0V8VfZIx2Fy3w01iSTA/pGwKZSmu/+I4etLNDdt5w==}
