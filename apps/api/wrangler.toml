@@ -4,6 +4,7 @@ compatibility_date = "2022-06-01"
 
 workers_dev = false
 
+[env.dev]
 vars = { ENVIRONMENT = "dev" }
 
 kv_namespaces = [
@@ -21,3 +22,7 @@ kv_namespaces = [
 [env.production]
 name = "api-frontendista-cz-production"
 vars = { ENVIRONMENT = "production" }
+
+kv_namespaces = [
+    { binding = "FRONTENDISTA_STORAGE", id = "2b010bdd51c5498faf44485ee7591fc6" }
+]

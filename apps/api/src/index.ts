@@ -12,6 +12,7 @@ export interface Env {
 	// MY_BUCKET: R2Bucket;
 
 	ENVIRONMENT: string;
+	DISCORD_WEBHOOK_URL: string;
 }
 
 export default {

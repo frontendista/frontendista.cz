@@ -2,9 +2,9 @@
 	"name": "api.frontendista.cz",
 	"version": "0.0.1",
 	"scripts": {
-		"dev": "wrangler dev src/index.ts",
+		"dev": "wrangler dev src/index.ts -e dev",
 		"build": "wrangler publish --dry-run --outdir=.worker",
-		"deploy:staging": "wrangler publish --env staging"
+		"deploy:staging": "wrangler publish -e staging"
 	},
 	"devDependencies": {
 		"@cloudflare/workers-types": "^3.11.0",
