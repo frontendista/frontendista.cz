@@ -19,8 +19,9 @@ export default {
 	async fetch(request: Request, env: Env, ctx: ExecutionContext): Promise<Response> {
 		return router.handle(request, env, ctx).catch(
 			_ =>
-				// TODO: Add proper response and status code.
-				new Response("Something failed :(")
+				new Response("Something failed :(", {
+					status: 500
+				})
 		);
 	}
 };
