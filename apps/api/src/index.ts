@@ -1,3 +1,5 @@
+import { router } from "./router";
+
 export interface Env {
 	// Example binding to KV. Learn more at https://developers.cloudflare.com/workers/runtime-apis/kv/
 	// MY_KV_NAMESPACE: KVNamespace;
@@ -14,20 +16,10 @@ export interface Env {
 
 export default {
 	async fetch(request: Request, env: Env, ctx: ExecutionContext): Promise<Response> {
-		const { FRONTENDISTA_STORAGE, ENVIRONMENT } = env;
-
-		const value = await FRONTENDISTA_STORAGE.get("contact_form_messages_count");
-
-		return new Response(
-			JSON.stringify({
-				env: ENVIRONMENT,
-				count: value
-			}),
-			{
-				headers: {
-					"Content-Type": "application/json"
-				}
-			}
+		return router.handle(request, env, ctx).catch(
+			_ =>
+				// TODO: Add proper response and status code.
+				new Response("Something failed :(")
 		);
 	}
 };
