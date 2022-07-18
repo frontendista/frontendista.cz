@@ -2,8 +2,8 @@
 	"name": "api.frontendista.cz",
 	"version": "0.0.1",
 	"scripts": {
-		"dev": "wrangler dev src/index.ts -e dev",
-		"build": "wrangler publish --dry-run --outdir=.worker",
+		"dev": "wrangler dev src/index.ts -e dev --minify",
+		"build": "wrangler publish --dry-run --outdir=.worker --minify",
 		"deploy:staging": "wrangler publish -e staging"
 	},
 	"dependencies": {
