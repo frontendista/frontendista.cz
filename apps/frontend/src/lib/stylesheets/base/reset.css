@@ -71,6 +71,16 @@ textarea {
 	padding: 0;
 }
 
-h1 {
+h1,
+h2 {
 	text-transform: uppercase;
+	font-weight: 800;
+}
+
+h1 {
+	font-size: 3rem;
+}
+
+h2 {
+	font-size: 2.25rem;
 }

@@ -53,9 +53,12 @@ globalStyle("#content", {
 	maxWidth: "48rem",
 	margin: "0 auto",
 	padding: "1rem",
+	display: "flex",
+	flexFlow: "column",
+	gap: "4rem",
 	"@media": {
 		[DESKTOP_START_MQ]: {
-			padding: 0
+			padding: "4rem 1rem"
 		}
 	}
 });

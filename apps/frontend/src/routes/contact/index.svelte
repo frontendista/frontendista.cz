@@ -1,4 +1,6 @@
 <script context="module" lang="ts">
+	import DigitCounter from "$components/digit-counter.svelte";
+
 	import ContactForm from "$modules/contact-form.svelte";
 	import { CONTACT_PAGE_DESCRIPTION, CONTACT_PAGE_TITLE } from "$root/seo.json";
 
@@ -15,5 +17,9 @@
 	};
 </script>
 
-<h1>Contact form</h1>
+<section>
+	<h1>Contact form</h1>
+	<p>It sends a message to my Discord Server.</p>
+</section>
+<DigitCounter value={32} minimalDigitCount={4} />
 <ContactForm />
