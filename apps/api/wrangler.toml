@@ -6,9 +6,17 @@ workers_dev = false
 
 vars = { ENVIRONMENT = "dev" }
 
+kv_namespaces = [
+    { binding = "FRONTENDISTA_STORAGE", id = "2b010bdd51c5498faf44485ee7591fc6", preview_id = "6d34cdd18f594a10a1d0c0da004d667f" }
+]
+
 [env.staging]
 name = "api-frontendista-cz-staging"
 vars = { ENVIRONMENT = "staging" }
+
+kv_namespaces = [
+    { binding = "FRONTENDISTA_STORAGE", id = "6d34cdd18f594a10a1d0c0da004d667f" }
+]
 
 [env.production]
 name = "api-frontendista-cz-production"
