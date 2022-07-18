@@ -23,4 +23,6 @@
 
 ## 2 Used tooling for the project
 
-TODO
+- [fonttools](https://github.com/fonttools/fonttools)
+- [favicon](https://realfavicongenerator.net)
+- [gradient](https://cssgradient.io)
