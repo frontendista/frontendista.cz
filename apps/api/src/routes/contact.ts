@@ -11,7 +11,9 @@ export const contactRouter = Router({
 	base: "/contact"
 });
 
-contactRouter.post("/send", async (request, { DISCORD_WEBHOOK_URL }: Env) => {
+const CONTACT_MESSAGE_COUNT_KEY = "contact_form_messages_count";
+
+contactRouter.post("/send", async (request, { DISCORD_WEBHOOK_URL, FRONTENDISTA_STORAGE }: Env) => {
 	let body: any;
 
 	try {
@@ -34,6 +36,12 @@ contactRouter.post("/send", async (request, { DISCORD_WEBHOOK_URL }: Env) => {
 		});
 
 		if (response.ok) {
+			const count = Number(await FRONTENDISTA_STORAGE.get(CONTACT_MESSAGE_COUNT_KEY));
+
+			if (!isNaN(count)) {
+				await FRONTENDISTA_STORAGE.put(CONTACT_MESSAGE_COUNT_KEY, String(count + 1));
+			}
+
 			return new Response(null, {
 				status: 201
 			});
@@ -59,4 +67,10 @@ contactRouter.post("/send", async (request, { DISCORD_WEBHOOK_URL }: Env) => {
 			statusText: "💣"
 		});
 	}
+});
+
+contactRouter.get("/count", async (_, { FRONTENDISTA_STORAGE }: Env) => {
+	return new Response(await FRONTENDISTA_STORAGE.get(CONTACT_MESSAGE_COUNT_KEY), {
+		status: 200
+	});
 });
