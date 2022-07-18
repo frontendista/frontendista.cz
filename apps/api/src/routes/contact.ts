@@ -1,6 +1,8 @@
 import { Router } from "itty-router";
+import { assert, StructError } from "superstruct";
 
 import { createContactMessageBody } from "../utils/discord-webhook";
+import { CONTACT_BODY_SCHEMA } from "../utils/validation-schemes";
 import { DiscordWebhookError } from "../error/discord-webhook-error";
 
 import type { Env } from "..";
@@ -9,19 +11,23 @@ export const contactRouter = Router({
 	base: "/contact"
 });
 
-// type ISendRequestBody = {
-// 	name?: string;
-// 	email?: string;
-// 	message?: string;
-// } | null;
-
 contactRouter.post("/send", async (request, { DISCORD_WEBHOOK_URL }: Env) => {
-	// const body: ISendRequestBody = request.json ? await request.json() : null;
+	let body: any;
 
 	try {
+		body = request.json ? await request.json() : null;
+	} catch {
+		return new Response("Malformed request", {
+			status: 400
+		});
+	}
+
+	try {
+		assert(body, CONTACT_BODY_SCHEMA);
+
 		const response = await fetch(DISCORD_WEBHOOK_URL, {
 			method: "POST",
-			body: JSON.stringify(createContactMessageBody()),
+			body: JSON.stringify(createContactMessageBody(body)),
 			headers: {
 				"Content-Type": "application/json"
 			}
@@ -35,6 +41,12 @@ contactRouter.post("/send", async (request, { DISCORD_WEBHOOK_URL }: Env) => {
 
 		throw new DiscordWebhookError(response);
 	} catch (e) {
+		if (e instanceof StructError) {
+			return new Response("Malformed request", {
+				status: 400
+			});
+		}
+
 		if (e instanceof DiscordWebhookError) {
 			return new Response(e.message, {
 				status: 503,

@@ -26,11 +26,14 @@ importers:
     specifiers:
       '@cloudflare/workers-types': ^3.11.0
       itty-router: ^2.6.1
+      superstruct: ^0.16.0
       typescript: ^4.7.2
       wrangler: ^2.0.22
+    dependencies:
+      itty-router: 2.6.1
+      superstruct: 0.16.0
     devDependencies:
       '@cloudflare/workers-types': 3.14.1
-      itty-router: 2.6.1
       typescript: 4.7.4
       wrangler: 2.0.22
 
@@ -10334,7 +10337,7 @@ packages:
 
   /itty-router/2.6.1:
     resolution: {integrity: sha512-l9gxWe5TOLUESYnBn85Jxd6tIZLWdRX5YKkHIBfSgbNQ7UFPNUGuWihRV+LlEbfJJIzgLmhwAbaWRi5yWJm8kg==}
-    dev: true
+    dev: false
 
   /javascript-stringify/2.1.0:
     resolution: {integrity: sha512-JVAfqNPTvNq3sB/VHQJAFxN/sPgKnsKrCwyRt15zwNCdrMMJDdcEOdubuy+DuJYYdm0ox1J4uzEuYKkN+9yhVg==}
@@ -14981,6 +14984,10 @@ packages:
       postcss: 8.4.14
       postcss-selector-parser: 6.0.10
     dev: true
+
+  /superstruct/0.16.0:
+    resolution: {integrity: sha512-IDQtwnnlaan1NhuHqyD/U11lROYvCQ79JyfwlFU9xEVHzqV/Ys/RrwmHPCG0CVH/1g0BuodEjH1msxK2UHxehA==}
+    dev: false
 
   /supports-color/2.0.0:
     resolution: {integrity: sha512-KKNVtd6pCYgPIKU4cp2733HWYCpplQhddZLBUryaAHou723x+FRzQ5Df824Fj+IyyuiQTRoub4SnIFfIcrp70g==}

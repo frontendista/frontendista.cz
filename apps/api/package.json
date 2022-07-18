@@ -6,9 +6,12 @@
 		"build": "wrangler publish --dry-run --outdir=.worker",
 		"deploy:staging": "wrangler publish -e staging"
 	},
+	"dependencies": {
+		"itty-router": "^2.6.1",
+		"superstruct": "^0.16.0"
+	},
 	"devDependencies": {
 		"@cloudflare/workers-types": "^3.11.0",
-		"itty-router": "^2.6.1",
 		"typescript": "^4.7.2",
 		"wrangler": "^2.0.22"
 	},
