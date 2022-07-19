@@ -16,10 +16,15 @@ export const container = style({
 	width: "100%",
 	display: "flex",
 	borderBottom: `1px solid ${vars.bg.tertiary}`,
-	background: "rgb(16, 14, 15, 0.5)",
-	backdropFilter: "blur(10px) saturate(150%) contrast(150%)",
+	background: vars.bg.primary,
 	zIndex: TOP_BAR_ZINDEX,
-	boxSizing: "content-box"
+	boxSizing: "content-box",
+	"@supports": {
+		"(backdrop-filter: blur(10px))": {
+			backdropFilter: "blur(10px) saturate(150%) contrast(150%)",
+			background: "rgb(16, 14, 15, 0.5)"
+		}
+	}
 });
 
 const gradientFlowAnimation = keyframes({
