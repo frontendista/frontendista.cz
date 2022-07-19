@@ -7,6 +7,7 @@
 	},
 	"dependencies": {
 		"@sanity/cli": "3.0.0-dev-preview.11",
+		"@sanity/vision": "3.0.0-dev-preview.11",
 		"react": "17.0.2",
 		"react-dom": "17.0.2",
 		"react-is": "17.0.2",
@@ -21,6 +22,7 @@
 		"esbuild": "^0.14.49",
 		"eslint": "^8.16.0",
 		"typescript": "^4.7.4",
-		"vercel": "^24.2.5"
+		"vercel": "^24.2.5",
+		"vite": "2.9.13"
 	}
 }

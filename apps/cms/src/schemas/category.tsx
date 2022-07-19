@@ -56,7 +56,7 @@ export const category = defineType({
 			subtitle: "description",
 			color: "color"
 		},
-		prepare({ title, subtitle, color }) {
+		prepare({ title, subtitle, color }: any) {
 			return {
 				title,
 				subtitle,
