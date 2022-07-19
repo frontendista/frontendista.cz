@@ -13,7 +13,7 @@ export const formButtonGroup = style({
 	flexDirection: "column",
 	"@media": {
 		[DESKTOP_START_MQ]: {
-			flexDirection: "row"
+			flexDirection: "row-reverse"
 		}
 	}
 });

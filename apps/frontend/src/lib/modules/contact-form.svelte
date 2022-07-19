@@ -90,6 +90,15 @@
 	<div class={formButtonGroup}>
 		<button
 			class={buttonStyle({
+				size: "large"
+			})}
+			type="submit"
+		>
+			SEND
+			<svelte:component this={Send} height="0.75em" />
+		</button>
+		<button
+			class={buttonStyle({
 				type: "secondary",
 				size: "large"
 			})}
@@ -98,15 +107,6 @@
 		>
 			Reset
 			<svelte:component this={HiTrash} height="1em" />
-		</button>
-		<button
-			class={buttonStyle({
-				size: "large"
-			})}
-			type="submit"
-		>
-			SEND
-			<svelte:component this={Send} height="0.75em" />
 		</button>
 	</div>
 </form>
