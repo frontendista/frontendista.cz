@@ -17,5 +17,8 @@
 			"path": "apps/frontend"
 		}
 	],
-	"settings": {}
+	"settings": {
+		"eslint.workingDirectories": ["./apps/frontend", "./apps/cms", "./apps/api"],
+		"eslint.validate": ["svelte", "typescript"]
+	}
 }
