@@ -11,6 +11,7 @@ env:
   SANITY_AUTH_TOKEN: ${{ secrets.SANITY_AUTH_TOKEN }}
   SANITY_PROJECT_ID: ${{ secrets.SANITY_PROJECT_ID }}
   SANITY_DATASET_ID: ${{ secrets.SANITY_DATASET_ID }}
+  VITE_API_URL: https://api-staging.frontendista.cz
 
 jobs:
   build:
