@@ -1,5 +1,5 @@
 {
-	"name": "frontendista.cz",
+	"name": "root",
 	"scripts": {
 		"dev": "pnpm --stream -r dev",
 		"dev:frontend:api": "pnpm --filter frontendista.cz --filter api.frontendista.cz --stream -r dev",

@@ -1,0 +1,21 @@
+{
+	"folders": [
+		{
+			"name": "✨ root",
+			"path": "."
+		},
+		{
+			"name": "🚀 api.frontendista.cz",
+			"path": "apps/api"
+		},
+		{
+			"name": "🚀 cms.frontendista.cz",
+			"path": "apps/cms"
+		},
+		{
+			"name": "🚀 frontendista.cz",
+			"path": "apps/frontend"
+		}
+	],
+	"settings": {}
+}
