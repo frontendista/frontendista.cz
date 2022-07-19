@@ -1,4 +1,4 @@
-import { defineType } from "sanity";
+import { defineField, defineType } from "sanity";
 
 export const post = defineType({
 	name: "post",
@@ -11,30 +11,38 @@ export const post = defineType({
 		}
 	],
 	fields: [
-		{
+		defineField({
 			name: "title",
 			title: "Title",
 			type: "string",
-			validation: Rule => [
-				Rule.required().error("Title is required"),
-				Rule.min(2).error("Title must be at least 2 characters"),
-				Rule.max(50).error("Title must be less than 50 characters")
-			],
+			validation(rule) {
+				return rule
+					.required()
+					.error("Title is required")
+					.min(2)
+					.error("Title must be at least 2 characters")
+					.max(50)
+					.error("Title must be less than 50 characters");
+			},
 			group: "seo"
-		},
-		{
+		}),
+		defineField({
 			name: "description",
 			title: "Description",
 			type: "text",
-			validation: Rule => [
-				Rule.required().error("Description is required"),
-				Rule.min(50).error("Description must be at least 50 characters"),
-				Rule.max(160).error("Description must be less than 160 characters")
-			],
+			validation(rule) {
+				return rule
+					.required()
+					.error("Description is required")
+					.min(50)
+					.error("Description must be at least 50 characters")
+					.max(160)
+					.error("Description must be less than 160 characters");
+			},
 			description: "Description of the post used for SEO.",
 			group: "seo"
-		},
-		{
+		}),
+		defineField({
 			name: "slug",
 			title: "Slug",
 			type: "slug",
@@ -42,40 +50,48 @@ export const post = defineType({
 				source: "title",
 				maxLength: 96
 			}
-		},
-		{
+		}),
+		defineField({
 			name: "author",
 			title: "Author",
 			type: "reference",
 			to: { type: "author" },
-			validation: Rule => Rule.required().error("Author is required")
-		},
-		{
+			validation(rule) {
+				return rule.required().error("Author is required");
+			}
+		}),
+		defineField({
 			name: "thumbnail",
 			title: "Thumbnail",
 			type: "image",
 			options: {
 				hotspot: true
 			},
-			validation: Rule => Rule.required().error("Thumbnail is required"),
+			validation(rule) {
+				return rule.required().error("Thumbnail is required");
+			},
 			description: "The image should be at least TODOxTODO pixels",
 			group: "seo"
-		},
-		{
+		}),
+		defineField({
 			name: "categories",
 			title: "Categories",
 			type: "array",
 			of: [{ type: "reference", to: { type: "category" } }],
-			validation: [
-				Rule => Rule.required().error("Categories is required"),
-				Rule => Rule.min(1).error("At least 1 category is required"),
-				Rule => Rule.max(5).error("No more than 5 categories are allowed")
-			],
+			validation(rule) {
+				return rule
+					.required()
+					.error("Categories is required")
+					.min(1)
+					.error("At least 1 category is required")
+					.max(5)
+					.error("No more than 5 categories are allowed");
+			},
 			options: {
 				sortable: false
 			}
-		},
-		{
+		}),
+		defineField({
 			name: "publishedAt",
 			title: "Published at",
 			type: "datetime",
@@ -84,7 +100,7 @@ export const post = defineType({
 				"The date and time this post was published. Note that after publishing, this value can't be changed.",
 			validation: Rule =>
 				Rule.custom((value: string, { document: { _id } }) => {
-					// If the document is published we don't want to do any validation
+					// NOTE: If the document is published we don't want to do any validation
 					if (_id && !_id.startsWith("drafts.")) {
 						return true;
 					}
@@ -98,13 +114,15 @@ export const post = defineType({
 
 					return "Published date must be in the future.";
 				})
-		},
-		{
+		}),
+		defineField({
 			name: "body",
 			title: "Body",
-			type: "blockContent",
-			validation: Rule => Rule.required().error("Body is required")
-		}
+			type: "blockContent"
+			// validation(rule) {
+			// 	return rule.required().error("Body is required");
+			// }
+		})
 	],
 	preview: {
 		select: {
