@@ -1,4 +1,6 @@
-export default {
+import { defineType } from "sanity";
+
+export default defineType({
 	name: "post",
 	title: "Post",
 	type: "document",
@@ -121,4 +123,4 @@ export default {
 		categories: [],
 		publishedAt: new Date().toISOString()
 	}
-};
+});

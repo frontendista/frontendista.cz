@@ -1,6 +1,7 @@
 import * as React from "react";
+import { defineType } from "sanity";
 
-export default {
+export default defineType({
 	name: "category",
 	title: "Category",
 	type: "document",
@@ -65,4 +66,4 @@ export default {
 			};
 		}
 	}
-};
+});
