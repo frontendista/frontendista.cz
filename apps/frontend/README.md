@@ -20,6 +20,7 @@
 | **SANITY_PROJECT_ID** | Your **[Sanity.io](https://sanity.io)** project id | ✅       |
 | **SANITY_AUTH_TOKEN** | Token used for API authorization                   | ✅       |
 | **SANITY_DATASET_ID** | Name of your dataset for data fetching             | ✅       |
+| **VITE_API_URL**      | URL of API backend                                 | ✅       |
 
 ## 2 Used tooling for the project
 
