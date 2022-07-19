@@ -2,6 +2,7 @@
 	"name": "frontendista.cz",
 	"scripts": {
 		"dev": "pnpm --stream -r dev",
+		"dev:frontend:api": "pnpm --filter frontendista.cz --filter api.frontendista.cz --stream -r dev",
 		"pretty-quick": "pretty-quick",
 		"prettier:check": "prettier --check --plugin-search-dir=. .",
 		"prettier:format": "prettier --write --plugin-search-dir=. .",

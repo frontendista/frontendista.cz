@@ -3,5 +3,9 @@
         "./apps/frontend",
         "./apps/cms",
         "./apps/api"
+    ],
+    "eslint.validate": [
+        "svelte",
+        "typescript"
     ]
 }
