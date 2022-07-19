@@ -1,7 +1,7 @@
 import * as React from "react";
 import { defineType } from "sanity";
 
-export default defineType({
+export const category = defineType({
 	name: "category",
 	title: "Category",
 	type: "document",
