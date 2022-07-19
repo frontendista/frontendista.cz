@@ -9,7 +9,7 @@ export default {
 			name: "title",
 			title: "Title",
 			type: "string",
-			validation: (Rule) => [
+			validation: Rule => [
 				Rule.required().error("Title is required"),
 				Rule.min(2).error("Title must be at least 2 characters"),
 				Rule.max(50).error("Title must be less than 50 characters")
@@ -19,7 +19,7 @@ export default {
 			name: "description",
 			title: "Description",
 			type: "text",
-			validation: (Rule) => [
+			validation: Rule => [
 				Rule.min(2).error("Description must be at least 2 characters"),
 				Rule.max(50).error("Description must be less than 50 characters")
 			]
@@ -28,7 +28,7 @@ export default {
 			name: "color",
 			title: "Color",
 			type: "string",
-			validation: (Rule) =>
+			validation: Rule =>
 				Rule.custom((color: string) => {
 					if (!color) {
 						return "Color is required";
