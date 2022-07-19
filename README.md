@@ -36,3 +36,9 @@ pnpm install
 # Start development server
 pnpm dev
 ```
+
+### 2.4 Dev environment setup
+
+#### 2.4.1 Husky hooks doesn't work
+
+If you are using node.js version manager such as [volta.sh](https://volta.sh) refer to [this](https://typicode.github.io/husky/#/?id=command-not-found) guide.
