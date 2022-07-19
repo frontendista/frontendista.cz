@@ -3,6 +3,8 @@
 	"compilerOptions": {
 		"lib": ["ES6"],
 		"jsx": "react",
-		"strict": true
+		"strict": true,
+		"module": "ESNext",
+		"moduleResolution": "Node"
 	}
 }
