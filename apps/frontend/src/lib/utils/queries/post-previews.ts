@@ -18,8 +18,7 @@ export const SCHEMA_POST_PREVIEWS = z.array(
 				url: SANITY_URL_SCHEMA,
 				lqip: z.string(),
 				height: z.number(),
-				width: z.number(),
-				aspectRatio: z.number()
+				width: z.number()
 			}),
 			slug: z.string()
 		})
@@ -42,8 +41,7 @@ export const GROQ_POST_PREVIEWS = `*[_type == "post" && !(_id in path('drafts.**
 		url,
 		"lqip": metadata.lqip,
 		"height": metadata.dimensions.height,
-		"width": metadata.dimensions.width,
-		"aspectRatio": metadata.dimensions.aspectRatio
+		"width": metadata.dimensions.width
 	},
 	"slug": slug.current
 }`;

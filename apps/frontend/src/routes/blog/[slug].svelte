@@ -19,6 +19,7 @@
 	import type { BlogPostContent } from "$utils/queries/post-content";
 	import { PortableText } from "@portabletext/svelte";
 	import Image from "$components/portable-text/image.svelte";
+	import SanityImage from "$components/sanity-image.svelte";
 
 	export let post: BlogPostContent;
 </script>
@@ -33,8 +34,11 @@
 	{/each}
 </svelte:head>
 
-<h1>{post.title}</h1>
-<time datetime={post.publishedAt}>{post.publishedAt}</time>
+<div>
+	<SanityImage loading="eager" {...post.thumbnail} />
+	<h1>{post.title}</h1>
+	<time datetime={post.publishedAt}>{post.publishedAt}</time>
+</div>
 <div>
 	<PortableText
 		value={post.body}

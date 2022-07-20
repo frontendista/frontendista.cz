@@ -18,8 +18,7 @@ export const SCHEMA_POST_CONTENT = z
 			url: SANITY_URL_SCHEMA,
 			lqip: z.string(),
 			height: z.number(),
-			width: z.number(),
-			aspectRatio: z.number()
+			width: z.number()
 		}),
 		body: z.array(z.any()),
 		categories: z.array(
@@ -49,8 +48,7 @@ export const GROQ_POST_CONTENT = `*[_type == "post" && slug.current == $slug] {
 		url,
 		"lqip": metadata.lqip,
 		"height": metadata.dimensions.height,
-		"width": metadata.dimensions.width,
-		"aspectRatio": metadata.dimensions.aspectRatio
+		"width": metadata.dimensions.width
 	},
     body[] {
 		...,

@@ -7,7 +7,7 @@
 	export let lqip: string;
 	export let width: number;
 	export let height: number;
-	// export let aspectRatio: number;
+	export let loading: "lazy" | "eager" = "lazy";
 
 	const SIZES = [320, 560, 768, 1300, 1920, 2560];
 
@@ -25,9 +25,9 @@
 		{width}
 		{height}
 		{srcset}
+		{loading}
 		sizes={`${MOBILE_START_MQ} 100vw, calc(100vw - ${SIDE_BAR_WIDTH})`}
 		alt=""
-		loading="lazy"
 	/>
 	{#if caption}
 		<figcaption>{caption}</figcaption>
