@@ -1,8 +1,8 @@
-import { object, string, optional, size } from "superstruct";
+import { object, string, size, nullable, optional } from "superstruct";
 
 export const CONTACT_BODY_SCHEMA = object({
-	name: optional(size(string(), 2, 50)),
-	email: optional(size(string(), 2, 50)),
+	name: optional(nullable(size(string(), 2, 50))),
+	email: optional(nullable(size(string(), 2, 50))),
 	message: size(string(), 10, 255)
 });
 

@@ -3,7 +3,7 @@
 	"version": "0.0.1",
 	"scripts": {
 		"dev": "wrangler dev src/index.ts -e dev --minify",
-		"build": "wrangler publish --dry-run --outdir=.worker --minify",
+		"build": "wrangler publish --dry-run --outdir=.worker -e staging --minify",
 		"deploy:staging": "wrangler publish -e staging"
 	},
 	"dependencies": {
