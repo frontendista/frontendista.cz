@@ -24,6 +24,6 @@ export async function sendDiscordMessage(data: IContactFormData): Promise<string
 
 		return response.text();
 	} catch (error) {
-		return "Network error, check your connection";
+		return "This looks phishy, or you don't have a network connection. Please try again later.";
 	}
 }
