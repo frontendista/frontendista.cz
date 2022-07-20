@@ -7,7 +7,7 @@ import { DiscordWebhookError } from "../error/discord-webhook-error";
 
 import type { Env } from "..";
 
-export const contactRouter = Router({
+const contactRouter = Router({
 	base: "/contact"
 });
 
@@ -74,3 +74,5 @@ contactRouter.get("/count", async (_, { FRONTENDISTA_STORAGE }: Env) => {
 		status: 200
 	});
 });
+
+export const handleContact = contactRouter.handle;

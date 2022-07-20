@@ -1,19 +1,13 @@
 import { Router } from "itty-router";
 
-import { contactRouter } from "./routes/contact";
+import { handleContact } from "./routes/contact";
+import { handlePreflight } from "./utils/handle-preflight";
 
 export const router = Router();
 
 router
-	.options("*", () => {
-		return new Response(null, {
-			headers: {
-				"Access-Control-Allow-Methods": "GET, POST, OPTIONS",
-				"Access-Control-Allow-Headers": "Content-Type, Origin, Vary"
-			}
-		});
-	})
-	.all("/contact/*", contactRouter.handle)
+	.options("*", handlePreflight)
+	.all("/contact/*", handleContact)
 	.all(
 		"*",
 		() =>
