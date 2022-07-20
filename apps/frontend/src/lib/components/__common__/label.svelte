@@ -21,7 +21,7 @@
 	<span class={labelText}>
 		<span class={required && requiredField}>{title}</span>
 		{#if required}
-			<span data-sr>(Required)</span>
+			<span data-sr="true">(Required)</span>
 		{/if}
 		{#if error}
 			<p class={errorMessage} id={errorId}>

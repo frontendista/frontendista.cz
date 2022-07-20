@@ -19,7 +19,7 @@ globalStyle("body", {
 	}
 });
 
-globalStyle("*[data-sr]", {
+globalStyle("*[data-sr='true']", {
 	border: "0 !important",
 	clip: "rect(0 0 0 0) !important",
 	clipPath: "inset(50%) !important",

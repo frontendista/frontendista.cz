@@ -47,7 +47,7 @@
 		{/each}
 	</div>
 	<p class={description}>
-		<span data-sr>{value}</span>
+		<span data-sr="true">{value}</span>
 		Messages sent since 01/09/2022
 	</p>
 </div>

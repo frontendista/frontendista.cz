@@ -8,7 +8,7 @@
 
 <div class={container}>
 	<a class={logo} href="/">
-		<span data-sr>Frontendista</span>
+		<span data-sr="true">Frontendista</span>
 	</a>
 	<div class={actionBar}>
 		<div class={actionBarButtonGroup}>
