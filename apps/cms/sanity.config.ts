@@ -7,7 +7,7 @@ export default createConfig({
 	name: "cms.frontendista.cz",
 	title: "Frontendista CMS",
 	projectId: "rmt1xhym",
-	dataset: "staging",
+	dataset: import.meta.env.PROD ? "production" : "staging",
 	plugins: [deskTool()],
 	schema: {
 		types: schemaTypes
