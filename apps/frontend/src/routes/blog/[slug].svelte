@@ -18,6 +18,7 @@
 <script lang="ts">
 	import type { BlogPostContent } from "$utils/queries/post-content";
 	import { PortableText } from "@portabletext/svelte";
+	import Image from "$components/portable-text/image.svelte";
 
 	export let post: BlogPostContent;
 </script>
@@ -38,7 +39,9 @@
 	<PortableText
 		value={post.body}
 		components={{
-			types: {}
+			types: {
+				image: Image
+			}
 		}}
 	/>
 </div>

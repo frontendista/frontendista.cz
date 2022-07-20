@@ -56,11 +56,10 @@ export const GROQ_POST_CONTENT = `*[_type == "post" && slug.current == $slug] {
 		...,
 		asset != null => {
 			"asset": asset-> {
-				assetId,
+				url,
 				"lqip": metadata.lqip,
 				"height": metadata.dimensions.height,
-				"width": metadata.dimensions.width,
-				"aspectRatio": metadata.dimensions.aspectRatio
+				"width": metadata.dimensions.width
 			}
 		}
 	},
