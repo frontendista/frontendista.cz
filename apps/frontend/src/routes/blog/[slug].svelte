@@ -20,6 +20,7 @@
 	import { PortableText } from "@portabletext/svelte";
 	import Image from "$components/portable-text/image.svelte";
 	import SanityImage from "$components/sanity-image.svelte";
+	import { dateTemplate } from "$utils/date";
 
 	export let post: BlogPostContent;
 </script>
@@ -37,7 +38,7 @@
 <div>
 	<SanityImage loading="eager" {...post.thumbnail} />
 	<h1>{post.title}</h1>
-	<time datetime={post.publishedAt}>{post.publishedAt}</time>
+	<time datetime={post.publishedAt}>{dateTemplate(new Date(post.publishedAt))}</time>
 </div>
 <div>
 	<PortableText
