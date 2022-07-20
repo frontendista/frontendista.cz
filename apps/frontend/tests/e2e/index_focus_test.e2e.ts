@@ -15,7 +15,7 @@ test.describe("Index Page initial focus state", () => {
 
 		await page.keyboard.press("Tab");
 
-		const skipNavigationsLink = page.locator("[data-test=skipNavigationsLink] a");
+		const skipNavigationsLink = page.locator("[data-test=skip-navigations-link] a");
 
 		await expect(skipNavigationsLink).toBeFocused();
 	});

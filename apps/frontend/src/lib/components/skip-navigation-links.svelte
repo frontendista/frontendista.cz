@@ -5,7 +5,7 @@
 	import { container } from "./skip-navigation-links.css";
 </script>
 
-<div class={container} data-test="skipNavigationsLink">
+<div class={container} data-test="skip-navigations-link">
 	<span>A11Y</span>
 	<a
 		class={buttonStyle({
