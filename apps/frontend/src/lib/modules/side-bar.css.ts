@@ -25,7 +25,8 @@ export const container = style({
 	"@media": {
 		[MOBILE_START_MQ]: {
 			width: "100vw",
-			display: "none"
+			display: "none",
+			borderRight: 0
 		}
 	}
 });

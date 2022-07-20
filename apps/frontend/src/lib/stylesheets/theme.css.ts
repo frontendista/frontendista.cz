@@ -23,7 +23,8 @@ export const vars = createGlobalThemeContract({
 	bg: {
 		primary: "bg-primary",
 		secondary: "bg-secondary",
-		tertiary: "bg-tertiary"
+		tertiary: "bg-tertiary",
+		error: "bg-error"
 	},
 	fg: {
 		primary: "fg-primary"
@@ -44,7 +45,8 @@ createGlobalTheme(":root[data-theme=light]", vars, {
 	bg: {
 		primary: "#fff",
 		secondary: "#f2f2f2",
-		tertiary: "#000"
+		tertiary: "#000",
+		error: "#991b1b"
 	},
 	fg: {
 		primary: "#000"
@@ -65,7 +67,8 @@ createGlobalTheme(":root[data-theme=dark]", vars, {
 	bg: {
 		primary: "#100E0F",
 		secondary: "#231f23",
-		tertiary: "#333"
+		tertiary: "#333",
+		error: "#991b1b"
 	},
 	fg: {
 		primary: "#f2f2f2"

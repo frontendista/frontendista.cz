@@ -6,18 +6,13 @@
 
 	import { createForm } from "svelte-forms-lib";
 	import { buttonStyle } from "$stylesheets/global.css";
-	import { container, formButtonGroup } from "./contact-form.css";
+	import { container, formButtonGroup, formError } from "./contact-form.css";
 	import Label from "$common/label.svelte";
 	import Textarea from "$common/textarea.svelte";
 	import Send from "$icons/send.svg";
 	import HiTrash from "$icons/hi-trash.svg";
 	import { emailRegex } from "$utils/regex";
-
-	interface IContactFormData {
-		firstname: string;
-		email: string;
-		message: string;
-	}
+	import { sendDiscordMessage, type IContactFormData } from "$utils/api";
 
 	function validate({ email, firstname, message }: IContactFormData) {
 		const errors: Partial<IContactFormData> = {};
@@ -48,8 +43,8 @@
 	}
 
 	async function onSubmit(data: IContactFormData) {
-		await new Promise(resolve => setTimeout(resolve, 2500));
-		console.log({ data, url: import.meta.env.VITE_API_URL });
+		formLevelError = null;
+		formLevelError = await sendDiscordMessage(data);
 	}
 
 	const { handleChange, handleSubmit, errors, handleReset, form } = createForm<IContactFormData>({
@@ -61,9 +56,17 @@
 			email: ""
 		}
 	});
+
+	let formLevelError: string | null = null;
 </script>
 
 <form novalidate class={container} on:submit={handleSubmit}>
+	<div role="alert" aria-atomic="true" data-sr={!formLevelError} class={formError}>
+		{#if formLevelError}
+			<span>Message couldn't be delivered.</span>
+			<p>{formLevelError}</p>
+		{/if}
+	</div>
 	<Label title="First name" error={$errors.firstname} let:props>
 		<input name="firstname" placeholder="Walter" type="text" {...props} on:change={handleChange} />
 	</Label>
