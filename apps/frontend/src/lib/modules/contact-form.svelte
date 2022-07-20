@@ -1,7 +1,7 @@
 <script lang="ts">
-	// TODO: Form Level Error
 	// TODO: Loading state in button after submit
 	// TODO: Overall submit count
+	// TODO: Handle successful submit
 	// N2H: Disable all fields while loading
 
 	import { createForm } from "svelte-forms-lib";
@@ -45,6 +45,10 @@
 	async function onSubmit(data: IContactFormData) {
 		formLevelError = null;
 		formLevelError = await sendDiscordMessage(data);
+
+		if (!formLevelError) {
+			// TODO: Redirect to success page
+		}
 	}
 
 	const { handleChange, handleSubmit, errors, handleReset, form } = createForm<IContactFormData>({

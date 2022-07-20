@@ -19,7 +19,7 @@
 </script>
 
 <button
-	aria-label={`Switch to ${$themeStore === "dark" ? "light" : "dark"} themes`}
+	aria-label={`Switch to ${$themeStore === "dark" ? "light" : "dark"} theme`}
 	class={cx(
 		buttonStyle({
 			type: "secondary"

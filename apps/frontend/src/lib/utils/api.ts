@@ -4,6 +4,11 @@ export interface IContactFormData {
 	message: string;
 }
 
+/**
+ * Sends a message through Cloudflare worker that triggers Webhook channel request.
+ *
+ * @returns string with error or null if successful
+ */
 export async function sendDiscordMessage(data: IContactFormData): Promise<string | null> {
 	try {
 		const response = await fetch(import.meta.env.VITE_API_URL + "/contact/send", {

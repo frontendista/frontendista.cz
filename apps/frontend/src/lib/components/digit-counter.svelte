@@ -47,7 +47,7 @@
 		{/each}
 	</div>
 	<p class={description}>
-		<span data-sr="true">{value}</span>
-		Messages sent since 01/09/2022
+		<span data-sr="true">{value} messages sent since initial release</span>
+		<span aria-hidden="true">Messages sent since initial release</span>
 	</p>
 </div>
