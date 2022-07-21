@@ -14,6 +14,7 @@
 </script>
 
 <script lang="ts">
+	import Divider from "$common/divider.svelte";
 	import SanityImage from "$components/sanity-image.svelte";
 	import { BLOG_PAGE_DESCRIPTION, BLOG_PAGE_TITLE } from "$root/seo.json";
 
@@ -23,6 +24,7 @@
 </script>
 
 <h1>Blog</h1>
+<Divider />
 {#each posts as { title, author, publishedAt, slug, thumbnail }}
 	<article>
 		<SanityImage {...thumbnail} />

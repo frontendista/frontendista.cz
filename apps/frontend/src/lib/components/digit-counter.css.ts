@@ -1,3 +1,4 @@
+import { DESKTOP_START_MQ, MOBILE_START_MQ } from "$stylesheets/constants.css";
 import { vars } from "$stylesheets/theme.css";
 import { style } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
@@ -6,7 +7,6 @@ export const container = style({
 	display: "flex",
 	alignItems: "center",
 	flexFlow: "row wrap",
-	justifyContent: "center",
 	gap: "1rem"
 });
 
@@ -47,5 +47,10 @@ export const digitWrapper = style({
 export const description = style({
 	fontWeight: 500,
 	flex: "1 1 auto",
-	textAlign: "center"
+	textAlign: "center",
+	"@media": {
+		"(max-width: 65em)": {
+			textAlign: "left"
+		}
+	}
 });

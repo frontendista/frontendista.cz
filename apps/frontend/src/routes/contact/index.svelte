@@ -23,6 +23,7 @@
 
 <script lang="ts">
 	import Link from "$common/link.svelte";
+	import Divider from "$common/divider.svelte";
 
 	export let count: number;
 </script>
@@ -34,5 +35,7 @@
 		<Link href="https://discord.gg/57zEpFGTDN">Discord Server</Link>.
 	</p>
 </section>
+<Divider />
 <DigitCounter value={count} minimalDigitCount={4} />
+<Divider />
 <ContactForm />

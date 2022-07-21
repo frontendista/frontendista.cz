@@ -5,7 +5,7 @@ import { vars } from "$stylesheets/theme.css";
 export const container = style({
 	display: "flex",
 	flexFlow: "column wrap",
-	gap: "1rem"
+	gap: "2rem"
 });
 
 export const formButtonGroup = style({

@@ -1,7 +1,13 @@
-import { style } from "@vanilla-extract/css";
+import { globalStyle, style } from "@vanilla-extract/css";
 
 export const container = style({
-	marginTop: "auto"
+	display: "flex",
+	flexDirection: "column",
+	flexGrow: 1
+});
+
+globalStyle(`${container} section`, {
+	flexGrow: 1
 });
 
 export const copyright = style({

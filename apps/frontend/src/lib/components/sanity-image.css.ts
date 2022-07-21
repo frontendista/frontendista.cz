@@ -3,6 +3,7 @@ import { style } from "@vanilla-extract/css";
 export const container = style({
 	position: "relative",
 	overflow: "hidden",
+	borderRadius: "0.75rem",
 	":before": {
 		position: "absolute",
 		zIndex: -100,
