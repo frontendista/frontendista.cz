@@ -22,12 +22,17 @@
 </script>
 
 <script lang="ts">
+	import Link from "$common/link.svelte";
+
 	export let count: number;
 </script>
 
 <section>
 	<h1>Contact form</h1>
-	<p>It sends a message to my Discord Server.</p>
+	<p>
+		It sends a message to my
+		<Link href="https://discord.gg/57zEpFGTDN">Discord Server</Link>.
+	</p>
 </section>
 <DigitCounter value={count} minimalDigitCount={4} />
 <ContactForm />
