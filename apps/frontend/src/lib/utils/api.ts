@@ -32,3 +32,23 @@ export async function sendDiscordMessage(data: IContactFormData): Promise<string
 		return "This looks phishy, or you don't have a network connection. Please try again later.";
 	}
 }
+
+export async function getMessageCount(): Promise<number> {
+	try {
+		const response = await fetch(import.meta.env.VITE_API_URL + "/contact/count");
+
+		if (response.ok) {
+			const { value } = await response.json();
+
+			if (typeof value !== "number") {
+				throw new Error("Invalid response value");
+			}
+
+			return value;
+		}
+
+		return 0;
+	} catch (error) {
+		return 0;
+	}
+}

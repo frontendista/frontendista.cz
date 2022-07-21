@@ -3,17 +3,14 @@
 
 	import ContactForm from "$modules/contact-form.svelte";
 	import { CONTACT_PAGE_DESCRIPTION, CONTACT_PAGE_TITLE } from "$root/seo.json";
+	import { getMessageCount } from "$utils/api";
 
 	import type { Load } from ".svelte-kit/types/src/routes/contact/__types/index";
 
 	export const load: Load = async () => {
-		const response = await fetch(import.meta.env.VITE_API_URL + "/contact/count", {
-			method: "GET"
-		});
-
 		return {
 			props: {
-				count: await response.text()
+				count: await getMessageCount()
 			},
 			stuff: {
 				title: CONTACT_PAGE_TITLE,

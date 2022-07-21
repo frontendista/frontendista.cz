@@ -22,3 +22,4 @@ jobs:
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           command: publish --env staging
           workingDirectory: apps/api
+          preCommands: npm install

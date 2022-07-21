@@ -6,6 +6,7 @@ import { CONTACT_BODY_SCHEMA } from "../utils/validation-schemes";
 import { DiscordWebhookError } from "../error/discord-webhook-error";
 
 import type { Env } from "..";
+import { json } from "../utils/responses/json";
 
 const contactRouter = Router({
 	base: "/contact"
@@ -68,12 +69,14 @@ contactRouter.post("/send", async (request, { DISCORD_WEBHOOK_URL, FRONTENDISTA_
 });
 
 contactRouter.get("/count", async (_, { FRONTENDISTA_STORAGE }: Env) => {
-	return new Response(await FRONTENDISTA_STORAGE.get(CONTACT_MESSAGE_COUNT_KEY), {
-		status: 200,
-		headers: {
-			"Content-Type": "text/plain;charset=UTF-8"
+	const count = await FRONTENDISTA_STORAGE.get(CONTACT_MESSAGE_COUNT_KEY);
+
+	return json(
+		{ value: Number(count) || 0 },
+		{
+			status: 200
 		}
-	});
+	);
 });
 
 export const handleContact = contactRouter.handle;
