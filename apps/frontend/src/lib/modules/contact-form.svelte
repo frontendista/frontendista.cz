@@ -13,6 +13,7 @@
 	import HiTrash from "$icons/hi-trash.svg";
 	import { emailRegex } from "$utils/regex";
 	import { sendDiscordMessage, type IContactFormData } from "$utils/api";
+	import { goto } from "$app/navigation";
 
 	function validate({ email, firstname, message }: IContactFormData) {
 		const errors: Partial<IContactFormData> = {};
@@ -47,7 +48,7 @@
 		formLevelError = await sendDiscordMessage(data);
 
 		if (!formLevelError) {
-			// TODO: Redirect to success page
+			goto("/contact/success");
 		}
 	}
 
