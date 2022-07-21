@@ -7,7 +7,7 @@ export const container = style({
 	position: "fixed",
 	top: "50%",
 	left: "50%",
-	transform: "translate(-250%, -50%)",
+	transform: "translate(-9999%, -50%)",
 	opacity: 0,
 	padding: "1.5rem 2rem",
 	border: `3px solid ${vars.bg.tertiary}`,
