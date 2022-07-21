@@ -7,10 +7,10 @@
 
 	import type { Load } from ".svelte-kit/types/src/routes/contact/__types/index";
 
-	export const load: Load = async () => {
+	export const load: Load = async ({ fetch }) => {
 		return {
 			props: {
-				count: await getMessageCount()
+				count: await getMessageCount(fetch)
 			},
 			stuff: {
 				title: CONTACT_PAGE_TITLE,

@@ -1,3 +1,5 @@
+import type { LoadEvent } from "@sveltejs/kit";
+
 export interface IContactFormData {
 	firstname: string;
 	email: string;
@@ -33,9 +35,9 @@ export async function sendDiscordMessage(data: IContactFormData): Promise<string
 	}
 }
 
-export async function getMessageCount(): Promise<number> {
+export async function getMessageCount(fetchFn: LoadEvent["fetch"]): Promise<number> {
 	try {
-		const response = await fetch(import.meta.env.VITE_API_URL + "/contact/count");
+		const response = await fetchFn(import.meta.env.VITE_API_URL + "/contact/count");
 
 		if (response.ok) {
 			const { value } = await response.json();
