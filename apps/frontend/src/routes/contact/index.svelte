@@ -7,7 +7,14 @@
 	import type { Load } from ".svelte-kit/types/src/routes/contact/__types/index";
 
 	export const load: Load = async () => {
+		const response = await fetch(import.meta.env.VITE_API_URL + "/contact/count", {
+			method: "GET"
+		});
+
 		return {
+			props: {
+				count: await response.text()
+			},
 			stuff: {
 				title: CONTACT_PAGE_TITLE,
 				description: CONTACT_PAGE_DESCRIPTION
@@ -17,9 +24,13 @@
 	};
 </script>
 
+<script lang="ts">
+	export let count: number;
+</script>
+
 <section>
 	<h1>Contact form</h1>
 	<p>It sends a message to my Discord Server.</p>
 </section>
-<DigitCounter value={32} minimalDigitCount={4} />
+<DigitCounter value={count} minimalDigitCount={4} />
 <ContactForm />

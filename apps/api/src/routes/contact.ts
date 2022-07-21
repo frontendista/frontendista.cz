@@ -69,7 +69,10 @@ contactRouter.post("/send", async (request, { DISCORD_WEBHOOK_URL, FRONTENDISTA_
 
 contactRouter.get("/count", async (_, { FRONTENDISTA_STORAGE }: Env) => {
 	return new Response(await FRONTENDISTA_STORAGE.get(CONTACT_MESSAGE_COUNT_KEY), {
-		status: 200
+		status: 200,
+		headers: {
+			"Content-Type": "text/plain"
+		}
 	});
 });
 
