@@ -5,8 +5,15 @@ function createSideBarStore() {
 
 	return {
 		subscribe,
-		toggle: () => update(state => !state),
-		close: () => set(false)
+		toggle: () =>
+			update(state => {
+				document.body.style.overflow = state ? "" : "hidden";
+				return !state;
+			}),
+		close: () => {
+			document.body.style.overflow = "";
+			set(false);
+		}
 	};
 }
 
