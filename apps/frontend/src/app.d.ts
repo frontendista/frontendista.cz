@@ -5,6 +5,8 @@
 // See https://kit.svelte.dev/docs/types#app
 // for information about these interfaces
 declare namespace App {
+	import type { SvelteComponent } from "svelte";
+
 	// interface Locals {}
 	// interface Platform {}
 	// interface Session {}
@@ -12,6 +14,7 @@ declare namespace App {
 		title: string;
 		description: string;
 		image: string;
+		components: SvelteComponent[];
 	}
 }
 
