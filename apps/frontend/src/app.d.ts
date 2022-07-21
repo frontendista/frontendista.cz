@@ -1,11 +1,29 @@
-/// <reference types="@sveltejs/kit" />
-/// <reference types="@testing-library/jest-dom" />
-/// <reference types="vite/client" />
+// TODO: Kamo TypeScript je občas k pomrdání, přidat tohle jakmile zjistím jak overridnout vite client.d.ts pro vlastni *.svg typ
+// /// <reference types="@sveltejs/kit" />
+// /// <reference types="@testing-library/jest-dom" />
+// /// <reference types="vite/client" />
 
-// See https://kit.svelte.dev/docs/types#app
-// for information about these interfaces
+declare module "*.svg" {
+	import { SvelteComponentTyped } from "svelte";
+
+	// NOTE: This should be some general type exported by Svelte, but it's not.
+	// The type used by VSCode is exported by the Svelte VSCode extension.
+	type SVGProps = Partial<{
+		height: string | number;
+		width: string | number;
+		viewBox: string;
+		class: string;
+	}>;
+
+	export default class SVGComponent extends SvelteComponentTyped<SVGProps> {}
+}
+
 declare namespace App {
-	import type { SvelteComponent } from "svelte";
+	// https://kit.svelte.dev/docs/types#app
+
+	import type { SvelteComponentTyped } from "svelte";
+
+	class SomeSvelteComponent extends SvelteComponentTyped<unknown> {}
 
 	// interface Locals {}
 	// interface Platform {}
@@ -14,7 +32,7 @@ declare namespace App {
 		title: string;
 		description: string;
 		image: string;
-		components: SvelteComponent[];
+		components: SomeSvelteComponent[];
 	}
 }
 

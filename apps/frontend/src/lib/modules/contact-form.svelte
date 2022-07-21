@@ -103,7 +103,7 @@
 			type="submit"
 		>
 			SEND
-			<svelte:component this={Send} height="0.75em" />
+			<Send height="0.75em" />
 		</button>
 		<button
 			class={buttonStyle({

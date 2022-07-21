@@ -25,7 +25,7 @@
 		{/if}
 		{#if error}
 			<p class={errorMessage} id={errorId}>
-				<svelte:component this={ExclamationCircle} height="1em" />
+				<ExclamationCircle height="1em" />
 				{error}
 			</p>
 		{/if}
