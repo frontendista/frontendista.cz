@@ -11,6 +11,7 @@
 		<span data-sr="true">Frontendista</span>
 	</a>
 	<div class={actionBar}>
+		<slot />
 		<div class={actionBarButtonGroup}>
 			<ThemeToggle />
 			<SettingsButton />

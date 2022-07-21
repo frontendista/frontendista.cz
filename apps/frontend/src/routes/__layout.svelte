@@ -44,7 +44,13 @@
 </svelte:head>
 
 <SkipNavigationLinks />
-<TopBar />
+<TopBar>
+	{#if $page.stuff.components && $page.stuff.components.length}
+		{#each $page.stuff.components as component}
+			<svelte:component this={component} />
+		{/each}
+	{/if}
+</TopBar>
 <SideBar />
 <PageTransition key={pathname}>
 	<slot />
