@@ -18,7 +18,7 @@
 		aria-current={isActive ? "true" : null}
 	>
 		{#if icon}
-			<svelte:component this={icon} height="1em" />
+			<svelte:component this={icon} />
 		{:else if isExternal}
 			<img
 				src={`https://www.google.com/s2/favicons?domain=${href}&sz=32`}
@@ -32,9 +32,9 @@
 			<slot />
 		</span>
 		{#if isExternal}
-			<svelte:component this={HiExternalLink} height="1em" />
+			<HiExternalLink />
 		{:else if isActive}
-			<svelte:component this={HiChevronLeft} height="1em" />
+			<HiChevronLeft />
 		{/if}
 	</a>
 </li>

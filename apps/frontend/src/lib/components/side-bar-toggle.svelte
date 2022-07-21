@@ -15,8 +15,8 @@
 	type="button"
 >
 	{#if $isSideBarVisible}
-		<svelte:component this={HiX} height="1em" />
+		<HiX />
 	{:else}
-		<svelte:component this={HiMenu} height="1em" />
+		<HiMenu />
 	{/if}
 </button>

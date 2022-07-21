@@ -14,6 +14,6 @@
 		href="#content"
 	>
 		Skip to content
-		<svelte:component this={HiChevronDoubleRight} height="1em" />
+		<HiChevronDoubleRight />
 	</a>
 </div>

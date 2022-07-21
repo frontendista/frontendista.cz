@@ -84,3 +84,8 @@ h1 {
 h2 {
 	font-size: 2.25rem;
 }
+
+button > svg,
+a > svg {
+	height: 1em;
+}

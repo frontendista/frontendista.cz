@@ -114,7 +114,7 @@
 			on:click={handleReset}
 		>
 			Reset
-			<svelte:component this={HiTrash} height="1em" />
+			<HiTrash />
 		</button>
 	</div>
 </form>
