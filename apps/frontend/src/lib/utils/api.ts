@@ -35,6 +35,12 @@ export async function sendDiscordMessage(data: IContactFormData): Promise<string
 	}
 }
 
+/**
+ * Fetches total number of messages sent through form.
+ *
+ * @param fetchFn this method is called in SvelteKit's Load function which should use its own fetch function.
+ * @returns number of messages, zero if error
+ */
 export async function getMessageCount(fetchFn: LoadEvent["fetch"]): Promise<number> {
 	try {
 		const response = await fetchFn(import.meta.env.VITE_API_URL + "/contact/count");
