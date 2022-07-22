@@ -6,14 +6,7 @@
 declare module "*.svg?component" {
 	import { SvelteComponentTyped } from "svelte";
 
-	// NOTE: This should be some general type exported by Svelte, but it's not.
-	// The type used by VSCode is exported by the Svelte VSCode extension.
-	type SVGProps = Partial<{
-		height: string | number;
-		width: string | number;
-		viewBox: string;
-		class: string;
-	}>;
+	type SVGProps = Partial<svelte.JSX.HTMLProps<SVGElement>>;
 
 	export default class SVGComponent extends SvelteComponentTyped<SVGProps> {}
 }
