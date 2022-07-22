@@ -7,12 +7,14 @@
 	import HiCollection from "$icons/hi-collection.svg";
 	import HiHome from "$icons/hi-home.svg";
 	import HiUser from "$icons/hi-user.svg";
+	import HiArchive from "$icons/hi-archive.svg";
 
 	const NAVIGATION_LINKS = [
 		{ label: "Home", href: "/", icon: HiHome },
 		{ label: "About", href: "/about", icon: HiUser },
 		{ label: "Blog", href: "/blog", icon: HiChatAlt2 },
-		{ label: "Contact", href: "/contact", icon: HiCollection }
+		{ label: "Contact", href: "/contact", icon: HiCollection },
+		{ label: "Projects", href: "/projects", icon: HiArchive }
 	];
 </script>
 
