@@ -4,7 +4,9 @@
 
 	export let name: string;
 	export let placeholder = "";
-	export let onChange: (e: Event) => void;
+	export let onChange: ((e: Event) => void) | null = null;
+	export let onBlur: ((e: Event) => void) | null = null;
+	export let onInput: ((e: Event) => void) | null = null;
 	export let maxLength: number | null = null;
 	export let rows = 5;
 	export let outsideProps: Record<string, unknown> = {};
@@ -15,6 +17,8 @@
 	class={container}
 	bind:value
 	on:change={onChange}
+	on:input={onInput}
+	on:blur={onBlur}
 	{name}
 	{placeholder}
 	{maxLength}

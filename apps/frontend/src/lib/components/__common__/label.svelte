@@ -6,7 +6,7 @@
 	import { container, labelText, requiredField, errorField, errorMessage } from "./label.css";
 
 	export let title: string;
-	export let error: string | null = null;
+	export let error: string | false | null = null;
 	export let required: true | undefined = undefined;
 
 	$: errorId = title + "-error";
