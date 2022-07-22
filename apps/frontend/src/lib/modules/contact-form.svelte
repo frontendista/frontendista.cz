@@ -49,6 +49,14 @@
 
 		if (!formLevelError) {
 			goto("/contact/success");
+		} else {
+			if (!formElement) return;
+
+			scrollTo({
+				left: window.scrollX,
+				top: formElement.getBoundingClientRect().top + window.pageYOffset - 100,
+				behavior: "smooth"
+			});
 		}
 	}
 
@@ -63,9 +71,10 @@
 	});
 
 	let formLevelError: string | null = null;
+	let formElement: HTMLFormElement | null = null;
 </script>
 
-<form novalidate class={container} on:submit={handleSubmit}>
+<form bind:this={formElement} novalidate class={container} on:submit={handleSubmit}>
 	<div role="alert" aria-atomic="true" data-sr={!formLevelError} class={formError}>
 		{#if formLevelError}
 			<span>Message couldn't be delivered.</span>
