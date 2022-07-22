@@ -1,5 +1,6 @@
 <script lang="ts">
 	import cx from "clsx";
+	import { fade } from "svelte/transition";
 
 	import ExclamationCircle from "$icons/hi-exclamation-circle.svg?component";
 
@@ -24,7 +25,7 @@
 			<span data-sr="true">(Required)</span>
 		{/if}
 		{#if error}
-			<p class={errorMessage} id={errorId}>
+			<p in:fade out:fade class={errorMessage} id={errorId}>
 				<ExclamationCircle height="1em" />
 				{error}
 			</p>
