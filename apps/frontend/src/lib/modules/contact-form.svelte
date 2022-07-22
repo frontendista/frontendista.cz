@@ -1,6 +1,5 @@
 <script lang="ts">
 	// TODO: Loading state in button after submit
-	// TODO: Overall submit count
 	// TODO: Handle successful submit
 	// N2H: Disable all fields while loading
 
@@ -60,15 +59,31 @@
 		}
 	}
 
-	const { handleChange, handleSubmit, errors, handleReset, form } = createForm<IContactFormData>({
-		onSubmit,
-		validate,
-		initialValues: {
-			message: "",
-			firstname: "",
-			email: ""
+	const { handleSubmit, errors, handleReset, form, touched, validateField, updateTouched } =
+		createForm<IContactFormData>({
+			onSubmit,
+			validate,
+			initialValues: {
+				message: "",
+				firstname: "",
+				email: ""
+			}
+		});
+
+	function handleInput(e: Event) {
+		const field = (e.target as HTMLInputElement).name as keyof IContactFormData;
+
+		if ($touched[field]) {
+			validateField(field);
 		}
-	});
+	}
+
+	function handleBlur(e: Event) {
+		const field = (e.target as HTMLInputElement).name as keyof IContactFormData;
+
+		updateTouched(field, true);
+		validateField(field);
+	}
 
 	let formLevelError: string | null = null;
 	let formElement: HTMLFormElement | null = null;
@@ -81,27 +96,38 @@
 			<p>{formLevelError}</p>
 		{/if}
 	</div>
-	<Label title="First name" error={$errors.firstname} let:props>
-		<input name="firstname" placeholder="Walter" type="text" {...props} on:change={handleChange} />
+	<Label title="First name" error={$touched.firstname && $errors.firstname} let:props>
+		<input
+			name="firstname"
+			placeholder="Walter"
+			type="text"
+			{...props}
+			bind:value={$form.firstname}
+			on:input={handleInput}
+			on:blur={handleBlur}
+		/>
 	</Label>
-	<Label title="Email" error={$errors.email} let:props>
+	<Label title="Email" error={$touched.email && $errors.email} let:props>
 		<input
 			name="email"
 			placeholder="walter@white.com"
 			type="email"
 			{...props}
-			on:change={handleChange}
+			bind:value={$form.email}
+			on:input={handleInput}
+			on:blur={handleBlur}
 		/>
 	</Label>
-	<Label title="Message" error={$errors.message} required let:props>
+	<Label title="Message" error={$touched.message && $errors.message} required let:props>
 		<Textarea
-			value={$form.message}
+			bind:value={$form.message}
+			onInput={handleInput}
+			onBlur={handleBlur}
 			name="message"
 			placeholder="I'm not in danger, Skyler. I'm the danger."
 			maxLength={255}
 			rows={10}
 			outsideProps={props}
-			onChange={handleChange}
 		/>
 	</Label>
 	<div class={formButtonGroup}>
