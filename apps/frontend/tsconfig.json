@@ -23,7 +23,8 @@
 			"$lib": ["src/lib"],
 			"$lib/*": ["src/lib/*"],
 			"$icons/*": ["src/lib/icons/*"],
-			"$root/*": ["src/*"]
+			"$root/*": ["src/*"],
+			"$types/*": ["src/types/*"]
 		},
 		"types": ["vitest/globals"]
 	}

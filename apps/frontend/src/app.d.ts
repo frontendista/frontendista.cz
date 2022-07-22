@@ -2,18 +2,13 @@
 /// <reference types="@testing-library/jest-dom" />
 /// <reference types="vite/client" />
 
-// NOTE: THX Bro for the tip!
 declare module "*.svg?component" {
-	import { SvelteComponentTyped } from "svelte";
-
-	type SVGProps = Partial<svelte.JSX.HTMLProps<SVGElement>>;
-
-	export default class SVGComponent extends SvelteComponentTyped<SVGProps> {}
+	import { SVGComponent } from "$types/svg";
+	export default SVGComponent;
 }
 
+// https://kit.svelte.dev/docs/types#app
 declare namespace App {
-	// https://kit.svelte.dev/docs/types#app
-
 	import type { SvelteComponentTyped } from "svelte";
 
 	class SomeSvelteComponent extends SvelteComponentTyped<unknown> {}
@@ -31,7 +26,7 @@ declare namespace App {
 
 declare global {
 	namespace Vi {
-		type Assertion<T = any> = TestingLibraryMatchers<T, void>;
+		type Assertion<T> = TestingLibraryMatchers<T, void>;
 	}
 }
 

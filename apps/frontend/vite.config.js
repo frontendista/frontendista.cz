@@ -15,7 +15,8 @@ export default defineConfig({
 			$stylesheets: resolve("./src/lib/stylesheets"),
 			$utils: resolve("./src/lib/utils"),
 			$icons: resolve("./src/lib/icons"),
-			$root: resolve("./src")
+			$root: resolve("./src"),
+			$types: resolve("./src/types")
 		}
 	},
 	server: {

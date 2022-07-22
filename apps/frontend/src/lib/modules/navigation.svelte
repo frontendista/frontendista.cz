@@ -1,13 +1,13 @@
-<script>
+<script lang="ts">
 	import { page } from "$app/stores";
 	import SideBarItem from "$components/side-bar-item.svelte";
 	import { list } from "./side-bar.css";
 
-	import HiChatAlt2 from "$icons/hi-chat-alt-2.svg?component";
-	import HiCollection from "$icons/hi-collection.svg?component";
-	import HiHome from "$icons/hi-home.svg?component";
-	import HiUser from "$icons/hi-user.svg?component";
-	import HiArchive from "$icons/hi-archive.svg?component";
+	import HiChatAlt2 from "$icons/hi/20/chat-alt-2.svg?component";
+	import HiCollection from "$icons/hi/20/collection.svg?component";
+	import HiHome from "$icons/hi/20/home.svg?component";
+	import HiUser from "$icons/hi/20/user.svg?component";
+	import HiArchive from "$icons/hi/20/archive.svg?component";
 
 	const NAVIGATION_LINKS = [
 		{ label: "Home", href: "/", icon: HiHome },

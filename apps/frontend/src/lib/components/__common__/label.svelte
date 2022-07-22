@@ -2,7 +2,7 @@
 	import cx from "clsx";
 	import { fade } from "svelte/transition";
 
-	import ExclamationCircle from "$icons/hi-exclamation-circle.svg?component";
+	import ExclamationCircle from "$icons/hi/20/exclamation-circle.svg?component";
 
 	import { container, labelText, requiredField, errorField, errorMessage } from "./label.css";
 

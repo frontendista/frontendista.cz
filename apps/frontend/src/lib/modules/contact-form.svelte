@@ -8,8 +8,8 @@
 	import { container, formButtonGroup, formError } from "./contact-form.css";
 	import Label from "$common/label.svelte";
 	import Textarea from "$common/textarea.svelte";
-	import Send from "$icons/send.svg?component";
-	import HiTrash from "$icons/hi-trash.svg?component";
+	import Send from "$icons/other/send.svg?component";
+	import HiTrash from "$icons/hi/20/trash.svg?component";
 	import { emailRegex } from "$utils/regex";
 	import { sendDiscordMessage, type IContactFormData } from "$utils/api";
 	import { goto } from "$app/navigation";
@@ -138,7 +138,7 @@
 			type="submit"
 		>
 			SEND
-			<Send height="0.75em" />
+			<Send />
 		</button>
 		<button
 			class={buttonStyle({

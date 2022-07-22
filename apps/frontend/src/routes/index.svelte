@@ -1,6 +1,7 @@
 <script context="module" lang="ts">
-	import Divider from "$common/divider.svelte";
 	import { INDEX_PAGE_DESCRIPTION, INDEX_PAGE_TITLE } from "$root/seo.json";
+
+	import Divider from "$common/divider.svelte";
 
 	import type { Load } from ".svelte-kit/types/src/routes/__types/index";
 
@@ -15,6 +16,5 @@
 	};
 </script>
 
-<!-- TODO: Add content -->
 <h1>Home</h1>
 <Divider />

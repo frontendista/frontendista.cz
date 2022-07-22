@@ -1,10 +1,10 @@
 <script lang="ts">
 	import { container, favicon, link, linkText } from "./side-bar-item.css";
-	import HiExternalLink from "$icons/hi-external-link.svg?component";
-	import HiChevronLeft from "$icons/hi-chevron-left.svg?component";
+	import HiExternalLink from "$icons/hi/20/external-link.svg?component";
+	import HiChevronLeft from "$icons/hi/20/chevron-left.svg?component";
 
 	export let href: string;
-	export let icon: any = null;
+	export let icon: any | null = null;
 	export let isActive = false;
 
 	$: isExternal = href.startsWith("http");

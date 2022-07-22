@@ -1,13 +1,7 @@
 <script lang="ts">
 	import { fly, type FlyParams } from "svelte/transition";
 
-	import {
-		container,
-		digitContainer,
-		digitWrapper,
-		description,
-		innerContainer
-	} from "./digit-counter.css";
+	import { container, digitContainer, digitWrapper, innerContainer } from "./digit-counter.css";
 
 	export let value: number;
 	/**
@@ -46,8 +40,5 @@
 			</div>
 		{/each}
 	</div>
-	<p class={description}>
-		<span data-sr="true">{value} messages sent since initial release</span>
-		<span aria-hidden="true">Messages sent since initial release</span>
-	</p>
+	<slot />
 </div>

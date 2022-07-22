@@ -24,6 +24,7 @@
 <script lang="ts">
 	import Link from "$common/link.svelte";
 	import Divider from "$common/divider.svelte";
+	import { description } from "$components/digit-counter.css";
 
 	export let count: number;
 </script>
@@ -36,6 +37,11 @@
 	</p>
 </section>
 <Divider />
-<DigitCounter value={count} minimalDigitCount={4} />
+<DigitCounter value={count} minimalDigitCount={4}>
+	<p class={description}>
+		<span data-sr="true">{count} messages sent since initial release</span>
+		<span aria-hidden="true">Messages sent since initial release</span>
+	</p>
+</DigitCounter>
 <Divider />
 <ContactForm />

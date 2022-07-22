@@ -108,11 +108,20 @@ export const buttonStyle = recipe({
 					background: "#444"
 				}
 			}
+		},
+		isDisabled: {
+			true: {
+				background: "#262626 !important",
+				color: "#525252 !important",
+				cursor: "not-allowed",
+				transform: "inherit !important"
+			}
 		}
 	},
 	defaultVariants: {
 		type: "primary",
 		size: "normal",
-		square: false
+		square: false,
+		isDisabled: false
 	}
 });
