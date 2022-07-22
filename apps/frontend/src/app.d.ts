@@ -1,9 +1,9 @@
-// TODO: Kamo TypeScript je občas k pomrdání, přidat tohle jakmile zjistím jak overridnout vite client.d.ts pro vlastni *.svg typ
-// /// <reference types="@sveltejs/kit" />
-// /// <reference types="@testing-library/jest-dom" />
-// /// <reference types="vite/client" />
+/// <reference types="@sveltejs/kit" />
+/// <reference types="@testing-library/jest-dom" />
+/// <reference types="vite/client" />
 
-declare module "*.svg" {
+// NOTE: THX Bro for the tip!
+declare module "*.svg?component" {
 	import { SvelteComponentTyped } from "svelte";
 
 	// NOTE: This should be some general type exported by Svelte, but it's not.

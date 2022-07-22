@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { buttonStyle } from "$stylesheets/global.css";
-	import HiChevronDoubleRight from "$icons/hi-chevron-double-right.svg";
+	import HiChevronDoubleRight from "$icons/hi-chevron-double-right.svg?component";
 
 	import { container } from "./skip-navigation-links.css";
 </script>

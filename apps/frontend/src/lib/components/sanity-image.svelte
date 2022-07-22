@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { MOBILE_START_MQ, SIDE_BAR_WIDTH } from "$stylesheets/constants.css";
+	import { DESKTOP_START_MQ, MOBILE_START_MQ, SIDE_BAR_WIDTH } from "$stylesheets/constants.css";
 
 	import { container } from "./sanity-image.css";
 
@@ -26,7 +26,7 @@
 		{height}
 		{srcset}
 		{loading}
-		sizes={`${MOBILE_START_MQ} 100vw, calc(100vw - ${SIDE_BAR_WIDTH})`}
+		sizes={`${MOBILE_START_MQ} 100vw, ${DESKTOP_START_MQ} calc(48em - ${SIDE_BAR_WIDTH})`}
 		alt=""
 	/>
 	{#if caption}

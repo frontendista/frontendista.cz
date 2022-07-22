@@ -2,12 +2,12 @@
 	import { beforeNavigate } from "$app/navigation";
 	import cx from "clsx";
 
-	import GitHub from "$icons/social/github.svg";
-	import Npmjs from "$icons/social/npmjs.svg";
-	import LinkedIn from "$icons/social/linkedin.svg";
-	import Spotify from "$icons/social/spotify.svg";
-	import Steam from "$icons/social/steam.svg";
-	import Twitter from "$icons/social/twitter.svg";
+	import GitHub from "$icons/social/github.svg?component";
+	import Npmjs from "$icons/social/npmjs.svg?component";
+	import LinkedIn from "$icons/social/linkedin.svg?component";
+	import Spotify from "$icons/social/spotify.svg?component";
+	import Steam from "$icons/social/steam.svg?component";
+	import Twitter from "$icons/social/twitter.svg?component";
 
 	import Footer from "./footer.svelte";
 	import Navigation from "./navigation.svelte";

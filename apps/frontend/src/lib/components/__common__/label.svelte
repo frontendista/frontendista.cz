@@ -1,7 +1,7 @@
 <script lang="ts">
 	import cx from "clsx";
 
-	import ExclamationCircle from "$icons/hi-exclamation-circle.svg";
+	import ExclamationCircle from "$icons/hi-exclamation-circle.svg?component";
 
 	import { container, labelText, requiredField, errorField, errorMessage } from "./label.css";
 

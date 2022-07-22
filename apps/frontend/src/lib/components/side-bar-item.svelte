@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { container, favicon, link, linkText } from "./side-bar-item.css";
-	import HiExternalLink from "$icons/hi-external-link.svg";
-	import HiChevronLeft from "$icons/hi-chevron-left.svg";
+	import HiExternalLink from "$icons/hi-external-link.svg?component";
+	import HiChevronLeft from "$icons/hi-chevron-left.svg?component";
 
 	export let href: string;
 	export let icon: any = null;

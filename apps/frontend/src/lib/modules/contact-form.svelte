@@ -9,8 +9,8 @@
 	import { container, formButtonGroup, formError } from "./contact-form.css";
 	import Label from "$common/label.svelte";
 	import Textarea from "$common/textarea.svelte";
-	import Send from "$icons/send.svg";
-	import HiTrash from "$icons/hi-trash.svg";
+	import Send from "$icons/send.svg?component";
+	import HiTrash from "$icons/hi-trash.svg?component";
 	import { emailRegex } from "$utils/regex";
 	import { sendDiscordMessage, type IContactFormData } from "$utils/api";
 	import { goto } from "$app/navigation";

@@ -24,11 +24,5 @@ export default defineConfig({
 	preview: {
 		port: 3300
 	},
-	plugins: [
-		sveltekit(),
-		svg({
-			requireSuffix: false
-		}),
-		vanillaExtractPlugin()
-	]
+	plugins: [sveltekit(), svg(), vanillaExtractPlugin()]
 });
