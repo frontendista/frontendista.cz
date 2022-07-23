@@ -13,6 +13,7 @@
 	import { emailRegex } from "$utils/regex";
 	import { sendDiscordMessage, type IContactFormData } from "$utils/api";
 	import { goto } from "$app/navigation";
+	import ResetFormDialog from "$components/reset-form-dialog.svelte";
 
 	function validate({ email, firstname, message }: IContactFormData) {
 		const errors: Partial<IContactFormData> = {};
@@ -87,6 +88,7 @@
 
 	let formLevelError: string | null = null;
 	let formElement: HTMLFormElement | null = null;
+	let isResetDialogOpened = false;
 </script>
 
 <form bind:this={formElement} novalidate class={container} on:submit={handleSubmit}>
@@ -145,9 +147,10 @@
 				type: "secondary",
 				size: "large"
 			})}
-			type="reset"
-			on:click={handleReset}
+			type="button"
+			on:click={() => (isResetDialogOpened = true)}
 		>
+			<ResetFormDialog bind:isOpened={isResetDialogOpened} />
 			Reset
 			<HiTrash />
 		</button>
