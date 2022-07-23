@@ -13,6 +13,7 @@
 	import { emailRegex } from "$utils/regex";
 	import { sendDiscordMessage, type IContactFormData } from "$utils/api";
 	import { goto } from "$app/navigation";
+	import ResetFormDialog from "$components/reset-form-dialog.svelte";
 
 	function validate({ email, firstname, message }: IContactFormData) {
 		const errors: Partial<IContactFormData> = {};
@@ -59,16 +60,24 @@
 		}
 	}
 
-	const { handleSubmit, errors, handleReset, form, touched, validateField, updateTouched } =
-		createForm<IContactFormData>({
-			onSubmit,
-			validate,
-			initialValues: {
-				message: "",
-				firstname: "",
-				email: ""
-			}
-		});
+	const {
+		handleSubmit,
+		errors,
+		handleReset,
+		form,
+		touched,
+		modified,
+		validateField,
+		updateTouched
+	} = createForm<IContactFormData>({
+		onSubmit,
+		validate,
+		initialValues: {
+			message: "",
+			firstname: "",
+			email: ""
+		}
+	});
 
 	function handleInput(e: Event) {
 		const field = (e.target as HTMLInputElement).name as keyof IContactFormData;
@@ -81,12 +90,15 @@
 	function handleBlur(e: Event) {
 		const field = (e.target as HTMLInputElement).name as keyof IContactFormData;
 
-		updateTouched(field, true);
-		validateField(field);
+		if ($modified[field]) {
+			updateTouched(field, true);
+			validateField(field);
+		}
 	}
 
 	let formLevelError: string | null = null;
 	let formElement: HTMLFormElement | null = null;
+	let isResetDialogOpened = false;
 </script>
 
 <form bind:this={formElement} novalidate class={container} on:submit={handleSubmit}>
@@ -145,9 +157,10 @@
 				type: "secondary",
 				size: "large"
 			})}
-			type="reset"
-			on:click={handleReset}
+			type="button"
+			on:click={() => (isResetDialogOpened = true)}
 		>
+			<ResetFormDialog bind:isOpened={isResetDialogOpened} onConfirm={() => handleReset()} />
 			Reset
 			<HiTrash />
 		</button>
