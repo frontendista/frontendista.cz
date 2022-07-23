@@ -60,16 +60,24 @@
 		}
 	}
 
-	const { handleSubmit, errors, handleReset, form, touched, validateField, updateTouched } =
-		createForm<IContactFormData>({
-			onSubmit,
-			validate,
-			initialValues: {
-				message: "",
-				firstname: "",
-				email: ""
-			}
-		});
+	const {
+		handleSubmit,
+		errors,
+		handleReset,
+		form,
+		touched,
+		modified,
+		validateField,
+		updateTouched
+	} = createForm<IContactFormData>({
+		onSubmit,
+		validate,
+		initialValues: {
+			message: "",
+			firstname: "",
+			email: ""
+		}
+	});
 
 	function handleInput(e: Event) {
 		const field = (e.target as HTMLInputElement).name as keyof IContactFormData;
@@ -82,8 +90,10 @@
 	function handleBlur(e: Event) {
 		const field = (e.target as HTMLInputElement).name as keyof IContactFormData;
 
-		updateTouched(field, true);
-		validateField(field);
+		if ($modified[field]) {
+			updateTouched(field, true);
+			validateField(field);
+		}
 	}
 
 	let formLevelError: string | null = null;
