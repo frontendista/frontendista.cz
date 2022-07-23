@@ -1,4 +1,5 @@
 import { DIALOG_ZINDEX } from "$stylesheets/constants.css";
+import { vars } from "$stylesheets/theme.css";
 import { style } from "@vanilla-extract/css";
 
 export const dialogContainer = style({
@@ -20,10 +21,20 @@ export const dialogContainer = style({
 	}
 });
 
-export const diaologOverlay = style({
+export const dialogOverlay = style({
 	width: "100%",
 	height: "100%",
 	position: "absolute",
 	top: 0,
-	left: 0
+	left: 0,
+	zIndex: -1
+});
+
+export const dialogWrapper = style({
+	background: vars.bg.primary,
+	border: `3px solid ${vars.bg.tertiary}`,
+	borderRadius: "0.75rem",
+	padding: "1.5rem",
+	maxWidth: "32rem",
+	width: "100%"
 });

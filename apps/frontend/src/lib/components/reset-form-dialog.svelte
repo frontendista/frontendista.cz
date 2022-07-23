@@ -7,7 +7,7 @@
 		DialogTitle,
 		DialogDescription
 	} from "@rgossiaux/svelte-headlessui";
-	import { dialogContainer, diaologOverlay } from "./reset-form-dialog.css";
+	import { dialogContainer, dialogOverlay, dialogWrapper } from "./reset-form-dialog.css";
 
 	export let isOpened = false;
 	export let onConfirm: () => void;
@@ -23,13 +23,12 @@
 </script>
 
 <Dialog class={dialogContainer} open={isOpened} on:close={closeDialog}>
-	<!-- <DialogOverlay class={diaologOverlay} /> -->
-
-	<div>
+	<div class={dialogWrapper}>
 		<DialogTitle>Reset form</DialogTitle>
 		<DialogDescription>This will irreversibly reset the form</DialogDescription>
 
 		<button class={buttonStyle()} type="button" on:click={closeDialog}>Cancel</button>
 		<button class={buttonStyle()} type="reset" on:click={handleOnConfirm}>Reset</button>
 	</div>
+	<DialogOverlay class={dialogOverlay} />
 </Dialog>
