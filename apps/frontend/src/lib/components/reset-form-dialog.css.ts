@@ -9,10 +9,13 @@ export const dialogContainer = style({
 	background: "rgb(0 0 0 / 50%)",
 	height: "100%",
 	width: "100%",
+	display: "flex",
+	justifyContent: "center",
+	alignItems: "center",
 	"@supports": {
-		"(backdrop-filter: blur(10px))": {
-			backdropFilter: "blur(10px) saturate(150%) contrast(150%)",
-			background: "rgb(16, 14, 15, 0.5)"
+		"(backdrop-filter: blur(8px))": {
+			backdropFilter: "blur(8px) saturate(150%)",
+			background: "rgb(0 0 0 / 50%)"
 		}
 	}
 });

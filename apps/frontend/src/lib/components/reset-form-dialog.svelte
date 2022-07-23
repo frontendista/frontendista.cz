@@ -10,20 +10,26 @@
 	import { dialogContainer, diaologOverlay } from "./reset-form-dialog.css";
 
 	export let isOpened = false;
+	export let onConfirm: () => void;
 
 	function closeDialog() {
 		isOpened = false;
 	}
+
+	function handleOnConfirm() {
+		onConfirm();
+		closeDialog();
+	}
 </script>
 
 <Dialog class={dialogContainer} open={isOpened} on:close={closeDialog}>
-	<DialogOverlay class={diaologOverlay} />
+	<!-- <DialogOverlay class={diaologOverlay} /> -->
 
 	<div>
 		<DialogTitle>Reset form</DialogTitle>
 		<DialogDescription>This will irreversibly reset the form</DialogDescription>
 
 		<button class={buttonStyle()} type="button" on:click={closeDialog}>Cancel</button>
-		<button class={buttonStyle()} type="reset" on:click={closeDialog}>Reset</button>
+		<button class={buttonStyle()} type="reset" on:click={handleOnConfirm}>Reset</button>
 	</div>
 </Dialog>

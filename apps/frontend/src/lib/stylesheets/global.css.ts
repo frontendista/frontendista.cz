@@ -1,5 +1,5 @@
 import { withTransition } from "$utils/with-transition";
-import { globalStyle, style } from "@vanilla-extract/css";
+import { globalStyle } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
 import { DESKTOP_START_MQ, MOBILE_START_MQ, SIDE_BAR_WIDTH, TOP_BAR_HEIGHT } from "./constants.css";
 import { utilities, vars } from "./theme.css";

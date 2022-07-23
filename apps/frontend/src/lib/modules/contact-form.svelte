@@ -150,7 +150,7 @@
 			type="button"
 			on:click={() => (isResetDialogOpened = true)}
 		>
-			<ResetFormDialog bind:isOpened={isResetDialogOpened} />
+			<ResetFormDialog bind:isOpened={isResetDialogOpened} onConfirm={() => handleReset()} />
 			Reset
 			<HiTrash />
 		</button>
