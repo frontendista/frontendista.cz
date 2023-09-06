@@ -1,0 +1,89 @@
+name: web@ci
+
+on:
+  workflow_dispatch:
+  pull_request: 
+    branches: 
+      - main
+    paths: 
+      - "apps/web/**"
+  push: 
+    branches: 
+      - main
+    paths: 
+      - "apps/web/**"
+
+env:
+  pnpm-version: 8
+  node-version: 18
+
+jobs:
+  lint:
+    name: Lint
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: pnpm/action-setup@v2
+        with:
+          version: ${{ env.pnpm-version }}
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: ${{ env.node-version }}
+          cache: "pnpm"
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Lint
+        run: pnpm lint
+        working-directory: apps/web
+
+  check:
+    name: Type-check
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: pnpm/action-setup@v2
+        with:
+          version: ${{ env.pnpm-version }}
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: ${{ env.node-version }}
+          cache: "pnpm"
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Type-check
+        run: pnpm type-check
+        working-directory: apps/web
+
+  build:
+    name: Build
+    needs: [lint, check]
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: pnpm/action-setup@v2
+        with:
+          version: ${{ env.pnpm-version }}
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: ${{ env.node-version }}
+          cache: "pnpm"
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Build
+        run: pnpm build
+        working-directory: apps/web
