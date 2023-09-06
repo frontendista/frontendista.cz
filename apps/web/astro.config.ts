@@ -16,5 +16,12 @@ export default defineConfig({
 	trailingSlash: "never",
 	build: {
 		format: "file"
+	},
+	server({ command }) {
+		return {
+			port: PORTS[command],
+			host: true,
+			open: true
+		};
 	}
 });
