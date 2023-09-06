@@ -34,11 +34,9 @@ jobs:
           node-version: ${{ env.node-version }}
           cache: "pnpm"
 
-      - name: Install dependencies
-        run: pnpm install
+      - run: pnpm install
 
-      - name: Lint
-        run: pnpm lint
+      - run: pnpm lint
         working-directory: apps/web
 
   check:
@@ -57,11 +55,9 @@ jobs:
           node-version: ${{ env.node-version }}
           cache: "pnpm"
 
-      - name: Install dependencies
-        run: pnpm install
+      - run: pnpm install
 
-      - name: Type-check
-        run: pnpm type-check
+      - run: pnpm type-check
         working-directory: apps/web
 
   build:
@@ -81,9 +77,39 @@ jobs:
           node-version: ${{ env.node-version }}
           cache: "pnpm"
 
-      - name: Install dependencies
-        run: pnpm install -P
+      - run: pnpm install -P
 
-      - name: Build
-        run: pnpm build
+      - run: pnpm build
         working-directory: apps/web
+
+  test:
+    name: E2E
+    needs: [build]
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+    - uses: actions/checkout@v3
+
+    - uses: pnpm/action-setup@v2
+      with:
+        version: ${{ env.pnpm-version }}
+
+    - uses: actions/setup-node@v3
+      with:
+        node-version: ${{ env.node-version }}
+        cache: "pnpm"
+
+    - run: pnpm install
+
+    - run: pnpm exec playwright install --with-deps
+      working-directory: apps/web
+
+    - run: pnpm test
+      working-directory: apps/web
+
+    - uses: actions/upload-artifact@v3
+      if: always()
+      with:
+        name: playwright-report
+        path: playwright-report/
+        retention-days: 7

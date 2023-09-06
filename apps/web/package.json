@@ -7,14 +7,17 @@
 		"build": "astro build",
 		"preview": "astro preview",
 		"build:preview": "run-s build preview",
+		"build:preview:prod": "cross-env VERCEL_ENV=production run-s build:preview",
 		"lint": "eslint . --ext .js,.ts,.tsx,.astro",
-		"type-check": "astro check"
+		"type-check": "astro check",
+		"test": "playwright test"
 	},
 	"dependencies": {
 		"astro": "^3.0.8"
 	},
 	"devDependencies": {
 		"@astrojs/check": "^0.2.0",
+		"@playwright/test": "^1.37.1",
 		"@types/node": "^20.5.9",
 		"@typescript-eslint/eslint-plugin": "^6.6.0",
 		"@typescript-eslint/parser": "^6.6.0",

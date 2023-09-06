@@ -1,11 +1,11 @@
 import { defineConfig } from "astro/config";
 
-const PORTS = {
+export const PORTS = {
 	dev: 3000,
 	preview: 3001,
 } as const;
 
-const SITES: Record<typeof process.env.VERCEL_ENV, string> = {
+export const SITES: Record<typeof process.env.VERCEL_ENV, string> = {
 	development: `http://localhost:${PORTS.dev}`,
 	preview: "https://staging.frontendista.cz",
 	production: "https://frontendista.cz"
