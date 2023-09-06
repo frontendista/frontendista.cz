@@ -45,6 +45,9 @@ importers:
       eslint-plugin-jsx-a11y:
         specifier: ^6.7.1
         version: 6.7.1(eslint@8.48.0)
+      eslint-plugin-playwright:
+        specifier: ^0.16.0
+        version: 0.16.0(eslint@8.48.0)
       typescript:
         specifier: ^5.2.2
         version: 5.2.2
@@ -2166,6 +2169,18 @@ packages:
       object.entries: 1.1.7
       object.fromentries: 2.0.7
       semver: 6.3.1
+    dev: true
+
+  /eslint-plugin-playwright@0.16.0(eslint@8.48.0):
+    resolution: {integrity: sha512-DcHpF0SLbNeh9MT4pMzUGuUSnJ7q5MWbP8sSEFIMS6j7Ggnduq8ghNlfhURgty4c1YFny7Ge9xYTO1FSAoV2Vw==}
+    peerDependencies:
+      eslint: '>=7'
+      eslint-plugin-jest: '>=25'
+    peerDependenciesMeta:
+      eslint-plugin-jest:
+        optional: true
+    dependencies:
+      eslint: 8.48.0
     dev: true
 
   /eslint-scope@7.2.2:

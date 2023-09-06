@@ -26,6 +26,12 @@ var config = {
 			},
 			rules: {},
 		},
+		{
+			files: ["*.spec.ts"],
+			extends: [
+				"plugin:playwright/recommended"
+			]
+		}
 	],
 	rules: {
 		semi: "error",
