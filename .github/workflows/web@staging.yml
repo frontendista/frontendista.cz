@@ -1,0 +1,25 @@
+name: web@staging
+
+on:
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: web:staging
+      url: https://staging.frontendista.cz
+
+    env:
+      VERCEL_DEPLOYMENT_TOKEN: ${{ secrets.VERCEL_DEPLOYMENT_TOKEN }}
+      VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+      VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Deploy to Vercel
+        run: echo "DEPLOYMENT_URL=$(vercel -f -t $VERCEL_DEPLOYMENT_TOKEN -S frontendista)" >> $GITHUB_ENV
+
+      - name: Alias staging URL to deployment URL
+        run: vercel alias set $DEPLOYMENT_URL staging.frontendista.cz -S frontendista -t $VERCEL_DEPLOYMENT_TOKEN

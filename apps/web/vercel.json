@@ -1,0 +1,13 @@
+{
+	"$schema": "https://openapi.vercel.sh/vercel.json",
+	"github": {
+		"enabled": false
+	},
+	"redirects": [
+		{
+			"destination": "https://open.spotify.com/playlist/0Uvb8UUJ7tbV8KPoSzg5XN",
+			"source": "/spotify",
+			"permanent": true
+		}
+	]
+}
