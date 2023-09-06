@@ -2,6 +2,9 @@
 	"private": true,
 	"name": "frontendista.cz",
 	"description": "Personal website of Pavel Sušický",
+	"devDependencies": {
+		"npm-run-all": "^4.1.5"
+	},
 	"keywords": [
 		"personal-website"
 	],
