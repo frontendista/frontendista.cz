@@ -4,14 +4,28 @@ import { version } from "~/root/package.json";
 import CommonHead from "./common/common-head.astro";
 
 const BUILD_FINGERPRINT = `<!-- v${version} : ${process.env.VERCEL_ENV} - ${new Date().toUTCString()} -->`;
+
+export interface Props {
+	/**
+	 * @default "Pavel Sušický — Front-end Developer"
+	 */
+	title?: string;
+}
+
+const { title = "Pavel Sušický — Front-end Developer" } = Astro.props;
 ---
 
 <html lang="en" dir="ltr">
 	<head>
 		<Fragment set:html={BUILD_FINGERPRINT} />
+		<slot name="head" />
 		<CommonHead />
+		<title>{title}</title>
 	</head>
 	<body>
-		<slot />
+		<a href="#main">Skip to content</a>
+		<main id="main">
+			<slot />
+		</main>
 	</body>
 </html>

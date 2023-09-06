@@ -1,0 +1,15 @@
+---
+import BaseLayout, { type Props as BaseLayoutProps } from "./base-layout.astro";
+
+const CANONICAL_URL = new URL(Astro.url.pathname, Astro.site).toString().replace(/\.html$/, "");
+
+export type Props = BaseLayoutProps;
+---
+
+<BaseLayout {...Astro.props}>
+	<Fragment slot="head">
+		<link rel="canonical" href={CANONICAL_URL} />
+		<meta property="og:url" content={CANONICAL_URL} />
+	</Fragment>
+	<slot />
+</BaseLayout>
