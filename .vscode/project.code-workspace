@@ -1,8 +1,13 @@
 {
-	"folders": [
-		{
-			"path": ".."
-		}
-	],
-	"settings": {}
+  "folders": [
+    {
+      "name": "✨ frontendista.cz",
+      "path": ".."
+    },
+    {
+      "name": "🚀 web",
+      "path": "../apps/web"
+    }
+  ],
+  "settings": {}
 }
