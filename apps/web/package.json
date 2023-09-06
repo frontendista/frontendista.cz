@@ -1,6 +1,9 @@
 {
   "private": true,
   "name": "web",
+  "scripts": {
+    "dev": "astro dev"
+  },
   "dependencies": {
     "astro": "^3.0.8"
   }
