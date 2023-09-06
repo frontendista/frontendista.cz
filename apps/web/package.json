@@ -5,6 +5,7 @@
 		"dev": "astro dev",
 		"build": "astro build",
 		"preview": "astro preview",
+		"lint": "eslint . --ext .js,.ts,.tsx,.astro",
 		"type-check": "astro check"
 	},
 	"dependencies": {
@@ -12,8 +13,11 @@
 	},
 	"devDependencies": {
 		"@astrojs/check": "^0.2.0",
+		"@typescript-eslint/eslint-plugin": "^6.6.0",
+		"@typescript-eslint/parser": "^6.6.0",
 		"eslint": "^8.48.0",
 		"eslint-plugin-astro": "^0.29.0",
+		"eslint-plugin-jsx-a11y": "^6.7.1",
 		"typescript": "^5.2.2"
 	}
 }
