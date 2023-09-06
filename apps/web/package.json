@@ -1,10 +1,10 @@
 {
-  "private": true,
-  "name": "web",
-  "scripts": {
-    "dev": "astro dev"
-  },
-  "dependencies": {
-    "astro": "^3.0.8"
-  }
+	"private": true,
+	"name": "web",
+	"scripts": {
+		"dev": "astro dev"
+	},
+	"dependencies": {
+		"astro": "^3.0.8"
+	}
 }

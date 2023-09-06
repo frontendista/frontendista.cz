@@ -1,13 +1,13 @@
 {
-  "folders": [
-    {
-      "name": "✨ frontendista.cz",
-      "path": ".."
-    },
-    {
-      "name": "🚀 web",
-      "path": "../apps/web"
-    }
-  ],
-  "settings": {}
+	"folders": [
+		{
+			"name": "✨ frontendista.cz",
+			"path": ".."
+		},
+		{
+			"name": "🚀 web",
+			"path": "../apps/web"
+		}
+	],
+	"settings": {}
 }

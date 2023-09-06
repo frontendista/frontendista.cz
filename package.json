@@ -1,14 +1,14 @@
 {
-  "private": true,
-  "name": "frontendista.cz",
-  "description": "Personal website of Pavel Sušický",
-  "keywords": [
-    "personal-website"
-  ],
-  "author": {
-    "name": "Pavel Sušický",
-    "email": "me@frontendista.cz",
-    "url": "https://frontendista.cz"
-  },
-  "license": "MIT"
+	"private": true,
+	"name": "frontendista.cz",
+	"description": "Personal website of Pavel Sušický",
+	"keywords": [
+		"personal-website"
+	],
+	"author": {
+		"name": "Pavel Sušický",
+		"email": "me@frontendista.cz",
+		"url": "https://frontendista.cz"
+	},
+	"license": "MIT"
 }
