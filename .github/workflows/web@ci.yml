@@ -7,11 +7,13 @@ on:
       - main
     paths: 
       - "apps/web/**"
+      - ".github/workflows/web@ci.yml"
   push: 
     branches: 
       - main
     paths: 
       - "apps/web/**"
+      - ".github/workflows/web@ci.yml"
 
 env:
   pnpm-version: 8
@@ -101,7 +103,7 @@ jobs:
 
     - run: pnpm install
 
-    - run: pnpm exec playwright install --with-deps
+    - run: pnpm exec playwright install --with-deps chromium
       working-directory: apps/web
 
     - run: pnpm test
