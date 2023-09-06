@@ -1,0 +1,20 @@
+---
+import { version } from "~/root/package.json";
+
+const CANONICAL_URL = new URL(Astro.url.pathname, Astro.site).toString().replace(/\.html$/, "");
+const BUILD_FINGERPRINT = `<!-- v${version} : ${process.env.VERCEL_ENV} - ${new Date().toUTCString()} -->`;
+---
+
+<html lang="en" dir="ltr">
+	<head>
+		<Fragment set:html={BUILD_FINGERPRINT} />
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta property="og:url" content={CANONICAL_URL} />
+		<link rel="canonical" href={CANONICAL_URL} />
+		<title>Pavel Sušický - Front-end Developer</title>
+	</head>
+	<body>
+		<slot />
+	</body>
+</html>

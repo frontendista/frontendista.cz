@@ -1,3 +1,11 @@
 {
-	"extends": "astro/tsconfigs/strictest"
+	"extends": "astro/tsconfigs/strictest",
+	"compilerOptions": {
+		"baseUrl": ".",
+		"paths": {
+			"~/layouts/*": ["./src/layouts/*"],
+			"~/root/*": ["./*"]
+		}
+	},
+	"include": ["astro.config.ts", "./src/**/*.ts", "./src/**/*.tsx", "./src/**/*.astro"]
 }

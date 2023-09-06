@@ -3,6 +3,8 @@
 	"github": {
 		"enabled": false
 	},
+	"trailingSlash": false,
+	"cleanUrls": true,
 	"redirects": [
 		{
 			"destination": "https://open.spotify.com/playlist/0Uvb8UUJ7tbV8KPoSzg5XN",
