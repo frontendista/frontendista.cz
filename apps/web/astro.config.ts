@@ -33,7 +33,14 @@ export default defineConfig({
 			transformer: "lightningcss"
 		},
 		build: {
+			assetsInlineLimit: 0,
 			cssMinify: "lightningcss",
+			rollupOptions: {
+				output: {
+					entryFileNames: "assets/[hash:16].js",
+					assetFileNames: "assets/[hash:16][extname]"
+				}
+			}
 		}
 	},
 	server({ command }) {
