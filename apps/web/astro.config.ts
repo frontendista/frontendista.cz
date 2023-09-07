@@ -6,6 +6,11 @@ import blist from "browserslist-to-esbuild";
 
 import { browserslist } from "./package.json";
 
+// Default environment variables
+process.env = Object.assign({
+	VERCEL_ENV: "development"
+} as typeof process.env, process.env);
+
 export const PORTS = {
 	dev: 3000,
 	preview: 3001,

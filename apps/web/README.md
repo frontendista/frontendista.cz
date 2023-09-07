@@ -4,9 +4,9 @@
 
 ### 1.1 Environment variables
 
-| Name       | Value                                      |
-| ---------- | ------------------------------------------ |
-| VERCEL_ENV | `development` or `preview` or `production` |
+| Name       | Value                                      | Default       |
+| ---------- | ------------------------------------------ | ------------- |
+| VERCEL_ENV | `development` or `preview` or `production` | `development` |
 
 ### 1.2 Commands
 
