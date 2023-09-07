@@ -1,15 +1,19 @@
 @mixin dark-mode {
 	color-scheme: dark;
 
+	// BG
 	--bg-primary: #000;
 
+	// FG
 	--fg-primary: #fff;
 }
 
 @mixin light-mode {
 	color-scheme: light;
 
+	// BG
 	--bg-primary: #fff;
 
+	// FG
 	--fg-primary: #000;
 }

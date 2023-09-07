@@ -1,5 +1,5 @@
-@import "./preflight.scss";
-@import "./theme.scss";
+@import "./preflight";
+@import "./theme";
 
 @layer base {
 	@media (prefers-color-scheme: dark) {

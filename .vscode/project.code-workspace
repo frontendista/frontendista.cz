@@ -11,6 +11,9 @@
 	],
 	"settings": {
 		"eslint.validate": ["astro"],
-		"unocss.root": "apps/web"
+		"stylelint.validate": [
+			"scss"
+		],
+		"scss.validate": false
 	}
 }
