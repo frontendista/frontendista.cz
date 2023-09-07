@@ -2,6 +2,7 @@ import { defineConfig } from "astro/config";
 
 // Integations
 import MinifyHTML from "@frontendista/astro-html-minify";
+import TailwindCSS from "@astrojs/tailwind";
 
 import { browserslist } from "./package.json";
 
@@ -47,6 +48,9 @@ export default defineConfig({
 		};
 	},
 	integrations: [
+		TailwindCSS({
+			applyBaseStyles: false
+		}),
 		MinifyHTML({
 			css: {
 				browserslist: browserslist.join(", ")

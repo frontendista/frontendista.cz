@@ -1,0 +1,7 @@
+@mixin dark-mode {
+	--bg-primary: #000;
+}
+
+@mixin light-mode {
+	--bg-primary: #fff;
+}

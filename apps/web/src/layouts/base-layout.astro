@@ -6,6 +6,8 @@ import FavouriteIcon, { type Props as FavouriteIconProps } from "./common/favico
 
 const BUILD_FINGERPRINT = `<!-- v${version} : ${process.env.VERCEL_ENV} - ${new Date().toUTCString()} -->`;
 
+import "~/styles/global.scss";
+
 export interface Props extends FavouriteIconProps {
 	/**
 	 * @default "Pavel Sušický — Front-end Developer"
