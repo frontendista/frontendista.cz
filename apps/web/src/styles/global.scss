@@ -32,3 +32,16 @@
 @tailwind components;
 @tailwind utilities;
 @tailwind variants;
+
+
+@layer utilities {
+	.min-h-view {
+		// NOTE: Fallback to vh unit for browsers that don't support svh unit.
+		
+		min-height: 100vh;
+
+		@supports (height: 1svh) {
+			min-height: 100svh;
+		}
+	}
+}

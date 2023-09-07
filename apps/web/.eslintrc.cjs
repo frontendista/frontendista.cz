@@ -37,6 +37,9 @@ var config = {
 	rules: {
 		semi: "error",
 		quotes: ["error", "double"],
+		"tailwindcss/no-custom-classname": ["warn", {
+			whitelist: ["min-h-view"]
+		}]
 	},
 };
 
