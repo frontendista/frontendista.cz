@@ -15,8 +15,7 @@
 	"dependencies": {
 		"@frontendista/astro-html-minify": "^2.0.0",
 		"astro": "^3.0.8",
-		"lightningcss": "^1.21.7",
-		"unocss": "^0.55.7"
+		"lightningcss": "^1.21.7"
 	},
 	"devDependencies": {
 		"@astrojs/check": "^0.2.0",

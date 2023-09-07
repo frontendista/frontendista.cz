@@ -2,7 +2,6 @@ import { defineConfig } from "astro/config";
 
 // Integations
 import MinifyHTML from "@frontendista/astro-html-minify";
-import UnoCSS from "unocss/astro";
 
 import { browserslist } from "./package.json";
 
@@ -29,9 +28,6 @@ export default defineConfig({
 		format: "file"
 	},
 	vite: {
-		css: {
-			transformer: "lightningcss"
-		},
 		build: {
 			assetsInlineLimit: 0,
 			cssMinify: "lightningcss",
@@ -55,7 +51,6 @@ export default defineConfig({
 			css: {
 				browserslist: browserslist.join(", ")
 			}
-		}),
-		UnoCSS()
+		})
 	]
 });
