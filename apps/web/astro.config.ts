@@ -47,7 +47,7 @@ export default defineConfig({
 		return {
 			port: PORTS[command],
 			host: true,
-			open: true
+			open: process.platform !== "win32"
 		};
 	},
 	integrations: [
