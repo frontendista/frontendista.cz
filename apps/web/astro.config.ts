@@ -1,8 +1,8 @@
 import { defineConfig } from "astro/config";
 
-import minify from "@frontendista/astro-html-minify";
-
-import blist from "browserslist-to-esbuild";
+// Integations
+import MinifyHTML from "@frontendista/astro-html-minify";
+import UnoCSS from "unocss/astro";
 
 import { browserslist } from "./package.json";
 
@@ -34,7 +34,6 @@ export default defineConfig({
 		},
 		build: {
 			cssMinify: "lightningcss",
-			target: blist(browserslist)
 		}
 	},
 	server({ command }) {
@@ -45,10 +44,11 @@ export default defineConfig({
 		};
 	},
 	integrations: [
-		minify({
+		MinifyHTML({
 			css: {
 				browserslist: browserslist.join(", ")
 			}
-		})
+		}),
+		UnoCSS()
 	]
 });
