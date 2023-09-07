@@ -2,23 +2,25 @@
 import { version } from "~/root/package.json";
 
 import CommonHead from "./common/common-head.astro";
+import FavouriteIcon, { type Props as FavouriteIconProps } from "./common/favicon.astro";
 
 const BUILD_FINGERPRINT = `<!-- v${version} : ${process.env.VERCEL_ENV} - ${new Date().toUTCString()} -->`;
 
-export interface Props {
+export interface Props extends FavouriteIconProps {
 	/**
 	 * @default "Pavel Sušický — Front-end Developer"
 	 */
 	title?: string;
 }
 
-const { title = "Pavel Sušický — Front-end Developer" } = Astro.props;
+const { title = "Pavel Sušický — Front-end Developer", favicon = "favicon" } = Astro.props;
 ---
 
 <html lang="en" dir="ltr">
 	<head>
 		<Fragment set:html={BUILD_FINGERPRINT} />
 		<slot name="head" />
+		<FavouriteIcon favicon={favicon} />
 		<CommonHead />
 		<title>{title}</title>
 	</head>
