@@ -15,6 +15,7 @@ var config = {
 		"plugin:@typescript-eslint/recommended",
 		"plugin:astro/recommended",
 		"plugin:astro/jsx-a11y-recommended",
+		"plugin:tailwindcss/recommended"
 	],
 	overrides: [
 		{

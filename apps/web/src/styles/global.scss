@@ -2,13 +2,13 @@
 @import "./theme.scss";
 
 @layer base {
-	@media (preferred-color-scheme: dark) {
+	@media (prefers-color-scheme: dark) {
 		:root {
 			@include dark-mode;
 		}
 	}
 
-	@media (preferred-color-scheme: light) {
+	@media (prefers-color-scheme: light) {
 		:root {
 			@include light-mode;
 		}
@@ -20,6 +20,11 @@
 
 	:root[data-theme="light"] {
 		@include light-mode;
+	}
+
+	body {
+		background: var(--bg-primary);
+		color: var(--fg-primary);
 	}
 }
 
