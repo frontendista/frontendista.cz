@@ -1,5 +1,11 @@
 import { defineConfig } from "astro/config";
 
+import minify from "@frontendista/astro-html-minify";
+
+import blist from "browserslist-to-esbuild";
+
+import { browserslist } from "./package.json";
+
 export const PORTS = {
 	dev: 3000,
 	preview: 3001,
@@ -17,11 +23,27 @@ export default defineConfig({
 	build: {
 		format: "file"
 	},
+	vite: {
+		css: {
+			transformer: "lightningcss"
+		},
+		build: {
+			cssMinify: "lightningcss",
+			target: blist(browserslist)
+		}
+	},
 	server({ command }) {
 		return {
 			port: PORTS[command],
 			host: true,
 			open: true
 		};
-	}
+	},
+	integrations: [
+		minify({
+			css: {
+				browserslist: browserslist.join(", ")
+			}
+		})
+	]
 });
