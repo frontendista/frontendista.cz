@@ -8,5 +8,5 @@
 			"~/styles/*": ["./src/styles/*"]
 		}
 	},
-	"include": ["astro.config.ts", "./src/**/*.ts", "./src/**/*.tsx", "./src/**/*.astro"]
+	"include": ["astro.config.ts", "tailwind.config.ts", "./src/**/*.ts", "./src/**/*.tsx", "./src/**/*.astro"]
 }
