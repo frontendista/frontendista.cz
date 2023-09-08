@@ -1,0 +1,49 @@
+---
+import { deepmerge } from "deepmerge-ts";
+
+export interface Props {
+	/**
+	 * @default { default: "..." }
+	 */
+	title?: {
+		default: string;
+		og?: string;
+		twitter?: string;
+	};
+	/**
+	 * @default false
+	 */
+	description?: {
+		default?: string;
+		og?: string;
+		twitter?: string;
+	} | false
+	/**
+	 * @default "website"
+	 * 
+	 * NOTE: This is an excerpt. There is much more.
+	 */
+	type?: "website" | "article" | "profile";
+}
+
+const { title, description, type } = deepmerge<[Props, Props]>({
+	title: {
+		default: "Pavel Sušický — Front-end Developer",
+	},
+	description: false,
+	type: "website"
+}, Astro.props) as Required<Props>;
+---
+
+<meta name="og:type" content={type} />
+
+{description && (
+	<meta name="og:description" content={description.og ?? description.default} />
+	<meta name="twitter:description" content={description.twitter ?? description.default} />
+	<meta name="description" content={description.default} />
+)}
+
+<meta name="og:title" content={title.og ?? title.default} />
+<meta name="twitter:title" content={title.twitter ?? title.default} />
+
+<title>{title.default}</title>

@@ -1,6 +1,7 @@
 ---
 import { version } from "~/root/package.json";
 
+import SEO, { type Props as SEOProps } from "./common/seo.astro";
 import CommonHead from "./common/common-head.astro";
 import FavouriteIcon, { type Props as FavouriteIconProps } from "./common/favicon.astro";
 
@@ -8,14 +9,12 @@ const BUILD_FINGERPRINT = `<!-- v${version} : ${process.env.VERCEL_ENV} - ${new 
 
 import "~/styles/global.scss";
 
-export interface Props extends FavouriteIconProps {
-	/**
-	 * @default "Pavel Sušický — Front-end Developer"
-	 */
-	title?: string;
-}
+export type Props = FavouriteIconProps & SEOProps;
 
-const { title = "Pavel Sušický — Front-end Developer", favicon = "favicon" } = Astro.props;
+const { 
+	favicon = "favicon",
+	...seoProps
+} = Astro.props;
 ---
 
 <html lang="en" dir="ltr">
@@ -24,7 +23,7 @@ const { title = "Pavel Sušický — Front-end Developer", favicon = "favicon" }
 		<slot name="head" />
 		<FavouriteIcon favicon={favicon} />
 		<CommonHead />
-		<title>{title}</title>
+		<SEO {...seoProps} />
 	</head>
 	<body>
 		<a href="#main">Skip to content</a>

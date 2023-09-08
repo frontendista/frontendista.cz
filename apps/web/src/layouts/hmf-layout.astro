@@ -1,12 +1,20 @@
 ---
+import { deepmerge } from "deepmerge-ts";
+
 import BaseLayout, { type Props as BaseLayoutProps } from "./base-layout.astro";
 
 const CANONICAL_URL = new URL(Astro.url.pathname, Astro.site).toString().replace(/\.html$/, "");
 
 export type Props = BaseLayoutProps;
+
+const props = deepmerge<[Props, Props]>({
+	description: {
+		default: "Pavel is a young front-end developer based in Prague, Czech Republic. He makes digital content in a variety of forms."
+	}
+}, Astro.props);
 ---
 
-<BaseLayout {...Astro.props}>
+<BaseLayout {...props}>
 	<Fragment slot="head">
 		<link rel="canonical" href={CANONICAL_URL} />
 		<meta property="og:url" content={CANONICAL_URL} />
