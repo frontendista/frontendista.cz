@@ -28,11 +28,11 @@ const { og, twitter } = deepmerge<[Props, Props]>({
 }, Astro.props) as WithRequired<Props, "og">;
 ---
 
-<meta name="twitter:image" content={new URL(twitter?.url ?? og.url, Astro.site)} />
+<meta name="twitter:image" content={twitter?.url ?? og.url} />
 <meta name="twitter:image:alt" content={twitter?.alt ?? og.alt} />
 
-<meta name="og:image" content={new URL(og.url, Astro.site)} />
-<meta name="og:image:secure_url" content={new URL(og.url, Astro.site)} />
+<meta name="og:image" content={og.url} />
+<meta name="og:image:secure_url" content={og.url} />
 <meta name="og:image:type" content={og.type} />
 <meta name="og:image:width" content={og.width.toString()} />
 <meta name="og:image:height" content={og.height.toString()} />
