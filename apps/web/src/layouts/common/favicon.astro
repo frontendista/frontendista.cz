@@ -7,12 +7,18 @@ export interface Props {
 }
 ---
 
-<meta name="msapplication-TileColor" content="#9f00a7">
-<meta name="theme-color" content="#d946ef">
+<meta name="msapplication-TileColor" content="#9f00a7" />
 
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<noscript>
+	<meta name="theme-color" content="#fff" media="(prefers-color-scheme: light)" />
+	<meta name="theme-color" content="#000" media="(prefers-color-scheme: dark)" />
+</noscript>
+
+<meta name="theme-color" content="#d946ef" />
+
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
 <link rel="icon" type="image/svg+xml" sizes="any" href=`/${Astro.props.favicon}.svg` />
-<link rel="manifest" href="/site.webmanifest">
-<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#d946ef">
+<link rel="manifest" href="/site.webmanifest" />
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#d946ef" />

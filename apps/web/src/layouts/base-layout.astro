@@ -6,6 +6,7 @@ import SEOImage, { type Props as SEOImageProps } from "./common/seo-image.astro"
 import FavouriteIcon, { type Props as FavouriteIconProps } from "./common/favicon.astro";
 
 import CommonHead from "./common/common-head.astro";
+import FeatureDetection from "./common/feature-detection.astro";
 
 const BUILD_FINGERPRINT = `<!-- v${version} : ${process.env.VERCEL_ENV} - ${new Date().toUTCString()} -->`;
 
@@ -30,6 +31,7 @@ const {
 		<CommonHead />
 		<SEO {...seoProps} />
 		<SEOImage {...image} />
+		<FeatureDetection />
 	</head>
 	<body>
 		<a class="absolute left-[-9999px]" href="#main">Skip to content</a>
