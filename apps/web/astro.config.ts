@@ -1,5 +1,7 @@
 import { defineConfig } from "astro/config";
 
+import blist from "browserslist-to-esbuild";
+
 // Integations
 import MinifyHTML from "@frontendista/astro-html-minify";
 import TailwindCSS from "@astrojs/tailwind";
@@ -32,6 +34,7 @@ export default defineConfig({
 		build: {
 			assetsInlineLimit: 0,
 			cssMinify: "lightningcss",
+			target: blist(browserslist),
 			rollupOptions: {
 				output: {
 					entryFileNames: "assets/[hash:16].js",

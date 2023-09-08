@@ -26,6 +26,9 @@ importers:
       astro:
         specifier: ^3.0.8
         version: 3.0.8(@types/node@20.5.9)(lightningcss@1.21.7)(sass@1.66.1)
+      browserslist-to-esbuild:
+        specifier: ^1.2.0
+        version: 1.2.0
       lightningcss:
         specifier: ^1.21.7
         version: 1.21.7
@@ -1770,6 +1773,13 @@ packages:
     engines: {node: '>=8'}
     dependencies:
       fill-range: 7.0.1
+
+  /browserslist-to-esbuild@1.2.0:
+    resolution: {integrity: sha512-ftrrbI/VHBgEnmnSyhkqvQVMp6jAKybfs0qMIlm7SLBrQTGMsdCIP4q3BoKeLsZTBQllIQtY9kbxgRYV2WU47g==}
+    engines: {node: '>=12'}
+    dependencies:
+      browserslist: 4.21.10
+    dev: false
 
   /browserslist@4.21.10:
     resolution: {integrity: sha512-bipEBdZfVH5/pwrvqc+Ub0kUPVfGUhlKxbvfD+z1BDnPEO/X98ruXGA1WP5ASpAFKan7Qr6j736IacbZQuAlKQ==}

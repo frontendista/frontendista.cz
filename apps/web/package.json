@@ -17,6 +17,7 @@
 		"@astrojs/tailwind": "^5.0.0",
 		"@frontendista/astro-html-minify": "^2.0.0",
 		"astro": "^3.0.8",
+		"browserslist-to-esbuild": "^1.2.0",
 		"lightningcss": "^1.21.7",
 		"sass": "^1.66.1",
 		"tailwindcss": "^3.3.3"
