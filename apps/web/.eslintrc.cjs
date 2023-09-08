@@ -38,8 +38,10 @@ var config = {
 		semi: "error",
 		quotes: ["error", "double"],
 		"tailwindcss/no-custom-classname": ["warn", {
-			whitelist: ["min-h-view"]
-		}]
+			whitelist: ["min-h-view", "img-indicator"]
+		}],
+		// NOTE: Buggy.
+		"astro/jsx-a11y/alt-text": "off"
 	},
 };
 

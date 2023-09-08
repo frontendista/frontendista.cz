@@ -1,0 +1,13 @@
+---
+import type { HTMLAttributes } from "astro/types";
+
+export type Props = HTMLAttributes<"img">;
+---
+
+<img {...Astro.props} />
+
+<style>
+	img {
+		animation: move-in-tb 1s cubic-bezier(0.33, 1, 0.68, 1) both 0.25s;
+	}
+</style>

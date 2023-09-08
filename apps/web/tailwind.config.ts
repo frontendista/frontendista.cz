@@ -13,6 +13,15 @@ const config: Config = {
 			md: "0.5rem",
 			lg: "1rem",
 			xl: "2rem"
+		},
+		extend: {
+			textColor: {
+				primary: "var(--fg-primary)",
+			},
+			backgroundColor: {
+				primary: "var(--bg-primary)",
+				secondary: "var(--bg-secondary)",
+			}
 		}
 	},
 	plugins: [
