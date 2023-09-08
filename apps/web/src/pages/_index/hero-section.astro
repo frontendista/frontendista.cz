@@ -1,12 +1,3 @@
----
-import AnimatedImage from "~/components/animated/animated-image.astro";
----
-
-<header class="flex h-view justify-center">
+<header class="flex h-view items-center justify-center">
 	<h1 class="sr-only">Pavel Sušický</h1>
-	<picture class="max-w-[48rem] bg-secondary">
-		<source srcset="/images/portrait/1024.avif" type="image/avif">
-		<source srcset="/images/portrait/1024.webp" type="image/webp">
-		<AnimatedImage src="/images/portrait/1024.jpg" width="1024" height="1365" class="img-indicator h-full w-full object-cover" alt="Pavel Sušický with sun glasses, sunny day in the fields." />
-	</picture>
 </header>
