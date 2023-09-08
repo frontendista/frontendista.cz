@@ -24,16 +24,24 @@ export interface Props {
 	 * NOTE: This is an excerpt. There is much more.
 	 */
 	type?: "website" | "article" | "profile";
+	/**
+	 * @default "summary"
+	 */
+	card?: "summary" | "summary_large_image" | "app" | "player";
 }
 
-const { title, description, type } = deepmerge<[Props, Props]>({
+const { title, description, type, card } = deepmerge<[Props, Props]>({
 	title: {
 		default: "Pavel Sušický — Front-end Developer",
 	},
 	description: false,
-	type: "website"
+	type: "website",
+	card: "summary"
 }, Astro.props) as Required<Props>;
 ---
+
+<meta name="twitter:card" content={card} />
+<meta name="twitter:site" content="@susickypavel" />
 
 <meta name="og:type" content={type} />
 
