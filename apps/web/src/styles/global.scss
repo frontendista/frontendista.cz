@@ -23,6 +23,14 @@
 		@include light-mode;
 	}
 
+	:root {
+		--view-height: 100vh;
+
+		@supports (height: 1svh) {
+			--view-height: 100svh;
+		}
+	}
+
 	body {
 		background: var(--bg-primary);
 		color: var(--fg-primary);
@@ -40,15 +48,5 @@
 		background-size: 50%;
 		background-repeat: no-repeat;
 		background-position: center;
-	}
-
-	.min-h-view {
-		// NOTE: Fallback to vh unit for browsers that don't support svh unit.
-		
-		min-height: 100vh;
-
-		@supports (height: 1svh) {
-			min-height: 100svh;
-		}
 	}
 }

@@ -14,6 +14,12 @@ const config: Config = {
 			lg: "1rem",
 			xl: "2rem"
 		},
+		height: {
+			view: "var(--view-height)"
+		},
+		minHeight: {
+			view: "var(--view-height)"
+		},
 		extend: {
 			textColor: {
 				primary: "var(--fg-primary)",
