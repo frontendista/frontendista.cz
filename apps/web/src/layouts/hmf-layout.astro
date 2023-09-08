@@ -9,7 +9,13 @@ export type Props = BaseLayoutProps;
 
 const props = deepmerge<[Props, Props]>({
 	description: {
-		default: "Pavel is a young front-end developer based in Prague, Czech Republic. He makes digital content in a variety of forms."
+		default: "Pavel is a young Front-end developer based in Prague, Czech Republic. He makes digital content in a variety of forms."
+	},
+	image: {
+		twitter: {
+			url: "/images/og/twitter.jpg",
+			alt: "Logo (letters F and P) on a black background."
+		}
 	}
 }, Astro.props);
 ---
