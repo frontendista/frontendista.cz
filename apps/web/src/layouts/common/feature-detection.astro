@@ -12,17 +12,23 @@
 			root.dataset.motion = preferences.motion;
 			root.dataset.theme = preferences.theme;
 			root.dataset.scale = preferences.scale;
+			root.dataset.src = "storage";
 		} else {
 			const MOTION_MQ = window.matchMedia("(prefers-reduced-motion: no-preference)");
 			const THEME_MQ = window.matchMedia("(prefers-color-scheme: dark)");
 
 			THEME_MQ.addEventListener("change", event => {
+				if (root.dataset.src !== "user") {
+					return;
+				}
+
 				root.dataset.theme = event.matches ? "dark" : "light";
 				update();
 			});
 
 			root.dataset.motion = MOTION_MQ.matches ? "on" : "off";
 			root.dataset.theme = THEME_MQ.matches ? "dark" : "light";
+			root.dataset.src = "user";
 		}
 
 		update();
