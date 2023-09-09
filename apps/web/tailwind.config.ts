@@ -33,17 +33,8 @@ const config: Config = {
 	plugins: [
 		plugin(({ matchUtilities }) => {
 			matchUtilities({
-				brand: (value: unknown) => {
-					if (typeof value === "function") {
-						return {
-							color: value("brand")
-						};
-					}
-				
-					return {
-						color: value
-					};
-				}
+				"text-brand": generate("color"),
+				"bg-brand": generate("backgroundColor"),
 			}, {
 				values: {
 					"500": "oklch(70% 0.333 340.94 / <alpha-value>)",
@@ -54,5 +45,19 @@ const config: Config = {
 		})
 	]
 };
+
+function generate(property: string) {
+	return (value: unknown) => {
+		if (typeof value === "function") {
+			return {
+				[property]: value("brand")
+			};
+		}
+	
+		return {
+			[property]: value
+		};
+	};
+}
 
 export default config;
