@@ -5,6 +5,7 @@ import blist from "browserslist-to-esbuild";
 // Integations
 import MinifyHTML from "@frontendista/astro-html-minify";
 import TailwindCSS from "@astrojs/tailwind";
+import svelte from "@astrojs/svelte";
 
 import { browserslist } from "./package.json";
 
@@ -51,6 +52,7 @@ export default defineConfig({
 		};
 	},
 	integrations: [
+		svelte(),
 		TailwindCSS({
 			applyBaseStyles: false
 		}),

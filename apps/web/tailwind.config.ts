@@ -3,7 +3,7 @@ import plugin from "tailwindcss/plugin";
 import type { Config } from "tailwindcss";
 
 const config: Config = {
-	content: ["./src/**/*.astro"],
+	content: ["./src/**/*.{astro,svelte}"],
 	corePlugins: {
 		preflight: false
 	},
