@@ -46,7 +46,8 @@ const config: Config = {
 				}
 			}, {
 				values: {
-					"500": "oklch(65.35% 0.245 317.5 / <alpha-value>)"
+					"500": "oklch(70% 0.333 340.94 / <alpha-value>)",
+					"600": "oklch(82.06% 0.187 207.53 / <alpha-value>)"
 				},
 				type: "color"
 			});

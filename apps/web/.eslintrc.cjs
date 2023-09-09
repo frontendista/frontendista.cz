@@ -38,7 +38,7 @@ var config = {
 		semi: "error",
 		quotes: ["error", "double"],
 		"tailwindcss/no-custom-classname": ["warn", {
-			whitelist: ["min-h-view", "img-indicator"]
+			whitelist: ["min-h-view", "img-indicator", "offscreen", "center"]
 		}],
 		// NOTE: Buggy.
 		"astro/jsx-a11y/alt-text": "off"
