@@ -11,6 +11,7 @@ import FeatureDetection from "./common/feature-detection.astro";
 const BUILD_FINGERPRINT = `<!-- v${version} : ${process.env.VERCEL_ENV} - ${new Date().toUTCString()} -->`;
 
 import "~/styles/global.scss";
+import PreloadFont from "./common/preload-font.astro";
 
 export interface Props extends FavouriteIconProps, SEOProps {
 	image?: SEOImageProps;
@@ -26,6 +27,8 @@ const {
 <html lang="en" dir="ltr">
 	<head>
 		<Fragment set:html={BUILD_FINGERPRINT} />
+		<PreloadFont path="/fonts/space-grotesk/variable.woff2" />
+		<PreloadFont path="/fonts/unbounded/variable.woff2" />
 		<slot name="head" />
 		<FavouriteIcon favicon={favicon} />
 		<CommonHead />

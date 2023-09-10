@@ -1,0 +1,11 @@
+// TODO: Fallback https://web.dev/variable-fonts
+@mixin font($path, $name, $weights...) {
+	@each $weight in $weights {
+		@font-face {
+			font-family: $name;
+			font-weight: $weight;
+			font-display: swap;
+			src: url("/fonts/#{$path}/#{$weight}.woff2");
+		}
+	}
+}

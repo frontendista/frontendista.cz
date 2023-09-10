@@ -1,0 +1,9 @@
+---
+export interface Props {
+	path: string;
+}
+
+const { path } = Astro.props;
+---
+
+<link rel="preload" href={path} as="font" type="font/woff2" crossorigin>

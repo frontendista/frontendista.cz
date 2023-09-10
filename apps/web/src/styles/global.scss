@@ -9,6 +9,18 @@
 @tailwind variants;
 
 @layer base {
+	@font-face {
+		src: url("/fonts/space-grotesk/variable.woff2");
+		font-family: Body;
+		font-weight: 300 700;
+	}
+
+	@font-face {
+		src: url("/fonts/unbounded/variable.woff2");
+		font-family: Heading;
+		font-weight: 200 900;
+	}
+
 	@media (prefers-color-scheme: dark) {
 		:root {
 			@include dark-mode;
@@ -38,6 +50,7 @@
 	}
 
 	body {
+		font-family: Body, sans-serif;
 		background: var(--bg-primary);
 		color: var(--fg-primary);
 	}
