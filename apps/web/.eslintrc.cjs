@@ -15,8 +15,7 @@ var config = {
 		"plugin:@typescript-eslint/recommended",
 		"plugin:astro/recommended",
 		"plugin:astro/jsx-a11y-recommended",
-		"plugin:tailwindcss/recommended",
-		"plugin:svelte/recommended"
+		"plugin:tailwindcss/recommended"
 	],
 	overrides: [
 		{
@@ -33,13 +32,6 @@ var config = {
 			extends: [
 				"plugin:playwright/recommended"
 			]
-		},
-		{
-			files: ["*.svelte"],
-			parser: "svelte-eslint-parser",
-			parserOptions: {
-				parser: "@typescript-eslint/parser"
-			}
 		}
 	],
 	rules: {
