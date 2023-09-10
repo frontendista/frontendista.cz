@@ -35,9 +35,11 @@
 		"eslint-plugin-astro": "^0.29.0",
 		"eslint-plugin-jsx-a11y": "^6.7.1",
 		"eslint-plugin-playwright": "^0.16.0",
+		"eslint-plugin-svelte": "^2.33.1",
 		"eslint-plugin-tailwindcss": "^3.13.0",
 		"stylelint": "^15.10.3",
 		"stylelint-config-standard-scss": "^11.0.0",
+		"svelte-eslint-parser": "^0.33.0",
 		"typescript": "^5.2.2"
 	},
 	"browserslist": [
