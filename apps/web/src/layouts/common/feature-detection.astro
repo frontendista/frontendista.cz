@@ -26,6 +26,14 @@
 				update();
 			});
 
+			MOTION_MQ.addEventListener("change", event => {
+				if (root.dataset.src !== "user") {
+					return;
+				}
+
+				root.dataset.motion = event.matches ? "on" : "off";
+			});
+
 			root.dataset.motion = MOTION_MQ.matches ? "on" : "off";
 			root.dataset.theme = THEME_MQ.matches ? "dark" : "light";
 			root.dataset.src = "user";
