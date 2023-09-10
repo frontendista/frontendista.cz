@@ -1,6 +1,13 @@
 @import "./preflight";
-@import "./theme";
+@import "./themes";
 @import "./animations";
+@import "./components/button";
+
+// NOTE: TailwindCSS entrypoint.
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@tailwind variants;
 
 @layer base {
 	@media (prefers-color-scheme: dark) {
@@ -37,18 +44,6 @@
 	}
 }
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-@tailwind variants;
-
-@layer components {
-	.link {
-		&[aria-disabled="true"] {
-			cursor: not-allowed;
-		}
-	}
-}
 
 @layer utilities {
 	.img-indicator {
