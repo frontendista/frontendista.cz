@@ -2,6 +2,16 @@ import plugin from "tailwindcss/plugin";
 
 import type { Config } from "tailwindcss";
 
+const customUtilities = plugin(({ addUtilities }) => {
+	addUtilities({
+		".center": {
+			display: "flex",
+			justifyContent: "center",
+			alignItems: "center"
+		}
+	});
+});
+
 const config: Config = {
 	content: ["./src/**/*.astro"],
 	corePlugins: {
@@ -42,6 +52,7 @@ const config: Config = {
 		}
 	},
 	plugins: [
+		customUtilities,
 		plugin(({ matchUtilities }) => {
 			matchUtilities({
 				"text-brand": generate("color"),

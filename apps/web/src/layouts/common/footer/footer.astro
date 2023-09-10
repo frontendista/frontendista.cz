@@ -7,7 +7,7 @@ export const footer: IFooterDisclosure[] = [
 		links: [
 			{ name: "Blog", href: "https://blog.frontendista.cz" },
 			{ name: "Old blog", href: "https://thesoreon.com" },
-			{ name: "Sitemap", href: "/sitemap-index.xml", disabled: true }
+			{ name: "Sitemap", href: "/sitemap-index.xml" }
 		]
 	},
 	{
@@ -32,8 +32,8 @@ export const footer: IFooterDisclosure[] = [
 ];
 ---
 
-<footer class="mx-auto max-w-content">
-	<ul class="grid grid-cols-3 gap-lg">
+<footer>
+	<ul>
 		{footer.map(section => <FooterDisclosure {...section} />)}
 	</ul>
 </footer>

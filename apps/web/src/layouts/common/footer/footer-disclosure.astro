@@ -13,7 +13,7 @@ const { heading, links } = Astro.props;
 ---
 
 <details>
-	<summary data-btn>{heading}</summary>
+	<summary>{heading}</summary>
 	<ul>
 		{links.map(({ name, href }) => {
 			return (
