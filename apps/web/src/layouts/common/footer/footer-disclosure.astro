@@ -1,0 +1,30 @@
+---
+import Link from "~/components/common/link.svelte";
+
+export interface Props {
+	heading: string;
+	links: Array<{
+		name: string;
+		href: string;
+		/**
+		 * @default false
+		 */
+		disabled?: boolean;
+	}>
+}
+
+const { heading, links } = Astro.props;
+---
+
+<details>
+	<summary>{heading}</summary>
+	<ul>
+		{links.map(({ name, href, disabled = false }) => {
+			return (
+				<li>
+					<Link disabled={disabled} href={href}>{name}</Link>
+				</li>
+			);
+		})}
+	</ul>
+</details>

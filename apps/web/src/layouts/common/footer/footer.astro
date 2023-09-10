@@ -1,0 +1,65 @@
+---
+import FooterDisclosure, { type Props as IFooterDisclosure } from "./footer-disclosure.astro";
+
+export const footer: IFooterDisclosure[] = [
+	{
+		heading: "Links",
+		links: [
+			{ name: "Blog", href: "https://blog.frontendista.cz" },
+			{ name: "Old blog", href: "https://thesoreon.com" },
+			{ name: "Sitemap", href: "/sitemap-index.xml", disabled: true }
+		]
+	},
+	{
+		heading: "Socials",
+		links: [
+			{ name: "Dev.to", href: "https://dev.to/susickypavel" },
+			{ name: "Figma", href: "https://figma.com/@susickypavel" },
+			{ name: "GitHub", href: "https://github.com/susickypavel" },
+			{ name: "X", href: "https://twitter.com/susickypavel" },
+			{ name: "LinkedIn", href: "https://www.linkedin.com/in/susickypavel" }
+		]
+	},
+	{
+		heading: "Other",
+		links: [
+			{ name: "API", href: "https://api.frontendista.cz" },
+			{ name: "Bug report", href: "https://github.com/frontendista/frontendista.cz/issues/new/choose" },
+			{ name: "Licence", href: "/legal.txt" },
+			{ name: "Source code", href: "https://github.com/frontendista/frontendista.cz" }
+		]
+	}
+];
+---
+
+<footer class="mx-auto max-w-content">
+	<ul class="grid grid-cols-3 gap-lg">
+		{footer.map(section => <FooterDisclosure {...section} />)}
+	</ul>
+</footer>
+
+<script>
+	const disclosureParent = document.querySelector("footer") as HTMLElement;
+
+	function open() {
+		disclosureParent.querySelectorAll("details").forEach(disclosure => {
+			disclosure.setAttribute("open", "");
+		});
+	}
+
+	function close() {
+		disclosureParent.querySelectorAll("details").forEach(disclosure => {
+			disclosure.removeAttribute("open");
+		});
+	}
+
+	const MQ = matchMedia("(min-width: 64em");
+
+	if (MQ.matches) {
+		open();
+	}
+
+	MQ.addEventListener("change", (e) => {
+		e.matches ? open() : close();
+	});
+</script>

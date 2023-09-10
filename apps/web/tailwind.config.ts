@@ -8,11 +8,19 @@ const config: Config = {
 		preflight: false
 	},
 	theme: {
-		padding: {
+		spacing: {
 			sm: "0.25rem",
 			md: "0.5rem",
 			lg: "1rem",
 			xl: "2rem"
+		},
+		screens: {
+			sm: "32em",
+			md: "48em",
+			lg: "64em",
+			xl: "80em",
+			"2xl": "120em",
+			"uw": "160em"
 		},
 		extend: {
 			height: {
@@ -20,6 +28,9 @@ const config: Config = {
 			},
 			minHeight: {
 				view: "var(--view-height)"
+			},
+			maxWidth: {
+				content: "120rem"
 			},
 			textColor: {
 				primary: "var(--fg-primary)",
