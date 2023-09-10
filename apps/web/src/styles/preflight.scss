@@ -259,7 +259,11 @@
 	*/
 
 	summary {
-		display: list-item;
+		list-style: none;
+		
+		&::-webkit-details-marker {
+			display: none;
+		}
 	}
 
 	/*

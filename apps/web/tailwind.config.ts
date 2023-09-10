@@ -4,10 +4,32 @@ import type { Config } from "tailwindcss";
 
 const customUtilities = plugin(({ addUtilities }) => {
 	addUtilities({
+		".offscreen": {
+			position: "absolute",
+			top: "-9999px",
+			left: "-9999px"
+		},
 		".center": {
 			display: "flex",
 			justifyContent: "center",
 			alignItems: "center"
+		}
+	});
+});
+
+const customComponents = plugin(({ addComponents }) => {
+	addComponents({
+		"[data-btn]": {
+			display: "inline-flex",
+			fontWeight: "700",
+			fontSize: "1.25rem",
+			padding: "1.5rem 2rem",
+			width: "100%",
+			textTransform: "uppercase"
+		},
+		"[data-btn='primary']": {
+			background: "#fff",
+			color: "#000"
 		}
 	});
 });
@@ -19,10 +41,13 @@ const config: Config = {
 	},
 	theme: {
 		spacing: {
+			"0": "0",
 			sm: "0.25rem",
 			md: "0.5rem",
 			lg: "1rem",
-			xl: "2rem"
+			xl: "2rem",
+			"2xl": "4rem",
+			"3xl": "8rem",
 		},
 		screens: {
 			sm: "32em",
@@ -53,6 +78,7 @@ const config: Config = {
 	},
 	plugins: [
 		customUtilities,
+		customComponents,
 		plugin(({ matchUtilities }) => {
 			matchUtilities({
 				"text-brand": generate("color"),

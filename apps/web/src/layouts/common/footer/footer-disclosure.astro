@@ -13,8 +13,8 @@ const { heading, links } = Astro.props;
 ---
 
 <details>
-	<summary>{heading}</summary>
-	<ul>
+	<summary data-btn="primary">{heading}</summary>
+	<ul class="mt-lg flex flex-col gap-sm">
 		{links.map(({ name, href }) => {
 			return (
 				<li>

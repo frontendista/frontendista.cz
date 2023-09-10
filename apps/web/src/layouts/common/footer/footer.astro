@@ -32,8 +32,8 @@ export const footer: IFooterDisclosure[] = [
 ];
 ---
 
-<footer>
-	<ul>
+<footer class="p-lg pt-0 lg:p-2xl">
+	<ul class="mx-auto flex max-w-content grid-cols-3 flex-col gap-lg lg:grid">
 		{footer.map(section => <FooterDisclosure {...section} />)}
 	</ul>
 </footer>
