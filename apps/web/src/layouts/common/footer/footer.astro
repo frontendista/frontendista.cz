@@ -59,8 +59,8 @@ const { repository } = await graphql<GitHubReleaseResponse>({
 const { createdAt, tagCommit, tagName, url } = repository.latestRelease;
 ---
 
-<footer class="p-lg pt-0 lg:p-2xl">
-	<ul class="mx-auto flex max-w-content grid-cols-3 flex-col gap-lg lg:grid">
+<footer class="mx-auto max-w-content p-lg pt-0 lg:p-2xl">
+	<ul class="flex grid-cols-3 flex-col gap-lg lg:grid">
 		{footer.map(section => <FooterDisclosure {...section} />)}
 	</ul>
 	<p class="mt-lg flex flex-wrap justify-center gap-lg text-center lg:justify-between">
