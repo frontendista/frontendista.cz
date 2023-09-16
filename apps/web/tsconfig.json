@@ -9,6 +9,7 @@
 			"~/types/*": ["./src/types/*"],
 			"~/components/*": ["./src/components/*"],
 			"~/assets/*": ["./src/assets/*"],
+			"~/mocks/*": ["./src/mocks/*"]
 		}
 	},
 	"include": ["astro.config.ts", "tailwind.config.ts", "./src/**/*.ts", "./src/**/*.tsx", "./src/**/*.astro"]

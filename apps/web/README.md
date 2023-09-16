@@ -7,6 +7,7 @@
 | Name       | Value                                      | Default       |
 | ---------- | ------------------------------------------ | ------------- |
 | VERCEL_ENV | `development` or `preview` or `production` | `development` |
+| GITHUB_PERSONAL_TOKEN | See [**.env.example**](./.env.example) | - |
 
 ### 1.2 Commands
 

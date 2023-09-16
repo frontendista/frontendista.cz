@@ -1,5 +1,10 @@
 ---
+import { graphql } from "@octokit/graphql";
+
+import Link from "~/components/common/link.astro";
 import FooterDisclosure, { type Props as IFooterDisclosure } from "./footer-disclosure.astro";
+
+import type { GitHubReleaseResponse } from "~/mocks/github";
 
 export const footer: IFooterDisclosure[] = [
 	{
@@ -30,14 +35,36 @@ export const footer: IFooterDisclosure[] = [
 		]
 	}
 ];
+
+const { repository } = await graphql<GitHubReleaseResponse>({
+	headers: {
+		authorization: `token ${import.meta.env.GITHUB_PERSONAL_TOKEN}`
+	},
+	query: `
+		query getLatestRelease {
+			repository(owner: "frontendista", name: "frontendista.cz") {
+				latestRelease {
+					tagName
+					createdAt
+					tagCommit {
+						oid
+					},
+					url
+				}
+			}
+		}
+	`
+});
+
+const { createdAt, tagCommit, tagName, url } = repository.latestRelease;
 ---
 
 <footer class="p-lg pt-0 lg:p-2xl">
 	<ul class="mx-auto flex max-w-content grid-cols-3 flex-col gap-lg lg:grid">
 		{footer.map(section => <FooterDisclosure {...section} />)}
 	</ul>
-	<p class="mt-lg flex flex-wrap-reverse justify-center gap-lg lg:justify-between">
-		<span>2.0.0@lmaoxd</span>
+	<p class="mt-lg flex flex-wrap justify-center gap-lg text-center lg:justify-between">
+		<Link href={url}>{tagName.split("@")[1]}@{tagCommit.oid.substring(0, 7)} on {new Date(createdAt).toLocaleString("en-US", { month: "long", year: "numeric", day: "numeric" })}</Link>
 		<span>2023 &copy; Pavel Sušický. All rights reserved.</span>
 	</p>
 </footer>

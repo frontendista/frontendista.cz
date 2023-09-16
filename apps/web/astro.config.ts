@@ -1,6 +1,9 @@
 import { defineConfig } from "astro/config";
+import { setupServer } from "msw/node";
 
 import blist from "browserslist-to-esbuild";
+
+import { handlers } from "./src/mocks/github";
 
 // Integations
 import MinifyHTML from "@frontendista/astro-html-minify";
@@ -23,6 +26,11 @@ export const SITES: Record<typeof process.env.VERCEL_ENV, string> = {
 	preview: "https://staging.frontendista.cz",
 	production: "https://frontendista.cz"
 } as const;
+
+if (process.env.VERCEL_ENV !== "production") {
+	const server = setupServer(...handlers);
+	server.listen();
+}
 
 export default defineConfig({
 	site: SITES[process.env.VERCEL_ENV] || SITES.development,
