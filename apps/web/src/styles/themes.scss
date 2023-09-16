@@ -2,20 +2,20 @@
 	color-scheme: dark;
 
 	// BG
-	--bg-primary: #000;
-	--bg-secondary: #111;
+	--bg-primary: 0 0 0;
+	--bg-secondary: 17 17 17;
 
 	// FG
-	--fg-primary: #fff;
+	--fg-primary: 255 255 255;
 }
 
 @mixin light-mode {
 	color-scheme: light;
 
 	// BG
-	--bg-primary: #fff;
-	--bg-secondary: #eee;
+	--bg-primary: 255 255 255;
+	--bg-secondary: 238 238 238;
 
 	// FG
-	--fg-primary: #000;
+	--fg-primary: 0 0 0;
 }

@@ -1,0 +1,17 @@
+@layer components {
+	[data-link] {
+		font-size: 1.25rem;
+		font-weight: 500;
+		text-decoration: underline;
+		text-decoration-thickness: 2px;
+		text-decoration-color: rgb(var(--fg-primary) / 25%);
+
+		&:hover, &:focus-visible {
+			text-decoration-color: rgb(var(--fg-primary) / 100%);
+		}
+
+		&:active {
+			@apply text-brand-500 decoration-brand-500;
+		}
+	}
+}

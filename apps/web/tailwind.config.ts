@@ -68,21 +68,20 @@ const config: Config = {
 				content: "120rem"
 			},
 			textColor: {
-				primary: "var(--fg-primary)",
+				primary: "rgb(var(--fg-primary) / <alpha-value>)",
 			},
 			backgroundColor: {
-				primary: "var(--bg-primary)",
-				secondary: "var(--bg-secondary)",
+				primary: "rgb(var(--bg-primary) / <alpha-value>)",
+				secondary: "rgb(var(--bg-secondary) / <alpha-value>)",
 			}
 		}
 	},
 	plugins: [
-		customUtilities,
-		customComponents,
 		plugin(({ matchUtilities }) => {
 			matchUtilities({
 				"text-brand": generate("color"),
 				"bg-brand": generate("backgroundColor"),
+				"decoration-brand": generate("textDecorationColor"),
 			}, {
 				values: {
 					"500": "oklch(70% 0.333 340.94 / <alpha-value>)",
@@ -90,7 +89,9 @@ const config: Config = {
 				},
 				type: "color"
 			});
-		})
+		}),
+		customUtilities,
+		customComponents,
 	]
 };
 

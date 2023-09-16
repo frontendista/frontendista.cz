@@ -1,6 +1,7 @@
 @import "./preflight";
 @import "./themes";
 @import "./animations";
+@import "./components";
 
 // NOTE: TailwindCSS entrypoint.
 @tailwind base;
@@ -51,7 +52,7 @@
 
 	body {
 		font-family: Body, sans-serif;
-		background: var(--bg-primary);
-		color: var(--fg-primary);
+		background: theme("backgroundColor.primary");
+		color: theme("textColor.primary");
 	}
 }
