@@ -1,4 +1,28 @@
 @layer components {
+	[data-btn] {
+		display: inline-flex;
+		font-weight: 700;
+		font-size: 1.25rem;
+		padding: 1.5rem 2rem;
+		width: 100%;
+		text-transform: uppercase;
+		cursor: pointer;
+	}
+
+	[data-btn="primary"] {
+		background: var(--button-bg-primary-idle);
+		color: var(--button-fg-primary-idle);
+
+		&:hover {
+			user-select: none;
+			background: theme("colors.brand.500");
+		}
+
+		&:active {
+			background: theme("colors.brand.600");
+		}
+	}
+
 	[data-link] {
 		font-size: 1.25rem;
 		font-weight: 500;
@@ -11,7 +35,8 @@
 		}
 
 		&:active {
-			@apply text-brand-500 decoration-brand-500;
+			text-decoration-color: theme("colors.brand.500");
+			color: theme("colors.brand.500");
 		}
 	}
 }

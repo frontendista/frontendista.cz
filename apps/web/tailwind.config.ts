@@ -17,23 +17,6 @@ const customUtilities = plugin(({ addUtilities }) => {
 	});
 });
 
-const customComponents = plugin(({ addComponents }) => {
-	addComponents({
-		"[data-btn]": {
-			display: "inline-flex",
-			fontWeight: "700",
-			fontSize: "1.25rem",
-			padding: "1.5rem 2rem",
-			width: "100%",
-			textTransform: "uppercase"
-		},
-		"[data-btn='primary']": {
-			background: "#fff",
-			color: "#000"
-		}
-	});
-});
-
 const config: Config = {
 	content: ["./src/**/*.astro"],
 	corePlugins: {
@@ -58,6 +41,12 @@ const config: Config = {
 			"uw": "160em"
 		},
 		extend: {
+			colors: {
+				brand: {
+					"500": "oklch(70% 0.333 340.94 / <alpha-value>)",
+					"600": "oklch(65% 0.31 340.94 / <alpha-value>)"
+				}
+			},
 			height: {
 				view: "var(--view-height)"
 			},
@@ -77,36 +66,8 @@ const config: Config = {
 		}
 	},
 	plugins: [
-		plugin(({ matchUtilities }) => {
-			matchUtilities({
-				"text-brand": generate("color"),
-				"bg-brand": generate("backgroundColor"),
-				"decoration-brand": generate("textDecorationColor"),
-			}, {
-				values: {
-					"500": "oklch(70% 0.333 340.94 / <alpha-value>)",
-					"600": "oklch(82.06% 0.187 207.53 / <alpha-value>)"
-				},
-				type: "color"
-			});
-		}),
 		customUtilities,
-		customComponents,
 	]
 };
-
-function generate(property: string) {
-	return (value: unknown) => {
-		if (typeof value === "function") {
-			return {
-				[property]: value("brand")
-			};
-		}
-	
-		return {
-			[property]: value
-		};
-	};
-}
 
 export default config;

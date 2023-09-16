@@ -7,6 +7,10 @@
 
 	// FG
 	--fg-primary: 255 255 255;
+
+	// Button
+	--button-bg-primary-idle: rgb(255 255 255);
+	--button-fg-primary-idle: rgb(0 0 0);
 }
 
 @mixin light-mode {
@@ -18,4 +22,8 @@
 
 	// FG
 	--fg-primary: 0 0 0;
+
+	// Button
+	--button-bg-primary-idle: rgb(0 0 0);
+	--button-fg-primary-idle: rgb(255 255 255);
 }
