@@ -1,6 +1,8 @@
 ---
 import { version } from "~/root/package.json";
 
+import PreloadFont from "./common/preload-font.astro";
+import Footer from "./common/footer/footer.astro";
 import SEO, { type Props as SEOProps } from "./common/seo.astro";
 import SEOImage, { type Props as SEOImageProps } from "./common/seo-image.astro";
 import FavouriteIcon, { type Props as FavouriteIconProps } from "./common/favicon.astro";
@@ -11,7 +13,6 @@ import FeatureDetection from "./common/feature-detection.astro";
 const BUILD_FINGERPRINT = `<!-- v${version} : ${process.env.VERCEL_ENV} - ${new Date().toUTCString()} -->`;
 
 import "~/styles/global.scss";
-import PreloadFont from "./common/preload-font.astro";
 
 export interface Props extends FavouriteIconProps, SEOProps {
 	image?: SEOImageProps;
@@ -41,5 +42,6 @@ const {
 		<main id="main">
 			<slot />
 		</main>
+		<Footer />
 	</body>
 </html>
