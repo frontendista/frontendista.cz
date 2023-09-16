@@ -3,11 +3,13 @@ import common from "~/assets/svg/spritesheet/common.svg?url";
 
 export interface Props {
 	icon?: string;
+	title?: string;
 }
 
-const { icon } = Astro.props;
+const { icon, title } = Astro.props;
 ---
 
 <svg>
+	{title ? <title>{title}</title> : null}
 	{icon ? <use href={`${common}#${icon}`} /> : <slot />}
 </svg>

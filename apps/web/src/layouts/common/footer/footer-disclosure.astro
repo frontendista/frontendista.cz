@@ -18,7 +18,7 @@ const { heading, links } = Astro.props;
 <details class="group">
 	<summary class="justify-between" data-btn="primary">
 		{heading}
-		<Icon>
+		<Icon title="Toggle disclosure">
 			<use class="hidden group-open:block" href={`${common}#minus-square`} />
 			<use class="group-open:hidden" href={`${common}#plus-square`} />
 		</Icon>
