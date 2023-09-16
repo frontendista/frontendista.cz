@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" width="0" height="0">
+	<symbol id="plus-square" viewBox="0 0 24 24" fill="currentColor">
+		<!-- Source: BoxIcons -->
+		<path d="M5 21h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2zm2-10h4V7h2v4h4v2h-4v4h-2v-4H7v-2z"/>
+	</symbol>
+	<symbol id="minus-square" viewBox="0 0 24 24" fill="currentColor">
+		<!-- Source: BoxIcons -->
+		<path d="M5 3a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2H5zm12 10H7v-2h10v2z"/>
+	</symbol>
+	<symbol id="link-external" viewBox="0 0 24 24" fill="currentColor">
+		<!-- Source: BoxIcons -->
+		<path d="m13 3 3.293 3.293-7 7 1.414 1.414 7-7L21 11V3z" />
+		<path d="M19 19H5V5h7l-2-2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2h14c1.103 0 2-.897 2-2v-5l-2-2v7z" />
+	</symbol>
+</svg>

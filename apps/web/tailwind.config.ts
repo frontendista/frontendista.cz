@@ -44,7 +44,7 @@ const config: Config = {
 			colors: {
 				brand: {
 					"500": "oklch(70% 0.333 340.94 / <alpha-value>)",
-					"600": "oklch(65% 0.31 340.94 / <alpha-value>)"
+					"600": "oklch(60% 0.28 340.94 / <alpha-value>)"
 				}
 			},
 			height: {

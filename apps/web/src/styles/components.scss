@@ -1,25 +1,33 @@
 @layer components {
 	[data-btn] {
 		display: inline-flex;
+		align-items: center;
 		font-weight: 700;
 		font-size: 1.25rem;
 		padding: 1.5rem 2rem;
 		width: 100%;
 		text-transform: uppercase;
 		cursor: pointer;
+
+		& svg {
+			height: 1em;
+			width: 1em;
+		}
 	}
 
 	[data-btn="primary"] {
 		background: var(--button-bg-primary-idle);
 		color: var(--button-fg-primary-idle);
 
-		&:hover {
-			user-select: none;
-			background: theme("colors.brand.500");
-		}
+		@media (pointer: fine) {
+			&:hover {
+				user-select: none;
+				background: theme("colors.brand.500");
+			}
 
-		&:active {
-			background: theme("colors.brand.600");
+			&:active {
+				background: theme("colors.brand.600");
+			}
 		}
 	}
 
