@@ -4,10 +4,6 @@
 
 		const preferences = JSON.parse(localStorage.getItem("XXX"));
 
-		function update() {
-			root.querySelector("meta[name=theme-color]").setAttribute("content", root.dataset.theme === "dark" ? "#000" : "#fff");
-		}
-
 		if (preferences) {
 			root.dataset.motion = preferences.motion;
 			root.dataset.theme = preferences.theme;
@@ -23,7 +19,6 @@
 				}
 
 				root.dataset.theme = event.matches ? "dark" : "light";
-				update();
 			});
 
 			MOTION_MQ.addEventListener("change", event => {
@@ -39,6 +34,6 @@
 			root.dataset.src = "user";
 		}
 
-		update();
+		root.querySelector("meta[name=theme-color]").remove();
 	})(document.documentElement);
 </script>

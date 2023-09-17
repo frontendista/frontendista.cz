@@ -28,11 +28,11 @@ const {
 <html lang="en" dir="ltr" data-js="off">
 	<head>
 		<Fragment set:html={BUILD_FINGERPRINT} />
+		<CommonHead />
 		<PreloadFont path="/fonts/space-grotesk/variable.woff2" />
 		<PreloadFont path="/fonts/unbounded/variable.woff2" />
 		<slot name="head" />
 		<FavouriteIcon favicon={favicon} />
-		<CommonHead />
 		<SEO {...seoProps} />
 		<SEOImage {...image} />
 		<FeatureDetection />
