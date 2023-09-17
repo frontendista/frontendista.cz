@@ -23,7 +23,7 @@ const { heading, links } = Astro.props;
 			<use class="group-open:hidden" href={`${common}#plus-square`} />
 		</Icon>
 	</summary>
-	<ul class="mt-lg flex flex-col gap-md">
+	<ul class="mt-lg flex list-disc flex-col gap-md pl-xl lg:list-none lg:pl-0">
 		{links.map(({ name, href }) => {
 			return (
 				<li>

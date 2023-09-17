@@ -69,6 +69,9 @@ const config: Config = {
 			backgroundColor: {
 				primary: "rgb(var(--bg-primary) / <alpha-value>)",
 				secondary: "rgb(var(--bg-secondary) / <alpha-value>)",
+			},
+			borderColor: {
+				primary: "rgb(var(--fg-primary) / <alpha-value>)",
 			}
 		}
 	},
