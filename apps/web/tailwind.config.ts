@@ -5,7 +5,7 @@ import type { Config } from "tailwindcss";
 const customUtilities = plugin(({ addUtilities }) => {
 	addUtilities({
 		".offscreen": {
-			position: "absolute",
+			position: "fixed",
 			top: "-9999px",
 			left: "-9999px"
 		},
