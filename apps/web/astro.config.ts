@@ -18,7 +18,8 @@ config();
 
 // Default environment variables
 process.env = Object.assign({
-	VERCEL_ENV: "development"
+	VERCEL_ENV: "development",
+	ENABLE_MOCKS: "0",
 } as typeof process.env, process.env);
 
 export const PORTS = {
@@ -32,7 +33,7 @@ export const SITES: Record<typeof process.env.VERCEL_ENV, string> = {
 	production: "https://frontendista.cz"
 } as const;
 
-if (process.env.VERCEL_ENV !== "production") {
+if (process.env.VERCEL_ENV !== "production" || process.env.ENABLE_MOCKS === "1") {
 	const server = setupServer(...handlers);
 	server.listen();
 }

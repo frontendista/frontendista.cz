@@ -4,6 +4,7 @@ declare global {
 	namespace NodeJS {
 		interface ProcessEnv {
 			readonly VERCEL_ENV: "production" | "preview" | "development";
+			readonly ENABLE_MOCKS: "0" | "1";
 		}
 	}
 	

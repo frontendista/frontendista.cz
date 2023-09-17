@@ -4,10 +4,18 @@
 
 ### 1.1 Environment variables
 
+#### 1.1.1 Required
+
 | Name       | Value                                      | Default       |
 | ---------- | ------------------------------------------ | ------------- |
 | VERCEL_ENV | `development` or `preview` or `production` | `development` |
 | GITHUB_PERSONAL_TOKEN | See [**.env.example**](./.env.example) | - |
+
+#### 1.1.2 Optional
+
+| Name       | Value                                      | Default       |
+| ---------- | ------------------------------------------ | ------------- |
+| ENABLE_MOCKS | `0` or `1` [**.env.example**](./.env.example) | `0` |
 
 ### 1.2 Commands
 

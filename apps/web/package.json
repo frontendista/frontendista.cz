@@ -7,7 +7,7 @@
 		"build": "astro build",
 		"preview": "astro preview",
 		"build:preview": "run-s build preview",
-		"build:preview:prod": "cross-env VERCEL_ENV=production run-s build:preview",
+		"build:preview:prod": "cross-env VERCEL_ENV=production ENABLE_MOCKS=1 run-s build:preview",
 		"lint": "eslint . --ext .js,.ts,.tsx,.astro",
 		"type-check": "astro check",
 		"test": "playwright test",
