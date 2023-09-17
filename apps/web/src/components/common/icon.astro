@@ -1,7 +1,8 @@
 ---
+import type { HTMLAttributes } from "astro/types";
 import common from "~/assets/svg/spritesheet/common.svg?url";
 
-export interface Props {
+export interface Props extends HTMLAttributes<"svg"> {
 	icon?: string;
 	title?: string;
 }
@@ -9,7 +10,7 @@ export interface Props {
 const { icon, title } = Astro.props;
 ---
 
-<svg>
+<svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
 	{title ? <title>{title}</title> : null}
 	{icon ? <use href={`${common}#${icon}`} /> : <slot />}
 </svg>

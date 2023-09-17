@@ -35,6 +35,9 @@
 
 	[data-link] {
 		position: relative;
+		display: inline-flex;
+		gap: theme("gap.sm");
+		align-items: center;
 		font-size: 1.25rem;
 		font-weight: 500;
 		text-decoration: underline;
@@ -48,6 +51,11 @@
 		&:active {
 			text-decoration-color: theme("colors.brand.500");
 			color: theme("colors.brand.500");
+		}
+
+		& svg {
+			width: 1em;
+			height: 1em;
 		}
 	}
 }

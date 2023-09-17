@@ -1,9 +1,17 @@
 ---
 import type { HTMLAttributes } from "astro/types";
+import Icon from "./icon.astro";
 
-export type Props = HTMLAttributes<"a">;
+export type Props = HTMLAttributes<"a"> & {
+	href: string;
+};
+
+const { href, ...attributes } = Astro.props;
+
+const isExternal = href.startsWith("http"); 
 ---
 
-<a data-link {...Astro.props}>
+<a data-link href={href} {...attributes}>
 	<slot />
+	{isExternal ? <Icon icon="link-external" /> : null}
 </a>
