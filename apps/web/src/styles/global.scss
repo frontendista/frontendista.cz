@@ -45,6 +45,10 @@
 	:root {
 		--view-height: 100vh;
 
+		@media (min-width: theme("screens.uw")) {
+			font-size: 1.25rem;
+		}
+
 		@supports (height: 1svh) {
 			--view-height: 100svh;
 		}
@@ -56,7 +60,7 @@
 	}
 
 	body {
-		font-family: Body, sans-serif;
+		font: theme("fontSize.base") Body, sans-serif;
 		background: theme("backgroundColor.primary");
 		color: theme("textColor.primary");
 

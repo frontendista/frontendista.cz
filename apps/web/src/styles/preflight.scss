@@ -39,6 +39,7 @@
 	*/
 
 	body {
+		-webkit-font-smoothing: antialiased;
 		margin: 0; /* 1 */
 		line-height: inherit; /* 2 */
 	}
@@ -73,8 +74,8 @@
 	h4,
 	h5,
 	h6 {
-		font-size: inherit;
-		font-weight: inherit;
+		font-family: Heading, sans-serif;
+		font-weight: 700;
 	}
 
 	/*

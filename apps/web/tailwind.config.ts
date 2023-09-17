@@ -23,6 +23,13 @@ const config: Config = {
 		preflight: false
 	},
 	theme: {
+		fontSize: {
+			h1: "3.052rem",
+			h2: "2.441rem",
+			h3: "1.953rem",
+			h4: "1.563rem",
+			base: "1.25rem",
+		},
 		spacing: {
 			"0": "0",
 			sm: "0.25rem",
