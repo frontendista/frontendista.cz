@@ -22,6 +22,7 @@ const props = deepmerge<[Props, Props]>({
 
 <BaseLayout {...props}>
 	<Fragment slot="head">
+		<link rel="sitemap" type="application/xml" href="/sitemap-index.xml" />
 		<link rel="canonical" href={CANONICAL_URL} />
 		<meta property="og:url" content={CANONICAL_URL} />
 	</Fragment>
