@@ -65,7 +65,7 @@ const { createdAt, tagCommit, tagName, url } = repository.latestRelease;
 			</li>
 		))}
 	</ul>
-	<p class="mt-lg flex flex-wrap justify-center gap-lg text-center lg:justify-between">
+	<p class="mt-lg flex flex-wrap justify-center gap-lg text-center lg:mt-2xl lg:justify-between">
 		<Link href={url}>{tagName.split("@")[1]}@{tagCommit.oid.substring(0, 7)} on {new Date(createdAt).toLocaleString("en-US", { month: "long", year: "numeric", day: "numeric" })}</Link>
 		<span>2023 &copy; Pavel Sušický. All rights reserved.</span>
 	</p>
