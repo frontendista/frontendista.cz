@@ -1,3 +1,6 @@
+import { resolve } from "node:path";
+import { config } from "dotenv";
+
 import { defineConfig } from "astro/config";
 import { setupServer } from "msw/node";
 
@@ -10,6 +13,8 @@ import MinifyHTML from "@frontendista/astro-html-minify";
 import TailwindCSS from "@astrojs/tailwind";
 
 import { browserslist } from "./package.json";
+
+config();
 
 // Default environment variables
 process.env = Object.assign({
@@ -32,6 +37,43 @@ if (process.env.VERCEL_ENV !== "production") {
 	server.listen();
 }
 
+const integrations = [
+	TailwindCSS({
+		applyBaseStyles: false
+	}),
+	MinifyHTML({
+		css: {
+			browserslist: browserslist.join(", ")
+		}
+	})
+];
+
+const rollupPlugins = [];
+
+if (process.env.VERCEL_ENV === "production") {
+	try {
+		const { default: licence } = await import("rollup-plugin-license");
+		const { default: sitemap } = await import("@astrojs/sitemap");
+
+		rollupPlugins.push(
+			licence({
+				sourcemap: false,
+				thirdParty: {
+					output: resolve("./public/legal.txt"),
+				}
+			})
+		);
+
+		integrations.push(
+			sitemap()
+		);
+	} catch (error) {
+		throw new Error("Couldn't finish production build\".", {
+			cause: error
+		});
+	}
+}
+
 export default defineConfig({
 	site: SITES[process.env.VERCEL_ENV] || SITES.development,
 	trailingSlash: "never",
@@ -44,6 +86,7 @@ export default defineConfig({
 			cssMinify: "lightningcss",
 			target: blist(browserslist),
 			rollupOptions: {
+				plugins: rollupPlugins,
 				output: {
 					entryFileNames: "assets/[hash:16].js",
 					assetFileNames: "assets/[hash:16][extname]"
@@ -58,14 +101,5 @@ export default defineConfig({
 			open: process.platform !== "win32"
 		};
 	},
-	integrations: [
-		TailwindCSS({
-			applyBaseStyles: false
-		}),
-		MinifyHTML({
-			css: {
-				browserslist: browserslist.join(", ")
-			}
-		})
-	]
+	integrations
 });
