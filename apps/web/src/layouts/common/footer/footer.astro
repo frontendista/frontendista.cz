@@ -61,7 +61,11 @@ const { createdAt, tagCommit, tagName, url } = repository.latestRelease;
 
 <footer class="mx-auto max-w-content p-lg pt-0 lg:p-2xl">
 	<ul class="flex grid-cols-3 flex-col gap-lg lg:grid">
-		{footer.map(section => <FooterDisclosure {...section} />)}
+		{footer.map(section => (
+			<li>
+				<FooterDisclosure {...section} />
+			</li>
+		))}
 	</ul>
 	<p class="mt-lg flex flex-wrap justify-center gap-lg text-center lg:justify-between">
 		<Link href={url}>{tagName.split("@")[1]}@{tagCommit.oid.substring(0, 7)} on {new Date(createdAt).toLocaleString("en-US", { month: "long", year: "numeric", day: "numeric" })}</Link>
