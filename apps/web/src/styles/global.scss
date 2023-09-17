@@ -42,6 +42,16 @@
 		@include light-mode;
 	}
 
+	:root[data-motion="on"] {
+		scroll-behavior: smooth;
+	}	
+
+	:root[data-js="off"] {
+		@media (prefers-reduced-motion: no-preference) {
+			scroll-behavior: smooth;
+		}
+	}
+
 	:root {
 		--view-height: 100vh;
 
