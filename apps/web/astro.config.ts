@@ -60,7 +60,7 @@ if (process.env.VERCEL_ENV === "production") {
 			licence({
 				sourcemap: false,
 				thirdParty: {
-					output: resolve("./public/legal.txt"),
+					output: resolve("./dist/legal.txt"),
 				}
 			})
 		);
