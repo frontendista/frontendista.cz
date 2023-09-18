@@ -1,0 +1,46 @@
+---
+import HMFLayout from "~/layouts/hmf-layout.astro";
+
+import Link from "~/components/common/link.astro";
+---
+
+<HMFLayout
+	classNames={{
+		main: "max-w-content mx-auto min-h-view lg:p-2xl p-lg flex flex-col gap-2xl"
+	}}
+	title={{
+		default: "Pavel Sušický — Collaboration"
+	}}>
+	<header class="flex flex-col gap-lg">
+		<h1 class="mb-lg">Collaboration summary</h1>
+		<p>I'm currently searching for a new opportunity in the development industry.</p>
+		<p>Below are details concerning the type of collaboration I'm looking for.</p>
+		<p>Check out my <Link href="/documents/pavel-sušický-résumé.pdf" target="_blank" externalIcon>résumé</Link> and projects to see whether I'm a good fit for the opportunity.</p>
+	</header>
+	<section class="flex flex-col gap-lg">
+		<h2 class="mb-lg">Positions and seniority</h2>
+		<p>I'm mainly focused on frontend development (since frontendista.cz, lol). However, I'm open to other related positions if applicable.</p>
+		<p>I consider myself a junior since I also account for "human or soft skills" aspects of the job. Technically, I hope my <Link href="https://github.com/susickypavel">GitHub</Link> and <Link href="/documents/pavel-sušický-résumé.pdf" target="_blank" externalIcon>résumé</Link> speak for themselves.</p>
+		<ul class="flex list-disc flex-col gap-sm pl-[1.5rem] font-bold">
+			<li>Junior Front-end developer</li>
+			<li>Junior QA Engineer</li>
+			<li>Junior UI / UX designer</li>
+		</ul>
+	</section>
+	<section class="flex flex-col gap-lg">
+		<h2 class="mb-lg">Working capacity</h2>
+		<p>I'm studying at the Czech Technical University in Prague, so I have limited available capacity.</p>
+		<p>However, I'm very keen to work as much as possible during the semester, but I need flexibility when important mid-term and finals are coming.</p>
+		<p>I'd expect to work 20 hours per week with flexibility during important school-related things.</p>
+	</section>
+	<section class="flex flex-col gap-lg">
+		<h2 class="mb-lg">Working environment (onsite / hybrid / remote)</h2>
+		<p>Ideally, I would like to work hybrid so that I can get help from others and also be able to work remotely to save time and cost.</p>
+		<p>I'm not against fully remote collaboration, but I'd prefer hybrid opportunities, at least for a few weeks, to "have the feeling" of the team I'm working with.</p>
+		<p>I'm based in Prague, Czech Republic for onsite / hybrid collaborations.</p>
+	</section>
+	<footer class="flex flex-col gap-lg">
+		<h2 class="mb-lg">Get in touch</h2>
+		<p>If you have scrolled to the end, here are some ways to contact me (and a cat).</p>
+	</footer>
+</HMFLayout>

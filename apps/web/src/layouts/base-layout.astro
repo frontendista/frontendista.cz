@@ -16,10 +16,14 @@ import "~/styles/global.scss";
 
 export interface Props extends FavouriteIconProps, SEOProps {
 	image?: SEOImageProps;
+	classNames?: {
+		main?: string;
+	}
 }
 
 const { 
 	favicon = "favicon",
+	classNames = {},
 	image,
 	...seoProps
 } = Astro.props;
@@ -39,7 +43,7 @@ const {
 	</head>
 	<body>
 		<a class="-translate-x-1/2 -translate-y-1/2 offscreen focus-visible:left-1/2 focus-visible:top-1/2 sm:w-auto" data-btn="primary" href="#main">Skip to content</a>
-		<main id="main">
+		<main class={classNames.main} id="main">
 			<slot />
 		</main>
 		<Footer />

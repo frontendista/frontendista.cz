@@ -9,14 +9,18 @@ export type Props = HTMLAttributes<"a"> & {
 	 * @default "primary"
 	 */
 	kind?: "primary" | "secondary";
+	/**
+	 * @default false
+	 */
+	externalIcon?: boolean;
 };
 
-const { href, kind = "primary", ...attributes } = Astro.props;
+const { href, kind = "primary", externalIcon = false, ...attributes } = Astro.props;
 
 const isExternal = href.startsWith("http"); 
 ---
 
 <a data-link={kind} href={href} rel={isExternal ? "noopener" : null} target={isExternal ? "_blank" : null} {...attributes}>
 	<slot />
-	{isExternal ? <Icon title=" (New tab) " icon="link-external" /> : null}
+	{(isExternal || externalIcon) ? <Icon title=" (New tab) " icon="link-external" /> : null}
 </a>
