@@ -9,6 +9,7 @@
 		width: 100%;
 		text-transform: uppercase;
 		cursor: pointer;
+		gap: theme("gap.md");
 
 		& svg {
 			height: 1em;

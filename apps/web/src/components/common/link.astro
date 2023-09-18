@@ -6,6 +6,10 @@ import type { HTMLAttributes } from "astro/types";
 export type Props = HTMLAttributes<"a"> & {
 	href: string;
 	/**
+	 * @default "link"
+	 */
+	type?: "btn" | "link"
+	/**
 	 * @default "primary"
 	 */
 	kind?: "primary" | "secondary";
@@ -15,12 +19,16 @@ export type Props = HTMLAttributes<"a"> & {
 	externalIcon?: boolean;
 };
 
-const { href, kind = "primary", externalIcon = false, ...attributes } = Astro.props;
+const { href, kind = "primary", externalIcon = false, type = "link", ...attrs } = Astro.props;
 
-const isExternal = href.startsWith("http"); 
+const isExternal = href.startsWith("http");
+
+const attributes = Object.assign(attrs, {
+	[`data-${type}`]: kind,
+});
 ---
 
-<a data-link={kind} href={href} rel={isExternal ? "noopener" : null} target={isExternal ? "_blank" : null} {...attributes}>
+<a href={href} rel={isExternal ? "noopener" : null} target={isExternal ? "_blank" : null} {...attributes}>
 	<slot />
 	{(isExternal || externalIcon) ? <Icon title=" (New tab) " icon="link-external" /> : null}
 </a>
