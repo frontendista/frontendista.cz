@@ -1,0 +1,145 @@
+name: web@production
+
+on:
+  release:
+    types: [released]
+
+env:
+  pnpm-version: 8
+  node-version: 18
+
+jobs:
+  lint:
+    name: Lint
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: pnpm/action-setup@v2
+        with:
+          version: ${{ env.pnpm-version }}
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: ${{ env.node-version }}
+          cache: "pnpm"
+
+      - run: pnpm install
+
+      - run: pnpm lint
+        working-directory: apps/web
+
+  style:
+    name: Style
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: pnpm/action-setup@v2
+        with:
+          version: ${{ env.pnpm-version }}
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: ${{ env.node-version }}
+          cache: "pnpm"
+
+      - run: pnpm install
+
+      - run: pnpm lint:style
+        working-directory: apps/web
+
+  check:
+    name: Type-check
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: pnpm/action-setup@v2
+        with:
+          version: ${{ env.pnpm-version }}
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: ${{ env.node-version }}
+          cache: "pnpm"
+
+      - run: pnpm install
+
+      - run: pnpm type-check
+        working-directory: apps/web
+
+  build:
+    name: Build
+    needs: [lint, style, check]
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: pnpm/action-setup@v2
+        with:
+          version: ${{ env.pnpm-version }}
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: ${{ env.node-version }}
+          cache: "pnpm"
+
+      - run: pnpm install -P
+
+      - run: pnpm build
+        working-directory: apps/web
+
+  test:
+    name: E2E
+    needs: [build]
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+    - uses: actions/checkout@v3
+
+    - uses: pnpm/action-setup@v2
+      with:
+        version: ${{ env.pnpm-version }}
+
+    - uses: actions/setup-node@v3
+      with:
+        node-version: ${{ env.node-version }}
+        cache: "pnpm"
+
+    - run: pnpm install
+
+    - run: pnpm exec playwright install --with-deps chromium
+      working-directory: apps/web
+
+    - run: pnpm test
+      working-directory: apps/web
+
+    - uses: actions/upload-artifact@v3
+      if: always()
+      with:
+        name: playwright-report
+        path: apps/web/playwright-report/
+        retention-days: 7
+
+  deploy:
+    needs: [test]
+    runs-on: ubuntu-latest
+    environment:
+      name: web:production
+      url: https://frontendista.cz
+
+    env:
+      VERCEL_DEPLOYMENT_TOKEN: ${{ secrets.VERCEL_DEPLOYMENT_TOKEN }}
+      VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+      VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Deploy to Vercel
+        run: vercel --prod -f -t $VERCEL_DEPLOYMENT_TOKEN -S frontendista
