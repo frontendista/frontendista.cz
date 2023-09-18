@@ -66,7 +66,9 @@ if (process.env.VERCEL_ENV === "production") {
 		);
 
 		integrations.push(
-			sitemap()
+			sitemap({
+				filter: (page) => new URL(page).pathname !== "/collaboration",
+			})
 		);
 	} catch (error) {
 		throw new Error("Couldn't finish production build\".", {

@@ -16,6 +16,10 @@ import "~/styles/global.scss";
 
 export interface Props extends FavouriteIconProps, SEOProps {
 	image?: SEOImageProps;
+	/**
+	 * @default false
+	 */
+	noIndex?: boolean;
 	classNames?: {
 		main?: string;
 	}
@@ -23,6 +27,7 @@ export interface Props extends FavouriteIconProps, SEOProps {
 
 const { 
 	favicon = "favicon",
+	noIndex = false,
 	classNames = {},
 	image,
 	...seoProps
@@ -33,6 +38,7 @@ const {
 	<head>
 		<Fragment set:html={BUILD_FINGERPRINT} />
 		<CommonHead />
+		{noIndex ? <meta name="robots" content="none" /> : null}
 		<PreloadFont path="/fonts/space-grotesk/variable.woff2" />
 		<PreloadFont path="/fonts/unbounded/variable.woff2" />
 		<slot name="head" />
