@@ -2,6 +2,7 @@
 import HMFLayout from "~/layouts/hmf-layout.astro";
 
 import Link from "~/components/common/link.astro";
+import Heading from "~/layouts/common/footer/heading.astro";
 ---
 
 <HMFLayout
@@ -12,14 +13,14 @@ import Link from "~/components/common/link.astro";
 	title={{
 		default: "Pavel Sušický — Collaboration"
 	}}>
-	<header class="flex flex-col gap-lg">
-		<h1 class="mb-lg">Collaboration summary</h1>
+	<header id="summary" class="flex flex-col gap-lg">
+		<Heading class="mb-lg" href="#summary">Collaboration summary</Heading>
 		<p>I'm currently searching for a new opportunity in the development industry.</p>
 		<p>Below are details concerning the type of collaboration I'm looking for.</p>
 		<p>Check out my <Link href="/documents/pavel-sušický-résumé.pdf" target="_blank" externalIcon>résumé</Link> and projects to see whether I'm a good fit for the opportunity.</p>
 	</header>
-	<section class="flex flex-col gap-lg">
-		<h2 class="mb-lg">Positions and seniority</h2>
+	<section id="roles" class="flex flex-col gap-lg">
+		<Heading as="h2" href="#roles" class="mb-lg">Roles and seniority</Heading>
 		<p>I'm mainly focused on frontend development (since frontendista.cz, lol). However, I'm open to other related positions if applicable.</p>
 		<p>I consider myself a junior since I also account for "human or soft skills" aspects of the job. Technically, I hope my <Link href="https://github.com/susickypavel">GitHub</Link> and <Link href="/documents/pavel-sušický-résumé.pdf" target="_blank" externalIcon>résumé</Link> speak for themselves.</p>
 		<ul class="flex list-disc flex-col gap-sm pl-[1.5rem] font-bold">
@@ -28,20 +29,20 @@ import Link from "~/components/common/link.astro";
 			<li>Junior UI / UX designer</li>
 		</ul>
 	</section>
-	<section class="flex flex-col gap-lg">
-		<h2 class="mb-lg">Working capacity</h2>
+	<section id="capacity" class="flex flex-col gap-lg">
+		<Heading as="h2" href="#capacity" class="mb-lg">Working capacity</Heading>
 		<p>I'm studying at the Czech Technical University in Prague, so I have limited available capacity.</p>
 		<p>However, I'm very keen to work as much as possible during the semester, but I need flexibility when important mid-term and finals are coming.</p>
 		<p>I'd expect to work 20 hours per week with flexibility during important school-related things.</p>
 	</section>
-	<section class="flex flex-col gap-lg">
-		<h2 class="mb-lg">Working environment (onsite / hybrid / remote)</h2>
+	<section id="environment" class="flex flex-col gap-lg">
+		<Heading as="h2" href="#environment" class="mb-lg">Working environment (onsite / hybrid / remote)</Heading>
 		<p>Ideally, I would like to work hybrid so that I can get help from others and also be able to work remotely to save time and cost.</p>
 		<p>I'm not against fully remote collaboration, but I'd prefer hybrid opportunities, at least for a few weeks, to "have the feeling" of the team I'm working with.</p>
 		<p>I'm based in Prague, Czech Republic for onsite / hybrid collaborations.</p>
 	</section>
 	<footer class="flex flex-col gap-lg">
-		<h2 class="mb-lg">Get in touch</h2>
+		<Heading as="h2" class="mb-lg">Get in touch</Heading>
 		<p>If you have scrolled to the end, here are some ways to contact me (and a cat).</p>
 	</footer>
 </HMFLayout>

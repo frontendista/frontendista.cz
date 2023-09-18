@@ -1,0 +1,21 @@
+---
+export interface Props {
+	/**
+	 * @default "h1"
+	 */
+	as: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
+	href?: string;
+}
+
+const { as: Element = "h1", href } = Astro.props;
+---
+
+<Element class="inline-flex items-center justify-between gap-lg">
+	<slot />
+	{href ? (
+		<a class="min-h-[3rem] min-w-[3rem] center" href={href}>
+			<span class="sr-only">Permalink to "{<slot />}" section</span>
+			<span aria-hidden="true">#</span>
+		</a>
+	) : null}
+</Element>
