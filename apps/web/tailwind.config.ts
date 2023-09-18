@@ -57,6 +57,10 @@ const config: Config = {
 		},
 		extend: {
 			colors: {
+				ok: {
+					"400": "oklch(80.03% 0.29 151.71 / <alpha-value>)",
+					"500": "oklch(72.27% 0.28 149.58 / <alpha-value>)"
+				},
 				brand: {
 					"500": "oklch(70% 0.333 340.94 / <alpha-value>)",
 					"600": "oklch(60% 0.28 340.94 / <alpha-value>)"
