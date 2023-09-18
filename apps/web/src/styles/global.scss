@@ -67,6 +67,21 @@
 	*:focus-visible {
 		outline: none;
 		z-index: theme("zIndex.50");
+		
+		&::before {
+			content: "";
+			inset: -0.5rem;
+			position: absolute;
+			border: 4px solid theme("textColor.primary");
+			width: calc(100% + 1rem);
+			height: calc(100% + 1rem);
+		}
+
+		box-shadow: 0 0 0 max(100vw, 100vh) theme("backgroundColor.primary / 90%");
+
+		@supports selector(:has(+ * )) {
+			box-shadow: none;
+		}
 	}
 
 	body {
@@ -88,6 +103,7 @@
 
 		&:has(:focus-visible) {
 			&::after {
+				pointer-events: auto;
 				z-index: 1;
 				background: theme("backgroundColor.primary / 90%");
 			}
@@ -97,5 +113,9 @@
 	p {
 		font-weight: 500;
 		font-size: 1.25rem;
+	}
+
+	a, button, summary {
+		position: relative;
 	}
 }

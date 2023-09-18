@@ -9,7 +9,6 @@
 		width: 100%;
 		text-transform: uppercase;
 		cursor: pointer;
-		position: relative;
 
 		& svg {
 			height: 1em;
@@ -20,21 +19,28 @@
 	[data-btn="primary"] {
 		background: var(--button-bg-primary-idle);
 		color: var(--button-fg-primary-idle);
-
+		
 		@media (pointer: fine) {
 			&:hover {
 				user-select: none;
 				background: theme("colors.brand.500");
+
+				&::before {
+					border-color: theme("colors.brand.500");
+				}
 			}
 
 			&:active {
 				background: theme("colors.brand.600");
+
+				&::before {
+					border-color: theme("colors.brand.600");
+				}
 			}
 		}
 	}
 
 	[data-link] {
-		position: relative;
 		text-wrap: balance;
 		font-size: 1.25rem;
 		font-weight: 500;
@@ -47,8 +53,12 @@
 		}
 
 		&:active {
-			text-decoration-color: theme("colors.brand.500");
-			color: theme("colors.brand.500");
+			text-decoration-color: theme("colors.brand.600");
+			color: theme("colors.brand.600");
+
+			&::before {
+				border-color: theme("colors.brand.600");
+			}
 		}
 
 		& svg {
