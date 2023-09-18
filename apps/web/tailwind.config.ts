@@ -13,6 +13,14 @@ const customUtilities = plugin(({ addUtilities }) => {
 			display: "flex",
 			justifyContent: "center",
 			alignItems: "center"
+		},
+		".brackets": {
+			"&:before": {
+				content: "'['"
+			},
+			"&:after": {
+				content: "']'"
+			}
 		}
 	});
 });
@@ -65,6 +73,7 @@ const config: Config = {
 			},
 			textColor: {
 				primary: "rgb(var(--fg-primary) / <alpha-value>)",
+				secondary: "rgb(var(--fg-secondary) / <alpha-value>)",
 			},
 			backgroundColor: {
 				primary: "rgb(var(--bg-primary) / <alpha-value>)",

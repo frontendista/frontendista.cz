@@ -72,7 +72,7 @@
 			content: "";
 			inset: -0.5rem;
 			position: absolute;
-			border: 4px solid theme("textColor.primary");
+			border: 4px solid currentcolor;
 			width: calc(100% + 1rem);
 			height: calc(100% + 1rem);
 		}
@@ -113,6 +113,7 @@
 	p {
 		font-weight: 500;
 		font-size: 1.25rem;
+		line-height: 1.5;
 	}
 
 	a, button, summary {
