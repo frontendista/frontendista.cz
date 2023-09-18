@@ -65,9 +65,13 @@ const { createdAt, tagCommit, tagName, url } = repository.latestRelease;
 			</li>
 		))}
 	</ul>
-	<p class="mt-lg flex flex-wrap justify-center gap-lg border-t-2 border-t-primary/10 pt-lg text-center lg:mt-2xl lg:justify-between lg:pt-2xl">
-		<Link href={url}>{tagName.split("@")[1]}@{tagCommit.oid.substring(0, 7)} on {new Date(createdAt).toLocaleString("en-US", { month: "short", year: "numeric", day: "numeric" })}</Link>
-		<span>2023 &copy; Pavel Sušický. All rights reserved.</span>
+	<p class="mt-lg flex grid-cols-[1fr_3rem_1fr] flex-col gap-lg border-t-2 border-t-primary/10 pt-lg text-center lg:mt-2xl lg:grid lg:pt-2xl">
+		<Link class="self-center justify-self-start" href={url}>{tagName.split("@")[1]}@{tagCommit.oid.substring(0, 7)} on {new Date(createdAt).toLocaleString("en-US", { month: "short", year: "numeric", day: "numeric" })}</Link>
+		<a class="order-1 self-center justify-self-center lg:order-none" href="#main">
+			<span class="sr-only">Back to top</span>
+			<img src="/favicon.svg" class="w-full max-w-[3rem]" width="48" height="48" alt="">
+		</a>
+		<span class="self-center justify-self-end">2023 &copy; made with music Pavel Sušický.</span>
 	</p>
 </footer>
 
