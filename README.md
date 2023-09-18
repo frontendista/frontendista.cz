@@ -21,6 +21,7 @@ pnpm install
 
 ## 2. Projects
 
-| Name                  |
-| --------------------- |
-| [**Web**](./apps/web) |
+| Name                  | Description                              |
+| --------------------- | ---------------------------------------- |
+| [**Web**](./apps/web) | Personal website                         |
+| [**API**](./apps/API) | API for personal website & documentation |
