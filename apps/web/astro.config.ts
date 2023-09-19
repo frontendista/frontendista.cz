@@ -81,7 +81,8 @@ export default defineConfig({
 	site: SITES[process.env.VERCEL_ENV] || SITES.development,
 	trailingSlash: "never",
 	build: {
-		format: "file"
+		format: "file",
+		assets: "assets"
 	},
 	vite: {
 		build: {

@@ -4,7 +4,11 @@ import HMFLayout from "~/layouts/hmf-layout.astro";
 import Link from "~/components/common/link.astro";
 import Icon from "~/components/common/icon.astro";
 import Heading from "~/components/common/heading.astro";
+import Picture from "~/components/common/picture.astro";
+
 import SectionSummary from "./_collaboration.astro/section-summary.astro";
+
+import cat from "~/assets/images/cat.jpg";
 ---
 
 <HMFLayout
@@ -53,6 +57,7 @@ import SectionSummary from "./_collaboration.astro/section-summary.astro";
 					<path d="M2 12h7v2H2zm2 3h6v2H4zm3 3h4v2H7z" />
 				</Icon>
 			</Link>
+			<Picture image={cat} />
 		</footer>
 	</section>
 </HMFLayout>

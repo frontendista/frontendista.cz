@@ -24,6 +24,12 @@ const customUtilities = plugin(({ addUtilities, addVariant }) => {
 			"&:after": {
 				content: "']'"
 			}
+		},
+		".img-indicator": {
+			backgroundImage: "url(\"data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGZpbGw9IiMwMDAiIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHBhdGggZD0iTTE5IDNINWMtMS4xMDMgMC0yIC44OTctMiAydjE0YzAgMS4xMDMuODk3IDIgMiAyaDE0YzEuMTAzIDAgMi0uODk3IDItMlY1YzAtMS4xMDMtLjg5Ny0yLTItMnpNNSAxOVY1aDE0bC4wMDIgMTRINXoiLz48cGF0aCBkPSJtMTAgMTQtMS0xLTMgNGgxMmwtNS03eiIvPjwvc3ZnPgo=\")",
+			backgroundSize: "50%",
+			backgroundRepeat: "no-repeat",
+			backgroundPosition: "center"
 		}
 	});
 });
