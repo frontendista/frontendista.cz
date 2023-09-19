@@ -4,6 +4,7 @@ import type { Config } from "tailwindcss";
 
 const customUtilities = plugin(({ addUtilities, addVariant }) => {
 	addVariant("motion", [":root[data-motion=\"on\"] &", "@media (prefers-reduced-motion: no-preference) { :root[data-js=\"off\"] & }"]);addVariant("motion", [":root[data-motion=\"on\"] &", "@media (prefers-reduced-motion: no-preference) { :root[data-js=\"off\"] & }"]);
+	addVariant("night", [":root[data-theme=\"dark\"] &", "@media (prefers-color-scheme: dark) { :root[data-js=\"off\"] & }"]);
 
 	addUtilities({
 		".offscreen": {
@@ -64,8 +65,10 @@ const config: Config = {
 					"500": "oklch(72.27% 0.28 149.58 / <alpha-value>)"
 				},
 				brand: {
+					"300": "oklch(83.3% 0.15 321.43 / <alpha-value>)",
 					"500": "oklch(70% 0.333 340.94 / <alpha-value>)",
-					"600": "oklch(60% 0.28 340.94 / <alpha-value>)"
+					"600": "oklch(60% 0.28 340.94 / <alpha-value>)",
+					"800": "oklch(45.19% 0.22 324.59 / <alpha-value>)"
 				}
 			},
 			height: {

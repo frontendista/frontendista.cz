@@ -7,10 +7,10 @@ export interface Props {
 	href?: string;
 }
 
-const { as: Element = "h1", href } = Astro.props;
+const { as: Element = "h1", href, class: className, ...attrs } = Astro.props;
 ---
 
-<Element class="inline-flex items-center justify-between gap-lg">
+<Element class="inline-flex items-center justify-between gap-lg" class:list={["w-full", className]} {...attrs}>
 	<slot />
 	{href ? (
 		<a class="min-h-[3rem] min-w-[3rem] center" href={href}>

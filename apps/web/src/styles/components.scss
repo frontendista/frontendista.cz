@@ -62,17 +62,10 @@
 	}
 
 	[data-link="text"] {
-		color: theme("colors.brand.500");
-		text-decoration-color: theme("colors.brand.500 / 25%");
-
-		&:hover, &:focus-visible {
-			text-decoration-color: theme("colors.brand.500");
-		}
-
-		&:active {
-			color: theme("colors.brand.600");
-			text-decoration-color: theme("colors.brand.600");
-		}
+		@apply text-brand-800/100 night:text-brand-500/100;
+		@apply decoration-brand-800/25 night:decoration-brand-500/25;
+		@apply hover:decoration-current hover:night:decoration-current;
+		@apply active:text-brand-600/100 active:night:text-brand-600/100
 	}
 
 	[data-link="primary"] {

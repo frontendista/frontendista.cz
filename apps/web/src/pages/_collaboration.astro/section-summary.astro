@@ -1,0 +1,14 @@
+---
+export interface Props {
+	items: string[];
+}
+
+const { items } = Astro.props;
+---
+
+<footer class="relative mt-lg w-full border-2 border-dashed border-primary p-lg pt-[1.5rem] lg:w-auto">
+	<small class="absolute left-1/2 top-0 -translate-x-1/2 -translate-y-1/2 bg-primary px-lg font-medium">Summary</small>
+	<ul class="flex flex-col gap-lg lg:flex-row">
+		{items.map(item => <li class="bg-brand-300/100 p-xl font-bold text-black">{item}</li>)}
+	</ul>
+</footer>
