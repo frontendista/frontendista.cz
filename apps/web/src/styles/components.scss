@@ -61,6 +61,20 @@
 		}
 	}
 
+	[data-link="text"] {
+		color: theme("colors.brand.500");
+		text-decoration-color: theme("colors.brand.500 / 25%");
+
+		&:hover, &:focus-visible {
+			text-decoration-color: theme("colors.brand.500");
+		}
+
+		&:active {
+			color: theme("colors.brand.600");
+			text-decoration-color: theme("colors.brand.600");
+		}
+	}
+
 	[data-link="primary"] {
 		text-decoration-color: rgb(var(--fg-primary) / 25%);
 
@@ -71,10 +85,6 @@
 		&:active {
 			text-decoration-color: theme("colors.brand.600");
 			color: theme("colors.brand.600");
-
-			&::before {
-				border-color: theme("colors.brand.600");
-			}
 		}
 	}
 
