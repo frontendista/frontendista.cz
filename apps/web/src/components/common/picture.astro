@@ -29,6 +29,6 @@ const avif = await getImage({
 		<source srcset={avif.src} type="image/avif" />
 		<source srcset={webp.src} type="image/webp" />
 	)}
-	<img class="bg-secondary img-indicator" src={image.src} width={image.width} height={image.height} loading={loading} decoding={decoding} alt={alt || ""} {...attrs}>
+	<img class="animate-fade-in bg-secondary" src={image.src} width={image.width} height={image.height} loading={loading} decoding={decoding} alt={alt || ""} {...attrs}>
 </picture>
 

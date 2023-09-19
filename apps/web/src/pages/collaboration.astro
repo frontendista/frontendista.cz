@@ -17,21 +17,22 @@ import cat from "~/assets/images/cat.jpg";
 		default: "Pavel Sušický — Collaboration"
 	}}>
 	<section class="mx-auto flex min-h-view max-w-content flex-col gap-2xl p-lg lg:p-2xl">
-		<header id="summary" class="flex flex-col gap-lg">
-			<Heading class="mb-lg" href="#summary">Collaboration summary</Heading>
+		<header class="flex flex-col gap-lg">
+			<Heading class="mb-lg" href="/collaboration">Collaboration</Heading>
 			<p>I'm currently searching for a new opportunity in the development industry.</p>
 			<p>Below are details concerning the type of collaboration I'm looking for.</p>
 			<p>Check out my <Link kind="text" href="/documents/pavel-sušický-résumé.pdf" target="_blank" externalIcon>résumé</Link> and projects to see whether I'm a good fit for the opportunity.</p>
 		</header>
-		<section id="roles" class="flex flex-col gap-lg">
+		<section id="roles" class="flex flex-col items-start gap-lg">
 			<Heading as="h2" href="#roles" class="mb-lg">Roles and seniority</Heading>
 			<p>I'm mainly focused on frontend development (since frontendista.cz, lol). However, I'm open to other related positions if applicable.</p>
 			<p>I consider myself a junior since I also account for "human or soft skills" aspects of the job. Technically, I hope my <Link kind="text" href="https://github.com/susickypavel">GitHub</Link> and <Link kind="text" href="/documents/pavel-sušický-résumé.pdf" target="_blank" externalIcon>résumé</Link> speak for themselves.</p>
-			<ul class="flex list-disc flex-col gap-sm pl-[1.5rem]">
+			<ul class="flex list-disc flex-col gap-sm pl-[1.5rem] font-medium">
 				<li>Junior Front-end developer</li>
 				<li>Junior QA Engineer</li>
 				<li>Junior UI / UX designer</li>
 			</ul>
+			<SectionSummary items={["Front-end developer"]} />
 		</section>
 		<section id="capacity" class="flex flex-col items-start gap-lg">
 			<Heading as="h2" href="#capacity" class="mb-lg">Working capacity</Heading>

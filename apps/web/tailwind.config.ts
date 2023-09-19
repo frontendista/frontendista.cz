@@ -65,6 +65,9 @@ const config: Config = {
 			"uw": "160em"
 		},
 		extend: {
+			animation: {
+				"fade-in": "fade-in 0.5s ease-in-out forwards"
+			},
 			colors: {
 				ok: {
 					"400": "oklch(80.03% 0.29 151.71 / <alpha-value>)",

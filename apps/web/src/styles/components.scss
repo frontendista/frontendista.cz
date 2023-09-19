@@ -62,6 +62,8 @@
 	}
 
 	[data-link="text"] {
+		font-weight: 700;
+		
 		@apply text-brand-800/100 night:text-brand-500/100;
 		@apply decoration-brand-800/25 night:decoration-brand-500/25;
 		@apply hover:decoration-current hover:night:decoration-current;
