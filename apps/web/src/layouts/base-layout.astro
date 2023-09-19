@@ -1,6 +1,8 @@
 ---
 import { version } from "~/root/package.json";
 
+import SpritesheetCommon from "~/assets/svg/spritesheet/common.astro";
+
 import PreloadFont from "./common/preload-font.astro";
 import Footer from "./common/footer/footer.astro";
 import SEO, { type Props as SEOProps } from "./common/seo.astro";
@@ -48,6 +50,7 @@ const {
 		<FeatureDetection />
 	</head>
 	<body>
+		<SpritesheetCommon />
 		<a class="-translate-x-1/2 -translate-y-1/2 offscreen focus-visible:left-1/2 focus-visible:top-1/2 sm:w-auto" data-btn="primary" href="#main">Skip to content</a>
 		<main class={classNames.main} id="main">
 			<slot />

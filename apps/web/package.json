@@ -5,6 +5,7 @@
 	"scripts": {
 		"dev": "astro dev",
 		"build": "astro build",
+		"build:prod": "cross-env VERCEL_ENV=production ENABLE_MOCKS=1 astro build",
 		"preview": "astro preview",
 		"build:preview": "run-s build preview",
 		"build:preview:prod": "cross-env VERCEL_ENV=production ENABLE_MOCKS=1 run-s build:preview",
@@ -16,10 +17,10 @@
 	"dependencies": {
 		"@astrojs/sitemap": "^3.0.0",
 		"@astrojs/tailwind": "^5.0.0",
-		"@astrojs/vercel": "^5.0.0",
+		"@astrojs/vercel": "^5.0.1",
 		"@frontendista/astro-html-minify": "^2.0.0",
 		"@octokit/graphql": "^7.0.1",
-		"astro": "^3.1.0",
+		"astro": "^3.1.1",
 		"browserslist-to-esbuild": "^1.2.0",
 		"deepmerge-ts": "^5.1.0",
 		"dotenv": "^16.3.1",

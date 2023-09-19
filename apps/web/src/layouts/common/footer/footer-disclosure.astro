@@ -2,8 +2,6 @@
 import Link from "~/components/common/link.astro";
 import Icon from "~/components/common/icon.astro";
 
-import common from "~/assets/svg/spritesheet/common.svg?url";
-
 export interface Props {
 	heading: string;
 	links: Array<{
@@ -19,8 +17,8 @@ const { heading, links } = Astro.props;
 	<summary class="justify-between" data-btn="primary">
 		{heading}
 		<Icon title="Toggle disclosure">
-			<use class="hidden group-open:block" href={`${common}#minus-square`} />
-			<use class="group-open:hidden" href={`${common}#plus-square`} />
+			<use class="hidden group-open:block" href={"#minus-square"} />
+			<use class="group-open:hidden" href={"#plus-square"} />
 		</Icon>
 	</summary>
 	<ul class="mt-lg flex list-disc flex-col gap-md pl-xl lg:list-none lg:pl-0">

@@ -11,6 +11,7 @@ import { handlers } from "./src/mocks/github";
 // Integations
 import MinifyHTML from "@frontendista/astro-html-minify";
 import TailwindCSS from "@astrojs/tailwind";
+import vercel from "@astrojs/vercel/static";
 
 import { browserslist } from "./package.json";
 
@@ -43,6 +44,12 @@ const integrations = [
 		applyBaseStyles: false
 	}),
 	MinifyHTML({
+		html: {
+			removeComments: process.env.VERCEL_ENV === "production",
+			collapseWhitespace: true,
+			conservativeCollapse: true,
+			preserveLineBreaks: false
+		},
 		css: {
 			browserslist: browserslist.join(", ")
 		}
@@ -78,6 +85,7 @@ if (process.env.VERCEL_ENV === "production") {
 }
 
 export default defineConfig({
+	adapter: vercel(),
 	site: SITES[process.env.VERCEL_ENV] || SITES.development,
 	trailingSlash: "never",
 	build: {
