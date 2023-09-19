@@ -48,6 +48,7 @@ const {
 		<SEO {...seoProps} />
 		<SEOImage {...image} />
 		<FeatureDetection />
+		{process.env.VERCEL_ENV === "production" ? <script defer src="/_vercel/insights/script.js" /> : null}
 	</head>
 	<body>
 		<SpritesheetCommon />
