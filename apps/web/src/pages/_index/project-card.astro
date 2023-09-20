@@ -1,0 +1,35 @@
+---
+import type { CollectionEntry } from "astro:content";
+
+import Link from "~/components/common/link.astro";
+
+export interface Props {
+	project: CollectionEntry<"projects">["data"];
+}
+
+const { title, type, description, source, cta, year } = Astro.props.project;
+---
+
+<article class="flex h-full flex-col gap-lg bg-secondary p-xl">
+	<header class="flex flex-col gap-lg">
+		<small class="text-center font-semibold">{type}</small>
+		<h3 class="text-center">{title}</h3>
+	</header>
+	<p class="grow center">{description}</p>
+	<footer class="flex items-center gap-xl">
+		<time datetime={year.toString()} class="font-bold">{year}</time>
+		<div aria-hidden="true" class="h-[2px] w-full bg-primary/75" />
+		<ul class="flex justify-end gap-lg">
+			{source ? (
+				<li>
+					<Link icon="github" href={source}>See source code</Link>
+				</li>
+			) : null}
+			{cta ? (
+				<li>
+					<Link icon="link-external" href={cta.href}>{cta.text}</Link>
+				</li>
+			) : null}
+		</ul>
+	</footer>
+</article>

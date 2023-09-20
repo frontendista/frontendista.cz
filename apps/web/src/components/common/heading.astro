@@ -13,7 +13,7 @@ const { as: Element = "h1", href, class: className, ...attrs } = Astro.props;
 <Element class="inline-flex items-center justify-between gap-lg" class:list={["w-full", className]} {...attrs}>
 	<slot />
 	{href ? (
-		<a class="min-h-[3rem] min-w-[3rem] center after:content-['#']" href={href}>
+		<a class="h-[3rem] w-[3rem] center after:content-['#']" href={href}>
 			<span class="sr-only">Permalink to "{<slot />}" section</span>
 			
 		</a>

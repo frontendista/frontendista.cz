@@ -8,27 +8,36 @@ export type Props = HTMLAttributes<"a"> & {
 	/**
 	 * @default "link"
 	 */
-	type?: "btn" | "link"
+	type?: "btn" | "link";
 	/**
 	 * @default "primary"
 	 */
 	kind?: "primary" | "secondary" | "text";
 	/**
-	 * @default false
+	 * Renders icon instead of text.
 	 */
-	externalIcon?: boolean;
+	icon?: string;
 };
 
-const { href, kind = "primary", externalIcon = false, type = "link", ...attrs } = Astro.props;
+const { href, kind = "primary", type = "link", icon, ...attrs } = Astro.props;
 
-const isExternal = href.startsWith("http");
+const isExternal = attrs.target === "_blank" || href.startsWith("http");
 
 const attributes = Object.assign(attrs, {
-	[`data-${type}`]: kind,
+	[`data-${icon ? "icon" : type}`]: kind,
 });
 ---
 
 <a href={href} rel={isExternal ? "noopener" : null} target={isExternal ? "_blank" : null} {...attributes}>
-	<slot />
-	{(isExternal || externalIcon) ? <Icon title=" (New tab) " icon="link-external" /> : null}
+	{icon ? (
+		<span class="sr-only">
+			<slot />
+		</span>
+		<Icon title=" (New tab) " icon={icon} />
+	) : (
+		<Fragment>
+			<slot />
+			{isExternal ? <Icon title=" (New tab) " icon="link-external" /> : null}
+		</Fragment>
+	)}
 </a>

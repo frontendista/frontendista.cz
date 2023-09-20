@@ -1,9 +1,14 @@
 ---
 import HMFLayout from "~/layouts/hmf-layout.astro";
 
+import IndexSpritesheet from "~/assets/svg/spritesheet/index.astro";
+
 import HeroSection from "./_index/hero-section.astro";
+import ProjectSection from "./_index/project-section.astro";
 ---
 
 <HMFLayout>
+	<IndexSpritesheet slot="body_start" />
 	<HeroSection />
+	<ProjectSection />
 </HMFLayout>

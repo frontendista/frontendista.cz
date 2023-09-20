@@ -26,5 +26,6 @@ const props = deepmerge<[Props, Props]>({
 		<link rel="canonical" href={CANONICAL_URL} />
 		<meta property="og:url" content={CANONICAL_URL} />
 	</Fragment>
+	<slot slot="body_start" name="body_start" />
 	<slot />
 </BaseLayout>

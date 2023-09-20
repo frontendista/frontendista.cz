@@ -1,4 +1,21 @@
 @layer components {
+	[data-icon] {
+		& svg {
+			width: 3rem;
+			padding: 0.5rem;
+		}
+
+		@media (pointer: fine) {
+			&:hover {
+				color: theme("colors.brand.500");
+			}
+
+			&:active {
+				color: theme("colors.brand.600");
+			}
+		}
+	}
+
 	[data-btn] {
 		display: inline-flex;
 		justify-content: center;
