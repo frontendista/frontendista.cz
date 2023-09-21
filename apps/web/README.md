@@ -10,6 +10,8 @@
 | --------------------- | ------------------------------------------ | ------------- |
 | VERCEL_ENV            | `development` or `preview` or `production` | `development` |
 | GITHUB_PERSONAL_TOKEN | See [**.env.example**](./.env.example)     | -             |
+| SPOTIFY_CLIENT_ID     | See [**.env.example**](./.env.example)     | -             |
+| SPOTIFY_CLIENT_SECRET | See [**.env.example**](./.env.example)     | -             |
 
 #### 1.1.2 Optional
 

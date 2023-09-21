@@ -6,7 +6,8 @@ import { setupServer } from "msw/node";
 
 import blist from "browserslist-to-esbuild";
 
-import { handlers } from "./src/mocks/github";
+import { handlers as githubMSW } from "./src/mocks/github";
+import { handlers as spotifyMSW } from "./src/mocks/spotify";
 
 // Integations
 import MinifyHTML from "@frontendista/astro-html-minify";
@@ -35,7 +36,7 @@ export const SITES: Record<typeof process.env.VERCEL_ENV, string> = {
 } as const;
 
 if (process.env.VERCEL_ENV !== "production" || process.env.ENABLE_MOCKS === "1") {
-	const server = setupServer(...handlers);
+	const server = setupServer(...githubMSW, ...spotifyMSW);
 	server.listen();
 }
 

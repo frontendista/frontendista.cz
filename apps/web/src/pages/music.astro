@@ -1,0 +1,18 @@
+---
+import HMFLayout from "~/layouts/hmf-layout.astro";
+
+await fetch("https://accounts.spotify.com/api/token", {
+	method: "POST",
+	headers:{
+		"Content-Type": "application/x-www-form-urlencoded"
+	},
+	body: new URLSearchParams({
+		grant_type: "client_credentials",
+		client_id: import.meta.env.SPOTIFY_CLIENT_ID,
+		client_secret: import.meta.env.SPOTIFY_CLIENT_SECRET
+	})
+});
+---
+
+<HMFLayout>
+</HMFLayout>

@@ -1,0 +1,12 @@
+import { rest } from "msw";
+
+import { SPOTIFY_AUTH_RESPONSE, SPOTIFY_TOP_TRACKS_RESPONSE } from "./samples/spotify";
+
+export const handlers = [
+	rest.get("https://api.spotify.com/v1/me/top/tracks", (_, res, ctx) => {
+		return res(ctx.json(SPOTIFY_TOP_TRACKS_RESPONSE));
+	}),
+	rest.post("https://accounts.spotify.com/api/token", (_, res, ctx) => {
+		return res(ctx.json(SPOTIFY_AUTH_RESPONSE));
+	})
+];

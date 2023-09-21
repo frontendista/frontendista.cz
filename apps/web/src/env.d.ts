@@ -9,15 +9,17 @@ declare global {
 			readonly ENABLE_MOCKS: "0" | "1";
 		}
 	}
-	
+
 	interface ImportMetaEnv {
 		readonly GITHUB_PERSONAL_TOKEN: string;
+		readonly SPOTIFY_CLIENT_ID: string;
+		readonly SPOTIFY_CLIENT_SECRET: string;
 	}
-	
+
 	interface ImportMeta {
 		readonly env: ImportMetaEnv;
 	}
 }
 
 
-export {};
+export { };
