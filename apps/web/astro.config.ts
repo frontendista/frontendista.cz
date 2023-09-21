@@ -48,7 +48,8 @@ const integrations = [
 			removeComments: process.env.VERCEL_ENV === "production",
 			collapseWhitespace: true,
 			conservativeCollapse: true,
-			preserveLineBreaks: false
+			preserveLineBreaks: false,
+			sortAttributes: false
 		},
 		css: {
 			browserslist: browserslist.join(", ")
