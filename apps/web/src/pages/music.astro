@@ -1,18 +1,45 @@
 ---
 import HMFLayout from "~/layouts/hmf-layout.astro";
 
-await fetch("https://accounts.spotify.com/api/token", {
+import { SPOTIFY_AUTH_RESPONSE_SCHEMA, SPOTIFY_TOP_TRACKS_RESPONSE_SCHEMA } from "~/mocks/spotify";
+
+const authResponse = await fetch("https://accounts.spotify.com/api/token", {
 	method: "POST",
-	headers:{
+	headers: {
+		Authorization: `Basic ${Buffer.from(`${import.meta.env.SPOTIFY_CLIENT_ID}:${import.meta.env.SPOTIFY_CLIENT_SECRET}`).toString("base64")}`,
 		"Content-Type": "application/x-www-form-urlencoded"
 	},
 	body: new URLSearchParams({
-		grant_type: "client_credentials",
-		client_id: import.meta.env.SPOTIFY_CLIENT_ID,
-		client_secret: import.meta.env.SPOTIFY_CLIENT_SECRET
+		grant_type: "refresh_token",
+		refresh_token: import.meta.env.SPOTIFY_REFRESH_TOKEN
 	})
 });
+
+if (!authResponse.ok) {
+	throw new Error(`Request finished with non 2xx code. Code: ${authResponse.status}.`);
+}
+
+const { access_token, token_type } = SPOTIFY_AUTH_RESPONSE_SCHEMA.parse(await authResponse.json());
+
+const topResponse = await fetch("https://api.spotify.com/v1/me/top/tracks", {
+	headers: {
+		Authorization: `${token_type} ${access_token}`
+	},
+});
+
+if (!topResponse.ok) {
+	throw new Error(`Request finished with non 2xx code. Code: ${topResponse.status}.`);
+}
+
+const { items } = SPOTIFY_TOP_TRACKS_RESPONSE_SCHEMA.parse(await topResponse.json());
 ---
 
 <HMFLayout>
+	{items.map(item => {
+		return (
+			<div>
+				<h4>{item.name}</h4>
+			</div>
+		);
+	})}
 </HMFLayout>
