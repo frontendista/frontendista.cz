@@ -9,12 +9,22 @@ import Picture from "~/components/common/picture.astro";
 import SectionSummary from "./_collaboration.astro/section-summary.astro";
 
 import cat from "~/assets/images/cat.jpg";
+import collaboration from "~/assets/images/collaboration.jpg";
 ---
 
 <HMFLayout
 	noIndex
 	title={{
 		default: "Pavel Sušický — Collaboration"
+	}}
+	image={{
+		og: {
+			url: collaboration.src,
+			width: collaboration.width,
+			height: collaboration.height,
+			alt: "Frontendista, Prague Czech Republic, on-site / hybrid, Junior",
+			type: "image/jpeg"
+		}
 	}}>
 	<section class="mx-auto flex min-h-view max-w-content flex-col gap-2xl p-lg lg:p-2xl">
 		<header class="flex flex-col gap-lg">
@@ -42,10 +52,10 @@ import cat from "~/assets/images/cat.jpg";
 			<SectionSummary items={["Flexible 20 hours per week"]} />
 		</section>
 		<section id="environment" class="flex flex-col items-start gap-lg">
-			<Heading as="h2" href="#environment" class="mb-lg">Working environment (onsite / hybrid / remote)</Heading>
+			<Heading as="h2" href="#environment" class="mb-lg">Working environment (on-site / hybrid / remote)</Heading>
 			<p>Ideally, I would like to work hybrid so that I can get help from others and also be able to work remotely to save time and cost.</p>
 			<p>I'm not against fully remote collaboration, but I'd prefer hybrid opportunities, at least for a few weeks, to "have the feeling" of the team I'm working with.</p>
-			<p>I'm based in Prague, Czech Republic for onsite / hybrid collaborations.</p>
+			<p>I'm based in Prague, Czech Republic for on-site / hybrid collaborations.</p>
 			<SectionSummary items={["Preferably hybrid", "Prague, Czech Republic"]} />
 		</section>
 		<footer class="flex flex-col items-start gap-lg">
