@@ -84,9 +84,9 @@
 		font-weight: 700;
 		
 		@apply text-brand-800/100 night:text-brand-500/100;
-		@apply decoration-brand-800/25 night:decoration-brand-500/25;
+		@apply decoration-brand-800/25 night:decoration-brand-500/25;	
 		@apply hover:decoration-current hover:night:decoration-current;
-		@apply active:text-brand-600/100 active:night:text-brand-600/100
+		@apply active:text-brand-600/100 active:night:text-brand-600/100;
 	}
 
 	[data-link="primary"] {
@@ -106,16 +106,18 @@
 		color: rgb(var(--fg-secondary) / 100%);
 		text-decoration-color: rgb(var(--fg-secondary) / 25%);
 
-		&:hover, &:focus-visible {
-			text-decoration-color: rgb(var(--fg-secondary) / 100%);
-		}
+		@media (pointer: fine) {
+			&:hover, &:focus-visible {
+				text-decoration-color: rgb(var(--fg-secondary) / 100%);
+			}
 
-		&:active {
-			text-decoration-color: theme("colors.brand.600");
-			color: theme("colors.brand.600");
+			&:active {
+				text-decoration-color: theme("colors.brand.600");
+				color: theme("colors.brand.600");
 
-			&::before {
-				border-color: theme("colors.brand.600");
+				&::before {
+					border-color: theme("colors.brand.600");
+				}
 			}
 		}
 	}

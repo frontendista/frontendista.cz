@@ -14,7 +14,13 @@ export const SPOTIFY_TOP_TRACKS_RESPONSE_SCHEMA = z.object({
 		name: z.string(),
 		external_urls: z.object({
 			spotify: z.string()
-		})
+		}),
+		artists: z.array(z.object({
+			name: z.string(),
+			external_urls: z.object({
+				spotify: z.string()
+			}),
+		})),
 	}))
 });
 
