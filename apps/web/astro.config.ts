@@ -78,7 +78,7 @@ if (process.env.VERCEL_ENV === "production") {
 
 		integrations.push(
 			sitemap({
-				filter: (page) => new URL(page).pathname !== "/collaboration",
+				filter: (page) => !["/collaboration", "/music"].includes(new URL(page).pathname),
 			})
 		);
 	} catch (error) {

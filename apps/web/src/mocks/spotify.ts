@@ -6,13 +6,15 @@ import { SPOTIFY_AUTH_RESPONSE, SPOTIFY_TOP_TRACKS_RESPONSE } from "./samples/sp
 export const SPOTIFY_AUTH_RESPONSE_SCHEMA = z.object({
 	access_token: z.string(),
 	token_type: z.literal("Bearer"),
-	expires_in: z.number(),
+	expires_in: z.number()
 });
 
 export const SPOTIFY_TOP_TRACKS_RESPONSE_SCHEMA = z.object({
 	items: z.array(z.object({
 		name: z.string(),
-		href: z.string()
+		external_urls: z.object({
+			spotify: z.string()
+		})
 	}))
 });
 

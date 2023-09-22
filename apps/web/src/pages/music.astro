@@ -34,12 +34,22 @@ if (!topResponse.ok) {
 const { items } = SPOTIFY_TOP_TRACKS_RESPONSE_SCHEMA.parse(await topResponse.json());
 ---
 
-<HMFLayout>
-	{items.map(item => {
-		return (
-			<div>
-				<h4>{item.name}</h4>
-			</div>
-		);
-	})}
+<HMFLayout 
+	noIndex
+	title={{
+		default: "Pavel Sušický - Spotify"
+	}}>
+	<ol class="mx-auto flex max-w-content flex-col gap-md p-lg lg:p-2xl">
+		{items.map(item => {
+			const { name } = item;
+
+			return (
+				<li>
+					<article>
+						<h2>{name}</h2>
+					</article>
+				</li>
+			);
+		})}
+	</ol>
 </HMFLayout>
