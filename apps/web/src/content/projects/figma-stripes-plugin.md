@@ -1,6 +1,6 @@
 ---
 title: "Figma stripes"
-description: "Plugin for generating striped backgrounds inside Figma features different color combinations rotations and scales."
+description: "Plugin for generating striped backgrounds inside Figma features different color combinations, rotations and scales."
 type: "Plugin"
 source: "https://github.com/susickypavel/figma-background-stripes-plugin"
 cta: {
@@ -9,3 +9,11 @@ cta: {
 }
 year: 2021
 ---
+
+## Purpose
+
+TODO
+
+## Technologies
+
+TODO

@@ -1,0 +1,42 @@
+---
+import { getCollection } from "astro:content";
+
+import HMFLayout from "~/layouts/hmf-layout.astro";
+
+import type { GetStaticPaths, InferGetStaticPropsType } from "astro";
+
+export const getStaticPaths = (async () => {
+	const projects = await getCollection("projects");
+
+	return projects.map(project => {
+		return {
+			params: {
+				slug: project.slug
+			},
+			props: project
+		};
+	});
+}) satisfies GetStaticPaths;
+
+type Props = InferGetStaticPropsType<typeof getStaticPaths>;
+
+const { render } = Astro.props;
+const { title } = Astro.props.data;
+
+const { Content } = await render();
+---
+
+<HMFLayout
+	classNames={{
+		main: "px-lg lg:px-2xl pt-lg lg:pt-2xl max-w-content mx-auto"
+	}}
+	title={{
+		default: `Pavel Sušický — ${title}`
+	}}>
+	<article>
+		<header>
+			<h1>{title}</h1>
+		</header>
+		<Content />
+	</article>
+</HMFLayout>
