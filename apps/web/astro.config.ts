@@ -89,7 +89,11 @@ if (process.env.VERCEL_ENV === "production") {
 }
 
 export default defineConfig({
-	adapter: vercel(),
+	adapter: vercel({
+		speedInsights: {
+			enabled: process.env.VERCEL_ENV === "production",
+		}
+	}),
 	site: SITES[process.env.VERCEL_ENV] || SITES.development,
 	trailingSlash: "never",
 	build: {
