@@ -34,15 +34,23 @@ if (!topResponse.ok) {
 }
 
 const { items } = SPOTIFY_TOP_TRACKS_RESPONSE_SCHEMA.parse(await topResponse.json());
+
+const generatedAt = new Date();
 ---
 
 <HMFLayout 
 	noIndex
 	title={{
 		default: "Pavel Sušický - Spotify"
+	}}
+	classNames={{
+		main: "max-w-content mx-auto p-lg lg:p-2xl"
 	}}>
-	<ol class="mx-auto flex max-w-content flex-col gap-lg p-lg lg:p-2xl">
-		<h1 class="mb-xl">Most listened (lately)</h1>
+	<header class="mb-xl">
+		<h1>Most listened</h1>
+		<p>Generated on <time datetime={generatedAt.toISOString()}>{generatedAt.toLocaleDateString("en", { year: "numeric", month: "short", day: "numeric" })} at {generatedAt.toLocaleTimeString("en")}</time>.</p>
+	</header>
+	<ol class="flex flex-col gap-lg">
 		{items.map(item => {
 			const { name, artists } = item;
 
