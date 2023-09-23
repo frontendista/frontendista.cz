@@ -8,7 +8,7 @@ import ProjectCard from "./project-card.astro";
 const projects = await getCollection("projects");
 ---
 
-<section id="projects" class="mx-auto max-w-content p-lg lg:p-2xl">
+<section id="projects" class="mx-auto max-w-content px-lg lg:px-2xl">
 	<Heading as="h2" href="#projects">Projects</Heading>
 	<ul class="mt-xl grid grid-cols-1 gap-lg lg:grid-cols-3">
 		{projects.map(project => {

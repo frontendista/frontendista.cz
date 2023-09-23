@@ -59,15 +59,15 @@ const { repository } = await graphql<GitHubReleaseResponse>({
 const { createdAt, tagCommit, tagName, url } = repository.latestRelease;
 ---
 
-<footer class="mx-auto max-w-content p-lg pt-0 lg:p-2xl lg:pt-0">
-	<ul class="flex grid-cols-3 flex-col gap-lg lg:grid">
+<footer class="mx-auto mt-lg max-w-content p-lg pt-0 lg:mt-xl lg:p-2xl lg:pt-0">
+	<ul class="flex grid-cols-3 flex-col gap-lg border-t-2 border-t-primary/10 pt-lg lg:grid lg:pt-xl">
 		{footer.map(section => (
 			<li>
 				<FooterDisclosure {...section} />
 			</li>
 		))}
 	</ul>
-	<p class="mt-lg flex grid-cols-[1fr_3rem_1fr] flex-col gap-lg border-t-2 border-t-primary/10 pt-lg text-center lg:mt-2xl lg:grid lg:pt-2xl">
+	<p class="mt-lg flex grid-cols-[1fr_3rem_1fr] flex-col gap-lg border-t-2 border-t-primary/10 pt-lg text-center lg:mt-xl lg:grid lg:pt-2xl">
 		<Link class="self-center justify-self-start" href={url}>{tagName.split("@")[1]}@{tagCommit.oid.substring(0, 7)} on <time datetime={createdAt}>{new Date(createdAt).toLocaleString("en-US", { month: "short", year: "numeric", day: "numeric" })}</time></Link>
 		<a class="order-1 max-w-[3rem] self-center justify-self-center lg:order-none" href="/">
 			<span class="sr-only">Back to top</span>

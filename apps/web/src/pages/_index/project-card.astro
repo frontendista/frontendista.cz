@@ -16,9 +16,8 @@ const { title, type, description, source, cta, year } = Astro.props.project;
 		<h3 class="text-center">{title}</h3>
 	</header>
 	<p class="grow center">{description}</p>
-	<footer class="flex items-center gap-xl">
+	<footer class="flex items-center justify-between gap-xl">
 		<time datetime={year.toString()} class="font-bold">{year}</time>
-		<div aria-hidden="true" class="h-[2px] w-full bg-primary/75" />
 		<ul class="flex justify-end gap-lg">
 			{source ? (
 				<li>
