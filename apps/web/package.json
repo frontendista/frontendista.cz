@@ -15,10 +15,12 @@
 		"lint:style": "stylelint src/**/*.scss"
 	},
 	"dependencies": {
+		"@astrojs/markdown-remark": "^3.2.0",
 		"@astrojs/sitemap": "^3.0.0",
 		"@astrojs/tailwind": "^5.0.0",
 		"@astrojs/vercel": "^5.0.1",
 		"@frontendista/astro-html-minify": "^2.0.0",
+		"@frontendista/rehype-sectionize": "^1.0.0",
 		"@octokit/graphql": "^7.0.1",
 		"astro": "^3.1.1",
 		"browserslist-to-esbuild": "^1.2.0",

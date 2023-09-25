@@ -16,6 +16,9 @@ import vercel from "@astrojs/vercel/static";
 
 import { browserslist } from "./package.json";
 
+import sectionize from "@frontendista/rehype-sectionize";
+import { rehypeHeadingIds } from "@astrojs/markdown-remark";
+
 config();
 
 // Default environment variables
@@ -94,6 +97,14 @@ export default defineConfig({
 			enabled: process.env.VERCEL_ENV === "production",
 		}
 	}),
+	markdown: {
+		rehypePlugins: [
+			rehypeHeadingIds,
+			// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+			// @ts-ignore
+			sectionize,
+		],
+	},
 	site: SITES[process.env.VERCEL_ENV] || SITES.development,
 	trailingSlash: "never",
 	build: {
