@@ -8,8 +8,18 @@ year: 2023
 
 ## Purpose
 
-TODO
+In 2023, we were tasked in our mobile app development class to create a mobile app. We decided to create a clone of the popular news aggregator app [Informed](https://informed.so).
 
 ## Technologies
 
-TODO
+We used many of popular libraries in React and Expo ecosystem. Here is an excerpt of the most important ones:
+
+- React
+	- React Native
+	- React Navigation
+	- React Query
+	- React Hook Form
+- TypeScript
+	- zod validation
+- Expo ecosystem
+- Supabase

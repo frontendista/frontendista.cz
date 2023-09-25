@@ -11,8 +11,11 @@ year: 2019
 
 ## Purpose
 
-TODO
+Back in 2019, I was an intern at Avocode. My task was to create integrations of Avocode into Atlassian products. I created integrations for Jira and Confluence. The goal was to optimize the hand-off process for Avocode users.
 
 ## Technologies
 
-TODO
+- React
+- Redux
+- TypeScript
+- Atlassian Jira and Confluence API

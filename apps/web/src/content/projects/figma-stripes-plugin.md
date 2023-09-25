@@ -12,8 +12,10 @@ year: 2021
 
 ## Purpose
 
-TODO
+Back in 2021, I had a use case where I needed to add striped backgrounds to my Figma design. To my surprise, this feature is not available in Figma by default. Here we are with a plugin that can generate striped backgrounds with different color combinations, rotations and scales. It's a very bare-bone implementation and could be improved in many ways. But it does the job.
 
 ## Technologies
 
-TODO
+- React
+- TypeScript
+- Figma plugin API
