@@ -1,0 +1,9 @@
+---
+import Link, { type Props as LinkProps } from "~/components/common/link.astro";
+
+export type Props = LinkProps;
+---
+
+<Link {...Astro.props} kind="text">
+	<slot />
+</Link>

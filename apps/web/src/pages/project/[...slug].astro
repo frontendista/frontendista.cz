@@ -3,7 +3,10 @@ import { getCollection } from "astro:content";
 
 import HMFLayout from "~/layouts/hmf-layout.astro";
 
-import Link from "~/components/common/link.astro";
+import Link from "./_components/mdx-link.astro";
+import Paragraph from "./_components/mdx-paragraph.astro";
+import Section from "./_components/mdx-section.astro";
+import Ul from "./_components/mdx-ul.astro";
 
 import type { GetStaticPaths, InferGetStaticPropsType } from "astro";
 
@@ -35,12 +38,15 @@ const { Content } = await render();
 	title={{
 		default: `Pavel Sušický — ${title}`
 	}}>
-	<article>
+	<article class="flex flex-col gap-2xl">
 		<header>
 			<h1>{title}</h1>
 		</header>
 		<Content components={{
-			a: Link
+			a: Link,
+			p: Paragraph,
+			section: Section,
+			ul: Ul
 		}} />
 	</article>
 </HMFLayout>
