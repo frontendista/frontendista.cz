@@ -13,6 +13,7 @@ import { handlers as spotifyMSW } from "./src/mocks/spotify";
 import MinifyHTML from "@frontendista/astro-html-minify";
 import TailwindCSS from "@astrojs/tailwind";
 import vercel from "@astrojs/vercel/static";
+import mdx from "@astrojs/mdx";
 
 import { browserslist } from "./package.json";
 
@@ -46,6 +47,7 @@ if (process.env.VERCEL_ENV !== "production" || process.env.ENABLE_MOCKS === "1")
 }
 
 const integrations = [
+	mdx(),
 	TailwindCSS({
 		applyBaseStyles: false
 	}),

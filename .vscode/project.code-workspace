@@ -18,6 +18,9 @@
 		"stylelint.validate": [
 			"scss"
 		],
-		"scss.validate": false
-	}
+		"scss.validate": false,
+		"files.associations": {
+			"*.mdx": "markdown"
+		}
+	},
 }

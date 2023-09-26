@@ -3,6 +3,8 @@ import { getCollection } from "astro:content";
 
 import HMFLayout from "~/layouts/hmf-layout.astro";
 
+import Link from "~/components/common/link.astro";
+
 import type { GetStaticPaths, InferGetStaticPropsType } from "astro";
 
 export const getStaticPaths = (async () => {
@@ -37,6 +39,8 @@ const { Content } = await render();
 		<header>
 			<h1>{title}</h1>
 		</header>
-		<Content />
+		<Content components={{
+			a: Link
+		}} />
 	</article>
 </HMFLayout>
