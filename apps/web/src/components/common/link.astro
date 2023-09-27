@@ -3,7 +3,7 @@ import Icon from "./icon.astro";
 
 import type { HTMLAttributes } from "astro/types";
 
-export type Props = Pick<HTMLAttributes<"a">, "target"> & {
+export type Props = Pick<HTMLAttributes<"a">, "target" | "class"> & {
 	href: string;
 	/**
 	 * @default "link"
