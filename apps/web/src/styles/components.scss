@@ -34,6 +34,12 @@
 			height: 1em;
 			width: 1em;
 		}
+
+		@media (pointer: fine) {
+			&:hover {
+				user-select: none;
+			}
+		}
 	}
 
 	[data-btn="primary"] {
@@ -46,7 +52,6 @@
 
 		@media (pointer: fine) {
 			&:hover {
-				user-select: none;
 				background: theme("colors.brand.500");
 
 				&::before {
@@ -56,6 +61,35 @@
 
 			&:active {
 				background: theme("colors.brand.600");
+
+				&::before {
+					border-color: theme("colors.brand.600");
+				}
+			}
+		}
+	}
+
+	[data-btn="secondary"] {
+		border: 3px solid theme("borderColor.primary");
+
+		&:focus-visible {
+			background: theme("textColor.primary");
+			color: theme("backgroundColor.primary");
+			
+			&::before {
+				border-color: theme("textColor.primary");
+			}
+		}
+
+		@media (pointer: fine) {
+			&:hover {
+				background: theme("textColor.primary");
+				color: theme("backgroundColor.primary");
+			}
+
+			&:active {
+				background: theme("colors.brand.600");
+				border-color: theme("colors.brand.600");
 
 				&::before {
 					border-color: theme("colors.brand.600");

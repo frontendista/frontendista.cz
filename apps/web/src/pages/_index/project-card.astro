@@ -2,6 +2,7 @@
 import type { CollectionEntry } from "astro:content";
 
 import Link from "~/components/common/link.astro";
+import Icon from "~/components/common/icon.astro";
 
 export interface Props {
 	project: CollectionEntry<"projects">["data"];
@@ -18,7 +19,10 @@ const { title, type, description, source, cta, year } = Astro.props.project;
 		<h3 class="text-center">{title}</h3>
 	</header>
 	<p class="grow center">{description}</p>
-	<Link href={`/project/${slug}`} type="btn">Read more</Link>
+	<Link href={`/project/${slug}`} type="btn" kind="secondary">
+		Read more
+		<Icon icon="right-arrow-alt" />
+	</Link>
 	<footer class="flex items-center justify-between gap-xl">
 		<time datetime={year.toString()} class="font-bold">{year}</time>
 		<ul class="flex justify-end gap-lg">
