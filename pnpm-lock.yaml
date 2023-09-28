@@ -38,8 +38,8 @@ importers:
         specifier: ^2.0.0
         version: 2.0.0(astro@3.1.1)
       '@frontendista/rehype-sectionize':
-        specifier: ^1.0.0
-        version: 1.0.0
+        specifier: ^1.1.1
+        version: 1.1.1
       '@octokit/graphql':
         specifier: ^7.0.1
         version: 7.0.1
@@ -1045,8 +1045,8 @@ packages:
       lightningcss: 1.21.7
     dev: false
 
-  /@frontendista/rehype-sectionize@1.0.0:
-    resolution: {integrity: sha512-ctxBnm/qEfyqUevQQ8aw3xaJm0iqcPhVYXUOoVXv552PlEvVxAN2vBd2Rgx/gIaxYg64D1Kjrr6ncOmjctkj0w==}
+  /@frontendista/rehype-sectionize@1.1.1:
+    resolution: {integrity: sha512-iccYPRFTdpVptCQczPVn0t2xzQBUz6Yx4upp+GkQIlZxoGvMyqBSjjVD+9tQ/Gwnvu1JaIkgCndrEhG9ppvbFA==}
     engines: {node: '>=16.0.0'}
     dependencies:
       hast-util-heading: 3.0.0
