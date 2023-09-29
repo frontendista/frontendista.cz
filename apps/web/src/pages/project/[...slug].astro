@@ -3,32 +3,40 @@ import { getCollection } from "astro:content";
 
 import HMFLayout from "~/layouts/hmf-layout.astro";
 import Heading from "~/components/common/heading.astro";
+import Link from "~/components/common/link.astro";
+import { mod } from "~/utils/math";
 
-import Link from "./_components/mdx-link.astro";
+import MDXLink from "./_components/mdx-link.astro";
 import Paragraph from "./_components/mdx-paragraph.astro";
 import Section from "./_components/mdx-section.astro";
 import Ul from "./_components/mdx-ul.astro";
+import MDXFigure from "./_components/mdx-figure.astro";
 
 import type { GetStaticPaths, InferGetStaticPropsType } from "astro";
-import MdxFigure from "./_components/mdx-figure.astro";
 
 export const getStaticPaths = (async () => {
 	const projects = await getCollection("projects");
-
-	return projects.map(project => {
+	
+	return projects.map((project, i) => {
 		return {
 			params: {
 				slug: project.slug
 			},
-			props: project
+			props: {
+				project,
+				nextProject: projects[mod(i + 1, projects.length)],
+				prevProject: projects[mod(i - 1, projects.length)]
+			}
 		};
 	});
 }) satisfies GetStaticPaths;
 
 type Props = InferGetStaticPropsType<typeof getStaticPaths>;
 
-const { render } = Astro.props;
-const { title, year } = Astro.props.data;
+const { project, nextProject, prevProject } = Astro.props;
+
+const { render } = project;
+const { title, year } = project.data;
 
 const { Content } = await render();
 ---
@@ -46,7 +54,7 @@ const { Content } = await render();
 			<time class="font-bold uppercase" datetime={year.toString()}>Made in {year}</time>
 		</header>
 		<Content components={{
-			a: Link,
+			a: MDXLink,
 			p: Paragraph,
 			section: Section,
 			ul: Ul,
@@ -56,7 +64,23 @@ const { Content } = await render();
 			h4: Heading,
 			h5: Heading,
 			h6: Heading,
-			img: MdxFigure
+			img: MDXFigure
 		}} />
+		<footer>
+			<ul class="flex max-w-[64rem] flex-col gap-lg lg:flex-row">
+				{prevProject ? (
+					<li class="grow">
+						<p class="p-lg text-center">Previous project</p>
+						<Link href={`/project/${prevProject.slug}`} type="btn" kind="secondary">{prevProject.data.title}</Link>	
+					</li>
+				) : null}
+				{nextProject ? (
+					<li class="grow">
+						<p class="p-lg text-center">Next project</p>
+						<Link href={`/project/${nextProject.slug}`} type="btn" kind="secondary">{nextProject.data.title}</Link>	
+					</li>
+				) : null}
+			</ul>
+		</footer>
 	</article>
 </HMFLayout>
