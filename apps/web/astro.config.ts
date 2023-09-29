@@ -20,6 +20,8 @@ import { browserslist } from "./package.json";
 import sectionize from "@frontendista/rehype-sectionize";
 import { rehypeHeadingIds } from "@astrojs/markdown-remark";
 
+import type { AstroIntegration } from "astro";
+
 config();
 
 // Default environment variables
@@ -46,7 +48,7 @@ if (process.env.VERCEL_ENV !== "production" || process.env.ENABLE_MOCKS === "1")
 	});
 }
 
-const integrations = [
+const integrations: AstroIntegration[] = [
 	mdx(),
 	TailwindCSS({
 		applyBaseStyles: false

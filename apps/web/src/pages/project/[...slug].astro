@@ -10,6 +10,7 @@ import Section from "./_components/mdx-section.astro";
 import Ul from "./_components/mdx-ul.astro";
 
 import type { GetStaticPaths, InferGetStaticPropsType } from "astro";
+import MdxFigure from "./_components/mdx-figure.astro";
 
 export const getStaticPaths = (async () => {
 	const projects = await getCollection("projects");
@@ -53,7 +54,8 @@ const { Content } = await render();
 			h3: Heading,
 			h4: Heading,
 			h5: Heading,
-			h6: Heading
+			h6: Heading,
+			img: MdxFigure
 		}} />
 	</article>
 </HMFLayout>
