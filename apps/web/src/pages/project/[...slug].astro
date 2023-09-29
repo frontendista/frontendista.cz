@@ -28,7 +28,7 @@ export const getStaticPaths = (async () => {
 type Props = InferGetStaticPropsType<typeof getStaticPaths>;
 
 const { render } = Astro.props;
-const { title } = Astro.props.data;
+const { title, year } = Astro.props.data;
 
 const { Content } = await render();
 ---
@@ -41,8 +41,9 @@ const { Content } = await render();
 		default: `Pavel Sušický — ${title}`
 	}}>
 	<article class="flex flex-col gap-2xl">
-		<header>
+		<header class="flex flex-col gap-md">
 			<h1>{title}</h1>
+			<time class="font-bold uppercase" datetime={year.toString()}>Made in {year}</time>
 		</header>
 		<Content components={{
 			a: Link,
