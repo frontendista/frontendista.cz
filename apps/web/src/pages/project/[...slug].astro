@@ -4,6 +4,7 @@ import { getCollection } from "astro:content";
 import HMFLayout from "~/layouts/hmf-layout.astro";
 import Heading from "~/components/common/heading.astro";
 import Link from "~/components/common/link.astro";
+import Icon from "~/components/common/icon.astro";
 import { mod } from "~/utils/math";
 
 import MDXLink from "./_components/mdx-link.astro";
@@ -71,13 +72,23 @@ const { Content } = await render();
 				{prevProject ? (
 					<li class="grow basis-1/2">
 						<p class="p-lg text-center">Previous project</p>
-						<Link href={`/project/${prevProject.slug}`} type="btn" kind="secondary">{prevProject.data.title}</Link>	
+						<Link href={`/project/${prevProject.slug}`} type="btn" kind="secondary">
+							<Icon>
+								<path d="M12.707 17.293 8.414 13H18v-2H8.414l4.293-4.293-1.414-1.414L4.586 12l6.707 6.707z" />
+							</Icon>
+							{prevProject.data.title}
+						</Link>
 					</li>
 				) : null}
 				{nextProject ? (
 					<li class="grow basis-1/2">
 						<p class="p-lg text-center">Next project</p>
-						<Link href={`/project/${nextProject.slug}`} type="btn" kind="secondary">{nextProject.data.title}</Link>	
+						<Link href={`/project/${nextProject.slug}`} type="btn" kind="secondary">
+							{nextProject.data.title}
+							<Icon>
+								<path d="m11.293 17.293 1.414 1.414L19.414 12l-6.707-6.707-1.414 1.414L15.586 11H6v2h9.586z" />
+							</Icon>
+						</Link>
 					</li>
 				) : null}
 			</ul>
