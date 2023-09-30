@@ -4,6 +4,7 @@ import { getCollection } from "astro:content";
 import Heading from "~/components/common/heading.astro";
 
 import ProjectCard from "./project-card.astro";
+import OSSSection from "./oss-section.astro";
 
 const projects = await getCollection("projects");
 ---
@@ -19,4 +20,5 @@ const projects = await getCollection("projects");
 			);
 		})}
 	</ul>
+	<OSSSection />
 </section>

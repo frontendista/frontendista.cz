@@ -69,13 +69,13 @@ const { Content } = await render();
 		<footer>
 			<ul class="flex max-w-[64rem] flex-col gap-lg lg:flex-row">
 				{prevProject ? (
-					<li class="grow">
+					<li class="grow basis-1/2">
 						<p class="p-lg text-center">Previous project</p>
 						<Link href={`/project/${prevProject.slug}`} type="btn" kind="secondary">{prevProject.data.title}</Link>	
 					</li>
 				) : null}
 				{nextProject ? (
-					<li class="grow">
+					<li class="grow basis-1/2">
 						<p class="p-lg text-center">Next project</p>
 						<Link href={`/project/${nextProject.slug}`} type="btn" kind="secondary">{nextProject.data.title}</Link>	
 					</li>

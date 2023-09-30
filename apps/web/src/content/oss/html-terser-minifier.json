@@ -1,0 +1,7 @@
+{
+	"name": "html-minifier-terser",
+	"url": {
+		"github": "https://github.com/frontendista/html-minifier-terser",
+		"npm": "https://npmjs.com/package/@frontendista/html-minifier-terser"
+	}
+}

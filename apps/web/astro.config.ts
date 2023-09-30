@@ -41,13 +41,13 @@ export const SITES: Record<typeof process.env.VERCEL_ENV, string> = {
 	production: "https://frontendista.cz"
 } as const;
 
-// const server = setupServer(...githubMSW, ...spotifyMSW);
+const server = setupServer(...githubMSW, ...spotifyMSW);
 
-// if (process.env.VERCEL_ENV !== "production" || process.env.ENABLE_MOCKS === "1") {
-// 	server.listen({
-// 		onUnhandledRequest: "bypass"
-// 	});
-// }
+if (process.env.VERCEL_ENV !== "production" || process.env.ENABLE_MOCKS === "1") {
+	server.listen({
+		onUnhandledRequest: "bypass"
+	});
+}
 
 const integrations: AstroIntegration[] = [
 	mdx(),

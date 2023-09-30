@@ -1,0 +1,37 @@
+---
+import { getCollection } from "astro:content";
+
+import Heading from "~/components/common/heading.astro";
+import Link from "~/components/common/link.astro";
+
+const projects = await getCollection("oss");
+---
+
+<section id="oss" class="mt-xl">
+	<Heading as="h3" href="#oss">Open-source software</Heading>
+	<ul class="mt-xl flex flex-col gap-lg">
+		{projects.map(project => {
+			return (
+				<li>
+					<article class="flex flex-col justify-between gap-lg bg-secondary p-xl md:flex-row">
+						<Heading as="h4">{project.data.name}</Heading>
+						{project.data.url ? (
+							<ul class="flex items-center gap-lg">
+								{project.data.url.github ? (
+									<li>
+										<Link href={project.data.url.github} icon="github">See on GitHub</Link>
+									</li>
+								) : null}
+								{project.data.url.npm ? (
+									<li>
+										<Link href={project.data.url.npm} icon="npm">See on npm registry</Link>
+									</li>
+								) : null}
+							</ul>
+						) : null}
+					</article>
+				</li>
+			);
+		})}
+	</ul>
+</section>
