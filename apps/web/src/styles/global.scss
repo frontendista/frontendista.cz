@@ -64,6 +64,10 @@
 		}
 	}
 
+	* {
+		scroll-margin-top: 2rem;
+	}
+
 	*:focus-visible {
 		outline: none;
 		z-index: theme("zIndex.50");
