@@ -34,6 +34,33 @@ const customUtilities = plugin(({ addUtilities, addVariant }) => {
 	});
 });
 
+export const screens = {
+	/**
+	 * 512px
+	 */
+	sm: "32em",
+	/**
+	 * 768px
+	 */
+	md: "48em",
+	/**
+	 * 1024px
+	 */
+	lg: "64em",
+	/**
+	 * 1280px
+	 */
+	xl: "80em",
+	/**
+	 * 1920px
+	 */
+	"2xl": "120em",
+	/**
+	 * 2560px
+	 */
+	"uw": "160em"
+};
+
 const config: Config = {
 	content: ["./src/**/*.astro"],
 	corePlugins: {
@@ -56,14 +83,7 @@ const config: Config = {
 			"2xl": "4rem",
 			"3xl": "8rem",
 		},
-		screens: {
-			sm: "32em",
-			md: "48em",
-			lg: "64em",
-			xl: "80em",
-			"2xl": "120em",
-			"uw": "160em"
-		},
+		screens,
 		extend: {
 			animation: {
 				"fade-in": "fade-in 0.5s ease-in-out forwards"

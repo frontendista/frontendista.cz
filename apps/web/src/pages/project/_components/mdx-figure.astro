@@ -1,19 +1,39 @@
 ---
-import type { ImageMetadata } from "astro";
-import { Image } from "astro:assets";
+import { Image, getImage } from "astro:assets";
+import { screens } from "~/root/tailwind.config";
+
+import type { ImageMetadata, ImageTransform } from "astro";
 
 export interface Props {
 	src: ImageMetadata;
 	alt: string;
 	title?: string;
+	widths?: number[]
 }
 
 const { title, src, alt } = Astro.props;
+const { widths = [512, 1024, src.width] } = Astro.props;
+
+const aspectRatio = src.height / src.width;
+
+let images: string[] = [];
+
+if (widths) {
+	images = await Promise.all(widths.filter(width => width <= src.width).map(async width => {
+		const { src: resizedSrc } =  await getImage({
+			src,
+			width,
+			height: Math.round(width * aspectRatio)
+		} as ImageTransform);
+
+		return `${resizedSrc} ${width}w`;
+	}));
+}
 ---
 
 {title ? (
 	<figure class="max-w-[64rem]">
-		<Image class="animate-fade-in bg-secondary" src={src} alt={alt} />
+		<Image class="animate-fade-in bg-secondary"  src={src} alt={alt} srcset={images.join(", ")} sizes={`(min-width: ${screens.xl}) 64rem, 100vw`} />
 		<figcaption class="p-lg text-center text-[0.75rem] font-bold">{title}</figcaption>	
 	</figure>
 ) : null}
