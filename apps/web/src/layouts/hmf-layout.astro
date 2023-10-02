@@ -2,6 +2,7 @@
 import { deepmerge } from "deepmerge-ts";
 
 import BaseLayout, { type Props as BaseLayoutProps } from "./base-layout.astro";
+import Navigation from "./common/navigation.astro";
 
 const CANONICAL_URL = new URL(Astro.url.pathname, Astro.site).toString().replace(/\.html$/, "");
 
@@ -26,6 +27,9 @@ const props = deepmerge<[Props, Props]>({
 		<link rel="canonical" href={CANONICAL_URL} />
 		<meta property="og:url" content={CANONICAL_URL} />
 	</Fragment>
-	<slot slot="body_start" name="body_start" />
+	<Fragment slot="body_start">
+		<slot name="body_start" />
+		<Navigation />
+	</Fragment>
 	<slot />
 </BaseLayout>

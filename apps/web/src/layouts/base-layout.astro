@@ -52,9 +52,9 @@ const {
 		{process.env.VERCEL_ENV === "production" ? <VercelAnalytics /> : null}
 	</head>
 	<body>
+		<a class="-translate-x-1/2 -translate-y-1/2 offscreen focus-visible:left-1/2 focus-visible:top-1/2 sm:w-auto" data-btn="primary" href="#main">Skip to content</a>
 		<SpritesheetCommon />
 		<slot name="body_start" />
-		<a class="-translate-x-1/2 -translate-y-1/2 offscreen focus-visible:left-1/2 focus-visible:top-1/2 sm:w-auto" data-btn="primary" href="#main">Skip to content</a>
 		<main class={classNames.main} id="main">
 			<slot />
 		</main>
