@@ -72,6 +72,12 @@
 	[data-btn="secondary"] {
 		border: 3px solid theme("borderColor.primary");
 
+		&::before {
+			inset: calc(-0.5rem - 3px);
+			width: calc(100% + 1rem + 6px);
+			height: calc(100% + 1rem + 6px);
+		}
+
 		&:focus-visible {
 			background: theme("textColor.primary");
 			color: theme("backgroundColor.primary");
