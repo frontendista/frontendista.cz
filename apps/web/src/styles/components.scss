@@ -122,7 +122,10 @@
 
 	[data-link="text"] {
 		font-weight: 700;
-		white-space: nowrap;
+
+		&:focus-visible {
+			white-space: nowrap;
+		}
 		
 		@apply text-brand-800/100 night:text-brand-500/100;
 		@apply decoration-brand-800/25 night:decoration-brand-500/25;	
