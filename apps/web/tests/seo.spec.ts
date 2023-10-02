@@ -7,8 +7,8 @@ test.describe("SEO", () => {
 		const canonical = await page.getAttribute("link[rel='canonical']", "href");
 		const ogCanonical = await page.getAttribute("meta[property='og:url']", "content");
 
-		expect(canonical).toBe("https://frontendista.cz/");
-		expect(ogCanonical).toBe("https://frontendista.cz/");
+		expect(canonical).toBe("https://frontendista.cz");
+		expect(ogCanonical).toBe("https://frontendista.cz");
 	});
 
 	test("404 page should have no canonical URL", async ({ page }) => {
