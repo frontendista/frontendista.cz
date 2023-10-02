@@ -4,7 +4,7 @@ import { deepmerge } from "deepmerge-ts";
 import BaseLayout, { type Props as BaseLayoutProps } from "./base-layout.astro";
 import Navigation from "./common/navigation.astro";
 
-const CANONICAL_URL = new URL(Astro.url.pathname, Astro.site).toString().replace(/\.html$/, "");
+const CANONICAL_URL = new URL(Astro.url.pathname, Astro.site).toString().replace(/\/+$/, "");
 
 export type Props = BaseLayoutProps;
 
