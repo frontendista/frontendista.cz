@@ -13,7 +13,7 @@ import Section from "./_components/mdx-section.astro";
 import Ul from "./_components/mdx-ul.astro";
 import MDXFigure from "./_components/mdx-figure.astro";
 
-import type { GetStaticPaths, InferGetStaticPropsType } from "astro";
+import type { GetStaticPaths, ImageMetadata, InferGetStaticPropsType } from "astro";
 
 export const getStaticPaths = (async () => {
 	const projects = await getCollection("projects");
@@ -37,9 +37,17 @@ type Props = InferGetStaticPropsType<typeof getStaticPaths>;
 const { project, nextProject, prevProject } = Astro.props;
 
 const { render } = project;
-const { title, year } = project.data;
+const { title, description, year, cover } = project.data;
 
 const { Content } = await render();
+
+function isValidOpenGraphImage(format: ImageMetadata["format"]): format is "jpeg" {
+	return ["jpg", "jpeg"].includes(format);
+}
+
+if (!isValidOpenGraphImage(cover.image.format)) {
+	throw new Error(`Cover photo should be in jpeg format. Found: '${cover.image.format}'.`);
+}
 ---
 
 <HMFLayout
@@ -48,6 +56,23 @@ const { Content } = await render();
 	}}
 	title={{
 		default: `Pavel Sušický — ${title}`
+	}}
+	image={{
+		og: {
+			url: cover.image.src,
+			width: cover.image.width,
+			height: cover.image.height,
+			alt: cover.alt,
+			type: `image/${cover.image.format}`
+		},
+		twitter: {
+			url: cover.image.src,
+			alt: cover.alt,
+		}
+	}}
+	card="summary_large_image"
+	description={{
+		default: description
 	}}>
 	<article class="flex flex-col gap-2xl">
 		<header class="flex flex-col gap-md">

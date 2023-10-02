@@ -15,7 +15,7 @@ const projectCollection = defineCollection({
 		cover: z.object({
 			image: image(),
 			alt: z.string(),
-		}).optional()
+		})
 	})
 });
 
