@@ -24,7 +24,7 @@ const avif = await getImage({
 // NOTE: This is temporarily as during development image generation doesn't work because of MSW.
 ---
 
-<picture>
+<picture class="bg-secondary">
 	{import.meta.env.PROD && (
 		<source srcset={avif.src} type="image/avif" />
 		<source srcset={webp.src} type="image/webp" />
