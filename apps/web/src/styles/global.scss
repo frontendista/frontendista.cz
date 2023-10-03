@@ -74,11 +74,11 @@
 		
 		&::before {
 			content: "";
-			inset: -0.5rem;
 			position: absolute;
 			border: 4px solid currentcolor;
-			width: calc(100% + 1rem);
-			height: calc(100% + 1rem);
+			inset: calc(-0.5rem - 3px);
+			width: calc(100% + 1rem + 6px);
+			height: calc(100% + 1rem + 6px);
 		}
 
 		box-shadow: 0 0 0 max(100vw, 100vh) theme("backgroundColor.primary / 90%");

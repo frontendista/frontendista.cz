@@ -9,7 +9,7 @@ export interface Props extends HTMLAttributes<"img"> {
 	alt?: string;
 }
 
-const { image, alt, loading = "lazy", decoding = "async", ...attrs } = Astro.props;
+const { image, alt, loading = "lazy", decoding = "async", class: className, ...attrs } = Astro.props;
 
 const webp = await getImage({
 	src: image,
@@ -25,10 +25,10 @@ const avif = await getImage({
 ---
 
 <picture>
-	{process.env.VERCEL_ENV === "production" && (
+	{import.meta.env.PROD && (
 		<source srcset={avif.src} type="image/avif" />
 		<source srcset={webp.src} type="image/webp" />
 	)}
-	<img class="animate-fade-in bg-secondary" src={image.src} width={image.width} height={image.height} loading={loading} decoding={decoding} alt={alt || ""} {...attrs}>
+	<img class:list={["animate-fade-in bg-secondary", className]} src={image.src} width={image.width} height={image.height} loading={loading} decoding={decoding} alt={alt || ""} {...attrs} />
 </picture>
 
