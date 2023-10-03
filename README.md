@@ -24,4 +24,4 @@ pnpm install
 | Name                  | Description                              |
 | --------------------- | ---------------------------------------- |
 | [**Web**](./apps/web) | Personal website                         |
-| [**API**](./apps/API) | API for personal website & documentation |
+| [**API**](./apps/api) | API for personal website & documentation |
