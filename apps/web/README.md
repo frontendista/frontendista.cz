@@ -34,6 +34,9 @@ pnpm build
 # Build & preview
 pnpm build:preview
 
+# Build & preview with production environment
+pnpm build:preview:prod
+
 # E2E tests
 pnpm test
 ```

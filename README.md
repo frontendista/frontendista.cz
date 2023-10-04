@@ -19,6 +19,10 @@ cd frontendista.cz
 pnpm install
 ```
 
+### 1.3 Development
+
+See each app's README for more details.
+
 ## 2. Projects
 
 | Name                  | Description                              |
