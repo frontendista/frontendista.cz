@@ -93,6 +93,9 @@ const config: Config = {
 					"400": "oklch(80.03% 0.29 151.71 / <alpha-value>)",
 					"500": "oklch(72.27% 0.28 149.58 / <alpha-value>)"
 				},
+				error: {
+					"600": "oklch(57.71% 0.26 27.33 / <alpha-value>)"
+				},
 				brand: {
 					"300": "oklch(83.3% 0.15 321.43 / <alpha-value>)",
 					"500": "oklch(70% 0.333 340.94 / <alpha-value>)",
