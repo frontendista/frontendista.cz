@@ -14,10 +14,10 @@ const projects = await getCollection("oss");
 			return (
 				<li>
 					<article class="flex h-full flex-col justify-between gap-lg bg-secondary p-xl">
-						<small class="text-center font-semibold text-secondary">{project.data.ecosystem}</small>
-						<h4 class="text-center">{project.data.name}</h4>
+						<small class="font-semibold text-secondary">{project.data.ecosystem}</small>
+						<h4>{project.data.name}</h4>
 						{project.data.url ? (
-							<ul class="flex justify-center gap-lg">
+							<ul class="ml-[-0.75rem] flex gap-lg">
 								{project.data.url.github ? (
 									<li>
 										<Link href={project.data.url.github} icon="github">See on GitHub</Link>
