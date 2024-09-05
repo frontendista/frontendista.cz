@@ -122,6 +122,8 @@ export default defineConfig({
 			cssMinify: "lightningcss",
 			target: blist(browserslist),
 			rollupOptions: {
+				// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+				// @ts-ignore
 				plugins: rollupPlugins,
 				output: {
 					entryFileNames: "assets/[hash:16].js",
