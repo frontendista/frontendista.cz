@@ -23,6 +23,7 @@ const ossCollection = defineCollection({
 	type: "data",
 	schema: z.object({
 		name: z.string(),
+		description: z.string(),
 		url: z.object({
 			github: z.string().optional(),
 			npm: z.string().optional(),

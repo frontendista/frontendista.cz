@@ -1,5 +1,6 @@
 {
 	"name": "html-minifier-terser",
+	"description": "Minifier based on html-minifier-terser, it uses lightningcss for CSS transformation and minification. ESBuild for JavaScript minification.",
 	"ecosystem": "npm",
 	"url": {
 		"github": "https://github.com/frontendista/html-minifier-terser",

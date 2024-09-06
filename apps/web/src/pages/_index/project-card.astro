@@ -18,7 +18,7 @@ const { title, type, description, source, cta, year } = Astro.props.project;
 		<small class="font-semibold text-secondary">{type}</small>
 		<h3>{title}</h3>
 	</header>
-	<p class="grow center">{description}</p>
+	<p class="grow">{description}</p>
 	<Link href={`/project/${slug}`} type="btn" kind="secondary">
 		Article
 		<Icon icon="right-arrow-alt" />
