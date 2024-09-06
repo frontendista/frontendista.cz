@@ -18,7 +18,7 @@ const { status } = config;
 				"absolute inline-flex h-full w-full rounded-full opacity-75",
 				{
 					"bg-ok-500/75 motion:animate-ping": typeof status === "string",
-					"bg-error-600/75": typeof status === "boolean"
+					"bg-error-600/75 motion:animate-ping": typeof status === "boolean"
 				}
 			]} />
 			<span class:list={[
