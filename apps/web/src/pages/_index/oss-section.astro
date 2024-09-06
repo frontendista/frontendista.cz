@@ -10,15 +10,17 @@ const projects = await getCollection("oss");
 <section id="oss" class="mt-xl">
 	<Heading as="h3" href="#oss">Open-source software</Heading>
 	<ul class="mt-xl flex grid-cols-3 flex-col gap-lg lg:grid">
-		{projects.map(project => {
+		{projects.map(async project => {
+			const { Content } = await project.render();
+
 			return (
 				<li>
-					<article class="flex h-full flex-col justify-between gap-lg bg-secondary p-xl">
+					<article class="flex h-full flex-col justify-between gap-lg bg-secondary p-xl [&>p]:grow">
 						<header class="flex flex-col gap-lg">
 							<small class="font-semibold text-secondary">{project.data.ecosystem}</small>
 							<h3>{project.data.name}</h3>
 						</header>
-						<p class="grow">{project.data.description}</p>
+						<Content />
 						<footer>
 							{project.data.url ? (
 								<ul class="ml-[-0.75rem] flex gap-lg">

@@ -32,16 +32,13 @@ const attributes = Object.assign(attrs, {
 });
 ---
 
-<a href={href} rel={isExternal ? "noopener" : null} target={isExternal ? "_blank" : null} {...attributes}>
-	{icon ? (
-		<span class="sr-only">
-			<slot />
-		</span>
-		<Icon title=" (New tab) " icon={icon} />
-	) : (
-		<Fragment>
-			<slot />
-			{isExternal && showIcon ? <Icon title=" (New tab) " icon="link-external" /> : null}
-		</Fragment>
-	)}
-</a>
+<a href={href} rel={isExternal ? "noopener" : null} target={isExternal ? "_blank" : null} {...attributes}>{icon ? (
+	<span class="sr-only">
+		<slot />
+	</span>
+	<Icon title="New tab" icon={icon} />
+) : (
+	<Fragment>
+		<slot />{isExternal && showIcon ? <Icon title="New tab" icon="link-external" /> : null}
+	</Fragment>
+)}</a>

@@ -1,8 +1,0 @@
-{
-	"name": "solid-turnstile",
-	"description": "Solid.js component for rendering Cloudflare's Turnstile widget.",
-	"ecosystem": "npm",
-	"url": {
-		"github": "https://github.com/frontendista/solid-turnstile"
-	}
-}
