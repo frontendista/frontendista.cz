@@ -14,6 +14,7 @@ import MinifyHTML from "@frontendista/astro-html-minify";
 import TailwindCSS from "@astrojs/tailwind";
 import vercel from "@astrojs/vercel/static";
 import mdx from "@astrojs/mdx";
+import preact from "@astrojs/preact";
 
 import { browserslist } from "./package.json";
 
@@ -65,6 +66,9 @@ const integrations: AstroIntegration[] = [
 		css: {
 			browserslist: browserslist.join(", ")
 		}
+	}),
+	preact({
+		compat: true,
 	})
 ];
 

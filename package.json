@@ -14,5 +14,11 @@
 		"email": "me@frontendista.cz",
 		"url": "https://frontendista.cz"
 	},
+	"pnpm": {
+		"overrides": {
+			"react": "npm:@preact/compat@latest",
+			"react-dom": "npm:@preact/compat@latest"
+		}
+	},
 	"license": "MIT"
 }
