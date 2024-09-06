@@ -24,8 +24,7 @@ const { title, type, description, source, cta, year } = Astro.props.project;
 		<Icon icon="right-arrow-alt" />
 	</Link>
 	<footer class="flex items-center justify-between gap-xl">
-		<time datetime={year.toString()} class="font-bold">{year}</time>
-		<ul class="flex justify-end gap-lg">
+		<ul class="ml-[-0.75rem] flex justify-end">
 			{source ? (
 				<li>
 					<Link icon="github" href={source}>See source code</Link>
@@ -37,5 +36,6 @@ const { title, type, description, source, cta, year } = Astro.props.project;
 				</li>
 			) : null}
 		</ul>
+		<time datetime={year.toString()} class="font-bold">{year}</time>
 	</footer>
 </article>

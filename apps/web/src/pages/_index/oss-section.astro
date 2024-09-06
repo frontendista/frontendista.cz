@@ -23,7 +23,7 @@ const projects = await getCollection("oss");
 						<Content />
 						<footer>
 							{project.data.url ? (
-								<ul class="ml-[-0.75rem] flex gap-lg">
+								<ul class="ml-[-0.75rem] flex">
 									{project.data.url.github ? (
 										<li>
 											<Link href={project.data.url.github} icon="github">See on GitHub</Link>
