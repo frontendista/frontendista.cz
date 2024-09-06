@@ -5,7 +5,7 @@ on:
     types: [released]
 
 env:
-  pnpm-version: 8
+  pnpm-version: 9
   node-version: 18
 
 jobs:
