@@ -16,7 +16,7 @@ jobs:
       VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
       - name: Deploy to Vercel
         run: echo "DEPLOYMENT_URL=$(vercel -f -t $VERCEL_DEPLOYMENT_TOKEN -S frontendista)" >> $GITHUB_ENV
