@@ -1,9 +1,9 @@
 ---
+import SpeedInsights from "@vercel/speed-insights/astro";
 import { version } from "~/root/package.json";
 
 import SpritesheetCommon from "~/assets/svg/spritesheet/common.astro";
 
-import VercelAnalytics from "./common/vercel-analytics.astro";
 import PreloadFont from "./common/preload-font.astro";
 import Footer from "./common/footer/footer.astro";
 import SEO, { type Props as SEOProps } from "./common/seo.astro";
@@ -49,7 +49,7 @@ const {
 		<SEO {...seoProps} />
 		<SEOImage {...image} />
 		<FeatureDetection />
-		{process.env.VERCEL_ENV === "production" ? <VercelAnalytics /> : null}
+		{process.env.VERCEL_ENV === "production" ? <SpeedInsights /> : null}
 	</head>
 	<body>
 		<a class="w-[calc(100%-theme(padding.xl))] -translate-x-1/2 -translate-y-1/2 offscreen focus-visible:left-1/2 focus-visible:top-1/2 sm:w-auto lg:w-auto" data-btn="primary" href="#main">Skip to content</a>

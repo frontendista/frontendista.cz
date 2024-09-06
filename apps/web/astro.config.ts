@@ -98,8 +98,8 @@ if (process.env.VERCEL_ENV === "production") {
 
 export default defineConfig({
 	adapter: vercel({
-		speedInsights: {
-			enabled: process.env.VERCEL_ENV === "production",
+		webAnalytics: {
+			enabled: process.env.VERCEL_ENV === "production"
 		}
 	}),
 	markdown: {
