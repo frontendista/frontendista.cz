@@ -71,7 +71,6 @@
 	*:focus-visible {
 		outline: none;
 		z-index: theme("zIndex.50");
-
 		box-shadow: 0 0 0 max(100vw, 100vh) theme("backgroundColor.primary / 90%");
 
 		&::before {
