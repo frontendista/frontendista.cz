@@ -2,6 +2,18 @@
 	window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
 
 	(function (root) {
+		let vh = window.innerHeight * 0.01;
+		document.documentElement.style.setProperty("--vh", `${vh * 100}px`);
+
+		const ORIENTATION_MQ = window.matchMedia("(orientation: portrait)");
+
+		ORIENTATION_MQ.addEventListener("change", () => {
+			setTimeout(() => {
+				vh = window.innerHeight * 0.01;
+				document.documentElement.style.setProperty("--vh", `${vh * 100}px`);
+			}, 50);
+		});
+
 		root.dataset.js = "on";
 
 		const preferences = JSON.parse(localStorage.getItem("XXX"));

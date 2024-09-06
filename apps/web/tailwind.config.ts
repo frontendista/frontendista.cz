@@ -104,10 +104,10 @@ const config: Config = {
 				}
 			},
 			height: {
-				view: "var(--view-height)"
+				view: "var(--vh, var(--view-height))"
 			},
 			minHeight: {
-				view: "var(--view-height)"
+				view: "var(--vh, var(--view-height))"
 			},
 			maxWidth: {
 				content: "120rem"
