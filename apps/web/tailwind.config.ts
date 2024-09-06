@@ -86,7 +86,8 @@ const config: Config = {
 		screens,
 		extend: {
 			animation: {
-				"fade-in": "fade-in 0.5s ease-in-out forwards"
+				"fade-in": "fade-in 0.5s ease-in-out forwards",
+				"fade-in-and-zoom": "fade-in 0.5s ease-in-out forwards, picture-zoom 6s ease-in-out alternate infinite",
 			},
 			colors: {
 				ok: {

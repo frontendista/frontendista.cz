@@ -24,11 +24,11 @@ const avif = await getImage({
 // NOTE: This is temporarily as during development image generation doesn't work because of MSW.
 ---
 
-<picture class="bg-secondary">
+<picture class="overflow-hidden bg-secondary">
 	{import.meta.env.PROD && (
 		<source srcset={avif.src} type="image/avif" />
 		<source srcset={webp.src} type="image/webp" />
 	)}
-	<img class:list={["animate-fade-in bg-secondary", className]} src={image.src} width={image.width} height={image.height} loading={loading} decoding={decoding} alt={alt || ""} {...attrs} />
+	<img class:list={["motion-safe:animate-fade-in-and-zoom motion-reduce:animate-fade-in bg-secondary", className]} src={image.src} width={image.width} height={image.height} loading={loading} decoding={decoding} alt={alt || ""} {...attrs} />
 </picture>
 
