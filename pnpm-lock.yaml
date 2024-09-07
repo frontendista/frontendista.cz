@@ -23,7 +23,14 @@ importers:
         specifier: ^4.1.5
         version: 4.1.5
 
-  apps/api: {}
+  apps/api:
+    devDependencies:
+      '@types/node':
+        specifier: ^20.16.5
+        version: 20.16.5
+      typescript:
+        specifier: ^5.5.4
+        version: 5.5.4
 
   apps/web:
     dependencies:

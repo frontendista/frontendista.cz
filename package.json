@@ -3,7 +3,7 @@
 	"name": "frontendista.cz",
 	"description": "Personal website of Pavel Sušický",
 	"scripts": {
-		"start": "vercel dev"
+		"start": "vercel dev --listen 3002"
 	},
 	"dependencies": {
 		"vercel": "^37.4.0"
