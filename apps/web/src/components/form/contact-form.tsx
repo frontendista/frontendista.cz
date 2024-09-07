@@ -11,7 +11,7 @@ const Field = withClass(Form.Field, "focus-within:z-50");
 
 export const FieldHeader: FunctionComponent<JSX.HTMLAttributes> = ({ children, className, ...props }) => {
 	return (
-		<div className={clsx("mb-md flex justify-between font-bold", className)} {...props}>
+		<div className={clsx("mb-md flex flex-wrap justify-between gap-md font-bold", className)} {...props}>
 			{children}
 		</div>
 	);
