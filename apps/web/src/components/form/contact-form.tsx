@@ -4,7 +4,7 @@ import { clsx } from "clsx";
 import { withClass } from "./hoc";
 import { Textarea } from "./textarea";
 
-import type { JSX, FunctionComponent } from "preact/compat";
+import { type JSX, type FunctionComponent, useState } from "preact/compat";
 
 const Message = withClass(Form.Message, "text-error-600");
 const Field = withClass(Form.Field, "focus-within:z-50");
@@ -20,9 +20,16 @@ export const FieldHeader: FunctionComponent<JSX.HTMLAttributes> = ({ children, c
 // TODO: Autocomplete (?)
 
 export const ContactForm = () => {
+	const [isLoading, setLoading] = useState(false);
+
 	const handleSubmit: JSX.SubmitEventHandler<HTMLFormElement> = async (event) => {
 		event.preventDefault();
-		console.log(event);
+
+		setLoading(true);
+
+		await new Promise((resolve) => setTimeout(resolve, 2000));
+
+		setLoading(false);
 	};
 
 	return (
@@ -79,7 +86,7 @@ export const ContactForm = () => {
 			</Field>
 
 			<Form.Submit asChild>
-				<button data-btn="primary">Submit</button>
+				<button data-btn="primary" disabled={isLoading}>{isLoading ? "..." : "Submit"}</button>
 			</Form.Submit>
 
 			<p className="text-center text-sm font-thin">By clicking the "Submit" button you agree to our <a href="#privacy" class="text-sm" data-link="text">privacy policy</a>.</p>
