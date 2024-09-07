@@ -27,7 +27,14 @@ export const ContactForm = () => {
 
 		setLoading(true);
 
-		const data = Object.fromEntries(new FormData(event.currentTarget));
+		const formData = new FormData(event.currentTarget);
+		const data: Record<string, unknown> = {};
+
+		for (const [key, value] of formData) {
+			if (value) {
+				data[key] = value;
+			}
+		}
 
 		console.log(data);
 
