@@ -165,5 +165,9 @@
 		border: 1px solid #fff;
 		width: 100%;
 		padding: 2rem;
+
+		&[data-invalid="true"] {
+			border-color: theme("colors.red.500");
+		}
 	}
 }
