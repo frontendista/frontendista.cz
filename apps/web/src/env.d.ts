@@ -20,6 +20,11 @@ declare global {
 	interface ImportMeta {
 		readonly env: ImportMetaEnv;
 	}
+
+	interface Number {
+		round(): number;
+		isBetween(start: number, end: number): boolean;
+	}
 }
 
 

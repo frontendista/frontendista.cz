@@ -2,7 +2,6 @@ import { clsx } from "clsx";
 import { forwardRef, useMemo, useState } from "preact/compat";
 
 import { Icon } from "../common/icon";
-import { round } from "../../utils/math";
 
 import type { JSX } from "preact";
 
@@ -27,7 +26,7 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(({ classN
 
 	const [remainingCharacters, remainingPercentage] = useMemo(() => {
 		if (typeof maxLength === "number") {
-			return [maxLength - content.length, round(1 - content.length / maxLength)];
+			return [maxLength - content.length, (1 - content.length / maxLength).round()];
 		}
 
 		return [null, null];
@@ -73,8 +72,8 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(({ classN
 							"absolute right-xl top-xl flex items-center gap-md font-mono text-icon",
 							{
 								"text-ok-500": remainingPercentage !== null && remainingPercentage > 0.50,
-								"text-warning-600": remainingPercentage !== null && remainingPercentage <= 0.50 && remainingPercentage > 0.25,
-								"text-error-600": remainingPercentage !== null && remainingPercentage <= 0.25,
+								"text-warning-600": remainingPercentage !== null && remainingPercentage.isBetween(0.25, 0.50),
+								"text-error-600": remainingPercentage !== null && remainingPercentage < 0.25,
 							}
 						)
 					}

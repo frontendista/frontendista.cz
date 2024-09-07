@@ -10,6 +10,8 @@ import { Icon } from "../common/icon";
 const Message = withClass(Form.Message, "text-error-600");
 const Field = withClass(Form.Field, "focus-within:z-50");
 
+import "~/utils/global";
+
 export const FieldHeader: FunctionComponent<JSX.HTMLAttributes> = ({ children, className, ...props }) => {
 	return (
 		<div className={clsx("mb-md flex flex-wrap justify-between gap-md font-medium", className)} {...props}>
