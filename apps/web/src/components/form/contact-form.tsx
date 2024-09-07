@@ -17,6 +17,8 @@ export const FieldHeader: FunctionComponent<JSX.HTMLAttributes> = ({ children, c
 	);
 };
 
+// TODO: Autocomplete (?)
+
 export const ContactForm = () => {
 	const handleSubmit: JSX.SubmitEventHandler<HTMLFormElement> = async (event) => {
 		event.preventDefault();
@@ -24,7 +26,7 @@ export const ContactForm = () => {
 	};
 
 	return (
-		<Form.Root className="mx-auto flex max-w-[50rem] flex-col gap-lg" onSubmit={handleSubmit}>
+		<Form.Root className="mx-auto flex flex-col gap-lg lg:max-w-[50rem]" onSubmit={handleSubmit}>
 			<Field name="email">
 				<FieldHeader>
 					<Form.Label>Email</Form.Label>
