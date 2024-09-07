@@ -71,7 +71,7 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(({ classN
 						clsx(
 							"absolute right-xl top-xl flex items-center gap-md font-mono text-icon nojs:hidden",
 							{
-								"text-ok-500": remainingPercentage !== null && remainingPercentage > 0.50,
+								"night:text-ok-500 text-ok-800": remainingPercentage !== null && remainingPercentage > 0.50,
 								"text-warning-600": remainingPercentage !== null && remainingPercentage.isBetween(0.25, 0.50),
 								"text-error-600": remainingPercentage !== null && remainingPercentage < 0.25,
 							}

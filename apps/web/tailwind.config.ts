@@ -96,7 +96,8 @@ const config: Config = {
 			colors: {
 				ok: {
 					"400": "oklch(80.03% 0.29 151.71 / <alpha-value>)",
-					"500": "oklch(72.27% 0.28 149.58 / <alpha-value>)"
+					"500": "oklch(72.27% 0.28 149.58 / <alpha-value>)",
+					"800": "oklch(44.79% 0.16 151.33 / <alpha-value>)"
 				},
 				warning: {
 					"600": "oklch(86.06% 0.2 91.94 / <alpha-value>)"
@@ -130,6 +131,7 @@ const config: Config = {
 			},
 			borderColor: {
 				primary: "rgb(var(--fg-primary) / <alpha-value>)",
+				secondary: "rgb(var(--fg-secondary) / <alpha-value>)",
 			}
 		}
 	},

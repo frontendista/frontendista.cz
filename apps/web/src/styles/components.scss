@@ -170,9 +170,13 @@
 	}
 
 	[data-input] {
-		border: 1px solid #fff;
+		border: 1px solid theme("borderColor.secondary");
 		width: 100%;
 		padding: 2rem;
+
+		&:focus-visible {
+			border-color: theme("borderColor.primary");
+		}
 
 		&[data-invalid="true"] {
 			border-color: theme("colors.error.600");
