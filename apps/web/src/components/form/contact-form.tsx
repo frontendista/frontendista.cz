@@ -104,12 +104,12 @@ export const ContactForm = () => {
 					{isLoading ? (
 						<>
 							<span className="sr-only">Loading</span>
-							<Icon icon="ring-spinner" />
+							<Icon icon="ring-spinner" title="Loading" />
 						</>
 					) : (
 						<>
 							Submit
-							<Icon icon="send-horizontal" strokeWidth={3} />
+							<Icon icon="send-horizontal" strokeWidth={3} title="Send it 🚀" />
 						</>
 					)}
 				</button>
