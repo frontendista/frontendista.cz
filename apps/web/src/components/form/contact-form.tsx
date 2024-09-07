@@ -11,7 +11,7 @@ const Field = withClass(Form.Field, "focus-within:z-50");
 
 export const FieldHeader: FunctionComponent<JSX.HTMLAttributes> = ({ children, className, ...props }) => {
 	return (
-		<div className={clsx("mb-md flex flex-wrap justify-between gap-md font-bold", className)} {...props}>
+		<div className={clsx("mb-md flex flex-wrap justify-between gap-md font-medium", className)} {...props}>
 			{children}
 		</div>
 	);
@@ -92,7 +92,7 @@ export const ContactForm = () => {
 				</FieldHeader>
 
 				<Form.Control asChild>
-					<Textarea placeholder="..." data-input required minLength={10} maxLength={999} topText="Hello," bottomText="Bye" />
+					<Textarea placeholder="..." data-input required minLength={10} maxLength={250} topText="Hello," bottomText="Bye 👋" />
 				</Form.Control>
 			</Field>
 
@@ -100,7 +100,7 @@ export const ContactForm = () => {
 				<button data-btn="primary" disabled={isLoading}>{isLoading ? "..." : "Submit"}</button>
 			</Form.Submit>
 
-			<p className="text-center text-sm font-thin">By clicking the "Submit" button you agree to our <a href="#privacy" class="text-sm" data-link="text">privacy policy</a>.</p>
+			<p className="text-center text-sm font-thin">By clicking the "SUBMIT" button you agree to our <a href="#privacy" class="text-sm" data-link="text">privacy policy</a>.</p>
 		</Form.Root>
 	);
 };

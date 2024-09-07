@@ -72,6 +72,7 @@ const config: Config = {
 			h2: "2.441rem",
 			h3: "1.953rem",
 			h4: "1.563rem",
+			icon: "1.5rem",
 			base: "1.25rem",
 			sm: "1rem"
 		},
@@ -94,6 +95,9 @@ const config: Config = {
 				ok: {
 					"400": "oklch(80.03% 0.29 151.71 / <alpha-value>)",
 					"500": "oklch(72.27% 0.28 149.58 / <alpha-value>)"
+				},
+				warning: {
+					"600": "oklch(86.06% 0.2 91.94 / <alpha-value>)"
 				},
 				error: {
 					"600": "oklch(57.71% 0.26 27.33 / <alpha-value>)"
