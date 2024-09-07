@@ -1,11 +1,14 @@
 ---
 import HMFLayout from "~/layouts/hmf-layout.astro";
 
+import { ContactForm } from "~/components/form/contact-form";
+
 import IndexSpritesheet from "~/assets/svg/spritesheet/index.astro";
 
 import HeroSection from "./_index/hero-section.astro";
 import ProjectSection from "./_index/project-section.astro";
 import AboutSection from "./_index/about-section.astro";
+import ContactSection from "./_index/contact-section.astro";
 ---
 
 <HMFLayout>
@@ -13,4 +16,7 @@ import AboutSection from "./_index/about-section.astro";
 	<HeroSection />
 	<AboutSection />
 	<ProjectSection />
+	<ContactSection>
+		<ContactForm client:visible />
+	</ContactSection>
 </HMFLayout>

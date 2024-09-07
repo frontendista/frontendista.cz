@@ -62,7 +62,7 @@ export const screens = {
 };
 
 const config: Config = {
-	content: ["./src/**/*.astro"],
+	content: ["./src/**/*.{astro,tsx,ts}"],
 	corePlugins: {
 		preflight: false
 	},
@@ -73,6 +73,7 @@ const config: Config = {
 			h3: "1.953rem",
 			h4: "1.563rem",
 			base: "1.25rem",
+			sm: "1rem"
 		},
 		spacing: {
 			"0": "0",
