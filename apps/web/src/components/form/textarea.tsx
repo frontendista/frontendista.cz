@@ -3,9 +3,12 @@ import { forwardRef, useState } from "preact/compat";
 
 import type { JSX } from "preact";
 
-type TextareaProps = JSX.HTMLAttributes<HTMLTextAreaElement>;
+interface TextareaProps extends JSX.HTMLAttributes<HTMLTextAreaElement> {
+	topText?: string;
+	bottomText?: string;
+}
 
-export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(({ className, onInput, ...props }, ref) => {
+export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(({ className, onInput, topText, bottomText, ...props }, ref) => {
 	const [content, setContent] = useState("");
 
 	const onInputInternal: JSX.InputEventHandler<HTMLTextAreaElement> = (event) => {
@@ -20,14 +23,26 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(({ classN
 	};
 
 	return (
-		<textarea
-			ref={ref}
-			data-input
-			class={clsx("min-h-[20rem] resize-none overflow-y-hidden leading-normal", className)}
-			onInput={onInputInternal}
-			{...props}
-		>
-			{content}
-		</textarea>
+		<div className="relative">
+			<textarea
+				ref={ref}
+				data-input
+				class={
+					clsx(
+						"min-h-[20rem] resize-none overflow-y-hidden leading-normal",
+						{
+							"pt-[4.5rem]": Boolean(topText),
+							"pb-[4.5rem]": Boolean(bottomText)
+						},
+						className
+					)
+				}
+				onInput={onInputInternal}
+				children={content}
+				{...props}
+			/>
+			{topText ? <span className="absolute left-xl top-xl z-50 text-secondary" aria-hidden="true">{topText}</span> : null}
+			{bottomText ? <span className="absolute bottom-xl left-xl z-50 text-secondary" aria-hidden="true">{bottomText}</span> : null}
+		</div>
 	);
 });

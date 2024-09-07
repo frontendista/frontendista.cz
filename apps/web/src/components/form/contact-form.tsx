@@ -27,6 +27,10 @@ export const ContactForm = () => {
 
 		setLoading(true);
 
+		const data = Object.fromEntries(new FormData(event.currentTarget));
+
+		console.log(data);
+
 		await new Promise((resolve) => setTimeout(resolve, 2000));
 
 		setLoading(false);
@@ -81,7 +85,7 @@ export const ContactForm = () => {
 				</FieldHeader>
 
 				<Form.Control asChild>
-					<Textarea data-input required minLength={10} maxLength={999} />
+					<Textarea placeholder="..." data-input required minLength={10} maxLength={999} topText="Hello," bottomText="Bye" />
 				</Form.Control>
 			</Field>
 
