@@ -5,6 +5,7 @@ import { withClass } from "./hoc";
 import { Textarea } from "./textarea";
 
 import { type JSX, type FunctionComponent, useState } from "preact/compat";
+import { Icon } from "../common/icon";
 
 const Message = withClass(Form.Message, "text-error-600");
 const Field = withClass(Form.Field, "focus-within:z-50");
@@ -97,10 +98,13 @@ export const ContactForm = () => {
 			</Field>
 
 			<Form.Submit asChild>
-				<button data-btn="primary" disabled={isLoading}>{isLoading ? "..." : "Submit"}</button>
+				<button data-btn="primary" disabled={isLoading}>
+					{isLoading ? "..." : "Submit"}
+					<Icon icon="send-horizontal" strokeWidth={3} />
+				</button>
 			</Form.Submit>
 
-			<p className="text-center text-sm font-thin">By clicking the "SUBMIT" button you agree to our <a href="#privacy" class="text-sm" data-link="text">privacy policy</a>.</p>
+			<p className="text-center text-sm font-thin">By clicking the "<b>SUBMIT</b>" button you agree to our <a href="#privacy" class="text-sm" data-link="text">privacy policy</a>.</p>
 		</Form.Root>
 	);
 };

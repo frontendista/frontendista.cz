@@ -1,10 +1,10 @@
 import { clsx } from "clsx";
 import { forwardRef, useMemo, useState } from "preact/compat";
 
+import { Icon } from "../common/icon";
 import { round } from "../../utils/math";
 
 import type { JSX } from "preact";
-import { Icon } from "../common/icon";
 
 interface TextareaProps extends JSX.HTMLAttributes<HTMLTextAreaElement> {
 	topText?: string;
@@ -24,7 +24,6 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(({ classN
 		event.currentTarget.style.height = "auto";
 		event.currentTarget.style.height = `${event.currentTarget.scrollHeight}px`;
 	};
-
 
 	const [remainingCharacters, remainingPercentage] = useMemo(() => {
 		if (typeof maxLength === "number") {
