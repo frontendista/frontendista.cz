@@ -3,9 +3,9 @@ import { clsx } from "clsx";
 
 import { withClass } from "./hoc";
 import { Textarea } from "./textarea";
+import { Icon } from "../common/icon";
 
 import { type JSX, type FunctionComponent, useState } from "preact/compat";
-import { Icon } from "../common/icon";
 
 const Message = withClass(Form.Message, "text-error-600");
 const Field = withClass(Form.Field, "focus-within:z-50");
@@ -101,8 +101,17 @@ export const ContactForm = () => {
 
 			<Form.Submit asChild>
 				<button data-btn="primary" disabled={isLoading}>
-					{isLoading ? "..." : "Submit"}
-					<Icon icon="send-horizontal" strokeWidth={3} />
+					{isLoading ? (
+						<>
+							<span className="sr-only">Loading</span>
+							<Icon icon="ring-spinner" />
+						</>
+					) : (
+						<>
+							Submit
+							<Icon icon="send-horizontal" strokeWidth={3} />
+						</>
+					)}
 				</button>
 			</Form.Submit>
 
