@@ -6,7 +6,7 @@ import { Textarea } from "./textarea";
 
 import type { JSX, FunctionComponent } from "preact/compat";
 
-const Message = withClass(Form.Message, "text-red-500");
+const Message = withClass(Form.Message, "text-error-600");
 const Field = withClass(Form.Field, "focus-within:z-50");
 
 export const FieldHeader: FunctionComponent<JSX.HTMLAttributes> = ({ children, className, ...props }) => {
@@ -67,7 +67,7 @@ export const ContactForm = () => {
 
 			<Field name="message">
 				<FieldHeader>
-					<Form.Label>Message</Form.Label>
+					<Form.Label className="input-required">Message</Form.Label>
 					<Message match="valueMissing">Message required</Message>
 					<Message match="tooShort">Message too short</Message>
 					<Message match="tooLong">Message too long</Message>

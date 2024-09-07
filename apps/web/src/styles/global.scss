@@ -138,4 +138,11 @@
 			font-size: theme("fontSize.h2");
 		}
 	}
+
+	.input-required {
+		&::after {
+			content: " *";
+			color: theme("textColor.error.600");
+		}
+	}
 }

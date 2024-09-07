@@ -167,7 +167,7 @@
 		padding: 2rem;
 
 		&[data-invalid="true"] {
-			border-color: theme("colors.red.500");
+			border-color: theme("colors.error.600");
 		}
 	}
 }
