@@ -62,6 +62,9 @@ importers:
       browserslist-to-esbuild:
         specifier: ^1.2.0
         version: 1.2.0
+      clsx:
+        specifier: ^2.1.1
+        version: 2.1.1
       deepmerge-ts:
         specifier: ^5.1.0
         version: 5.1.0
