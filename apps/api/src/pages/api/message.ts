@@ -14,7 +14,7 @@ import type { APIRoute } from 'astro';
 export const prerender = false
 
 export const POST: APIRoute = asyncHandler(async ({ request }) => {
-	await parseAsync(Schemas.MESSAGE_BODY, await request.json(), {
+	const { firstname, lastname, message } = await parseAsync(Schemas.MESSAGE_BODY, await request.json(), {
 		abortPipeEarly: true
 	})
 
@@ -22,12 +22,29 @@ export const POST: APIRoute = asyncHandler(async ({ request }) => {
 
 	const font = await readFile(join(process.cwd(), FONT_PATH, 'test.ttf'))
 
+	const id = crypto.randomUUID()
+	const timestamp = Date.now()
+
+	const fullname = `${firstname || ''} ${lastname || ''}`.trim()
+
+	// TODO: Get the number of the message from the database.
+
 	const svg = await satori(
 		// @ts-ignore
-		html`<div class="text-red-500" style={{ fontFamily: "SUSE" }}>Hello, World!</div>`,
+		html`
+			<div tw="bg-white h-full text-black flex items-center justify-center flex-col" style={{ fontFamily: "SUSE" }}>
+				<span tw="text-[4rem]">${fullname}</span>
+				<span tw="text-[4rem]">${message.length} characters</span>
+				<span tw="absolute top-[32px] left-[32px]">Message number: 1</span>
+				<span tw="absolute top-[32px] right-[32px]">Digitally signed</span>
+				<span tw="absolute left-[32px] bottom-[32px]">${id}</span>
+				<span tw="absolute right-[32px] bottom-[32px]">${timestamp}</span>
+			</div>
+		`,
 		{
 			width: 1920,
 			height: 1080,
+			// debug: !process.env.VERCEL,
 			fonts: [
 				{
 					name: 'SUSE',
@@ -43,6 +60,8 @@ export const POST: APIRoute = asyncHandler(async ({ request }) => {
 
 	const pngData = resvg.render()
 	const pngBuffer = pngData.asPng()
+
+	// TODO: Digitally sign the image.
 
 	return new Response(pngBuffer, {
 		headers: {

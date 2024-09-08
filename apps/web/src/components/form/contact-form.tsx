@@ -61,7 +61,6 @@ export const ContactForm: FunctionComponent = () => {
 			};
 		});
 	};
-
 	
 	const resetForm = () => {
 		if (form.current) {
@@ -246,6 +245,7 @@ export const ContactForm: FunctionComponent = () => {
 						</Dialog.Close>
 						<Dialog.Title>Message was sent!</Dialog.Title>
 						<Dialog.Description className="-mt-md">Below you can see the card that was sent.</Dialog.Description>
+						{/* TODO: Download button for the image. */}
 						<div className="center">
 							{image ? <img src={image} alt="Generated image" className="w-full" /> : null}
 						</div>

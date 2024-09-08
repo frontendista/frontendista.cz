@@ -22,6 +22,8 @@ export const asyncHandler = (fn: APIRoute) => {
 				return json(errors.nested || { root: errors.root }, 400)
 			}
 
+			console.error(error)
+
 			return json({ error: "Internal Server Error" }, 500);
 		}
 	};
