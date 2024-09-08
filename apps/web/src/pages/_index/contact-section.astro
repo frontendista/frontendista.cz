@@ -1,8 +1,10 @@
 ---
-import Heading from "../../components/common/heading.astro";
+import Heading from "~/components/common/heading.astro";
+import Link from "~/components/common/link.astro";
 ---
 
 <section id="contact" class="mx-auto mt-xl max-w-content px-lg lg:my-3xl lg:px-2xl">
-	<Heading class="lg:mb-2xl lg:justify-center" href="#contact">Contact</Heading>
+	<Heading class="lg:justify-center" href="#contact">Contact</Heading>
+	<p class="mt-md lg:mb-2xl lg:text-center">Send me a message, it's awesome. <Link href="#todo" kind="text">Learn more</Link>.</p>
 	<slot />
 </section>
