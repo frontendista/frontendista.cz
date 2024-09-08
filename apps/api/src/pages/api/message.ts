@@ -24,7 +24,7 @@ export const POST: APIRoute = asyncHandler(async ({ request }) => {
 
 	const svg = await satori(
 		// @ts-ignore
-		html`<div style={{ fontFamily: "SUSE" }}>Hello, World!</div>`,
+		html`<div class="text-red-500" style={{ fontFamily: "SUSE" }}>Hello, World!</div>`,
 		{
 			width: 1280,
 			height: 640,

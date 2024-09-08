@@ -123,8 +123,8 @@ export const ContactForm: FunctionComponent = () => {
 				</Form.Control>
 			</Field>
 
-			<div class="flex flex-col gap-xl sm:flex-row">
-				<Field name="firstname" class="grow">
+			<div className="flex flex-col gap-xl sm:flex-row">
+				<Field name="firstname" className="grow">
 					<FieldHeader>
 						<Form.Label>First name</Form.Label>
 						<MessageWithIcon match="tooShort">First name too short</MessageWithIcon>
@@ -141,7 +141,7 @@ export const ContactForm: FunctionComponent = () => {
 					</Form.Control>
 				</Field>
 
-				<Field name="lastname" class="grow">
+				<Field name="lastname" className="grow">
 					<FieldHeader>
 						<Form.Label>Last name</Form.Label>
 						<MessageWithIcon match="tooShort">Last name too short</MessageWithIcon>
@@ -213,7 +213,7 @@ export const ContactForm: FunctionComponent = () => {
 				</div>
 			</Form.Submit>
 
-			<p className="text-center text-sm font-thin">By clicking the "<b>SUBMIT</b>" button you agree to our <a href="#privacy" class="text-sm" data-link="text">privacy policy</a>.</p>
+			<p className="text-center text-sm font-thin">By clicking the "<b>SUBMIT</b>" button you agree to our <a href="#privacy" className="text-sm" data-link="text">privacy policy</a>.</p>
 
 			<Dialog.Root open={!!image} onOpenChange={() => setImage(null)}>
 				<Dialog.Portal>
@@ -228,7 +228,7 @@ export const ContactForm: FunctionComponent = () => {
 						<Dialog.Title>Message was sent!</Dialog.Title>
 						<Dialog.Description className="-mt-md">Below you can see the card that was sent.</Dialog.Description>
 						<div className="center">
-							{image ? <img src={image} alt="Generated image" className="w-full bg-red-500" /> : null}
+							{image ? <img src={image} alt="Generated image" className="w-full" /> : null}
 						</div>
 						<Dialog.Close asChild>
 							<button type="button" data-btn="primary">Superb!</button>

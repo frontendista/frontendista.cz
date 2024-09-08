@@ -37,7 +37,7 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(({ classN
 			<textarea
 				ref={ref}
 				data-input
-				class={
+				className={
 					clsx(
 						"min-h-[20rem] resize-none overflow-y-hidden leading-normal",
 						{
