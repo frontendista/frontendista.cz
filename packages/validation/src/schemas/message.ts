@@ -1,5 +1,6 @@
-import { ContactFormValidation } from "@frontendista/validation"
-import { email, maxLength, minLength, object, optional, pipe, string, trim } from "valibot"
+import { email, type InferOutput, maxLength, minLength, object, optional, pipe, string, trim } from "valibot"
+
+import { ContactFormValidation } from ".."
 
 export const MESSAGE_BODY = object({
 	message: pipe(
@@ -32,3 +33,5 @@ export const MESSAGE_BODY = object({
 		)
 	)
 })
+
+export type MessageBody = InferOutput<typeof MESSAGE_BODY>

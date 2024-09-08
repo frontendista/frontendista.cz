@@ -209,6 +209,10 @@ importers:
         version: 5.5.4
 
   packages/validation:
+    dependencies:
+      valibot:
+        specifier: ^0.41.0
+        version: 0.41.0(typescript@5.5.4)
     devDependencies:
       typescript:
         specifier: ^5.5.4

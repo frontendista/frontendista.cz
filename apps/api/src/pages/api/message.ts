@@ -2,19 +2,19 @@ import satori from 'satori';
 import { html } from "satori-html"
 import { parseAsync } from 'valibot';
 import { Resvg } from "@resvg/resvg-js"
+import { Schemas } from "@frontendista/validation"
 
 import { join } from 'node:path';
 import { readFile } from 'node:fs/promises';
 
 import { asyncHandler } from '../../utils';
-import { MESSAGE_BODY } from '../../schemas/message';
 
 import type { APIRoute } from 'astro';
 
 export const prerender = false
 
 export const POST: APIRoute = asyncHandler(async ({ request }) => {
-	await parseAsync(MESSAGE_BODY, await request.json(), {
+	await parseAsync(Schemas.MESSAGE_BODY, await request.json(), {
 		abortPipeEarly: true
 	})
 
@@ -26,8 +26,8 @@ export const POST: APIRoute = asyncHandler(async ({ request }) => {
 		// @ts-ignore
 		html`<div class="text-red-500" style={{ fontFamily: "SUSE" }}>Hello, World!</div>`,
 		{
-			width: 1280,
-			height: 640,
+			width: 1920,
+			height: 1080,
 			fonts: [
 				{
 					name: 'SUSE',

@@ -1,4 +1,4 @@
-import { ContactFormValidation } from "@frontendista/validation";
+import { ContactFormValidation, Schemas } from "@frontendista/validation";
 import { clsx } from "clsx";
 
 import * as Form from "@radix-ui/react-form";
@@ -15,6 +15,7 @@ import { useState, type JSX, type FunctionComponent, type ComponentProps, useMem
 const Field = withClass(Form.Field, "focus-within:z-50");
 
 import "~/utils/global";
+import { Preview } from "./preview";
 
 export const FieldHeader: FunctionComponent<JSX.HTMLAttributes> = ({ children, className, ...props }) => {
 	return (
@@ -33,7 +34,7 @@ export const MessageWithIcon: FunctionComponent<ComponentProps<typeof Form.Messa
 	);
 };
 
-type Fields = "email" | "firstname" | "lastname" | "message";
+type Fields = keyof Schemas.MessageBody;
 type ServerErrors = Partial<Record<Fields, string[]>> | null;
 
 export const ContactForm: FunctionComponent = () => {
@@ -43,7 +44,7 @@ export const ContactForm: FunctionComponent = () => {
 
 	const form = useRef<HTMLFormElement | null>(null);
 
-	const serverInvalid = useMemo(() => ({
+	const serverInvalid = useMemo<Record<Fields, string | false>>(() => ({
 		email: serverErrors?.email?.[0] || false,
 		firstname: serverErrors?.firstname?.[0] || false,
 		lastname: serverErrors?.lastname?.[0] || false,
@@ -203,13 +204,15 @@ export const ContactForm: FunctionComponent = () => {
 					<Popover.Root modal>
 						<Popover.Trigger asChild>
 							<button type="button" data-btn="primary" data-size="square" disabled={isLoading}>
-								<span className="sr-only">Open advanced settings</span>
-								<Icon icon="sliders-vertical" strokeWidth={3} title="Advanced settings" />
+								<span className="sr-only">Open card preview</span>
+								<Icon icon="image" strokeWidth={3} title="Card preview" />
 							</button>
 						</Popover.Trigger>
 
 						<Popover.Portal>
-							<Popover.Content sideOffset={16} side="top">TBD</Popover.Content>
+							<Popover.Content sideOffset={16} side="top">
+								<Preview form={form} />
+							</Popover.Content>
 						</Popover.Portal>
 					</Popover.Root>
 
