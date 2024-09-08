@@ -228,7 +228,7 @@ export const ContactForm: FunctionComponent = () => {
 				</div>
 			</Form.Submit>
 
-			<p className="text-center text-sm font-thin">By clicking the "<b>SUBMIT</b>" button you agree to our <a href="#privacy" className="text-sm" data-link="text">privacy policy</a>.</p>
+			<p className="text-center text-sm font-thin">By clicking the "<b>SUBMIT</b>" button you agree to our <a href="/privacy" className="text-sm" data-link="text">privacy policy</a>.</p>
 
 			<Dialog.Root open={!!image} onOpenChange={resetForm}>
 				<Dialog.Portal>
