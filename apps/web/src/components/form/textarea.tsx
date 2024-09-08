@@ -53,13 +53,13 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(({ classN
 			/>
 
 			{topText ? (
-				<span className="absolute left-xl top-xl text-secondary" aria-hidden="true">
+				<span className="absolute left-xl top-xl select-none text-secondary" aria-hidden="true">
 					{topText}
 				</span>
 			) : null}
 
 			{bottomText ? (
-				<span className="absolute bottom-xl left-xl text-secondary" aria-hidden="true">
+				<span className="absolute bottom-xl left-xl select-none text-secondary" aria-hidden="true">
 					{bottomText}
 				</span>
 			) : null}

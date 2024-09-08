@@ -113,7 +113,8 @@ export const ContactForm: FunctionComponent = () => {
 
 			setImage(image);
 		} catch (error) {
-			console.log(error);
+			// TODO: Better display error to users
+			window.alert("Something went wrong. Please try again later.");
 		}
 
 		setLoading(false);
