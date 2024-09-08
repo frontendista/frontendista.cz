@@ -5,9 +5,8 @@ import { withClass } from "./hoc";
 import { Textarea } from "./textarea";
 import { Icon } from "../common/icon";
 
-import { type JSX, type FunctionComponent, useState } from "preact/compat";
+import { type JSX, type FunctionComponent, useState, type ComponentProps } from "preact/compat";
 
-const Message = withClass(Form.Message, "text-error-600");
 const Field = withClass(Form.Field, "focus-within:z-50");
 
 import "~/utils/global";
@@ -20,7 +19,14 @@ export const FieldHeader: FunctionComponent<JSX.HTMLAttributes> = ({ children, c
 	);
 };
 
-// TODO: Autocomplete (?)
+export const MessageWithIcon: FunctionComponent<ComponentProps<typeof Form.Message>> = ({ children, ...props }) => {
+	return (
+		<Form.Message className={clsx("flex items-center gap-md text-error-600")} {...props}>
+			<Icon icon="octagon-alert" strokeWidth={2.5} title="Error" className="h-text" />
+			{children}
+		</Form.Message>
+	);
+};
 
 export const ContactForm = () => {
 	const [isLoading, setLoading] = useState(false);
@@ -47,16 +53,16 @@ export const ContactForm = () => {
 	};
 
 	return (
-		<Form.Root className="mx-auto flex flex-col gap-lg lg:max-w-[50rem]" onSubmit={handleSubmit}>
+		<Form.Root className="mx-auto mt-xl flex flex-col gap-lg lg:mt-0 lg:max-w-[50rem]" onSubmit={handleSubmit}>
 			<Field name="email">
 				<FieldHeader>
 					<Form.Label>Email</Form.Label>
-					<Message match="typeMismatch">Please provide a valid email</Message>
-					<Message match="tooLong">Email too long</Message>
+					<MessageWithIcon match="typeMismatch">Please provide a valid email</MessageWithIcon>
+					<MessageWithIcon match="tooLong">Email too long</MessageWithIcon>
 				</FieldHeader>
 
 				<Form.Control asChild>
-					<input data-input type="email" maxLength={100} />
+					<input data-input type="email" maxLength={100} disabled={isLoading} />
 				</Form.Control>
 			</Field>
 
@@ -64,24 +70,24 @@ export const ContactForm = () => {
 				<Field name="firstname" class="grow">
 					<FieldHeader>
 						<Form.Label>First name</Form.Label>
-						<Message match="tooShort">First name too short</Message>
-						<Message match="tooLong">First name too long</Message>
+						<MessageWithIcon match="tooShort">First name too short</MessageWithIcon>
+						<MessageWithIcon match="tooLong">First name too long</MessageWithIcon>
 					</FieldHeader>
 
 					<Form.Control asChild>
-						<input data-input minLength={2} maxLength={50} />
+						<input data-input minLength={2} maxLength={50} disabled={isLoading} />
 					</Form.Control>
 				</Field>
 
 				<Field name="lastname" class="grow">
 					<FieldHeader>
 						<Form.Label>Last name</Form.Label>
-						<Message match="tooShort">Last name too short</Message>
-						<Message match="tooLong">Last name too long</Message>
+						<MessageWithIcon match="tooShort">Last name too short</MessageWithIcon>
+						<MessageWithIcon match="tooLong">Last name too long</MessageWithIcon>
 					</FieldHeader>
 
 					<Form.Control asChild>
-						<input data-input minLength={2} maxLength={50} />
+						<input data-input minLength={2} maxLength={50} disabled={isLoading} />
 					</Form.Control>
 				</Field>
 			</div>
@@ -89,30 +95,37 @@ export const ContactForm = () => {
 			<Field name="message">
 				<FieldHeader>
 					<Form.Label className="input-required">Message</Form.Label>
-					<Message match="valueMissing">Message required</Message>
-					<Message match="tooShort">Message too short</Message>
-					<Message match="tooLong">Message too long</Message>
+					<MessageWithIcon match="valueMissing">Message required</MessageWithIcon>
+					<MessageWithIcon match="tooShort">Message too short</MessageWithIcon>
+					<MessageWithIcon match="tooLong">Message too long</MessageWithIcon>
 				</FieldHeader>
 
 				<Form.Control asChild>
-					<Textarea placeholder="..." data-input required minLength={10} maxLength={250} topText="Hello," bottomText="Bye 👋" />
+					<Textarea placeholder="..." data-input required minLength={10} maxLength={250} topText="Hello," bottomText="Bye 👋" disabled={isLoading} />
 				</Form.Control>
 			</Field>
 
 			<Form.Submit asChild>
-				<button data-btn="primary" disabled={isLoading}>
-					{isLoading ? (
-						<>
-							<span className="sr-only">Loading</span>
-							<Icon icon="ring-spinner" title="Loading" />
-						</>
-					) : (
-						<>
-							Submit
-							<Icon icon="send-horizontal" strokeWidth={3} title="Send it 🚀" />
-						</>
-					)}
-				</button>
+				<div className="flex gap-lg">
+					<button type="button" data-btn="primary" data-size="square" disabled={isLoading}>
+						<span className="sr-only">Open advanced settings</span>
+						<Icon icon="sliders-vertical" strokeWidth={3} title="Advanced settings" />
+					</button>
+
+					<button type="submit" data-btn="primary" disabled={isLoading}>
+						{isLoading ? (
+							<>
+								<span className="sr-only">Loading</span>
+								<Icon icon="ring-spinner" title="Loading" />
+							</>
+						) : (
+							<>
+								Submit
+								<Icon icon="send-horizontal" strokeWidth={3} title="Send it 🚀" />
+							</>
+						)}
+					</button>
+				</div>
 			</Form.Submit>
 
 			<p className="text-center text-sm font-thin">By clicking the "<b>SUBMIT</b>" button you agree to our <a href="#privacy" class="text-sm" data-link="text">privacy policy</a>.</p>
