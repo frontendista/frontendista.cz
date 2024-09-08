@@ -19,7 +19,7 @@ export const asyncHandler = (fn: APIRoute) => {
 			if (error instanceof ValiError) {
 				const errors = flatten(error.issues)
 
-				return json({ errors }, 400)
+				return json(errors.nested, 400)
 			}
 
 			return json({ error: "Internal Server Error" }, 500);

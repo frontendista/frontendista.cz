@@ -8,7 +8,7 @@ import { withClass } from "./hoc";
 import { Textarea } from "./textarea";
 import { Icon } from "../common/icon";
 
-import { useState, type JSX, type FunctionComponent, type ComponentProps } from "preact/compat";
+import { useState, type JSX, type FunctionComponent, type ComponentProps, useMemo } from "preact/compat";
 
 const Field = withClass(Form.Field, "focus-within:z-50");
 
@@ -31,8 +31,30 @@ export const MessageWithIcon: FunctionComponent<ComponentProps<typeof Form.Messa
 	);
 };
 
+type Fields = "email" | "firstname" | "lastname" | "message";
+type ServerErrors = Partial<Record<Fields, string[]>> | null;
+
 export const ContactForm: FunctionComponent = () => {
 	const [isLoading, setLoading] = useState(false);
+	const [serverErrors, setServerErrors] = useState<ServerErrors>(null);
+
+	const serverInvalid = useMemo(() => ({
+		email: serverErrors?.email?.[0] || false,
+		firstname: serverErrors?.firstname?.[0] || false,
+		lastname: serverErrors?.lastname?.[0] || false,
+		message: serverErrors?.message?.[0] || false,
+	}), [serverErrors]);
+
+	const clearServerError = (field: Fields) => {
+		setServerErrors(prev => {
+			if (!prev) return null;
+
+			return {
+				...prev,
+				[field]: undefined
+			};
+		});
+	};
 
 	const handleSubmit: JSX.SubmitEventHandler<HTMLFormElement> = async (event) => {
 		event.preventDefault();
@@ -48,15 +70,32 @@ export const ContactForm: FunctionComponent = () => {
 			}
 		}
 
-		console.log(data);
+		try {
+			const response = await fetch(new URL("/api/message", import.meta.env.PUBLIC_API_URL), {
+				method: "POST",
+				headers: {
+					"Content-Type": "application/json"
+				},
+				body: JSON.stringify(data)
+			});
 
-		await new Promise((resolve) => setTimeout(resolve, 2000));
+			if (response.status === 400) {
+				const errors = await response.json();
+				setServerErrors(errors);
+			}
+		} catch (error) {
+			console.log(error);
+		}
 
 		setLoading(false);
 	};
 
 	return (
-		<Form.Root className="mx-auto mt-xl flex flex-col gap-lg lg:mt-0 lg:max-w-[50rem]" onSubmit={handleSubmit}>
+		<Form.Root
+			className="mx-auto mt-xl flex flex-col gap-lg lg:mt-0 lg:max-w-[50rem]"
+			onSubmit={handleSubmit}
+			onClearServerErrors={() => setServerErrors(null)}
+		>
 			<Field name="email">
 				<FieldHeader>
 					<Form.Label>Email</Form.Label>
@@ -64,7 +103,7 @@ export const ContactForm: FunctionComponent = () => {
 					<MessageWithIcon match="tooLong">Email too long</MessageWithIcon>
 				</FieldHeader>
 
-				<Form.Control asChild>
+				<Form.Control asChild onChange={() => clearServerError("email")}>
 					<input data-input type="email" maxLength={100} disabled={isLoading} />
 				</Form.Control>
 			</Field>
@@ -77,7 +116,7 @@ export const ContactForm: FunctionComponent = () => {
 						<MessageWithIcon match="tooLong">First name too long</MessageWithIcon>
 					</FieldHeader>
 
-					<Form.Control asChild>
+					<Form.Control asChild onChange={() => clearServerError("firstname")}>
 						<input
 							data-input
 							minLength={ContactFormValidation.FIRSTNAME_MIN_LENGTH}
@@ -94,7 +133,7 @@ export const ContactForm: FunctionComponent = () => {
 						<MessageWithIcon match="tooLong">Last name too long</MessageWithIcon>
 					</FieldHeader>
 
-					<Form.Control asChild>
+					<Form.Control asChild onChange={() => clearServerError("lastname")}>
 						<input
 							data-input
 							minLength={ContactFormValidation.LASTNAME_MIN_LENGTH}
@@ -105,16 +144,25 @@ export const ContactForm: FunctionComponent = () => {
 				</Field>
 			</div>
 
-			<Field name="message">
+			<Field name="message" serverInvalid={!!serverInvalid.message}>
 				<FieldHeader>
 					<Form.Label className="input-required">Message</Form.Label>
 					<MessageWithIcon match="valueMissing">Message required</MessageWithIcon>
 					<MessageWithIcon match="tooShort">Message too short</MessageWithIcon>
 					<MessageWithIcon match="tooLong">Message too long</MessageWithIcon>
+					{serverInvalid.message ? <MessageWithIcon forceMatch>{serverInvalid.message}</MessageWithIcon> : null}
 				</FieldHeader>
 
-				<Form.Control asChild>
-					<Textarea placeholder="..." data-input required minLength={ContactFormValidation.MESSAGE_MIN_LENGTH} maxLength={ContactFormValidation.MESSAGE_MAX_LENGTH} topText="Hello," bottomText="Bye 👋" disabled={isLoading} />
+				<Form.Control asChild onChange={() => clearServerError("message")}>
+					<Textarea
+						placeholder="..."
+						data-input
+						required
+						minLength={ContactFormValidation.MESSAGE_MIN_LENGTH}
+						maxLength={ContactFormValidation.MESSAGE_MAX_LENGTH}
+						topText="Hello,"
+						bottomText="Bye 👋"
+						disabled={isLoading} />
 				</Form.Control>
 			</Field>
 
