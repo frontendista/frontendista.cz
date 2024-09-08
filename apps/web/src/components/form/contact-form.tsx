@@ -7,6 +7,7 @@ import * as Popover from "./radix/popover";
 import { withClass } from "./hoc";
 import { Textarea } from "./textarea";
 import { Icon } from "../common/icon";
+import { delayPromise } from "~/utils/promise";
 
 import { useState, type JSX, type FunctionComponent, type ComponentProps, useMemo } from "preact/compat";
 
@@ -71,13 +72,15 @@ export const ContactForm: FunctionComponent = () => {
 		}
 
 		try {
-			const response = await fetch(new URL("/api/message", import.meta.env.PUBLIC_API_URL), {
+			const promise = fetch(new URL("/api/message", import.meta.env.PUBLIC_API_URL), {
 				method: "POST",
 				headers: {
 					"Content-Type": "application/json"
 				},
 				body: JSON.stringify(data)
 			});
+
+			const response = await delayPromise(promise, 2000);
 
 			if (response.status === 400) {
 				const errors = await response.json();
