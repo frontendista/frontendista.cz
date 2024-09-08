@@ -1,11 +1,13 @@
 import * as Form from "@radix-ui/react-form";
 import { clsx } from "clsx";
 
+import * as Popover from "./radix/popover";
+
 import { withClass } from "./hoc";
 import { Textarea } from "./textarea";
 import { Icon } from "../common/icon";
 
-import { type JSX, type FunctionComponent, useState, type ComponentProps } from "preact/compat";
+import { useState, type JSX, type FunctionComponent, type ComponentProps } from "preact/compat";
 
 const Field = withClass(Form.Field, "focus-within:z-50");
 
@@ -28,7 +30,7 @@ export const MessageWithIcon: FunctionComponent<ComponentProps<typeof Form.Messa
 	);
 };
 
-export const ContactForm = () => {
+export const ContactForm: FunctionComponent = () => {
 	const [isLoading, setLoading] = useState(false);
 
 	const handleSubmit: JSX.SubmitEventHandler<HTMLFormElement> = async (event) => {
@@ -107,10 +109,19 @@ export const ContactForm = () => {
 
 			<Form.Submit asChild>
 				<div className="flex gap-lg">
-					<button type="button" data-btn="primary" data-size="square" disabled={isLoading}>
-						<span className="sr-only">Open advanced settings</span>
-						<Icon icon="sliders-vertical" strokeWidth={3} title="Advanced settings" />
-					</button>
+
+					<Popover.Root modal>
+						<Popover.Trigger asChild>
+							<button type="button" data-btn="primary" data-size="square" disabled={isLoading}>
+								<span className="sr-only">Open advanced settings</span>
+								<Icon icon="sliders-vertical" strokeWidth={3} title="Advanced settings" />
+							</button>
+						</Popover.Trigger>
+
+						<Popover.Portal>
+							<Popover.Content sideOffset={16} side="top">TBD</Popover.Content>
+						</Popover.Portal>
+					</Popover.Root>
 
 					<button type="submit" data-btn="primary" disabled={isLoading}>
 						{isLoading ? (
