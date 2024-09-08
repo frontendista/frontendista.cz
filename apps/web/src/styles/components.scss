@@ -42,6 +42,11 @@
 			width: 1em;
 		}
 
+		&[data-size="square"] {
+			padding: 1.6875rem;
+			width: auto;
+		}
+
 		@media (pointer: fine) {
 			&:hover {
 				user-select: none;
@@ -171,6 +176,8 @@
 
 	[data-input] {
 		border: 1px solid theme("borderColor.secondary");
+		border-radius: 0;
+		background: none;
 		width: 100%;
 		padding: 2rem;
 
