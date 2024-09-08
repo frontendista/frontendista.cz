@@ -11,6 +11,10 @@
 		{
 			"name": "🚀 web",
 			"path": "../apps/web"
+		},
+		{
+			"name": "📦 @frontendista/validation",
+			"path": "../packages/validation"
 		}
 	],
 	"settings": {

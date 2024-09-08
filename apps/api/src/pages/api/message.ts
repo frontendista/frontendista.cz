@@ -1,16 +1,22 @@
 import satori from 'satori';
 import { html } from "satori-html"
+import { parseAsync } from 'valibot';
 
-import { readFile } from 'node:fs/promises';
 import { join } from 'node:path';
+import { readFile } from 'node:fs/promises';
+
+import { asyncHandler } from '../../utils';
+import { MESSAGE_BODY } from '../../schemas/message';
 
 import type { APIRoute } from 'astro';
-import { asyncHandler } from '../../utils';
 
 export const prerender = false
 
-
 export const POST: APIRoute = asyncHandler(async ({ request }) => {
+	const { message } = await parseAsync(MESSAGE_BODY, await request.json())
+
+	console.log(message)
+
 	const FONT_PATH = process.env.VERCEL_ENV ? 'apps/api/src/og' : 'src/og'
 
 	const font = await readFile(join(process.cwd(), FONT_PATH, 'test.ttf'))

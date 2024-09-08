@@ -23,6 +23,7 @@
 		"@astrojs/vercel": "^7.8.0",
 		"@frontendista/astro-html-minify": "^2.0.0",
 		"@frontendista/rehype-sectionize": "^1.1.1",
+		"@frontendista/validation": "workspace:^",
 		"@octokit/graphql": "^7.1.0",
 		"@radix-ui/react-form": "^0.1.0",
 		"@radix-ui/react-popover": "^1.1.1",

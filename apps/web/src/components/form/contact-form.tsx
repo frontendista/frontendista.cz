@@ -1,3 +1,4 @@
+import { ContactFormValidation } from "@frontendista/validation";
 import * as Form from "@radix-ui/react-form";
 import { clsx } from "clsx";
 
@@ -103,7 +104,7 @@ export const ContactForm: FunctionComponent = () => {
 				</FieldHeader>
 
 				<Form.Control asChild>
-					<Textarea placeholder="..." data-input required minLength={10} maxLength={250} topText="Hello," bottomText="Bye 👋" disabled={isLoading} />
+					<Textarea placeholder="..." data-input required minLength={ContactFormValidation.MESSAGE_MIN_LENGTH} maxLength={ContactFormValidation.MESSAGE_MAX_LENGTH} topText="Hello," bottomText="Bye 👋" disabled={isLoading} />
 				</Form.Control>
 			</Field>
 

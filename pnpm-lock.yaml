@@ -43,6 +43,9 @@ importers:
       '@astrojs/vercel':
         specifier: ^7.8.0
         version: 7.8.0(astro@4.15.4(@types/node@20.16.5)(lightningcss@1.26.0)(rollup@4.21.2)(sass@1.78.0)(terser@5.31.6)(typescript@5.5.4))
+      '@frontendista/validation':
+        specifier: workspace:^
+        version: link:../../packages/validation
       astro:
         specifier: ^4.15.4
         version: 4.15.4(@types/node@20.16.5)(lightningcss@1.26.0)(rollup@4.21.2)(sass@1.78.0)(terser@5.31.6)(typescript@5.5.4)
@@ -89,6 +92,9 @@ importers:
       '@frontendista/rehype-sectionize':
         specifier: ^1.1.1
         version: 1.1.1
+      '@frontendista/validation':
+        specifier: workspace:^
+        version: link:../../packages/validation
       '@octokit/graphql':
         specifier: ^7.1.0
         version: 7.1.0
@@ -192,6 +198,12 @@ importers:
       stylelint-config-standard-scss:
         specifier: ^11.1.0
         version: 11.1.0(postcss@8.4.45)(stylelint@15.11.0(typescript@5.5.4))
+      typescript:
+        specifier: ^5.5.4
+        version: 5.5.4
+
+  packages/validation:
+    devDependencies:
       typescript:
         specifier: ^5.5.4
         version: 5.5.4
