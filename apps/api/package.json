@@ -15,7 +15,8 @@
 		"astro": "^4.15.4",
 		"satori": "^0.10.14",
 		"satori-html": "^0.3.2",
-		"typescript": "^5.5.4"
+		"typescript": "^5.5.4",
+		"valibot": "^0.41.0"
 	},
 	"license": "MIT",
 	"devDependencies": {

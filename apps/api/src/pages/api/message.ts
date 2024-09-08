@@ -5,10 +5,12 @@ import { readFile } from 'node:fs/promises';
 import { join } from 'node:path';
 
 import type { APIRoute } from 'astro';
+import { asyncHandler } from '../../utils';
 
 export const prerender = false
 
-export const POST: APIRoute = async () => {
+
+export const POST: APIRoute = asyncHandler(async ({ request }) => {
 	const FONT_PATH = process.env.VERCEL_ENV ? 'apps/api/src/og' : 'src/og'
 
 	const font = await readFile(join(process.cwd(), FONT_PATH, 'test.ttf'))
@@ -35,4 +37,4 @@ export const POST: APIRoute = async () => {
 			'Content-Type': 'image/svg+xml',
 		},
 	});
-}
+})
