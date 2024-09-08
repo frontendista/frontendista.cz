@@ -78,7 +78,12 @@ export const ContactForm: FunctionComponent = () => {
 					</FieldHeader>
 
 					<Form.Control asChild>
-						<input data-input minLength={2} maxLength={50} disabled={isLoading} />
+						<input
+							data-input
+							minLength={ContactFormValidation.FIRSTNAME_MIN_LENGTH}
+							maxLength={ContactFormValidation.FIRSTNAME_MAX_LENGTH}
+							disabled={isLoading}
+						/>
 					</Form.Control>
 				</Field>
 
@@ -90,7 +95,12 @@ export const ContactForm: FunctionComponent = () => {
 					</FieldHeader>
 
 					<Form.Control asChild>
-						<input data-input minLength={2} maxLength={50} disabled={isLoading} />
+						<input
+							data-input
+							minLength={ContactFormValidation.LASTNAME_MIN_LENGTH}
+							maxLength={ContactFormValidation.LASTNAME_MAX_LENGTH}
+							disabled={isLoading}
+						/>
 					</Form.Control>
 				</Field>
 			</div>

@@ -13,7 +13,9 @@ import type { APIRoute } from 'astro';
 export const prerender = false
 
 export const POST: APIRoute = asyncHandler(async ({ request }) => {
-	const { message } = await parseAsync(MESSAGE_BODY, await request.json())
+	const { message } = await parseAsync(MESSAGE_BODY, await request.json(), {
+		abortPipeEarly: true
+	})
 
 	console.log(message)
 
