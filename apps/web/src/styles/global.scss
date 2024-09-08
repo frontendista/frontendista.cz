@@ -104,13 +104,14 @@
 			transition: background-color 0.5s cubic-bezier(0, 0.55, 0.45, 1), backdrop-filter 0.25s cubic-bezier(0, 0.55, 0.45, 1);
 		}
 
-		&:has(:focus-visible) {
+
+		&:has(:focus-visible:not(:is([role="dialog"] *))) {
 			&::after {
 				background: theme("backgroundColor.primary / 90%");
 			}
 		}
-
-		&:not(:has(:focus-visible)) {
+	
+		&:not(:has(:focus-visible:not(:is([role="dialog"] *)))) {
 			&::after {
 				background: theme("backgroundColor.primary / 0%");
 				backdrop-filter: none;

@@ -25,6 +25,7 @@
 		"@frontendista/rehype-sectionize": "^1.1.1",
 		"@frontendista/validation": "workspace:^",
 		"@octokit/graphql": "^7.1.0",
+		"@radix-ui/react-dialog": "^1.1.1",
 		"@radix-ui/react-form": "^0.1.0",
 		"@radix-ui/react-popover": "^1.1.1",
 		"@radix-ui/react-select": "^2.1.1",

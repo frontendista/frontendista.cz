@@ -1,6 +1,7 @@
 import satori from 'satori';
 import { html } from "satori-html"
 import { parseAsync } from 'valibot';
+import { Resvg } from "@resvg/resvg-js"
 
 import { join } from 'node:path';
 import { readFile } from 'node:fs/promises';
@@ -13,11 +14,9 @@ import type { APIRoute } from 'astro';
 export const prerender = false
 
 export const POST: APIRoute = asyncHandler(async ({ request }) => {
-	const { message } = await parseAsync(MESSAGE_BODY, await request.json(), {
+	await parseAsync(MESSAGE_BODY, await request.json(), {
 		abortPipeEarly: true
 	})
-
-	console.log(message)
 
 	const FONT_PATH = process.env.VERCEL_ENV ? 'apps/api/src/og' : 'src/og'
 
@@ -40,9 +39,14 @@ export const POST: APIRoute = asyncHandler(async ({ request }) => {
 		}
 	)
 
-	return new Response(svg, {
+	const resvg = new Resvg(svg)
+
+	const pngData = resvg.render()
+	const pngBuffer = pngData.asPng()
+
+	return new Response(pngBuffer, {
 		headers: {
-			'Content-Type': 'image/svg+xml',
-		},
-	});
+			'Content-Type': 'image/png'
+		}
+	})
 })

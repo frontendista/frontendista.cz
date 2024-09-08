@@ -1,8 +1,9 @@
 import { ContactFormValidation } from "@frontendista/validation";
-import * as Form from "@radix-ui/react-form";
 import { clsx } from "clsx";
 
+import * as Form from "@radix-ui/react-form";
 import * as Popover from "./radix/popover";
+import * as Dialog from "./radix/dialog";
 
 import { withClass } from "./hoc";
 import { Textarea } from "./textarea";
@@ -38,6 +39,7 @@ type ServerErrors = Partial<Record<Fields, string[]>> | null;
 export const ContactForm: FunctionComponent = () => {
 	const [isLoading, setLoading] = useState(false);
 	const [serverErrors, setServerErrors] = useState<ServerErrors>(null);
+	const [image, setImage] = useState<string | null>(null);
 
 	const serverInvalid = useMemo(() => ({
 		email: serverErrors?.email?.[0] || false,
@@ -83,9 +85,19 @@ export const ContactForm: FunctionComponent = () => {
 			const response = await delayPromise(promise, 2000);
 
 			if (response.status === 400) {
+				// TODO: Handle root errors.
 				const errors = await response.json();
 				setServerErrors(errors);
 			}
+
+			if (!response.ok) {
+				throw new Error("Something went wrong.");
+			}
+
+			const blob = await response.blob();
+			const image = URL.createObjectURL(blob);
+
+			setImage(image);
 		} catch (error) {
 			console.log(error);
 		}
@@ -202,6 +214,28 @@ export const ContactForm: FunctionComponent = () => {
 			</Form.Submit>
 
 			<p className="text-center text-sm font-thin">By clicking the "<b>SUBMIT</b>" button you agree to our <a href="#privacy" class="text-sm" data-link="text">privacy policy</a>.</p>
+
+			<Dialog.Root open={!!image} onOpenChange={() => setImage(null)}>
+				<Dialog.Portal>
+					<Dialog.Overlay />
+					<Dialog.Content className="flex flex-col justify-center gap-lg text-center lg:h-fit">
+						<Dialog.Close asChild>
+							<button type="submit" className="ml-auto block p-md">
+								<span className="sr-only">Close</span>
+								<Icon icon="octagon-x" className="size-[1.5rem]" />
+							</button>
+						</Dialog.Close>
+						<Dialog.Title>Message was sent!</Dialog.Title>
+						<Dialog.Description className="-mt-md">Below you can see the card that was sent.</Dialog.Description>
+						<div className="center">
+							{image ? <img src={image} alt="Generated image" className="w-full bg-red-500" /> : null}
+						</div>
+						<Dialog.Close asChild>
+							<button type="button" data-btn="primary">Superb!</button>
+						</Dialog.Close>
+					</Dialog.Content>
+				</Dialog.Portal>
+			</Dialog.Root>
 		</Form.Root>
 	);
 };
