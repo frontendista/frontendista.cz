@@ -10,7 +10,7 @@ import { Textarea } from "./textarea";
 import { Icon } from "../common/icon";
 import { delayPromise } from "~/utils/promise";
 
-import { useState, type JSX, type FunctionComponent, type ComponentProps, useMemo } from "preact/compat";
+import { useState, type JSX, type FunctionComponent, type ComponentProps, useMemo, useRef } from "preact/compat";
 
 const Field = withClass(Form.Field, "focus-within:z-50");
 
@@ -41,6 +41,8 @@ export const ContactForm: FunctionComponent = () => {
 	const [serverErrors, setServerErrors] = useState<ServerErrors>(null);
 	const [image, setImage] = useState<string | null>(null);
 
+	const form = useRef<HTMLFormElement | null>(null);
+
 	const serverInvalid = useMemo(() => ({
 		email: serverErrors?.email?.[0] || false,
 		firstname: serverErrors?.firstname?.[0] || false,
@@ -57,6 +59,18 @@ export const ContactForm: FunctionComponent = () => {
 				[field]: undefined
 			};
 		});
+	};
+
+	
+	const resetForm = () => {
+		if (form.current) {
+			form.current.reset();
+			form.current.querySelectorAll("textarea").forEach(textarea => {
+				textarea.dispatchEvent(new Event("input"));
+			});
+		}
+
+		setImage(null);
 	};
 
 	const handleSubmit: JSX.SubmitEventHandler<HTMLFormElement> = async (event) => {
@@ -110,6 +124,7 @@ export const ContactForm: FunctionComponent = () => {
 			className="mx-auto mt-xl flex flex-col gap-lg lg:mt-0 lg:max-w-[50rem]"
 			onSubmit={handleSubmit}
 			onClearServerErrors={() => setServerErrors(null)}
+			ref={form}
 		>
 			<Field name="email">
 				<FieldHeader>
@@ -215,7 +230,7 @@ export const ContactForm: FunctionComponent = () => {
 
 			<p className="text-center text-sm font-thin">By clicking the "<b>SUBMIT</b>" button you agree to our <a href="#privacy" className="text-sm" data-link="text">privacy policy</a>.</p>
 
-			<Dialog.Root open={!!image} onOpenChange={() => setImage(null)}>
+			<Dialog.Root open={!!image} onOpenChange={resetForm}>
 				<Dialog.Portal>
 					<Dialog.Overlay />
 					<Dialog.Content className="flex flex-col justify-center gap-lg text-center lg:h-fit">

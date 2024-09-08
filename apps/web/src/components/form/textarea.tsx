@@ -49,7 +49,6 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(({ classN
 				}
 				onInput={onInputInternal}
 				maxLength={maxLength}
-				children={content}
 				{...props}
 			/>
 
