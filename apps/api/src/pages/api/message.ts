@@ -1,11 +1,11 @@
+import { createPrivateKey, createSign, randomUUID } from 'node:crypto';
+import { join } from 'node:path';
+import { readFile } from 'node:fs/promises';
+
 import satori from 'satori';
 import { html } from "satori-html"
 import { parseAsync } from 'valibot';
-import { Resvg } from "@resvg/resvg-js"
 import { Schemas } from "@frontendista/validation"
-
-import { join } from 'node:path';
-import { readFile } from 'node:fs/promises';
 
 import { asyncHandler } from '../../utils';
 
@@ -22,7 +22,7 @@ export const POST: APIRoute = asyncHandler(async ({ request }) => {
 
 	const font = await readFile(join(process.cwd(), FONT_PATH, 'test.ttf'))
 
-	const id = crypto.randomUUID()
+	const id = randomUUID()
 	const timestamp = Date.now()
 
 	const fullname = `${firstname || ''} ${lastname || ''}`.trim()
@@ -56,16 +56,26 @@ export const POST: APIRoute = asyncHandler(async ({ request }) => {
 		}
 	)
 
-	const resvg = new Resvg(svg)
+	const key = createPrivateKey({
+		key: import.meta.env.PRIVATE_KEY,
+		type: "sec1",
+		format: "pem"
+	})
 
-	const pngData = resvg.render()
-	const pngBuffer = pngData.asPng()
+	const signature = createSign("SHA256")
+		.update(svg)
+		.sign({
+			key,
+			// NOTE: https://stackoverflow.com/questions/39499040/generating-ecdsa-signature-with-node-js-crypto
+			dsaEncoding: "ieee-p1363"
+		})
+		.toString("base64")
 
-	// TODO: Digitally sign the image.
+	// TODO: Insert signature into SVG metadata body.
 
-	return new Response(pngBuffer, {
+	return new Response(svg, {
 		headers: {
-			'Content-Type': 'image/png'
+			'Content-Type': 'image/svg+xml'
 		}
 	})
 })
