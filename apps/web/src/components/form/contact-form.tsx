@@ -4,6 +4,7 @@ import { clsx } from "clsx";
 import * as Form from "@radix-ui/react-form";
 import * as Popover from "./radix/popover";
 import * as Dialog from "./radix/dialog";
+import { TextTooltip } from "./radix/tooltip";
 
 import { withClass } from "./hoc";
 import { Textarea } from "./textarea";
@@ -15,8 +16,6 @@ import { useState, type JSX, type FunctionComponent, type ComponentProps, useMem
 const Field = withClass(Form.Field, "focus-within:z-50");
 
 import "~/utils/global";
-import { Preview } from "./preview";
-import { TextTooltip } from "./radix/tooltip";
 
 export const FieldHeader: FunctionComponent<JSX.HTMLAttributes> = ({ children, className, ...props }) => {
 	return (
@@ -218,13 +217,13 @@ export const ContactForm: FunctionComponent = () => {
 						<Popover.Trigger asChild>
 							<button type="button" data-btn="primary" data-size="square" disabled={isLoading}>
 								<span className="sr-only">Open card preview</span>
-								<Icon icon="image" strokeWidth={3} title="Card preview" />
+								<Icon icon="sliders-horizontal" strokeWidth={3} title="Card preview" />
 							</button>
 						</Popover.Trigger>
 
 						<Popover.Portal>
 							<Popover.Content sideOffset={16} side="top">
-								<Preview form={form} />
+								TBD
 							</Popover.Content>
 						</Popover.Portal>
 					</Popover.Root>
