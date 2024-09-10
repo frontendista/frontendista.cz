@@ -32,6 +32,15 @@ const customUtilities = plugin(({ addUtilities, addVariant }) => {
 			backgroundSize: "50%",
 			backgroundRepeat: "no-repeat",
 			backgroundPosition: "center"
+		},
+		".counter": {
+			counterReset: "counter",
+			"& > li": {
+				"&:before": {
+					counterIncrement: "counter",
+					content: "counter(counter) '. '"
+				}
+			}
 		}
 	});
 });
