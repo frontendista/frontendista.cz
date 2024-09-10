@@ -278,7 +278,10 @@ export const ContactForm: FunctionComponent = () => {
 
 								<TextTooltip text="Please download the image first." show={!hasDownloaded}>
 									<Dialog.Close asChild>
-										<button type="button" data-btn="primary" disabled={!hasDownloaded}>Verify</button>
+										<button type="button" data-btn="primary" disabled={!hasDownloaded}>
+											Verify
+											<Icon icon="badge-check" />
+										</button>
 									</Dialog.Close>
 								</TextTooltip>
 							</div>
