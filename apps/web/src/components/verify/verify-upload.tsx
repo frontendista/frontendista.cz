@@ -18,10 +18,16 @@ export const VerifyUpload: FunctionComponent = () => {
 			const reader = new FileReader();
 
 			reader.onload = async (e) => {
-				const svg = e.target?.result as ArrayBuffer;
+				let svg = e.target?.result as string;
 
-				// TODO: Place signature into svg body.
-				const signature = base64ToUint8Array("Kv9JG3MbWW0XSGyzagJ2IPt570pv3jNPHM8dY+cJb9o43YTVjidNlpRfUex8M/5BaoW3qH3yYrM+GYZByrtrXw==");
+				const commentMatch = svg.match(/<!--(.*?)-->/);
+				const signatureString = commentMatch[1].trim();
+
+				svg = svg.replace(signatureString, "SIGNATURE");
+
+				const { buffer } = new TextEncoder().encode(svg);
+
+				const signature = base64ToUint8Array(signatureString);
 
 				const publicKey = await crypto.subtle.importKey(
 					"spki",
@@ -42,13 +48,13 @@ export const VerifyUpload: FunctionComponent = () => {
 					},
 					publicKey,
 					signature,
-					svg
+					buffer
 				);
 
 				console.log(isValid);
 			};	
 
-			reader.readAsArrayBuffer(file);
+			reader.readAsText(file);
 		}
 	};
 

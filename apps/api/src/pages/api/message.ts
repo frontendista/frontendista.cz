@@ -5,6 +5,7 @@ import { readFile } from 'node:fs/promises';
 import satori from 'satori';
 import { html } from "satori-html"
 import { parseAsync } from 'valibot';
+import { optimize } from "svgo";
 import { Schemas } from "@frontendista/validation"
 
 import { asyncHandler } from '../../utils';
@@ -29,7 +30,7 @@ export const POST: APIRoute = asyncHandler(async ({ request }) => {
 
 	// TODO: Get the number of the message from the database.
 
-	const svg = await satori(
+	let svg = await satori(
 		// @ts-ignore
 		html`
 			<div tw="bg-white h-full text-black flex items-center justify-center flex-col" style={{ fontFamily: "SUSE" }}>
@@ -56,6 +57,46 @@ export const POST: APIRoute = asyncHandler(async ({ request }) => {
 		}
 	)
 
+	const { data } = optimize(svg, {
+		path: id + ".svg",
+		multipass: true,
+		js2svg: {
+			pretty: true,
+			indent: 2
+		},
+		plugins: [
+			"removeDimensions",
+			{
+				name: "preset-default",
+				params: {
+					overrides: {
+						removeViewBox: false,
+						convertPathData: {
+							applyTransforms: false,
+							applyTransformsStroked: false,
+							straightCurves: false,
+							convertToQ: false,
+							lineShorthands: false,
+							convertToZ: false,
+							curveSmoothShorthands: false,
+							floatPrecision: 3,
+							transformPrecision: 5,
+							smartArcRounding: false,
+							removeUseless: false,
+							collapseRepeated: false,
+							utilizeAbsolute: false,
+							negativeExtraSpace: false,
+							forceAbsolutePath: false
+						}
+					}
+				}
+			}
+		]
+	})
+
+	svg = `<!--SIGNATURE-->
+${data}`
+
 	const key = createPrivateKey({
 		key: import.meta.env.PRIVATE_KEY,
 		type: "sec1",
@@ -72,6 +113,7 @@ export const POST: APIRoute = asyncHandler(async ({ request }) => {
 		.toString("base64")
 
 	// TODO: Insert signature into SVG metadata body.
+	svg = svg.replace("SIGNATURE", signature)
 
 	return new Response(svg, {
 		headers: {
