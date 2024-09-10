@@ -41,6 +41,10 @@ const customUtilities = plugin(({ addUtilities, addVariant }) => {
 					content: "counter(counter) '. '"
 				}
 			}
+		},
+		".tooltip-animation": {
+			transformOrigin: "var(--radix-tooltip-content-transform-origin)",
+			animation: "scale-in 0.25s ease-out"
 		}
 	});
 });
@@ -142,6 +146,9 @@ const config: Config = {
 			borderColor: {
 				primary: "rgb(var(--fg-primary) / <alpha-value>)",
 				secondary: "rgb(var(--fg-secondary) / <alpha-value>)",
+			},
+			fill: {
+				primary: "rgb(var(--bg-primary) / <alpha-value>)",
 			}
 		}
 	},
