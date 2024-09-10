@@ -37,10 +37,15 @@ export const MessageWithIcon: FunctionComponent<ComponentProps<typeof Form.Messa
 type Fields = keyof Schemas.MessageBody;
 type ServerErrors = Partial<Record<Fields, string[]>> | null;
 
+interface ImageData {
+	name: string;
+	src: string;
+}
+
 export const ContactForm: FunctionComponent = () => {
 	const [isLoading, setLoading] = useState(false);
 	const [serverErrors, setServerErrors] = useState<ServerErrors>(null);
-	const [image, setImage] = useState<string | null>(null);
+	const [image, setImage] = useState<ImageData | null>(null);
 
 	const form = useRef<HTMLFormElement | null>(null);
 
@@ -108,10 +113,15 @@ export const ContactForm: FunctionComponent = () => {
 				throw new Error("Something went wrong.");
 			}
 
+			const contentDisposition = response.headers.get("Content-Disposition");
+
 			const blob = await response.blob();
 			const image = URL.createObjectURL(blob);
 
-			setImage(image);
+			setImage({
+				name: contentDisposition?.split("filename=")[1] ?? "message.svg",
+				src: image,
+			});
 		} catch (error) {
 			// TODO: Better display error to users
 			window.alert("Something went wrong. Please try again later.");
@@ -247,7 +257,7 @@ export const ContactForm: FunctionComponent = () => {
 						<Dialog.Description className="-mt-md">Below you can see the card that was sent.</Dialog.Description>
 						{/* TODO: Download button for the image. */}
 						<div className="center">
-							{image ? <img src={image} alt="Generated image" className="w-full" /> : null}
+							{image ? <img src={image.src} alt="Generated image" className="w-full" /> : null}
 						</div>
 						<Dialog.Close asChild>
 							<button type="button" data-btn="primary">Superb!</button>

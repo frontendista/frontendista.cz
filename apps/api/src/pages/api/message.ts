@@ -117,7 +117,9 @@ ${data}`
 
 	return new Response(svg, {
 		headers: {
-			'Content-Type': 'image/svg+xml'
+			'Content-Type': 'image/svg+xml',
+			'Content-Disposition': `attachment; filename=${id}.svg`,
+			'Access-Control-Expose-Headers': 'Content-Disposition'
 		}
 	})
 })
