@@ -3,6 +3,7 @@ import { DropZone, Button, FileTrigger } from "react-aria-components";
 import clsx from "clsx";
 
 import type { FunctionComponent, ComponentProps } from "preact";
+import { Icon } from "../common/icon";
 
 function base64ToUint8Array(base64: string) {
 	const binaryString = atob(base64);
@@ -154,7 +155,10 @@ export const VerifyUpload: FunctionComponent = () => {
 					) : (
 						<>
 							<p>Drag and drop SVG here</p>
-							<Button data-btn="primary" className="w-auto">Select SVG</Button>
+							<Button data-btn="primary" className="w-auto">
+								Select SVG
+								<Icon icon="image-plus" />
+							</Button>
 						</>
 					)}
 				</FileTrigger>
@@ -163,11 +167,17 @@ export const VerifyUpload: FunctionComponent = () => {
 			{file ? (
 				<ul className="mt-lg flex flex-wrap-reverse gap-lg">
 					<li className="grow basis-[calc(50%-theme('gap.lg'))]">
-						<button className="whitespace-nowrap" data-btn={isValid !== null ? "primary": "secondary"} disabled={!file} onClick={onClear}>Remove SVG</button>
+						<button className="whitespace-nowrap" data-btn={isValid !== null ? "primary": "secondary"} disabled={!file} onClick={onClear}>
+							Remove
+							<Icon icon="trash-2" />
+						</button>
 					</li>
 					{isValid === null ? (
 						<li className="grow basis-[calc(50%-theme('gap.lg'))]">
-							<button className="whitespace-nowrap" data-btn="primary" disabled={!file} onClick={onVerify}>Verify SVG</button>
+							<button className="whitespace-nowrap" data-btn="primary" disabled={!file} onClick={onVerify}>
+								Verify
+								<Icon icon="badge-check" />
+							</button>
 						</li>
 					) : null}
 				</ul>
