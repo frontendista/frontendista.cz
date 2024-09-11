@@ -1,4 +1,4 @@
-import { useEffect, useState } from "preact/hooks";
+import { useState } from "preact/hooks";
 import { DropZone, Button, FileTrigger } from "react-aria-components";
 import clsx from "clsx";
 
@@ -38,39 +38,44 @@ export const VerifyUpload: FunctionComponent = () => {
 		const reader = new FileReader();
 
 		reader.onload = async (e) => {
-			let svg = e.target?.result as string;
+			try {
+				let svg = e.target?.result as string;
 
-			const commentMatch = svg.match(/<!--(.*?)-->/);
-			const signatureString = commentMatch[1].trim();
+				const commentMatch = svg.match(/<!--(.*?)-->/);
+				const signatureString = commentMatch[1].trim();
 
-			svg = svg.replace(signatureString, "SIGNATURE");
+				svg = svg.replace(signatureString, "SIGNATURE");
 
-			const { buffer } = new TextEncoder().encode(svg);
+				const { buffer } = new TextEncoder().encode(svg);
 
-			const signature = base64ToUint8Array(signatureString);
+				const signature = base64ToUint8Array(signatureString);
 
-			const publicKey = await crypto.subtle.importKey(
-				"spki",
-				PUBLIC_KEY,
-				{
-					name: "ECDSA",
-					namedCurve: "P-256"
-				},
-				false,
-				["verify"]
-			);
+				const publicKey = await crypto.subtle.importKey(
+					"spki",
+					PUBLIC_KEY,
+					{
+						name: "ECDSA",
+						namedCurve: "P-256"
+					},
+					false,
+					["verify"]
+				);
 
-			const isValid = await crypto.subtle.verify(
-				{
-					name: "ECDSA",
-					hash: { name: "SHA-256" }
-				},
-				publicKey,
-				signature,
-				buffer
-			);
+				const isValid = await crypto.subtle.verify(
+					{
+						name: "ECDSA",
+						hash: { name: "SHA-256" }
+					},
+					publicKey,
+					signature,
+					buffer
+				);
 
-			setValid(isValid);
+				setValid(isValid);
+			} catch (error) {
+				console.log(error);
+				setValid(false);
+			}
 		};
 
 		reader.onerror = () => {
@@ -87,6 +92,8 @@ export const VerifyUpload: FunctionComponent = () => {
 	};
 
 	const onDrop: DropzoneProps["onDrop"] = async (e) => {
+		onClear();
+
 		const [droppedFile] = e.items
 			.filter(item => item.kind === "file")
 			.filter(file => file.type === "image/svg+xml");
@@ -104,6 +111,8 @@ export const VerifyUpload: FunctionComponent = () => {
 	};
 
 	const onSelect: FileTriggerProps["onSelect"] = async (e) => {
+		onClear();
+
 		if (!e) {
 			console.error("TODO: Handle");
 			return;
@@ -124,34 +133,51 @@ export const VerifyUpload: FunctionComponent = () => {
 	};
 
 	const className: DropzoneProps["className"] = ({ isDropTarget }) => clsx(
-		"flex aspect-video flex-col items-center justify-center gap-lg border-2 transition-colors",
+		"box-content flex aspect-video flex-col items-center justify-center gap-lg border-[3px] p-lg transition-colors",
 		{
 			"border-dashed": !isDropTarget && !url,
-			"bg-brand-500 border-solid": isDropTarget
+			"bg-brand-500": isDropTarget,
+			"border-ok-500 bg-ok-500/25": isValid,
+			"border-error-600 bg-error-600/25": isValid === false
 		}
 	);
 
 	return (
 		<>
-			<DropZone aria-label="Drop SVG file for verification" onDrop={onDrop} getDropOperation={(types) => types.has("image/svg+xml") ? "move" : "cancel"} className={className}>
+			<DropZone data-nofocus aria-label="Drop SVG file for verification" onDrop={onDrop} getDropOperation={(types) => types.has("image/svg+xml") ? "move" : "cancel"} className={className}>
 				<FileTrigger onSelect={onSelect} acceptedFileTypes={["image/svg+xml"]}>
 					{url && file ? (
-						<Button className="size-full center">
+						<Button className="size-full h-auto center">
 							<span className="sr-only">Select SVG</span>
-							<img src={url} alt={`SVG file with id '${file.name.replace(".svg", "")}'.`} />
+							<img className="animate-fade-in" src={url} alt={`SVG file with id '${file.name.replace(".svg", "")}'.`} />
 						</Button>
-					) : <Button data-btn="primary" className="w-auto">Select SVG</Button>}
+					) : (
+						<>
+							<p>Drag and drop SVG here</p>
+							<Button data-btn="primary" className="w-auto">Select SVG</Button>
+						</>
+					)}
 				</FileTrigger>
 			</DropZone>
 
-			<ul className="mt-lg flex gap-lg">
-				<li className="grow basis-1/2">
-					<button data-btn="secondary" disabled={!file} onClick={onClear}>Remove file</button>
-				</li>
-				<li className="grow basis-1/2">
-					<button data-btn="primary" disabled={!file} onClick={onVerify}>Verify</button>
-				</li>
-			</ul>
+			{file ? (
+				<ul className="mt-lg flex flex-wrap-reverse gap-lg">
+					<li className="grow basis-[calc(50%-theme('gap.lg'))]">
+						<button className="whitespace-nowrap" data-btn={isValid !== null ? "primary": "secondary"} disabled={!file} onClick={onClear}>Remove SVG</button>
+					</li>
+					{isValid === null ? (
+						<li className="grow basis-[calc(50%-theme('gap.lg'))]">
+							<button className="whitespace-nowrap" data-btn="primary" disabled={!file} onClick={onVerify}>Verify SVG</button>
+						</li>
+					) : null}
+				</ul>
+			) : null}
+
+			{isValid ? (
+				<p className="mt-lg border-[3px] border-ok-500 bg-ok-500/25 px-lg py-[1.6875rem] leading-none">
+					Valid!
+				</p>
+			) : null}
 		</>
 	);
 };

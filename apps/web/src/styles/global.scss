@@ -105,13 +105,13 @@
 		}
 
 
-		&:has(:focus-visible:not(:is([role="dialog"] *), [aria-label="DropZone"])) {
+		&:has(:focus-visible:not(:is([role="dialog"] *), [data-nofocus] *)) {
 			&::after {
 				background: theme("backgroundColor.primary / 90%");
 			}
 		}
 	
-		&:not(:has(:focus-visible:not(:is([role="dialog"] *), [aria-label="DropZone"]))) {
+		&:not(:has(:focus-visible:not(:is([role="dialog"] *), [data-nofocus] *))) {
 			&::after {
 				background: theme("backgroundColor.primary / 0%");
 				backdrop-filter: none;
