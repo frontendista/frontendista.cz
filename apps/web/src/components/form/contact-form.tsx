@@ -135,7 +135,7 @@ export const ContactForm: FunctionComponent = () => {
 
 	return (
 		<Form.Root
-			className="mx-auto mt-xl flex flex-col gap-lg lg:mt-0 lg:max-w-[50rem]"
+			className="mx-auto mt-xl flex flex-col gap-lg lg:mt-0 lg:max-w-form"
 			onSubmit={handleSubmit}
 			onClearServerErrors={() => setServerErrors(null)}
 			ref={form}

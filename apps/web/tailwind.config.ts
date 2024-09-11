@@ -133,7 +133,8 @@ const config: Config = {
 				view: "var(--vh, var(--view-height))"
 			},
 			maxWidth: {
-				content: "120rem"
+				content: "120rem",
+				form: "50rem"
 			},
 			textColor: {
 				primary: "rgb(var(--fg-primary) / <alpha-value>)",
@@ -142,6 +143,7 @@ const config: Config = {
 			backgroundColor: {
 				primary: "rgb(var(--bg-primary) / <alpha-value>)",
 				secondary: "rgb(var(--bg-secondary) / <alpha-value>)",
+				fg: "rgb(var(--fg-primary) / <alpha-value>)",
 			},
 			borderColor: {
 				primary: "rgb(var(--fg-primary) / <alpha-value>)",

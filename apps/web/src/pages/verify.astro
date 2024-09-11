@@ -5,5 +5,9 @@ import { VerifyUpload } from "~/components/verify/verify-upload";
 ---
 
 <HMFLayout>
-	<VerifyUpload client:idle />
+	<div class="min-h-view center">
+		<div class="w-full max-w-form bg-secondary p-lg focus-within:relative focus-within:z-50">
+			<VerifyUpload client:idle />
+		</div>
+	</div>
 </HMFLayout>
