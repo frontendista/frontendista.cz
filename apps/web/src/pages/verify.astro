@@ -4,10 +4,24 @@ import HMFLayout from "~/layouts/hmf-layout.astro";
 import { VerifyUpload } from "~/components/verify/verify-upload";
 ---
 
-<HMFLayout>
-	<div class="min-h-view center">
-		<div class="w-full max-w-form bg-secondary p-lg focus-within:relative focus-within:z-50">
-			<VerifyUpload client:idle />
-		</div>
+<HMFLayout classNames={{
+	main: "min-h-view pt-[5rem] max-w-form mx-auto"
+}}>
+	<header class="mb-lg flex flex-col gap-lg">
+		<h1>Verification</h1>
+		<p>
+			On this page, you can verify the uniqueness of your generated message card.
+			The card is signed using the ECDSA asymmetric encryption algorithm.
+			Ensure that the card has not been altered; otherwise, the verification will fail.
+		</p>
+		<p>
+			To verify the card, drag and drop the card file into the designated area below, or click the "SELECT SVG" button to choose the file.
+		</p>
+		<p>
+			Please note that the card is not sent anywhere; the verification process is completed locally within your browser.
+		</p>
+	</header>
+	<div class="w-full max-w-form bg-secondary p-lg focus-within:relative focus-within:z-50">
+		<VerifyUpload client:idle />
 	</div>
 </HMFLayout>

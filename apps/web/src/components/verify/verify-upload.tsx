@@ -1,8 +1,8 @@
-import { useState } from "preact/hooks";
-import { DropZone, Button, FileTrigger, Text } from "react-aria-components";
+import { useEffect, useState } from "preact/hooks";
+import { DropZone, Button, FileTrigger } from "react-aria-components";
+import clsx from "clsx";
 
 import type { FunctionComponent, ComponentProps } from "preact";
-import clsx from "clsx";
 
 function base64ToUint8Array(base64: string) {
 	const binaryString = atob(base64);
@@ -23,55 +23,68 @@ async function createObjectURL(file: File) {
 type DropzoneProps = ComponentProps<typeof DropZone>
 type FileTriggerProps = ComponentProps<typeof FileTrigger>
 
+const PUBLIC_KEY = base64ToUint8Array("MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEfybPmda7WiwqVMphb1/ETpEvNDaUPA/y/mYUkgJz4t+CEskFu/wvIkmbsCtIHz80Vd0PJTYxBdXwKTM+IhCcMw==");
+
 export const VerifyUpload: FunctionComponent = () => {
 	const [file, setFile] = useState<File | null>(null);
 	const [url, setUrl] = useState<string | null>(null);
+	const [isValid, setValid] = useState<boolean | null>(null);
 
-	// const onChange: JSX.InputEventHandler<HTMLInputElement> = (e) => {
-	// 	if (e.currentTarget.files && e.currentTarget.files[0]) {
-	// 		const file = e.currentTarget.files[0];
-	// 		const reader = new FileReader();
+	const onVerify = () => {
+		if (!file) {
+			return;
+		}
 
-	// 		reader.onload = async (e) => {
-	// 			let svg = e.target?.result as string;
+		const reader = new FileReader();
 
-	// 			const commentMatch = svg.match(/<!--(.*?)-->/);
-	// 			const signatureString = commentMatch[1].trim();
+		reader.onload = async (e) => {
+			let svg = e.target?.result as string;
 
-	// 			svg = svg.replace(signatureString, "SIGNATURE");
+			const commentMatch = svg.match(/<!--(.*?)-->/);
+			const signatureString = commentMatch[1].trim();
 
-	// 			const { buffer } = new TextEncoder().encode(svg);
+			svg = svg.replace(signatureString, "SIGNATURE");
 
-	// 			const signature = base64ToUint8Array(signatureString);
+			const { buffer } = new TextEncoder().encode(svg);
 
-	// 			const publicKey = await crypto.subtle.importKey(
-	// 				"spki",
-	// 				// TODO: extract key to const variable
-	// 				base64ToUint8Array("MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEfybPmda7WiwqVMphb1/ETpEvNDaUPA/y/mYUkgJz4t+CEskFu/wvIkmbsCtIHz80Vd0PJTYxBdXwKTM+IhCcMw=="),
-	// 				{
-	// 					name: "ECDSA",
-	// 					namedCurve: "P-256"
-	// 				},
-	// 				false,
-	// 				["verify"]
-	// 			);
+			const signature = base64ToUint8Array(signatureString);
 
-	// 			const isValid = await crypto.subtle.verify(
-	// 				{
-	// 					name: "ECDSA",
-	// 					hash: { name: "SHA-256" }
-	// 				},
-	// 				publicKey,
-	// 				signature,
-	// 				buffer
-	// 			);
+			const publicKey = await crypto.subtle.importKey(
+				"spki",
+				PUBLIC_KEY,
+				{
+					name: "ECDSA",
+					namedCurve: "P-256"
+				},
+				false,
+				["verify"]
+			);
 
-	// 			console.log(isValid);
-	// 		};
+			const isValid = await crypto.subtle.verify(
+				{
+					name: "ECDSA",
+					hash: { name: "SHA-256" }
+				},
+				publicKey,
+				signature,
+				buffer
+			);
 
-	// 		reader.readAsText(file);
-	// 	}
-	// };
+			setValid(isValid);
+		};
+
+		reader.onerror = () => {
+
+		};
+
+		reader.readAsText(file);
+	};
+
+	const onClear = () => {
+		setFile(null);
+		setUrl(null);
+		setValid(null);
+	};
 
 	const onDrop: DropzoneProps["onDrop"] = async (e) => {
 		const [droppedFile] = e.items
@@ -100,7 +113,7 @@ export const VerifyUpload: FunctionComponent = () => {
 			.filter(file => file.type === "image/svg+xml");
 
 		if (!file) {
-			console.error("Invalid file type");
+			console.error("TODO: Handle");
 			return;
 		}
 
@@ -119,15 +132,26 @@ export const VerifyUpload: FunctionComponent = () => {
 	);
 
 	return (
-		<DropZone aria-label="Drop SVG file for verification" onDrop={onDrop} getDropOperation={(types) => types.has("image/svg+xml") ? "move" : "cancel"} className={className}>
-			<FileTrigger onSelect={onSelect} acceptedFileTypes={["image/svg+xml"]}>
-				{url && file ? (
-					<Button className="size-full center">
-						<span className="sr-only">Select SVG</span>
-						<img src={url} alt={`SVG file with id '${file.name.replace(".svg", "")}'.`} />
-					</Button>
-				) : <Button data-btn="primary" className="w-auto">Select SVG</Button>}
-			</FileTrigger>
-		</DropZone>
+		<>
+			<DropZone aria-label="Drop SVG file for verification" onDrop={onDrop} getDropOperation={(types) => types.has("image/svg+xml") ? "move" : "cancel"} className={className}>
+				<FileTrigger onSelect={onSelect} acceptedFileTypes={["image/svg+xml"]}>
+					{url && file ? (
+						<Button className="size-full center">
+							<span className="sr-only">Select SVG</span>
+							<img src={url} alt={`SVG file with id '${file.name.replace(".svg", "")}'.`} />
+						</Button>
+					) : <Button data-btn="primary" className="w-auto">Select SVG</Button>}
+				</FileTrigger>
+			</DropZone>
+
+			<ul className="mt-lg flex gap-lg">
+				<li className="grow basis-1/2">
+					<button data-btn="secondary" disabled={!file} onClick={onClear}>Remove file</button>
+				</li>
+				<li className="grow basis-1/2">
+					<button data-btn="primary" disabled={!file} onClick={onVerify}>Verify</button>
+				</li>
+			</ul>
+		</>
 	);
 };

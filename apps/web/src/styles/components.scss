@@ -95,18 +95,21 @@
 			}
 		}
 
-		@media (pointer: fine) {
-			&:hover {
-				background: theme("textColor.primary");
-				color: theme("backgroundColor.primary");
-			}
+		&:not(:disabled) {
+			@media (pointer: fine) {
+				&:hover {
+					background: theme("textColor.primary");
+					color: theme("backgroundColor.primary");
+				}
 
-			&:active {
-				background: theme("colors.brand.600");
-				border-color: theme("colors.brand.600");
-
-				&::before {
+				&:active {
+					background: theme("colors.brand.600");
 					border-color: theme("colors.brand.600");
+					color: theme("backgroundColor.primary");
+
+					&::before {
+						border-color: theme("colors.brand.600");
+					}
 				}
 			}
 		}
