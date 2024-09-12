@@ -154,8 +154,8 @@ export const ContactForm: FunctionComponent = () => {
 				</Form.Control>
 			</Field>
 
-			<div className="flex flex-col gap-xl sm:flex-row">
-				<Field name="firstname" className="grow">
+			<div className="flex flex-col gap-lg sm:flex-row">
+				<Field name="firstname" className="grow basis-[calc(50%-theme('gap.lg'))]">
 					<FieldHeader>
 						<Form.Label>First name</Form.Label>
 						<MessageWithIcon match="tooShort">First name too short</MessageWithIcon>
@@ -172,7 +172,7 @@ export const ContactForm: FunctionComponent = () => {
 					</Form.Control>
 				</Field>
 
-				<Field name="lastname" className="grow">
+				<Field name="lastname" className="grow basis-[calc(50%-theme('gap.lg'))]">
 					<FieldHeader>
 						<Form.Label>Last name</Form.Label>
 						<MessageWithIcon match="tooShort">Last name too short</MessageWithIcon>
@@ -208,7 +208,8 @@ export const ContactForm: FunctionComponent = () => {
 						maxLength={ContactFormValidation.MESSAGE_MAX_LENGTH}
 						topText="Hello,"
 						bottomText="Bye 👋"
-						disabled={isLoading} />
+						disabled={isLoading}
+					/>
 				</Form.Control>
 			</Field>
 

@@ -33,7 +33,7 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(({ classN
 	}, [maxLength, content]);
 
 	return (
-		<div className="relative">
+		<div className="relative flex">
 			<textarea
 				ref={ref}
 				data-input

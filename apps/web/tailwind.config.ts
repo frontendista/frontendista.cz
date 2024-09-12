@@ -166,6 +166,7 @@ const config: Config = {
 				secondary: "rgb(var(--fg-secondary) / <alpha-value>)",
 			},
 			backgroundColor: {
+				hero: "rgb(var(--bg-hero) / <alpha-value>)",
 				primary: "rgb(var(--bg-primary) / <alpha-value>)",
 				secondary: "rgb(var(--bg-secondary) / <alpha-value>)",
 				fg: "rgb(var(--fg-primary) / <alpha-value>)",
