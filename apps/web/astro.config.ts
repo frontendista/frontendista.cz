@@ -101,11 +101,7 @@ if (process.env.VERCEL_ENV === "production") {
 }
 
 export default defineConfig({
-	adapter: vercel({
-		webAnalytics: {
-			enabled: process.env.VERCEL_ENV === "production"
-		}
-	}),
+	adapter: vercel(),
 	markdown: {
 		rehypePlugins: [
 			rehypeHeadingIds,
