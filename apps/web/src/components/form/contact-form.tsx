@@ -42,6 +42,8 @@ interface ImageData {
 	src: string;
 }
 
+// TODO: Privacy policy
+
 export const ContactForm: FunctionComponent = () => {
 	const [isLoading, setLoading] = useState(false);
 	const [serverErrors, setServerErrors] = useState<ServerErrors>(null);

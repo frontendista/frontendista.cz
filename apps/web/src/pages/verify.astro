@@ -1,16 +1,17 @@
 ---
 import HMFLayout from "~/layouts/hmf-layout.astro";
 
+import Link from "~/components/common/link.astro";
 import { VerifyUpload } from "~/components/verify/verify-upload";
 
 import VerifySpritesheet from "~/assets/svg/spritesheet/verify.astro";
 ---
 
 <HMFLayout classNames={{
-	main: "min-h-view pt-[5rem] max-w-form mx-auto px-lg lg:px-0"
+	main: "pt-[5rem] max-w-form mx-auto px-lg lg:px-0"
 }}>
 	<VerifySpritesheet slot="body_start" />
-	<header class="mb-lg flex flex-col gap-lg">
+	<header class="flex flex-col items-center gap-lg">
 		<h1>Verification</h1>
 		<p>
 			On this page, you can verify the uniqueness of your generated message card.
@@ -19,13 +20,14 @@ import VerifySpritesheet from "~/assets/svg/spritesheet/verify.astro";
 		</p>
 		<p>
 			To verify the card, drag and drop the card file into the designated area below, or click the "SELECT SVG" button to choose the file.
-			Click "VERIFY SVG" button to verify the card.
+			Click "VERIFY" button to verify the card.
 		</p>
 		<p>
 			Please note that the card is not sent anywhere; the verification process is completed locally within your browser.
 		</p>
 	</header>
-	<div class="w-full max-w-form bg-secondary p-lg">
+	<div class="my-lg w-full max-w-form bg-secondary p-lg">
 		<VerifyUpload client:idle />
 	</div>
+	<p>If you don't have your own card yet, it's easy to get one — simply fill out my contact form <Link href="/#contact" kind="text">here</Link> and drop me a message!</p>
 </HMFLayout>

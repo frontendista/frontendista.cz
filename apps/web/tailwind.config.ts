@@ -108,15 +108,19 @@ const config: Config = {
 			},
 			colors: {
 				ok: {
+					"300": "oklch(87.12% 0.26 154.45 / <alpha-value>)",
 					"400": "oklch(80.03% 0.29 151.71 / <alpha-value>)",
 					"500": "oklch(72.27% 0.28 149.58 / <alpha-value>)",
-					"800": "oklch(44.79% 0.16 151.33 / <alpha-value>)"
+					"800": "oklch(44.79% 0.16 151.33 / <alpha-value>)",
+					"950": "oklch(26.64% 0.09 152.93 / <alpha-value>)"
 				},
 				warning: {
 					"600": "oklch(86.06% 0.2 91.94 / <alpha-value>)"
 				},
 				error: {
-					"600": "oklch(57.71% 0.26 27.33 / <alpha-value>)"
+					"300": "oklch(80.77% 0.14 19.57 / <alpha-value>)",
+					"600": "oklch(57.71% 0.26 27.33 / <alpha-value>)",
+					"950": "oklch(25.75% 0.11 26.04 / <alpha-value>)"
 				},
 				brand: {
 					"300": "oklch(83.3% 0.15 321.43 / <alpha-value>)",
