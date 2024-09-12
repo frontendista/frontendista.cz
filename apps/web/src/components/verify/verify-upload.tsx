@@ -136,10 +136,10 @@ export const VerifyUpload: FunctionComponent = () => {
 	};
 
 	const className: DropzoneProps["className"] = ({ isDropTarget }) => clsx(
-		"box-content flex aspect-video flex-col items-center justify-center gap-lg border-[3px] p-lg transition-colors",
+		"box-content flex aspect-video flex-col justify-center gap-lg border-[3px] p-lg transition-colors",
 		{
-			"border-dashed": !isDropTarget && !url,
-			"bg-brand-500": isDropTarget,
+			"border-dashed bg-brand-500/5": !isDropTarget && !url,
+			"bg-brand-500/25": isDropTarget,
 			"border-ok-500 bg-ok-500/25": isValid,
 			"border-error-600 bg-error-600/25": isValid === false
 		}
@@ -155,13 +155,14 @@ export const VerifyUpload: FunctionComponent = () => {
 							<img className="animate-fade-in" src={url} alt={`SVG file with id '${file.name.replace(".svg", "")}'.`} />
 						</Button>
 					) : (
-						<>
-							<p>Drag and drop SVG here</p>
+						<div className="mx-auto flex max-w-fit flex-col items-center gap-lg">
+							<Icon icon="image-plus" className="max-w-[2rem]" strokeWidth="2" />
+							<p className="leading-none">Drag and drop SVG here</p>
+							<span className="leading-none text-secondary lines">or</span>
 							<Button data-btn="primary" className="w-auto">
 								Select SVG
-								<Icon icon="image-plus" />
 							</Button>
-						</>
+						</div>
 					)}
 				</FileTrigger>
 			</DropZone>
@@ -187,7 +188,7 @@ export const VerifyUpload: FunctionComponent = () => {
 
 			{isValid !== null ? (
 				<p className={clsx(
-					"mt-lg border-[3px] px-lg py-[1.6875rem] text-center font-bold uppercase leading-none ",
+					"mt-lg border-[3px] px-lg py-[1.6875rem] text-center font-bold uppercase",
 					{
 						"bg-ok-500/25 text-ok-300 border-ok-500": isValid,
 						"bg-error-600/25 text-error-300 border-error-600": !isValid

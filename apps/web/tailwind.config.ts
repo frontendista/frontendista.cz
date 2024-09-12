@@ -19,6 +19,27 @@ const customUtilities = plugin(({ addUtilities, addVariant }) => {
 			justifyContent: "center",
 			alignItems: "center"
 		},
+		".lines": {
+			display: "inline-flex",
+			alignItems: "center",
+			width: "100%",
+			fontWeight: "bold",
+			gap: "1rem",
+			"&:before": {
+				content: "''",
+				display: "block",
+				width: "100%",
+				height: "3px",
+				backgroundColor: "currentColor"
+			},
+			"&:after": {
+				content: "''",
+				display: "block",
+				width: "100%",
+				height: "3px",
+				backgroundColor: "currentColor"
+			}
+		},
 		".brackets": {
 			"&:before": {
 				content: "'['"
