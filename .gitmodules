@@ -1,0 +1,3 @@
+[submodule "apps/cloudflare"]
+	path = apps/cloudflare
+	url = git@github.com:frontendista/api.frontendista.cz.git
