@@ -1,0 +1,82 @@
+---
+import HMFLayout from "~/layouts/hmf-layout.astro";
+import Heading from "../components/common/heading.astro";
+import Link from "../components/common/link.astro";
+
+const name = "Pavel Sušický";
+const generatedAt = new Date("2024-09-01");
+---
+
+<HMFLayout classNames={{
+	main: "mx-auto flex max-w-content flex-col gap-xl px-lg mt-[5rem] lg:px-2xl [&_p]:max-w-[80ch] counter-section"
+}}>
+	<header>
+		<Heading class="mb-xl">Privacy Policy</Heading>
+		<p class="mb-xl">Effective Date: <time datetime={generatedAt.toISOString()}>{generatedAt.toLocaleDateString("en", { year: "numeric", month: "short", day: "numeric" })}</time></p>
+		<p>{name} ("I", "me", "my") operates the personal website accessible from <Link href="https://frontendista.cz" kind="text" showIcon={false}>frontendista.cz</Link> ("Website").</p>
+		<p>This Privacy Policy outlines how I collect, use, and protect personal information through my Website.</p>
+	</header>
+
+	<section>
+		<Heading class="mb-xl" as="h2">Information collection</Heading>
+		<p>My contact form allows users to submit inquiries with the following fields:</p>
+		<ul data-list="text">
+			<li>Email (optional): Used for responding to your inquiry.</li>
+			<li>First Name (optional): Used for addressing you when responding to your inquiry.</li>
+			<li>Last Name (optional): Used for addressing you when responding to your inquiry.</li>
+			<li>Message (required): Used to communicate with me regarding your inquiry.</li>
+		</ul>
+	</section>
+
+	<section>
+		<Heading class="mb-xl" as="h2">How information is used</Heading>
+		<p>The information submitted via the contact form is used solely for the purpose of responding to your inquiry. If you choose to provide your email, first name, or last name, they will only be used to address you personally in the response.</p>
+		<p>Third-party service: The email containing your inquiry is sent using the service <Link href="https://resend.com" kind="text">resend.com</Link>.</p>
+		<p>Third-party service: Email is retained in my personal <Link href="https://www.google.com/intl/cs/gmail/about/" kind="text">Gmail</Link> address</p>
+	</section>
+
+	<section>
+		<Heading class="mb-xl" as="h2">Data retention</Heading>
+		<p>The information you submit, including personal details and the message, is retained in my Gmail account until the inquiry is resolved, inquiry will be deleted after 12 months unless required for legal or business purposes.".</p>
+	</section>
+
+	<section>
+		<Heading class="mb-xl" as="h2">Third-Party Service Providers</Heading>
+		<p>I use <Link href="https://resend.com" kind="text">resend.com</Link> to facilitate the email transmission of your inquiry.</p>
+		<p>This service may process data on my behalf but does not store or retain your information.</p>
+		<p>For more information on how <Link href="https://resend.com" kind="text">resend.com</Link> handles data, please refer to their privacy policy.</p>
+	</section>
+
+	<section>
+		<Heading class="mb-xl" as="h2">Your rights</Heading>
+		<p>You have the right to:</p>
+		<ul data-list="text">
+			<li>Request access to the personal information you have submitted.</li>
+			<li>Request deletion or correction of your personal information.</li>
+			<li>Withdraw consent for me to process your data (e.g., ask me to stop responding to inquiries).</li>
+		</ul>
+		<p>To exercise these rights, please contact me at <Link href="mailto:me@frontendista.cz" kind="text">me@frontendista.cz</Link>.</p>
+		<p>Withdrawing your consent will not affect the lawfulness of any processing carried out before the withdrawal.</p>
+	</section>
+
+	<section>
+		<Heading class="mb-xl" as="h2">Security</Heading>
+		<p>I take reasonable steps to protect your personal information.</p>
+		<p>However, no transmission of data over the Internet is completely secure.</p>
+		<p>By submitting information through the contact form, you acknowledge the risks associated with online communication.</p>
+	</section>
+
+	<section>
+		<Heading class="mb-xl" as="h2">Changes to This Policy</Heading>
+		<p>I reserve the right to modify this Privacy Policy at any time.</p>
+		<p>Any changes will be posted on this page, and the updated Privacy Policy will indicate the effective date.</p>
+	</section>
+
+	<!--
+	Legal basis for processing (missing).
+	Clarity on third-party data processing and international transfer (incomplete).
+	Right to data portability and objection (missing).
+	Right to lodge a complaint with a data authority (missing).
+	Consent mechanism (unclear if present).
+	-->
+</HMFLayout>

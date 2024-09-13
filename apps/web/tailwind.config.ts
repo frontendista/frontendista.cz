@@ -59,7 +59,18 @@ const customUtilities = plugin(({ addUtilities, addVariant }) => {
 			"& > li": {
 				"&:before": {
 					counterIncrement: "counter",
-					content: "counter(counter) '. '"
+					content: "counter(counter) '.'",
+					marginRight: "0.25em"
+				}
+			}
+		},
+		".counter-section": {
+			counterReset: "section",
+			"& > section > h2": {
+				"&:before": {
+					counterIncrement: "section",
+					content: "counter(section) '. '",
+					marginRight: "0.25em"
 				}
 			}
 		},

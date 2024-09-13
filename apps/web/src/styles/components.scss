@@ -178,7 +178,7 @@
 	}
 
 	[data-input] {
-		border: 1px solid theme("borderColor.secondary");
+		border: 3px solid theme("borderColor.secondary");
 		border-radius: 0;
 		background: none;
 		width: 100%;
@@ -196,5 +196,25 @@
 		&[data-invalid="true"] {
 			border-color: theme("colors.error.600");
 		}
+	}
+
+	[data-list] {
+		list-style: disc;
+		line-height: 1.5;
+		font-weight: 500;
+	}
+
+	[data-list="text"] {
+		padding-left: 1.5em;
+		margin: 1em 0;
+
+		&:last-childd {
+			margin-bottom: 0;
+		}
+	}
+
+	[data-list="ol"] {
+		list-style: none;
+		@apply counter;
 	}
 }
