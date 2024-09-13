@@ -7,12 +7,17 @@ import { VerifyUpload } from "~/components/verify/verify-upload";
 import VerifySpritesheet from "~/assets/svg/spritesheet/verify.astro";
 ---
 
-<HMFLayout classNames={{
-	main: "pt-[5rem] max-w-form mx-auto px-lg lg:px-0"
-}}>
+<HMFLayout
+	noIndex
+	title={{
+		default: "Pavel Sušický - Card verification"
+	}}
+	classNames={{
+		main: "pt-[5rem] max-w-form mx-auto px-lg lg:px-0"
+	}}>
 	<VerifySpritesheet slot="body_start" />
 	<header class="flex flex-col items-center gap-lg">
-		<h1>Verification</h1>
+		<h1>Card verification</h1>
 		<p>
 			On this page, you can verify the uniqueness of your generated message card.
 			The card is signed using the ECDSA asymmetric encryption algorithm.

@@ -24,7 +24,7 @@ async function createObjectURL(file: File) {
 type DropzoneProps = ComponentProps<typeof DropZone>
 type FileTriggerProps = ComponentProps<typeof FileTrigger>
 
-const PUBLIC_KEY = base64ToUint8Array("MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEfybPmda7WiwqVMphb1/ETpEvNDaUPA/y/mYUkgJz4t+CEskFu/wvIkmbsCtIHz80Vd0PJTYxBdXwKTM+IhCcMw==");
+const PUBLIC_KEY = base64ToUint8Array("MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEgFcPEW0BhrmqHm+4P4UIPGa7cXCniPP2GCr6ZYWEeimkJwwsZir6fXAEv4hTDnfYtM1NzAYDX8uheQO8Z+bXZQ==");
 
 // TODO: Error handling
 
