@@ -9,6 +9,10 @@
 			"path": "../apps/api"
 		},
 		{
+			"name": "🚀 cloudflare",
+			"path": "../apps/cloudflare"
+		},
+		{
 			"name": "🚀 web",
 			"path": "../apps/web"
 		},
