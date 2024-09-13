@@ -98,7 +98,7 @@ export const ContactForm: FunctionComponent = () => {
 		}
 
 		try {
-			const promise = fetch(new URL("/api/message", import.meta.env.PUBLIC_API_URL), {
+			const promise = fetch(new URL("/message", import.meta.env.PUBLIC_API_URL), {
 				method: "POST",
 				headers: {
 					"Content-Type": "application/json"
