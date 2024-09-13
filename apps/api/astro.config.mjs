@@ -1,6 +1,6 @@
 import { defineConfig } from 'astro/config';
 
-import vercel from "@astrojs/vercel/serverless"
+import vercel from "@astrojs/vercel/static"
 
 // https://astro.build/config
 export default defineConfig({
@@ -8,8 +8,6 @@ export default defineConfig({
 		port: 3002,
 		host: true
 	},
-	output: "hybrid",
-	adapter: vercel({
-		includeFiles: ["./src/og/test.ttf"]
-	})
+	output: "static",
+	adapter: vercel()
 });
