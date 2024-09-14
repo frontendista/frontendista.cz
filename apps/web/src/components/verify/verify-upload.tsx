@@ -1,19 +1,11 @@
 import { useState } from "preact/hooks";
 import { DropZone, Button, FileTrigger } from "react-aria-components";
 import clsx from "clsx";
+import { base64ToUint8Array } from "@frontendista/validation/utils";
+
+import { Icon } from "../common/icon"; 
 
 import type { FunctionComponent, ComponentProps } from "preact";
-import { Icon } from "../common/icon";
-
-function base64ToUint8Array(base64: string) {
-	const binaryString = atob(base64);
-	const len = binaryString.length;
-	const bytes = new Uint8Array(len);
-	for (let i = 0; i < len; i++) {
-		bytes[i] = binaryString.charCodeAt(i);
-	}
-	return bytes;
-}
 
 async function createObjectURL(file: File) {
 	const buffer = await file.arrayBuffer();
