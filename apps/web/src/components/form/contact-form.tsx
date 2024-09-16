@@ -11,7 +11,7 @@ import { Textarea } from "./textarea";
 import { Icon } from "../common/icon";
 import { delayPromise } from "~/utils/promise";
 
-import { useState, type JSX, type FunctionComponent, type ComponentProps, useMemo, useRef } from "preact/compat";
+import { useState, type JSX, type FunctionComponent, type ComponentProps, useMemo, useRef, useEffect } from "preact/compat";
 
 const Field = withClass(Form.Field, "focus-within:z-50");
 
@@ -42,8 +42,6 @@ interface ImageData {
 	src: string;
 }
 
-// TODO: Privacy policy
-
 export const ContactForm: FunctionComponent = () => {
 	const [isLoading, setLoading] = useState(false);
 	const [serverErrors, setServerErrors] = useState<ServerErrors>(null);
@@ -52,6 +50,16 @@ export const ContactForm: FunctionComponent = () => {
 
 	const form = useRef<HTMLFormElement | null>(null);
 	const download = useRef<HTMLAnchorElement | null>(null);
+
+	useEffect(() => {
+		if (!image && hasDownloaded) {
+			setTimeout(() => {
+				window.location.href = "/verify";
+			}, 250);
+
+			setHasDownloaded(false);
+		}
+	}, [hasDownloaded, image]);
 
 	const serverInvalid = useMemo<Record<Fields, string | false>>(() => ({
 		email: serverErrors?.email?.[0] || false,
@@ -80,7 +88,6 @@ export const ContactForm: FunctionComponent = () => {
 		}
 
 		setImage(null);
-		setHasDownloaded(false);
 	};
 
 	const handleSubmit: JSX.SubmitEventHandler<HTMLFormElement> = async (event) => {
