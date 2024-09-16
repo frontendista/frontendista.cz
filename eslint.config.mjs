@@ -1,3 +1,5 @@
+import path from "node:path";
+
 import js from "@eslint/js";
 import ts from "typescript-eslint";
 
@@ -22,15 +24,36 @@ export default [
 	},
 	{
 		rules: {
+			// ESLint
 			"quotes": ["error", "double"],
 			"semi": "error",
 			"indent": ["error", "tab"],
+
+			// Astro.js
 			"astro/jsx-a11y/alt-text": "off",
-			"tailwindcss/no-custom-classname": "off",
+
+			// TailwindCSS
+			"tailwindcss/no-custom-classname": ["warn", {
+				whitelist: ["input-required"]
+			}],
+
+			// @typescript-eslint
 			"@typescript-eslint/triple-slash-reference": "off"
 		}
 	},
 	{
-		ignores: ["**/.astro/**/*.*"],
+		settings: {
+			tailwindcss: {
+				config: path.join(import.meta.dirname, "./apps/web/tailwind.config.ts"),
+			},
+		},
+	},
+	{
+		ignores: [
+			"**/.astro/**/*.*",
+			"**/.wrangler/**/*.*",
+			"**/.vercel/**/*.*",
+			"**/dist/**/*.*",
+		],
 	}
 ];

@@ -128,6 +128,7 @@ const config: Config = {
 			sm: "0.25rem",
 			md: "0.5rem",
 			lg: "1rem",
+			"2lg": "1.5rem",
 			xl: "2rem",
 			"2xl": "4rem",
 			"3xl": "8rem",

@@ -19,7 +19,7 @@ import "~/utils/global";
 
 export const FieldHeader: FunctionComponent<JSX.HTMLAttributes> = ({ children, className, ...props }) => {
 	return (
-		<div className={clsx("mb-md gap-md flex flex-wrap justify-between font-medium", className)} {...props}>
+		<div className={clsx("mb-md flex flex-wrap justify-between gap-md font-medium", className)} {...props}>
 			{children}
 		</div>
 	);
@@ -27,7 +27,7 @@ export const FieldHeader: FunctionComponent<JSX.HTMLAttributes> = ({ children, c
 
 export const MessageWithIcon: FunctionComponent<ComponentProps<typeof Form.Message>> = ({ children, ...props }) => {
 	return (
-		<Form.Message className={clsx("gap-md text-error-600 flex items-center")} {...props}>
+		<Form.Message className={clsx("flex items-center gap-md text-error-600")} {...props}>
 			{children}
 			<Icon icon="octagon-alert" strokeWidth={2.5} title="Error" className="h-text" />
 		</Form.Message>
@@ -137,7 +137,7 @@ export const ContactForm: FunctionComponent = () => {
 
 	return (
 		<Form.Root
-			className="mt-xl gap-lg lg:max-w-form mx-auto flex flex-col lg:mt-0"
+			className="mx-auto mt-xl flex flex-col gap-lg lg:mt-0 lg:max-w-form"
 			onSubmit={handleSubmit}
 			onClearServerErrors={() => setServerErrors(null)}
 			ref={form}
@@ -154,7 +154,7 @@ export const ContactForm: FunctionComponent = () => {
 				</Form.Control>
 			</Field>
 
-			<div className="gap-lg flex flex-col sm:flex-row">
+			<div className="flex flex-col gap-lg sm:flex-row">
 				<Field name="firstname" className="grow basis-[calc(50%-theme('gap.lg'))]">
 					<FieldHeader>
 						<Form.Label>First name</Form.Label>
@@ -214,7 +214,7 @@ export const ContactForm: FunctionComponent = () => {
 			</Field>
 
 			<Form.Submit asChild>
-				<div className="gap-lg flex">
+				<div className="flex gap-lg">
 
 					<Popover.Root modal>
 						<Popover.Trigger asChild>
@@ -253,11 +253,11 @@ export const ContactForm: FunctionComponent = () => {
 				<Dialog.Portal>
 					<Dialog.Overlay>
 						<Dialog.Content className="lg:h-fit">
-							<div className="gap-lg flex flex-col justify-center">
+							<div className="flex flex-col justify-center gap-lg">
 								<Dialog.Close asChild>
-									<button type="button" className="p-md ml-auto block">
+									<button type="button" className="ml-auto block p-md">
 										<span className="sr-only">Close</span>
-										<Icon icon="octagon-x" className="size-6" />
+										<Icon icon="octagon-x" className="size-2lg" />
 									</button>
 								</Dialog.Close>
 

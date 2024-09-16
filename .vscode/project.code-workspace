@@ -23,6 +23,10 @@
 	],
 	"settings": {
 		"eslint.validate": ["astro", "svelte", "typescript", "typescriptreact"],
+		"eslint.workingDirectories": [
+			{ "pattern": "./packages/*/" },
+			{ "pattern": "./apps/*/" }
+		],
 		"stylelint.validate": [
 			"scss"
 		],
