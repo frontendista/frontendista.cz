@@ -1,6 +1,9 @@
-# Frontendista.cz
-
-Personal website of Pavel Sušický.
+<p align="center">
+  <a href="https://frontendista.cz">
+    <h1 align="center">frontendista.cz</h1>
+  </a>
+  <p align="center">Personal website of Pavel Sušický.</p>
+</p>
 
 ## 1. Local development
 
