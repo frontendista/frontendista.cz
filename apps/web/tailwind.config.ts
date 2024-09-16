@@ -114,6 +114,9 @@ const config: Config = {
 		preflight: false
 	},
 	theme: {
+		fontFamily: {
+			mono: ["Mono", "monospace"]
+		},
 		fontSize: {
 			h1: "3.052rem",
 			h2: "2.441rem",

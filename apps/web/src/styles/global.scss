@@ -14,12 +14,21 @@
 		src: url("/fonts/space-grotesk/variable.woff2");
 		font-family: Body;
 		font-weight: 300 700;
+		font-display: swap;
 	}
 
 	@font-face {
 		src: url("/fonts/unbounded/variable.woff2");
 		font-family: Heading;
 		font-weight: 200 900;
+		font-display: swap;
+	}
+
+	@font-face {
+		src: url("/fonts/jetbrains/variable.woff2");
+		font-family: Mono;
+		font-weight: 100 800;
+		font-display: swap;
 	}
 
 	@media (prefers-color-scheme: dark) {
@@ -149,7 +158,9 @@
 		white-space: nowrap;
 
 		&::after {
-			content: " *";
+			content: "*";
+			font-family: Mono, monospace;
+			margin-left: 0.25em;
 			color: theme("textColor.error.600");
 		}
 	}
