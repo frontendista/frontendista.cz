@@ -43,7 +43,7 @@ jobs:
 
   build:
     name: Build
-    needs: [lint, style, check]
+    needs: [check]
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:

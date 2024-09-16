@@ -9,48 +9,6 @@ env:
   node-version: 18
 
 jobs:
-  lint:
-    name: Lint
-    runs-on: ubuntu-latest
-    timeout-minutes: 5
-    steps:
-      - uses: actions/checkout@v4
-
-      - uses: pnpm/action-setup@v4
-        with:
-          version: ${{ env.pnpm-version }}
-
-      - uses: actions/setup-node@v4
-        with:
-          node-version: ${{ env.node-version }}
-          cache: "pnpm"
-
-      - run: pnpm install
-
-      - run: pnpm lint
-        working-directory: apps/web
-
-  style:
-    name: Style
-    runs-on: ubuntu-latest
-    timeout-minutes: 5
-    steps:
-      - uses: actions/checkout@v4
-
-      - uses: pnpm/action-setup@v4
-        with:
-          version: ${{ env.pnpm-version }}
-
-      - uses: actions/setup-node@v4
-        with:
-          node-version: ${{ env.node-version }}
-          cache: "pnpm"
-
-      - run: pnpm install
-
-      - run: pnpm lint:style
-        working-directory: apps/web
-
   check:
     name: Type-check
     runs-on: ubuntu-latest
@@ -74,7 +32,7 @@ jobs:
 
   build:
     name: Build
-    needs: [lint, style, check]
+    needs: [check]
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
