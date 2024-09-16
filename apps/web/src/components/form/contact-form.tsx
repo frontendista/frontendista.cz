@@ -47,19 +47,20 @@ export const ContactForm: FunctionComponent = () => {
 	const [serverErrors, setServerErrors] = useState<ServerErrors>(null);
 	const [image, setImage] = useState<ImageData | null>(null);
 	const [hasDownloaded, setHasDownloaded] = useState(false);
+	const [redirect, setRedirect] = useState(false);
 
 	const form = useRef<HTMLFormElement | null>(null);
 	const download = useRef<HTMLAnchorElement | null>(null);
 
 	useEffect(() => {
-		if (!image && hasDownloaded) {
+		if (!image && redirect) {
 			setTimeout(() => {
 				window.location.href = "/verify";
 			}, 250);
 
-			setHasDownloaded(false);
+			setRedirect(false);
 		}
-	}, [hasDownloaded, image]);
+	}, [redirect, image]);
 
 	const serverInvalid = useMemo<Record<Fields, string | false>>(() => ({
 		email: serverErrors?.email?.[0] || false,
@@ -88,6 +89,7 @@ export const ContactForm: FunctionComponent = () => {
 		}
 
 		setImage(null);
+		setHasDownloaded(false);
 	};
 
 	const handleSubmit: JSX.SubmitEventHandler<HTMLFormElement> = async (event) => {
@@ -287,7 +289,7 @@ export const ContactForm: FunctionComponent = () => {
 
 								<TextTooltip text="Please download the image first." show={!hasDownloaded}>
 									<Dialog.Close asChild>
-										<button type="button" data-btn="primary" disabled={!hasDownloaded}>
+										<button type="button" data-btn="primary" disabled={!hasDownloaded} onClick={() => setRedirect(true)}>
 											Verify
 											<Icon icon="badge-check" />
 										</button>
