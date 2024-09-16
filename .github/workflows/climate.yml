@@ -1,0 +1,47 @@
+on: [push]
+
+env:
+  pnpm-version: 9
+  node-version: 18
+
+jobs:
+  lint:
+    name: Lint
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: ${{ env.pnpm-version }}
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.node-version }}
+          cache: "pnpm"
+
+      - run: pnpm install
+
+      - run: pnpm lint
+
+  style:
+    name: Style
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: ${{ env.pnpm-version }}
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.node-version }}
+          cache: "pnpm"
+
+      - run: pnpm install
+
+      - run: pnpm lint:style
+        working-directory: apps/web

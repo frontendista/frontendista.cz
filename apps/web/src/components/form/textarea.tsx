@@ -39,7 +39,7 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(({ classN
 				data-input
 				className={
 					clsx(
-						"min-h-[20rem] resize-none overflow-y-hidden leading-normal",
+						"min-h-80 resize-none overflow-y-hidden leading-normal",
 						{
 							"pt-[4.5rem]": Boolean(topText),
 							"pb-[4.5rem]": Boolean(bottomText)
@@ -53,13 +53,13 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(({ classN
 			/>
 
 			{topText ? (
-				<span className="absolute left-xl top-xl select-none text-secondary" aria-hidden="true">
+				<span className="left-xl top-xl text-secondary absolute select-none" aria-hidden="true">
 					{topText}
 				</span>
 			) : null}
 
 			{bottomText ? (
-				<span className="absolute bottom-xl left-xl select-none text-secondary" aria-hidden="true">
+				<span className="bottom-xl left-xl text-secondary absolute select-none" aria-hidden="true">
 					{bottomText}
 				</span>
 			) : null}
@@ -68,7 +68,7 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(({ classN
 				<span
 					className={
 						clsx(
-							"absolute right-xl top-xl flex items-center gap-md font-mono text-sm nojs:hidden",
+							"right-xl top-xl gap-md nojs:hidden absolute flex items-center font-mono text-sm",
 							{
 								"night:text-ok-500 text-ok-800": remainingPercentage !== null && remainingPercentage > 0.50,
 								"text-warning-600": remainingPercentage !== null && remainingPercentage.isBetween(0.25, 0.50),

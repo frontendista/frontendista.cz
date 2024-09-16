@@ -64,17 +64,17 @@ const year = new Date().getFullYear();
 const { createdAt, tagCommit, tagName, url } = repository.latestRelease;
 ---
 
-<footer class="mx-auto mt-lg max-w-content p-lg pt-0 lg:mt-xl lg:p-2xl lg:pt-0">
-	<ul class="flex grid-cols-3 flex-col gap-lg border-t-2 border-t-primary/10 pt-lg lg:grid lg:pt-xl">
+<footer class="mt-lg max-w-content p-lg lg:mt-xl lg:p-2xl mx-auto pt-0 lg:pt-0">
+	<ul class="gap-lg border-t-primary/10 pt-lg lg:pt-xl flex grid-cols-3 flex-col border-t-2 lg:grid">
 		{footer.map(section => (
 			<li>
 				<FooterDisclosure {...section} />
 			</li>
 		))}
 	</ul>
-	<p class="mt-lg flex grid-cols-[1fr_3rem_1fr] flex-col gap-lg border-t-2 border-t-primary/10 pt-lg text-center lg:mt-xl lg:grid lg:pt-2xl">
+	<p class="mt-lg gap-lg border-t-primary/10 pt-lg lg:mt-xl lg:pt-2xl flex grid-cols-[1fr_3rem_1fr] flex-col border-t-2 text-center lg:grid">
 		<Link class="self-center justify-self-start" href={url}>{tagName.split("@")[1]}@{tagCommit.oid.substring(0, 7)} on <time datetime={createdAt}>{new Date(createdAt).toLocaleString("en-US", { month: "short", year: "numeric", day: "numeric" })}</time></Link>
-		<a class="order-1 max-w-[3rem] self-center justify-self-center lg:order-none" href="#main">
+		<a class="order-1 max-w-12 self-center justify-self-center lg:order-none" href="#main">
 			<span class="sr-only">Back to top</span>
 			<img src="/favicon.svg" width="48" height="48" loading="lazy" alt="">
 		</a>

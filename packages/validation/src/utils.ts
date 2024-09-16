@@ -11,7 +11,7 @@ export function base64ToUint8Array(base64: string): Uint8Array {
 }
 
 export function arrayBufferToBase64(buffer: ArrayBuffer): string {
-	let binary = '';
+	let binary = "";
 
 	const bytes = new Uint8Array(buffer);
 

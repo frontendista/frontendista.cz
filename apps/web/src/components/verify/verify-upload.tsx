@@ -128,7 +128,7 @@ export const VerifyUpload: FunctionComponent = () => {
 	};
 
 	const className: DropzoneProps["className"] = ({ isDropTarget }) => clsx(
-		"box-content flex aspect-video flex-col justify-center gap-lg border-[3px] p-lg transition-colors",
+		"gap-lg p-lg box-content flex aspect-video flex-col justify-center border-[3px] transition-colors",
 		{
 			"border-dashed bg-brand-500/5": !isDropTarget && !url,
 			"bg-brand-500/25": isDropTarget,
@@ -142,15 +142,15 @@ export const VerifyUpload: FunctionComponent = () => {
 			<DropZone data-nofocus aria-label="Drop SVG file for verification" onDrop={onDrop} getDropOperation={(types) => types.has("image/svg+xml") ? "move" : "cancel"} className={className}>
 				<FileTrigger onSelect={onSelect} acceptedFileTypes={["image/svg+xml"]}>
 					{url && file ? (
-						<Button className="size-full h-auto center">
+						<Button className="center size-full h-auto">
 							<span className="sr-only">Select SVG</span>
 							<img className="animate-fade-in" src={url} alt={`SVG file with id '${file.name.replace(".svg", "")}'.`} />
 						</Button>
 					) : (
-						<div className="mx-auto flex max-w-fit flex-col items-center gap-lg">
-							<Icon icon="image-plus" className="max-w-[2rem]" strokeWidth="2" />
+						<div className="gap-lg mx-auto flex max-w-fit flex-col items-center">
+							<Icon icon="image-plus" className="max-w-8" strokeWidth="2" />
 							<p className="leading-none">Drag and drop SVG here</p>
-							<span className="leading-none text-secondary lines">or</span>
+							<span className="text-secondary lines leading-none">or</span>
 							<Button data-btn="primary" className="w-auto">
 								Select SVG
 							</Button>
@@ -160,7 +160,7 @@ export const VerifyUpload: FunctionComponent = () => {
 			</DropZone>
 
 			{file ? (
-				<ul className="mt-lg flex flex-wrap-reverse gap-lg">
+				<ul className="mt-lg gap-lg flex flex-wrap-reverse">
 					<li className="grow basis-[calc(50%-theme('gap.lg'))]">
 						<button className="whitespace-nowrap" data-btn={isValid !== null ? "primary": "secondary"} disabled={!file} onClick={onClear}>
 							Remove
@@ -180,7 +180,7 @@ export const VerifyUpload: FunctionComponent = () => {
 
 			{isValid !== null ? (
 				<p className={clsx(
-					"mt-lg border-[3px] px-lg py-[1.6875rem] text-center font-bold uppercase",
+					"mt-lg px-lg border-[3px] py-[1.6875rem] text-center font-bold uppercase",
 					{
 						"bg-ok-500/25 text-ok-300 border-ok-500": isValid,
 						"bg-error-600/25 text-error-300 border-error-600": !isValid

@@ -14,9 +14,7 @@ test.describe("SEO", () => {
 	test("404 page should have no canonical URL", async ({ page }) => {
 		await page.goto("/this-is/a-page/that-surely/does-not-exist");
 
-		// eslint-disable-next-line playwright/no-element-handle
 		const canonicalTag = await page.$("link[rel='canonical']");
-		// eslint-disable-next-line playwright/no-element-handle
 		const ogCanonical = await page.$("meta[property='og:url']");
 
 		expect(canonicalTag).toBeFalsy();

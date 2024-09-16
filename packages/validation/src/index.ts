@@ -1,2 +1,2 @@
-export * as ContactFormValidation from "./contact"
-export * as Schemas from "./schemas"
+export * as ContactFormValidation from "./contact";
+export * as Schemas from "./schemas";

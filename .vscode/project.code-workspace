@@ -22,7 +22,7 @@
 		}
 	],
 	"settings": {
-		"eslint.validate": ["astro", "svelte"],
+		"eslint.validate": ["astro", "svelte", "typescript", "typescriptreact"],
 		"stylelint.validate": [
 			"scss"
 		],

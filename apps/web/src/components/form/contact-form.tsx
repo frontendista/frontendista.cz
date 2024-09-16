@@ -19,7 +19,7 @@ import "~/utils/global";
 
 export const FieldHeader: FunctionComponent<JSX.HTMLAttributes> = ({ children, className, ...props }) => {
 	return (
-		<div className={clsx("mb-md flex flex-wrap justify-between gap-md font-medium", className)} {...props}>
+		<div className={clsx("mb-md gap-md flex flex-wrap justify-between font-medium", className)} {...props}>
 			{children}
 		</div>
 	);
@@ -27,7 +27,7 @@ export const FieldHeader: FunctionComponent<JSX.HTMLAttributes> = ({ children, c
 
 export const MessageWithIcon: FunctionComponent<ComponentProps<typeof Form.Message>> = ({ children, ...props }) => {
 	return (
-		<Form.Message className={clsx("flex items-center gap-md text-error-600")} {...props}>
+		<Form.Message className={clsx("gap-md text-error-600 flex items-center")} {...props}>
 			{children}
 			<Icon icon="octagon-alert" strokeWidth={2.5} title="Error" className="h-text" />
 		</Form.Message>
@@ -127,7 +127,7 @@ export const ContactForm: FunctionComponent = () => {
 				name: contentDisposition?.split("filename=")[1] ?? "message.svg",
 				src: image,
 			});
-		} catch (error) {
+		} catch {
 			// TODO: Better display error to users
 			window.alert("Something went wrong. Please try again later.");
 		} finally {
@@ -137,7 +137,7 @@ export const ContactForm: FunctionComponent = () => {
 
 	return (
 		<Form.Root
-			className="mx-auto mt-xl flex flex-col gap-lg lg:mt-0 lg:max-w-form"
+			className="mt-xl gap-lg lg:max-w-form mx-auto flex flex-col lg:mt-0"
 			onSubmit={handleSubmit}
 			onClearServerErrors={() => setServerErrors(null)}
 			ref={form}
@@ -154,7 +154,7 @@ export const ContactForm: FunctionComponent = () => {
 				</Form.Control>
 			</Field>
 
-			<div className="flex flex-col gap-lg sm:flex-row">
+			<div className="gap-lg flex flex-col sm:flex-row">
 				<Field name="firstname" className="grow basis-[calc(50%-theme('gap.lg'))]">
 					<FieldHeader>
 						<Form.Label>First name</Form.Label>
@@ -214,7 +214,7 @@ export const ContactForm: FunctionComponent = () => {
 			</Field>
 
 			<Form.Submit asChild>
-				<div className="flex gap-lg">
+				<div className="gap-lg flex">
 
 					<Popover.Root modal>
 						<Popover.Trigger asChild>
@@ -253,11 +253,11 @@ export const ContactForm: FunctionComponent = () => {
 				<Dialog.Portal>
 					<Dialog.Overlay>
 						<Dialog.Content className="lg:h-fit">
-							<div className="flex flex-col justify-center gap-lg">
+							<div className="gap-lg flex flex-col justify-center">
 								<Dialog.Close asChild>
-									<button type="button" className="ml-auto block p-md">
+									<button type="button" className="p-md ml-auto block">
 										<span className="sr-only">Close</span>
-										<Icon icon="octagon-x" className="size-[1.5rem]" />
+										<Icon icon="octagon-x" className="size-6" />
 									</button>
 								</Dialog.Close>
 

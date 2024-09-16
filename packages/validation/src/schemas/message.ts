@@ -1,6 +1,6 @@
-import { email, type InferOutput, maxLength, minLength, object, optional, pipe, string, trim } from "valibot"
+import { email, type InferOutput, maxLength, minLength, object, optional, pipe, string, trim } from "valibot";
 
-import { ContactFormValidation } from ".."
+import { ContactFormValidation } from "..";
 
 export const MESSAGE_BODY = object({
 	message: pipe(
@@ -32,6 +32,6 @@ export const MESSAGE_BODY = object({
 			email("Server: Email is invalid")
 		)
 	)
-})
+});
 
 export type MessageBody = InferOutput<typeof MESSAGE_BODY>
