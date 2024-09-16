@@ -17,6 +17,10 @@
 			"path": "../apps/web"
 		},
 		{
+			"name": "📦 @frontendista/email",
+			"path": "../packages/email"
+		},
+		{
 			"name": "📦 @frontendista/validation",
 			"path": "../packages/validation"
 		}
