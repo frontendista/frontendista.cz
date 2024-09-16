@@ -1,15 +1,21 @@
 # Frontendista.cz
 
-Personal website of Pavel Sušický
+Personal website of Pavel Sušický.
 
 ## 1. Local development
 
 ### 1.1 Prerequisites
 
--   [**Node.js**](https://nodejs.org)
--   [**pnpm**](https://pnpm.io)
+- [**node.js**](https://nodejs.org)
+- [**pnpm**](https://pnpm.io)
 
-### 1.2 Installation
+### 1.2 Optional prerequisites
+
+These are used for less common tasks (font generation, performance testing).
+
+- [**python3**](https://python.org)
+
+### 1.2 **Installation**
 
 ```sh
 git clone git@github.com:frontendista/frontendista.cz.git
@@ -25,7 +31,8 @@ See each app's README for more details.
 
 ## 2. Projects
 
-| Name                  | Description                              |
-| --------------------- | ---------------------------------------- |
-| [**Web**](./apps/web) | Personal website                         |
-| [**API**](./apps/api) | API for personal website & documentation |
+| Name                                | Description                                                               | Port                               |
+| ----------------------------------- | ------------------------------------------------------------------------- | ---------------------------------- |
+| [**API**](./apps/api)               | API documentation using [**redoc**](https://github.com/Redocly/redoc)         | 3002                               |
+| [**Cloudflare**](./apps/cloudflare) | API using [**Cloudflare Workers**](https://github.com/cloudflare/workers-sdk) | 3003                               |
+| [**Web**](./apps/web)               | Personal website in [**Astro.js**](https://github.com/withastro/astro)        | 3000 for `dev`, 3001 for `preview` |
