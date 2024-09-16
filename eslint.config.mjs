@@ -24,6 +24,7 @@ export default [
 		rules: {
 			"quotes": ["error", "double"],
 			"semi": "error",
+			"indent": ["error", "tab"],
 			"astro/jsx-a11y/alt-text": "off",
 			"tailwindcss/no-custom-classname": "off",
 			"@typescript-eslint/triple-slash-reference": "off"
