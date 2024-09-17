@@ -159,7 +159,13 @@ export const ContactForm: FunctionComponent = () => {
 				</FieldHeader>
 
 				<Form.Control asChild onChange={() => clearServerError("email")}>
-					<input data-input type="email" maxLength={100} disabled={isLoading} />
+					<input
+						placeholder="walter@white.com"
+						data-input
+						type="email"
+						maxLength={100}
+						disabled={isLoading}
+					/>
 				</Form.Control>
 			</Field>
 
@@ -173,6 +179,7 @@ export const ContactForm: FunctionComponent = () => {
 
 					<Form.Control asChild onChange={() => clearServerError("firstname")}>
 						<input
+							placeholder="Walter"
 							data-input
 							minLength={ContactFormValidation.FIRSTNAME_MIN_LENGTH}
 							maxLength={ContactFormValidation.FIRSTNAME_MAX_LENGTH}
@@ -190,6 +197,7 @@ export const ContactForm: FunctionComponent = () => {
 
 					<Form.Control asChild onChange={() => clearServerError("lastname")}>
 						<input
+							placeholder="White"
 							data-input
 							minLength={ContactFormValidation.LASTNAME_MIN_LENGTH}
 							maxLength={ContactFormValidation.LASTNAME_MAX_LENGTH}
@@ -224,7 +232,6 @@ export const ContactForm: FunctionComponent = () => {
 
 			<Form.Submit asChild>
 				<div className="flex gap-lg">
-
 					<Popover.Root modal>
 						<Popover.Trigger asChild>
 							<button type="button" data-btn="primary" data-size="square" disabled={isLoading}>
