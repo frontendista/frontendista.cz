@@ -1,5 +1,3 @@
-import path from "node:path";
-
 import js from "@eslint/js";
 import ts from "typescript-eslint";
 
@@ -44,7 +42,7 @@ export default [
 	{
 		settings: {
 			tailwindcss: {
-				config: path.join(import.meta.dirname, "./apps/web/tailwind.config.ts"),
+				config: "./apps/web/tailwind.config.ts",
 			},
 		},
 	},
