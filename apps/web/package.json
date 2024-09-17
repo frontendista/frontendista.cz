@@ -28,6 +28,7 @@
 		"@radix-ui/react-form": "^0.1.0",
 		"@radix-ui/react-popover": "^1.1.1",
 		"@radix-ui/react-select": "^2.1.1",
+		"@radix-ui/react-toast": "^1.2.1",
 		"@radix-ui/react-tooltip": "^1.1.2",
 		"@vercel/speed-insights": "^1.0.12",
 		"astro": "^4.15.3",
