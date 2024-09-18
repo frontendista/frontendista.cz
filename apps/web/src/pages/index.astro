@@ -2,6 +2,7 @@
 import HMFLayout from "~/layouts/hmf-layout.astro";
 
 import { ContactForm } from "~/components/form/contact-form";
+import { Toaster } from "~/components/form/radix/toast";
 
 import IndexSpritesheet from "~/assets/svg/spritesheet/index.astro";
 
@@ -19,4 +20,6 @@ import ContactSection from "./_index/contact-section.astro";
 	<ContactSection>
 		<ContactForm client:visible />
 	</ContactSection>
+
+	<Toaster client:idle />
 </HMFLayout>

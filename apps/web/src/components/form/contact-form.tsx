@@ -1,15 +1,17 @@
+import * as Form from "@radix-ui/react-form";
 import { ContactFormValidation, Schemas } from "@frontendista/validation";
 import { clsx } from "clsx";
 
-import * as Form from "@radix-ui/react-form";
 import * as Popover from "./radix/popover";
 import * as Dialog from "./radix/dialog";
-import { TextTooltip } from "./radix/tooltip";
 
+import { TextTooltip } from "./radix/tooltip";
 import { withClass } from "./hoc";
 import { Textarea } from "./textarea";
 import { Icon } from "../common/icon";
+
 import { delayPromise } from "~/utils/promise";
+import { toast } from "~/stores/toast";
 
 import { useState, type JSX, type FunctionComponent, type ComponentProps, useMemo, useRef, useEffect } from "preact/compat";
 
@@ -137,8 +139,7 @@ export const ContactForm: FunctionComponent = () => {
 				src: image,
 			});
 		} catch {
-			// TODO: Better display error to users
-			window.alert("Something went wrong. Please try again later.");
+			toast({ type: "error", content: "Something went wrong. Please try again later." });
 		} finally {
 			setLoading(false);
 		}

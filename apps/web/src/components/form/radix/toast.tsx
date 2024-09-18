@@ -1,6 +1,8 @@
 import * as ToastPrimitive from "@radix-ui/react-toast";
+import { useStore } from "@nanostores/preact";
 
 import { withClass } from "../hoc";
+import { $toasts, removeToast, type IToast } from "~/stores/toast";
 
 import type { FunctionComponent } from "preact";
 
@@ -13,15 +15,28 @@ export const Description = withClass(ToastPrimitive.Description, "");
 export const Action = withClass(ToastPrimitive.Action, "");
 export const Close = withClass(ToastPrimitive.Close, "");
 
-interface ToastProps {
-	title?: string;
-	content: string;
-}
+export const Toaster: FunctionComponent = () => {
+	const toasts = useStore($toasts);
 
-export const Toast: FunctionComponent<ToastProps> = ({ children, title, content }) => {
 	return (
-		<Root>
-			{title && <Title>{title}</Title>}
+		<Provider>
+			{toasts.map(props => <Toast key={props.id} {...props} />)}
+			<Viewport />
+		</Provider>
+	);
+};
+
+export const Toast: FunctionComponent<IToast> = ({ children, id, type, content }) => {
+
+	const onOpenChange = (open: boolean) => {
+		if (!open) {
+			removeToast(id);
+		}
+	};
+
+	return (
+		<Root onOpenChange={onOpenChange}>
+			{type && <Title>{type}</Title>}
 			<Description>{content}</Description>
 			{children ? <Action altText="TODO" asChild>{children}</Action> : null}
 			<Close aria-label="Close">

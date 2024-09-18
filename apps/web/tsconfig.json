@@ -11,6 +11,7 @@
 			"~/assets/*": ["./src/assets/*"],
 			"~/mocks/*": ["./src/mocks/*"],
 			"~/utils/*": ["./src/utils/*"],
+			"~/stores/*": ["./src/stores/*"],
 			"react": ["./node_modules/preact/compat"],
 			"react-dom": ["./node_modules/preact/compat"]
 		},
