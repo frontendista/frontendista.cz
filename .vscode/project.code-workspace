@@ -37,6 +37,10 @@
 		"scss.validate": false,
 		"files.associations": {
 			"*.mdx": "markdown"
-		}
+		},
+		"tailwindCSS.experimental.classRegex": [
+			["withClass\\([^,]+,\\s*\"([^\"]*)\""],
+			["withClass\\([^,]+,\\s*`([^`]*)`"]
+		]
 	},
 }
