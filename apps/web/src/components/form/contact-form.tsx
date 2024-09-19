@@ -120,9 +120,15 @@ export const ContactForm: FunctionComponent = () => {
 			const response = await delayPromise(promise, 2000);
 
 			if (response.status === 400) {
-				// TODO: Handle root errors.
 				const errors = await response.json();
+
 				setServerErrors(errors);
+
+				throw new Error("Server received invalid or malformed data.");
+			}
+
+			if (response.status === 503) {
+				throw new Error("Service is currently unavailable. Please try again in a bit.");
 			}
 
 			if (!response.ok) {
@@ -138,8 +144,12 @@ export const ContactForm: FunctionComponent = () => {
 				name: contentDisposition?.split("filename=")[1] ?? "message.svg",
 				src: image,
 			});
-		} catch {
-			toast({ type: "error", content: "Something went wrong. Please try again later." });
+		} catch (error) {
+			if (error instanceof Error) {
+				return toast({ type: "error", content: error.message });
+			}
+
+			toast({ type: "error", content: "Something went wrong. Please try again later. fsdfdsa fsdfasd fas fs" });
 		} finally {
 			setLoading(false);
 		}

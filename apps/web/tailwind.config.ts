@@ -135,12 +135,14 @@ const config: Config = {
 			xl: "2rem",
 			"2xl": "4rem",
 			"3xl": "8rem",
+			text: "1em"
 		},
 		screens,
 		extend: {
 			animation: {
 				"fade-in": "fade-in 0.5s ease-in-out forwards",
 				"fade-in-and-zoom": "fade-in 0.5s ease-in-out forwards, picture-zoom 6s ease-in-out alternate infinite",
+				"slide-in": "slide-in 0.5s ease-in-out forwards",
 			},
 			colors: {
 				ok: {

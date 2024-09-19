@@ -1,10 +1,12 @@
 import { atom } from "nanostores";
 
+export type IToastType = "success" | "error";
+
 export interface IToast {
 	id: string;
-	type: "success" | "error";
+	type: IToastType;
 	content: string;
-	timeout?: number;
+	duration?: number;
 }
 
 export type IToastArgs = Omit<IToast, "id">;
