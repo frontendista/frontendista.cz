@@ -1,3 +1,12 @@
 {
-	"recommendations": ["editorconfig.editorconfig"]
+	"recommendations": [
+		"editorconfig.editorconfig",
+		"dbaeumer.vscode-eslint",
+		"astro-build.astro-vscode",
+		"bradlc.vscode-tailwindcss",
+		"ms-playwright.playwright",
+		"yzhang.markdown-all-in-one",
+		"tamasfe.even-better-toml",
+		"redhat.vscode-yaml"
+	]
 }
