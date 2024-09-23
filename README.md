@@ -51,3 +51,4 @@ See each app's README for more details.
 | Name                                | Description                                 |
 | ----------------------------------- | ------------------------------------------- |
 | [**@frontendista/validation**](./packages/validation) | Validation rules shared across the projects |
+| [**@frontendista/email**](./packages/email) | - |
