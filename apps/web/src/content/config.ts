@@ -27,7 +27,8 @@ const ossCollection = defineCollection({
 			github: z.string().optional(),
 			npm: z.string().optional(),
 		}).optional(),
-		ecosystem: z.string()
+		ecosystem: z.string(),
+		year: z.number()
 	})
 });
 

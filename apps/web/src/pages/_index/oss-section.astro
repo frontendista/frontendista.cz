@@ -5,6 +5,8 @@ import Heading from "~/components/common/heading.astro";
 import Link from "~/components/common/link.astro";
 
 const projects = await getCollection("oss");
+
+projects.sort((a, b) => a.data.year - b.data.year);
 ---
 
 <section id="oss" class="mt-xl">
@@ -21,7 +23,7 @@ const projects = await getCollection("oss");
 							<h3>{project.data.name}</h3>
 						</header>
 						<Content />
-						<footer>
+						<footer class="flex items-center justify-between gap-xl">
 							{project.data.url ? (
 								<ul class="ml-[-0.75rem] flex">
 									{project.data.url.github ? (
@@ -36,6 +38,7 @@ const projects = await getCollection("oss");
 									) : null}
 								</ul>
 							) : null}
+							<time datetime={project.data.year.toString()} class="font-bold">{project.data.year}</time>
 						</footer>
 					</article>
 				</li>
