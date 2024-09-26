@@ -168,11 +168,11 @@ const config: Config = {
 				}
 			},
 			height: {
-				view: "var(--vh, var(--view-height))",
+				view: "var(--view-height)",
 				text: "1em"
 			},
 			minHeight: {
-				view: "var(--vh, var(--view-height))"
+				view: "var(--view-height)"
 			},
 			maxWidth: {
 				content: "120rem",
