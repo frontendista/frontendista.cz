@@ -1,5 +1,21 @@
-<nav class="absolute left-0 top-0 z-50 w-full p-lg center">
-	<a href="/">
+---
+import Link from "~/components/common/link.astro";
+---
+
+<nav class="grid grid-cols-[1fr_auto_1fr] max-w-content absolute left-1/2 -translate-x-1/2 top-0 z-50 w-full p-lg lg:px-2xl">
+	<ul class="self-center gap-xl hidden md:flex">
+		<li>
+			<Link class="text-sm dot" href="#about">About</Link>
+		</li>
+		<li>
+			<Link class="text-sm dot" href="#projects">Projects</Link>
+		</li>
+		<li>
+			<Link class="text-sm" href="#contact">Contact</Link>
+		</li>
+	</ul>
+
+	<a class="col-start-2" href="/">
 		<span class="sr-only">Go to homepage</span>
 		<img src="/favicon.svg" width="48" height="48" alt="" />
 	</a>
