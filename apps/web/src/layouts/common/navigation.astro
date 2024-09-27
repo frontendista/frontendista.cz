@@ -1,5 +1,8 @@
 ---
 import Link from "~/components/common/link.astro";
+import { config } from "~/root/src/config";
+
+const { status } = config;
 ---
 
 <nav class="grid grid-cols-[1fr_auto_1fr] max-w-content absolute left-1/2 -translate-x-1/2 top-0 z-50 w-full p-lg lg:px-2xl">
@@ -15,8 +18,32 @@ import Link from "~/components/common/link.astro";
 		</li>
 	</ul>
 
-	<a class="col-start-2" href="/">
+	<a href="/">
 		<span class="sr-only">Go to homepage</span>
 		<img src="/favicon.svg" width="48" height="48" alt="" />
 	</a>
+
+	<p class="self-center justify-self-end text-sm">
+		<span class="relative mr-md inline-flex size-[0.75em]">
+			<span class:list={[
+				"absolute inline-flex h-full w-full rounded-full opacity-75",
+				{
+					"bg-ok-500/75 motion:animate-ping": typeof status === "string",
+					"bg-error-600/75 motion:animate-ping": typeof status === "boolean"
+				}
+			]} />
+			<span class:list={[
+				"relative inline-flex h-[0.75em] w-[0.75em] rounded-full",
+				{
+					"bg-ok-500/100": typeof status === "string",
+					"bg-error-600/100": typeof status === "boolean"
+				}
+			]} />
+		</span>
+		{config.status ? (
+			<Fragment>
+				{config.status}. <Link kind="secondary" class="whitespace-nowrap" href="/collaboration"><span class="brackets">see details</span></Link>
+			</Fragment>
+		) : "Currently unavailable"}
+	</p>
 </nav>
