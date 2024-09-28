@@ -40,6 +40,7 @@
 		& svg {
 			height: 1em;
 			width: 1em;
+			stroke-width: 3;
 		}
 
 		&[data-size="square"] {
@@ -128,6 +129,7 @@
 			margin-left: theme("margin.sm");
 			width: 1em;
 			height: 1em;
+			stroke-width: 2.5;
 		}
 	}
 
