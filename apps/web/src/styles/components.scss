@@ -135,6 +135,10 @@
 
 	[data-link="text"] {
 		font-weight: 700;
+		
+		& svg {
+			stroke-width: 3;
+		}
 
 		&:focus-visible {
 			white-space: nowrap;
