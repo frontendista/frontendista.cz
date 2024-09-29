@@ -1,3 +1,35 @@
+
+$slds: (
+	"figma": (
+		light: -1em 0
+	),
+	"github": (
+		light: -2em 0,
+		night: true
+	),
+	"gravatar": (
+		light: -3em 0
+	),
+	"linkedin": (
+		light: -4em 0
+	),
+	"x": (
+		light: -5em 0
+	),
+	"dev": (
+		light: -6em 0
+	),
+	"cloudflare": (
+		light: -7em 0
+	),
+	"astro": (
+		light: -8em 0
+	),
+	"cvut": (
+		light: -9em 0
+	)
+);
+
 @layer components {
 	[data-icon] {
 		display: block;
@@ -67,15 +99,15 @@
 			@media (pointer: fine) {
 				&:hover {
 					background: theme("colors.brand.500");
-	
+
 					&::before {
 						border-color: theme("colors.brand.500");
 					}
 				}
-	
+
 				&:active {
 					background: theme("colors.brand.600");
-	
+
 					&::before {
 						border-color: theme("colors.brand.600");
 					}
@@ -90,7 +122,7 @@
 		&:focus-visible {
 			background: theme("textColor.primary");
 			color: theme("backgroundColor.primary");
-			
+
 			&::before {
 				border-color: theme("textColor.primary");
 			}
@@ -131,11 +163,46 @@
 			height: 1em;
 			stroke-width: 2.5;
 		}
+
+		&[href^="http"] {
+			& svg {
+				background-image: url('/images/favicons.png');
+				background-size: auto 2em;
+				background-repeat: no-repeat;
+
+				@apply night:spritesheet-night;
+
+				& * {
+					visibility: hidden;
+				}
+			}
+			
+			&:hover, &:focus-visible {
+				& svg {
+					background-image: none;
+
+					& * {
+						visibility: visible;
+					}
+				}
+			}
+
+			@each $sld, $positions in $slds {
+				&[data-sld$="#{$sld}"] svg {
+					background-position-y: 0 !important;
+					background-position: map-get($positions, light);
+		
+					@if map-has-key($positions, night) {
+						@apply night:spritesheet-night #{!important};
+					}
+				}
+			}
+		}
 	}
 
 	[data-link="text"] {
 		font-weight: 700;
-		
+
 		& svg {
 			stroke-width: 3;
 		}
@@ -143,9 +210,9 @@
 		&:focus-visible {
 			white-space: nowrap;
 		}
-		
+
 		@apply text-brand-800/100 night:text-brand-500/100;
-		@apply decoration-brand-800/25 night:decoration-brand-500/25;	
+		@apply decoration-brand-800/25 night:decoration-brand-500/25;
 		@apply hover:decoration-current hover:night:decoration-current;
 		@apply active:text-brand-600/100 active:night:text-brand-600/100;
 	}
@@ -153,7 +220,8 @@
 	[data-link="primary"] {
 		text-decoration-color: rgb(var(--fg-primary) / 25%);
 
-		&:hover, &:focus-visible {
+		&:hover,
+		&:focus-visible {
 			text-decoration-color: rgb(var(--fg-primary) / 100%);
 		}
 
@@ -168,7 +236,9 @@
 		text-decoration-color: rgb(var(--fg-secondary) / 25%);
 
 		@media (pointer: fine) {
-			&:hover, &:focus-visible {
+
+			&:hover,
+			&:focus-visible {
 				text-decoration-color: rgb(var(--fg-secondary) / 100%);
 			}
 
