@@ -25,20 +25,22 @@ export type Props = Pick<HTMLAttributes<"a">, "target" | "class"> & {
 
 const { href, kind = "primary", type = "link", icon, showIcon = true, ...attrs } = Astro.props;
 
-const isExternal = attrs.target === "_blank" || href.startsWith("http");
+const is_external = attrs.target === "_blank" || href.startsWith("http");
 
 const attributes = Object.assign(attrs, {
 	[`data-${icon ? "icon" : type}`]: kind,
 });
+
+const second_level_domain = is_external ? new URL(href).hostname.split(".")[0] : null
 ---
 
-<a href={href} rel={isExternal ? "noopener" : null} target={isExternal ? "_blank" : null} {...attributes}>{icon ? (
+<a href={href} rel={is_external ? "noopener" : null} target={is_external ? "_blank" : null} {...attributes}>{icon ? (
 	<span class="sr-only">
 		<slot />
 	</span>
 	<Icon title="New tab" icon={icon} />
 ) : (
 	<Fragment>
-		<slot />{isExternal && showIcon ? <Icon title="New tab" icon="square-arrow-out-up-right" /> : null}
+		<slot />{is_external && showIcon ? <Icon class="favicon" data-sld={second_level_domain} title="New tab" icon="" /> : null}
 	</Fragment>
 )}</a>

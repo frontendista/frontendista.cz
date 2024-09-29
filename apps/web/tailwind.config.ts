@@ -9,6 +9,9 @@ const customUtilities = plugin(({ addUtilities, addVariant }) => {
 	addVariant("nojs", [":root[data-js=\"off\"] &"]);
 
 	addUtilities({
+		".spritesheet-night": {
+			backgroundPositionY: "-1em"
+		},
 		".offscreen": {
 			position: "fixed",
 			top: "-9999px",

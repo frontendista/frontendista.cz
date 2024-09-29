@@ -1,0 +1,40 @@
+$slds: (
+	"github": (
+		light: -2em 0,
+		night: true
+	),
+	"linkedin": (
+		light: -4em 0
+	),
+	"figma": (
+		light: -1em 0
+	),
+	"dev": (
+		light: -6em 0
+	),
+	"x": (
+		light: -5em 0
+	),
+	"gravatar": (
+		light: -3em 0
+	)
+);
+
+.favicon {
+	background-image: url('/images/favicons.png');
+	background-size: auto 2em;
+	background-repeat: no-repeat;
+
+	@apply night:spritesheet-night;
+
+	@each $sld, $positions in $slds {
+		&[data-sld$="#{$sld}"] {
+			background-position-y: 0 !important;
+			background-position: map-get($positions, light);
+
+			@if map-has-key($positions, night) {
+				@apply night:spritesheet-night #{!important};
+			}
+		}
+	}
+}
