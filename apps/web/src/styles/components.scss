@@ -190,7 +190,7 @@ $slds: (
 			@each $sld, $positions in $slds {
 				&[data-sld$="#{$sld}"] svg {
 					background-position-y: 0 !important;
-					background-position: map-get($positions, light);
+					background-position: map.get($positions, light);
 		
 					@if map-has-key($positions, night) {
 						@apply night:spritesheet-night #{!important};
@@ -203,6 +203,7 @@ $slds: (
 	[data-link="text"] {
 		font-weight: 700;
 
+		/* stylelint-disable-next-line no-descending-specificity */
 		& svg {
 			stroke-width: 3;
 		}
@@ -236,7 +237,6 @@ $slds: (
 		text-decoration-color: rgb(var(--fg-secondary) / 25%);
 
 		@media (pointer: fine) {
-
 			&:hover,
 			&:focus-visible {
 				text-decoration-color: rgb(var(--fg-secondary) / 100%);
