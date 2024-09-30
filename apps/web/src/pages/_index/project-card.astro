@@ -4,19 +4,22 @@ import type { CollectionEntry } from "astro:content";
 import Link from "~/components/common/link.astro";
 
 export interface Props {
-	project: CollectionEntry<"projects">["data"];
+	project: CollectionEntry<"projects">;
 	slug: string;
 }
 
-const { title, type, description, source, cta, year } = Astro.props.project;
+const { data, render } = Astro.props.project
+const { title, type, source, cta, year } = data;
+
+const { Content } = await render()
 ---
 
-<article class="flex h-full flex-col gap-lg bg-secondary p-xl">
+<article class="flex h-full flex-col gap-lg bg-secondary p-xl [&>p]:grow">
 	<header class="flex flex-col gap-lg">
 		<small class="font-semibold text-secondary">{type}</small>
 		<h3>{title}</h3>
 	</header>
-	<p class="grow">{description}</p>
+	<Content />
 	<footer class="flex items-center justify-between gap-xl">
 		<ul class="ml-[-0.75rem] flex justify-end">
 			{source ? (

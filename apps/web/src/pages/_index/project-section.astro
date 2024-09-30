@@ -17,7 +17,7 @@ projects.sort((a, b) => a.data.year - b.data.year);
 		{projects.map(project => {
 			return (
 				<li>
-					<ProjectCard project={project.data} slug={project.slug} />
+					<ProjectCard project={project} slug={project.slug} />
 				</li>
 			);
 		})}
