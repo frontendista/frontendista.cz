@@ -42,6 +42,6 @@ const second_level_domain = domains ? domains[domains.length - 2] : null
 	<Icon title="New tab" icon={icon} />
 ) : (
 	<Fragment>
-		<slot />{is_external && showIcon ? <Icon class="favicon" title="New tab" icon="square-arrow-out-up-right" /> : null}
+		<slot />{is_external && showIcon ? <Icon title="New tab" icon="square-arrow-out-up-right" /> : null}
 	</Fragment>
 )}</a>
