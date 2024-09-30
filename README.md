@@ -43,12 +43,13 @@ See each app's README for more details.
 | Name                                | Description                                                                   | Port                               |
 | ----------------------------------- | ----------------------------------------------------------------------------- | ---------------------------------- |
 | [**API**](./apps/api)               | API documentation using [**redoc**](https://github.com/Redocly/redoc)         | 3002                               |
+| [**Blog**](./apps/blog)             | TBD                                                                           | TBD                                |
 | [**Cloudflare**](./apps/cloudflare) | API using [**Cloudflare Workers**](https://github.com/cloudflare/workers-sdk) | 3003                               |
 | [**Web**](./apps/web)               | Personal website in [**Astro.js**](https://github.com/withastro/astro)        | 3000 for `dev`, 3001 for `preview` |
 
 ## 3. Packages
 
-| Name                                | Description                                 |
-| ----------------------------------- | ------------------------------------------- |
+| Name                                                  | Description                                 |
+| ----------------------------------------------------- | ------------------------------------------- |
 | [**@frontendista/validation**](./packages/validation) | Validation rules shared across the projects |
-| [**@frontendista/email**](./packages/email) | - |
+| [**@frontendista/email**](./packages/email)           | -                                           |
