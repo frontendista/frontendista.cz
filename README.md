@@ -43,7 +43,7 @@ See each app's README for more details.
 | Name                                | Description                                                                   | Port                               |
 | ----------------------------------- | ----------------------------------------------------------------------------- | ---------------------------------- |
 | [**API**](./apps/api)               | API documentation using [**redoc**](https://github.com/Redocly/redoc)         | 3002                               |
-| [**Blog**](./apps/blog)             | TBD                                                                           | TBD                                |
+| [**Blog**](./apps/blog)             | Blog website in [**Astro.js**](https://github.com/withastro/astro)            | 3004                                |
 | [**Cloudflare**](./apps/cloudflare) | API using [**Cloudflare Workers**](https://github.com/cloudflare/workers-sdk) | 3003                               |
 | [**Web**](./apps/web)               | Personal website in [**Astro.js**](https://github.com/withastro/astro)        | 3000 for `dev`, 3001 for `preview` |
 
