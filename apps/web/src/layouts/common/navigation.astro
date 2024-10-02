@@ -5,48 +5,85 @@ import { config } from "~/root/src/config";
 const { status } = config;
 ---
 
-<nav class="grid grid-cols-[1fr_auto_1fr] max-w-content absolute left-1/2 -translate-x-1/2 top-0 z-50 w-full p-lg lg:px-2xl">
-	<ul class="self-center gap-xl hidden md:flex">
-		<li>
-			<Link class="text-sm dot" href="/#about">About</Link>
-		</li>
-		<li>
-			<Link class="text-sm dot" href="/#projects">Projects</Link>
-		</li>
-		<li>
-			<Link class="text-sm" href="/#contact">Contact</Link>
-		</li>
-		<li>
-			<Link class="text-sm" href="/verify">Verify</Link>
-		</li>
-	</ul>
+<nav id="navbar" class="fixed bg-hero top-0 left-0 z-50 w-full transform">
+	<div class="max-w-content grid grid-cols-[1fr_auto_1fr] p-lg lg:px-2xl mx-auto min-h-[5rem]">
+		<ul class="self-center gap-xl hidden md:flex">
+			<li>
+				<Link class="text-sm dot" href="/#about">About</Link>
+			</li>
+			<li>
+				<Link class="text-sm dot" href="/#projects">Projects</Link>
+			</li>
+			<li>
+				<Link class="text-sm" href="/#contact">Contact</Link>
+			</li>
+			<li>
+				<Link class="text-sm" href="/verify">Verify</Link>
+			</li>
+		</ul>
 
-	<a href="/">
-		<span class="sr-only">Go to homepage</span>
-		<img src="/favicon.svg" width="48" height="48" alt="" />
-	</a>
+		<a class="hidden md:inline" href="/">
+			<span class="sr-only">Go to homepage</span>
+			<img src="/favicon.svg" width="48" height="48" alt="" />
+		</a>
 
-	<p class="self-center justify-self-end text-sm">
-		<span class="relative mr-md inline-flex size-[0.75em]">
-			<span class:list={[
-				"absolute inline-flex h-full w-full rounded-full opacity-75",
-				{
-					"bg-ok-500/75 motion:animate-ping": typeof status === "string",
-					"bg-error-600/75 motion:animate-ping": typeof status === "boolean"
-				}
-			]} />
-			<span class:list={[
-				"relative inline-flex h-[0.75em] w-[0.75em] rounded-full",
-				{
-					"bg-ok-500/100": typeof status === "string",
-					"bg-error-600/100": typeof status === "boolean"
-				}
-			]} />
-		</span>
-		{config.status ? (
-			<Fragment>
-				{config.status}. <Link kind="secondary" class="whitespace-nowrap" href="/collaboration"><span class="brackets">see details</span></Link>
-			</Fragment>
-		) : "Currently unavailable"}
-	</p>
+		<p class="self-center justify-self-end text-sm col-start-2 md:col-start-3">
+			<span class="relative mr-md inline-flex size-[0.75em]">
+				<span class:list={[
+					"absolute inline-flex h-full w-full rounded-full opacity-75",
+					{
+						"bg-ok-500/75 motion:animate-ping": typeof status === "string",
+						"bg-error-600/75 motion:animate-ping": typeof status === "boolean"
+					}
+				]} />
+				<span class:list={[
+					"relative inline-flex h-[0.75em] w-[0.75em] rounded-full",
+					{
+						"bg-ok-500/100": typeof status === "string",
+						"bg-error-600/100": typeof status === "boolean"
+					}
+				]} />
+			</span>
+			{config.status ? (
+				<Fragment>
+					{config.status}. <Link kind="secondary" class="whitespace-nowrap" href="/collaboration"><span class="brackets">see details</span></Link>
+				</Fragment>
+			) : "Currently unavailable"}
+		</p>
+	</div>
 </nav>
+
+<script>
+const scroll_factor = 3;
+
+let last_scroll_top = 0;
+let accumulated_delta = 0;
+let is_scrolling = false;  // Used to prevent multiple animation frames
+
+const navbar = document.getElementById('navbar')!;
+
+window.addEventListener('scroll', function() {
+	if (!is_scrolling) {
+		window.requestAnimationFrame(handleScroll);
+		is_scrolling = true;
+	}
+});
+
+function handleScroll() {
+	const currentScroll = window.scrollY || document.documentElement.scrollTop;
+	const delta = currentScroll - last_scroll_top;
+
+	if (delta > 0) {
+		accumulated_delta = Math.min(100, accumulated_delta + delta / scroll_factor);
+	} else {
+		accumulated_delta = Math.max(0, accumulated_delta + delta / scroll_factor);
+	}
+
+	navbar.style.setProperty('--tw-translate-y', `${-(accumulated_delta)}%`);
+
+	last_scroll_top = currentScroll <= 0 ? 0 : currentScroll;
+
+	is_scrolling = false;
+}
+
+</script>
