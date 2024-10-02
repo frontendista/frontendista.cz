@@ -140,7 +140,7 @@
 	}
 
 	h1 {
-		font-size: 1.602rem;
+		font-size: 1.6rem;
 
 		@media (min-width: theme("screens.lg")) {
 			font-size: theme("fontSize.h1");
@@ -148,10 +148,18 @@
 	}
 
 	h2 {
-		font-size: 1.424rem;
+		font-size: 1.42rem;
 
 		@media (min-width: theme("screens.lg")) {
 			font-size: theme("fontSize.h2");
+		}
+	}
+
+	h3 {
+		font-size: 1.27rem;
+
+		@media (min-width: theme("screens.lg")) {
+			font-size: theme("fontSize.h3");
 		}
 	}
 

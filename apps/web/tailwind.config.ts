@@ -121,10 +121,11 @@ const config: Config = {
 			mono: ["Mono", "monospace"]
 		},
 		fontSize: {
-			h1: "3.052rem",
-			h2: "2.441rem",
-			h3: "1.953rem",
-			h4: "1.563rem",
+			// NOTE: https://baseline.is/tools/type-scale-generator (1.250 ratio and 1.125 for smaller)
+			h1: "3.05rem",
+			h2: "2.44rem",
+			h3: "1.95rem",
+			h4: "1.56rem",
 			icon: "1.5rem",
 			base: "1.25rem",
 			sm: "1rem"
