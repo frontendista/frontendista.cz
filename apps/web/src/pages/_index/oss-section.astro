@@ -10,7 +10,8 @@ projects.sort((a, b) => a.data.year - b.data.year);
 ---
 
 <section id="oss" class="mt-xl">
-	<Heading as="h3" href="#oss">Open-source software</Heading>
+	<Heading as="h3" href="#oss">Open-source
+	</Heading>
 	<ul class="mt-xl flex grid-cols-3 flex-col gap-lg lg:grid">
 		{projects.map(async project => {
 			const { Content } = await project.render();
@@ -20,7 +21,7 @@ projects.sort((a, b) => a.data.year - b.data.year);
 					<article class="flex h-full flex-col justify-between gap-lg bg-secondary p-xl [&>p]:grow">
 						<header class="flex flex-col gap-lg">
 							<small class="font-semibold text-secondary">{project.data.ecosystem}</small>
-							<h3>{project.data.name}</h3>
+							<h3 class="text-sm">{project.data.name}</h3>
 						</header>
 						<Content />
 						<footer class="flex items-center justify-between gap-xl">

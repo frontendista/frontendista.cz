@@ -1,33 +1,30 @@
 ---
 import Link from "~/components/common/link.astro";
-import { config } from "~/root/src/config";
+import { config, links } from "~/root/src/config";
+import { NavigationMobile } from "./navigation-mobile";
 
 const { status } = config;
 ---
 
-<nav id="navbar" class="fixed bg-hero top-0 left-0 z-50 w-full transform">
-	<div class="max-w-content grid grid-cols-[1fr_auto_1fr] p-lg lg:px-2xl mx-auto min-h-[5rem]">
-		<ul class="self-center gap-xl hidden md:flex">
-			<li>
-				<Link class="text-sm dot" href="/#about">About</Link>
-			</li>
-			<li>
-				<Link class="text-sm dot" href="/#projects">Projects</Link>
-			</li>
-			<li>
-				<Link class="text-sm" href="/#contact">Contact</Link>
-			</li>
-			<li>
-				<Link class="text-sm" href="/verify">Verify</Link>
-			</li>
+<nav id="navbar" class="fixed bg-primary top-0 left-0 z-50 w-full transform">
+	<div class="max-w-content grid grid-cols-[1fr_auto_1fr] p-lg lg:px-2xl mx-auto">
+		
+		<ul class="self-center gap-xl hidden lg:flex">
+			{links.map(({ name, href }) => {
+				return (
+					<li>
+						<Link class="text-sm" href={href}>{name}</Link>
+					</li>
+				)
+			})}
 		</ul>
 
-		<a class="hidden md:inline" href="/">
+		<a class="hidden lg:inline" href="/">
 			<span class="sr-only">Go to homepage</span>
 			<img src="/favicon.svg" width="48" height="48" alt="" />
 		</a>
 
-		<p class="self-center justify-self-end text-sm col-start-2 md:col-start-3">
+		<p class="self-center justify-self-end text-sm col-start-2 lg:col-start-3">
 			<span class="relative mr-md inline-flex size-[0.75em]">
 				<span class:list={[
 					"absolute inline-flex h-full w-full rounded-full opacity-75",
@@ -50,15 +47,19 @@ const { status } = config;
 				</Fragment>
 			) : "Currently unavailable"}
 		</p>
+
+		<NavigationMobile client:visible />
 	</div>
 </nav>
 
 <script>
+// TODO: Handle focus and other states.
+
 const scroll_factor = 3;
 
 let last_scroll_top = 0;
 let accumulated_delta = 0;
-let is_scrolling = false;  // Used to prevent multiple animation frames
+let is_scrolling = false;
 
 const navbar = document.getElementById('navbar')!;
 

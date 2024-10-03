@@ -5,7 +5,7 @@ import { withClass } from "../hoc";
 import type { FunctionComponent } from "preact";
 import { useState } from "preact/hooks";
 
-export const Content = withClass(Tooltip.Content, "bg-primary p-lg inline-flex shadow-md text-sm font-bold tooltip-animation");
+export const Content = withClass(Tooltip.Content, "bg-primary p-lg inline-flex shadow-md text-sm font-bold tooltip-animation z-[51]");
 export const Root = Tooltip.Root;
 export const Provider = Tooltip.Provider;
 export const Trigger = Tooltip.Trigger;

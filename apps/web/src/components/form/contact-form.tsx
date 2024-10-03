@@ -279,7 +279,7 @@ export const ContactForm: FunctionComponent = () => {
 			<Dialog.Root open={!!image} onOpenChange={onDialogClose}>
 				<Dialog.Portal>
 					<Dialog.Overlay>
-						<Dialog.Content className="lg:h-fit">
+						<Dialog.Content className="bg-primary lg:h-fit lg:bg-secondary">
 							<div className="flex flex-col justify-center gap-lg">
 								<Dialog.Close asChild>
 									<button type="button" className="ml-auto block p-md">
