@@ -11,7 +11,7 @@ const projects = await getCollection("projects");
 projects.sort((a, b) => a.data.year - b.data.year);
 ---
 
-<section id="projects" class="mx-auto mt-xl max-w-content px-lg lg:px-2xl">
+<section id="projects" class="mx-auto max-w-content px-lg lg:px-2xl mb-section">
 	<Heading as="h2" href="#projects">Projects</Heading>
 	<ul class="mt-xl grid grid-cols-1 gap-lg lg:grid-cols-3">
 		{projects.map(project => {

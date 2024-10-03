@@ -139,7 +139,8 @@ const config: Config = {
 			xl: "2rem",
 			"2xl": "4rem",
 			"3xl": "8rem",
-			text: "1em"
+			text: "1em",
+			section: "4rem"
 		},
 		screens,
 		extend: {

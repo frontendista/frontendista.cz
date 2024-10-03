@@ -1,3 +1,5 @@
+import { resolve } from "node:path";
+
 import js from "@eslint/js";
 import ts from "typescript-eslint";
 
@@ -42,7 +44,7 @@ export default [
 	{
 		settings: {
 			tailwindcss: {
-				config: "./apps/web/tailwind.config.ts",
+				config: resolve(import.meta.url, "./apps/web/tailwind.config.ts"),
 			},
 		},
 	},
