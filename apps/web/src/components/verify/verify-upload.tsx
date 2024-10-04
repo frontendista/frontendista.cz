@@ -156,7 +156,7 @@ export const VerifyUpload: FunctionComponent = () => {
 							<Icon icon="image-plus" className="max-w-[2rem]" strokeWidth="2" />
 							<p className="leading-none">Drag and drop SVG here</p>
 							<span className="leading-none text-secondary lines">or</span>
-							<Button data-btn="primary" className="w-auto">
+							<Button className="w-auto" data-btn="primary">
 								Select SVG
 							</Button>
 						</div>

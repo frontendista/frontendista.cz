@@ -99,7 +99,7 @@ export const Toast: FunctionComponent<IToast> = ({ id, type, content, duration =
 		})}>
 			<div className="relative z-50">
 				<Title>
-					<Icon icon={icon_map[type]} className="size-text" />
+					<Icon icon={icon_map[type]} className="size-text stroke-[3]" />
 					{type}
 				</Title>
 				<Description asChild>

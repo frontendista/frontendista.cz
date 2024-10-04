@@ -1,6 +1,7 @@
 import { links } from "../../config";
 
 import { Icon } from "~/components/common/icon";
+import { IconButton } from "~/components/common/icon-button";
 import * as Dialog from "~/components/form/radix/dialog";
 
 import type { FunctionComponent } from "preact";
@@ -9,16 +10,25 @@ export const NavigationMobile: FunctionComponent = () => {
 	return (
 		<Dialog.Root>
 			<Dialog.Trigger asChild>
-				<button className="self-center justify-self-end p-[0.75rem] lg:hidden">
-					<span className="sr-only">Open navigation</span>
-					<Icon icon="menu" className="w-2lg" />
-				</button>
+				<IconButton className="self-center justify-self-end lg:hidden text-icon" icon="menu">Open navigation</IconButton>
 			</Dialog.Trigger>
 
 			<Dialog.Portal>
 				<Dialog.Overlay />
-				<Dialog.Content className="bg-primary">
-					<ul className="flex flex-col gap-md">
+				<Dialog.Content className="bg-primary flex items-center justify-end">
+					<Dialog.Title className="sr-only">
+						Navigation
+					</Dialog.Title>
+
+					<Dialog.Close asChild>
+						<IconButton className="absolute right-lg top-lg text-icon" icon="octagon-x">Close navigation</IconButton>
+					</Dialog.Close>
+
+					<Dialog.Close asChild>
+						<IconButton className="absolute right-lg bottom-lg text-icon" icon="octagon-x">Close navigation</IconButton>
+					</Dialog.Close>
+
+					<ul className="flex flex-col gap-lg text-right">
 						{links.map(({ href, name }) => {
 							return (
 								<li key={name}>

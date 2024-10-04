@@ -1,7 +1,7 @@
 import type { FunctionComponent } from "preact";
 import type { SVGAttributes } from "preact/compat";
 
-interface IconProps extends SVGAttributes {
+export interface IconProps extends SVGAttributes {
 	icon?: string;
 	title?: string;
 }
