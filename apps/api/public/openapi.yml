@@ -1,7 +1,7 @@
 openapi: 3.1.0
 info:
-  title: Frontendista.cz API
-  description: Awesome API 😎
+  title: Frontendista.cz
+  description: API for frontendista.cz
   version: 1.0.0
   contact:
     name: Pavel Sušický
@@ -9,14 +9,12 @@ info:
     url: https://frontendista.cz
 
 servers:
-  - url: https://frontendista.cz/api
+  - url: https://cloudflare.frontendista.cz
     description: Production
-  - url: https://staging.frontendista.cz/api
+  - url: https://cloudflare-staging.frontendista.workers.dev
     description: Staging
-  - url: http://localhost:3000/api
+  - url: http://localhost:3003
     description: Development
-  - url: http://localhost:3001/api
-    description: Preview
 
 tags:
   - name: "Contact"
@@ -24,99 +22,70 @@ tags:
 
 components:
   responses:
-    MessageError:
-      description: Error
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              error:
-                type: string
-                description: Error message
     MessageSent:
       description: Message sent
       content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              total_messages_count:
-                type: integer
-                description: Total number of messages sent
-                example: 54
+        schema:
+          type: string
+          format: binary
+
   schemas:
     Message:
       type: object
       properties:
-        name:
+        firstname:
           type: string
-          description: Name of the sender
+          description: First name of the sender
           example: Pavel
           minLength: 2
           maxLength: 50
+
+        lastname:
+          type: string
+          description: Last name of the sender
+          example: Sušický
+          minLength: 2
+          maxLength: 50
+
         email:
           type: string
           format: email
           description: Email of the sender
           example: me@frontendista.cz
+
         message:
           type: string
           description: Message of the sender
           example: Hello, World!
-          minLength: 3
-          maxLength: 1024
+          minLength: 10
+          maxLength: 250
+
       required:
         - message
 
 paths:
   /message:
     post:
-      operationId: sendMessage
-      description: Sends message to Discord channel, it uses rate-limiting to prevent spam
-      summary: Send Discord message
+      operationId: send_message
+      description: Sends message to personal email
+      summary: Send message
       tags:
         - Contact
-      parameters:
-        - in: query
-          name: js
-          schema:
-            type: string
-            enum:
-              - false
-          description: Whether client has scripting enabled.
-          allowEmptyValue: true
       requestBody:
         required: true
         content:
-          application/x-www-form-urlencoded:
+          application/json:
             schema:
               allOf:
                 - $ref: "#/components/schemas/Message"
+
       responses:
         "201":
-          $ref: "#/components/responses/MessageSent"
-        "302":
-          description: "Successful page if scripting is disabled"
-          headers:
-            Location:
-              schema:
-                type: string
-                description: Redirect URL
-                example: /contact/success
-        "303":
-          description: "Error page if scripting is disabled"
-          headers:
-            Location:
-              schema:
-                type: string
-                description: Redirect URL
-                example: /contact/error
+          description: "Message sent"
+
         "400":
-          $ref: "#/components/responses/MessageError"
           description: "Malformed or invalid request body"
+
         "429":
           description: "Too many requests"
-        "503":
-          $ref: "#/components/responses/MessageError"
-          description: "Discord API is unavailable"
+

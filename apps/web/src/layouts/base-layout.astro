@@ -55,7 +55,7 @@ const {
 		<a class="w-[calc(100%-theme(padding.xl))] -translate-x-1/2 -translate-y-1/2 offscreen focus-visible:left-1/2 focus-visible:top-1/2 sm:w-auto lg:w-auto" data-btn="primary" href="#main">Skip to content</a>
 		<SpritesheetCommon />
 		<slot name="body_start" />
-		<main class={classNames.main} id="main">
+		<main class:list={["pt-[5rem] lg:pb-[5rem]", classNames.main]} id="main">
 			<slot />
 		</main>
 		<Footer />
