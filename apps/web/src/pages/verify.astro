@@ -13,14 +13,14 @@ import VerifySpritesheet from "~/assets/svg/spritesheet/verify.astro";
 		default: "Pavel Sušický - Card verification"
 	}}
 	classNames={{
-		main: "pt-[5rem] max-w-form mx-auto px-lg lg:px-0"
+		main: "lg:grid grid-cols-2 pt-[5rem] max-w-content mx-auto px-lg lg:px-2xl items-center gap-2xl"
 	}}>
 	<VerifySpritesheet slot="body_start" />
-	<header class="flex flex-col items-center gap-lg">
+	<header class="flex flex-col justify-center gap-lg">
 		<h1>Card verification</h1>
 		<p>
-			On this page, you can verify the uniqueness of your generated message card.
-			The card is signed using the ECDSA asymmetric encryption algorithm.
+			On this page, you can verify the uniqueness of your generated message card.<br />
+			The card is signed using the ECDSA asymmetric encryption algorithm.<br />
 			Ensure that the card has not been altered; otherwise, the verification will fail.
 		</p>
 		<p>
@@ -30,9 +30,10 @@ import VerifySpritesheet from "~/assets/svg/spritesheet/verify.astro";
 		<p>
 			Please note that the card is not sent anywhere; the verification process is completed locally within your browser.
 		</p>
+		<p>If you don't have your own card yet, it's easy to get one — simply fill out my contact form <Link href="/#contact" kind="text">here</Link> and drop me a message!</p>
 	</header>
-	<div class="my-lg w-full max-w-form bg-secondary p-lg">
+
+	<div class="my-lg w-full lg:max-w-form bg-secondary p-lg h-fit justify-self-end">
 		<VerifyUpload client:idle />
 	</div>
-	<p>If you don't have your own card yet, it's easy to get one — simply fill out my contact form <Link href="/#contact" kind="text">here</Link> and drop me a message!</p>
 </HMFLayout>
