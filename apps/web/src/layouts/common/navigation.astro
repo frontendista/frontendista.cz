@@ -53,8 +53,6 @@ const { status } = config;
 </nav>
 
 <script>
-// TODO: Handle focus and other states.
-
 const scroll_factor = 3;
 
 let last_scroll_top = 0;
@@ -62,6 +60,10 @@ let accumulated_delta = 0;
 let is_scrolling = false;
 
 const navbar = document.getElementById('navbar')!;
+
+navbar.addEventListener('focusin', function() {
+	navbar.style.setProperty('--tw-translate-y', `0%`);
+});
 
 window.addEventListener('scroll', function() {
 	if (!is_scrolling) {
@@ -86,5 +88,4 @@ function handleScroll() {
 
 	is_scrolling = false;
 }
-
 </script>
