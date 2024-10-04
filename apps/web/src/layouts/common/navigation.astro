@@ -55,7 +55,7 @@ const { status } = config;
 <script>
 const scroll_factor = 3;
 
-let last_scroll_top = 0;
+let last_scroll_top = window.scrollY || document.documentElement.scrollTop;
 let accumulated_delta = 0;
 let is_scrolling = false;
 
