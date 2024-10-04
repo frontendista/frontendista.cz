@@ -1,8 +1,7 @@
-import { links } from "../../config";
-
-import { Icon } from "~/components/common/icon";
 import { IconButton } from "~/components/common/icon-button";
 import * as Dialog from "~/components/form/radix/dialog";
+
+import { links } from "../../config";
 
 import type { FunctionComponent } from "preact";
 
