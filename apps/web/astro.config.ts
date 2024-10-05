@@ -127,7 +127,8 @@ export default defineConfig({
 				plugins: rollupPlugins,
 				output: {
 					entryFileNames: "assets/[hash:16].js",
-					assetFileNames: "assets/[hash:16][extname]"
+					assetFileNames: "assets/[hash:16][extname]",
+					chunkFileNames: "chunks/[hash:16].js"
 				}
 			}
 		}
