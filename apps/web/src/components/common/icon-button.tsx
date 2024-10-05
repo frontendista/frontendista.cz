@@ -13,7 +13,7 @@ export const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(({ chil
 	return (
 		<button ref={ref} type="button" className={clsx("p-[0.75rem]", className)} {...attrs}>
 			<span className="sr-only">{children}</span>
-			<Icon className="h-text w-text" icon={icon} />
+			<Icon className="size-text" icon={icon} />
 		</button>
-	)
-})
+	);
+});

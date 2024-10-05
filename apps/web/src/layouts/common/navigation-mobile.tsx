@@ -9,12 +9,12 @@ export const NavigationMobile: FunctionComponent = () => {
 	return (
 		<Dialog.Root>
 			<Dialog.Trigger asChild>
-				<IconButton className="self-center justify-self-end lg:hidden text-icon" icon="menu">Open navigation</IconButton>
+				<IconButton className="self-center justify-self-end text-icon lg:hidden" icon="menu">Open navigation</IconButton>
 			</Dialog.Trigger>
 
 			<Dialog.Portal>
 				<Dialog.Overlay />
-				<Dialog.Content className="bg-primary flex items-center justify-end">
+				<Dialog.Content className="flex items-center justify-end bg-primary">
 					<Dialog.Title className="sr-only">
 						Navigation
 					</Dialog.Title>
@@ -24,7 +24,7 @@ export const NavigationMobile: FunctionComponent = () => {
 					</Dialog.Close>
 
 					<Dialog.Close asChild>
-						<IconButton className="absolute right-lg bottom-lg text-icon" icon="octagon-x">Close navigation</IconButton>
+						<IconButton className="absolute bottom-lg right-lg text-icon" icon="octagon-x">Close navigation</IconButton>
 					</Dialog.Close>
 
 					<ul className="flex flex-col gap-lg text-right">

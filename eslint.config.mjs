@@ -1,4 +1,5 @@
-import { resolve } from "node:path";
+import { resolve, dirname } from "node:path";
+import { fileURLToPath } from 'node:url';
 
 import js from "@eslint/js";
 import ts from "typescript-eslint";
@@ -6,6 +7,9 @@ import ts from "typescript-eslint";
 import tailwind from "eslint-plugin-tailwindcss";
 import astro from "eslint-plugin-astro";
 import playwright from "eslint-plugin-playwright";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 /**
  * @type {import("eslint").ESLint.ConfigData}
@@ -44,7 +48,7 @@ export default [
 	{
 		settings: {
 			tailwindcss: {
-				config: resolve(import.meta.url, "./apps/web/tailwind.config.ts"),
+				config: resolve(__dirname, "./apps/web/tailwind.config.ts"),
 			},
 		},
 	},
