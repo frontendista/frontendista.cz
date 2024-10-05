@@ -11,7 +11,7 @@ info:
 servers:
   - url: https://cloudflare.frontendista.cz
     description: Production
-  - url: https://cloudflare-staging.frontendista.workers.dev
+  - url: https://cloudflare-staging.frontendista.cz
     description: Staging
   - url: http://localhost:3003
     description: Development
