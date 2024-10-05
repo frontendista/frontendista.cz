@@ -10,6 +10,8 @@ import HeroSection from "./_index/hero-section.astro";
 import ProjectSection from "./_index/project-section.astro";
 import AboutSection from "./_index/about-section.astro";
 import ContactSection from "./_index/contact-section.astro";
+
+import { CLIENT_EVENT_TOASTER } from "../config";
 ---
 
 <HMFLayout>
@@ -21,5 +23,5 @@ import ContactSection from "./_index/contact-section.astro";
 		<ContactForm client:visible />
 	</ContactSection>
 
-	<Toaster />
+	<Toaster client:event={CLIENT_EVENT_TOASTER} />
 </HMFLayout>

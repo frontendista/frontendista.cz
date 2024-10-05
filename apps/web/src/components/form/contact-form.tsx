@@ -9,6 +9,7 @@ import { TextTooltip } from "./radix/tooltip";
 import { withClass } from "./hoc";
 import { Textarea } from "./textarea";
 import { Icon } from "../common/icon";
+import { CLIENT_EVENT_TOASTER } from "../../config";
 
 import { delayPromise } from "~/utils/promise";
 import { toast } from "~/stores/toast";
@@ -95,6 +96,8 @@ export const ContactForm: FunctionComponent = () => {
 	};
 
 	const handleSubmit: JSX.SubmitEventHandler<HTMLFormElement> = async (event) => {
+		dispatchEvent(new Event(CLIENT_EVENT_TOASTER));
+
 		event.preventDefault();
 
 		setLoading(true);
@@ -301,7 +304,7 @@ export const ContactForm: FunctionComponent = () => {
 
 								{image ? (
 									<a href={image.src} download={image.name} className="center" rel="noopener" target="_blank" ref={download} onClick={() => setHasDownloaded(true)}>
-										<img src={image.src} alt="Generated image" className="w-full" />
+										<img src={image.src} alt="Generated card" className="w-full" />
 									</a>
 								) : null}
 

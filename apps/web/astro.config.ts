@@ -21,6 +21,8 @@ import { browserslist } from "./package.json";
 import sectionize from "@frontendista/rehype-sectionize";
 import { rehypeHeadingIds } from "@astrojs/markdown-remark";
 
+import eventDirective from "./lib/register";
+
 import type { AstroIntegration } from "astro";
 
 config();
@@ -51,6 +53,7 @@ if (process.env.VERCEL_ENV !== "production" || process.env.ENABLE_MOCKS === "1")
 }
 
 const integrations: AstroIntegration[] = [
+	eventDirective(),
 	mdx(),
 	TailwindCSS({
 		applyBaseStyles: false

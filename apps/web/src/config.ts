@@ -1,3 +1,5 @@
+export const CLIENT_EVENT_TOASTER = "toaster-hydrate";
+
 interface Config {
 	status: string | false;
 }
