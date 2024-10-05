@@ -82,10 +82,9 @@ paths:
       responses:
         "201":
           description: "Message sent"
-
         "400":
           description: "Malformed or invalid request body"
-
         "429":
-          description: "Too many requests"
-
+          description: "Rate limit exceeded"
+        "503":
+          description: "Service unavailable"
