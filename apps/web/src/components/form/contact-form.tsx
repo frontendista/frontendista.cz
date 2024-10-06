@@ -2,7 +2,7 @@ import * as Form from "@radix-ui/react-form";
 import { ContactFormValidation, Schemas } from "@frontendista/validation";
 import { clsx } from "clsx";
 
-import * as Popover from "./radix/popover";
+// import * as Popover from "./radix/popover";
 import * as Dialog from "./radix/dialog";
 
 import { TextTooltip } from "./radix/tooltip";
@@ -246,7 +246,7 @@ export const ContactForm: FunctionComponent = () => {
 
 			<Form.Submit asChild>
 				<div className="flex gap-lg">
-					<Popover.Root modal>
+					{/* <Popover.Root modal>
 						<Popover.Trigger asChild>
 							<button type="button" data-btn="primary" data-size="square" disabled={isLoading}>
 								<span className="sr-only">Open card preview</span>
@@ -259,7 +259,7 @@ export const ContactForm: FunctionComponent = () => {
 								TBD
 							</Popover.Content>
 						</Popover.Portal>
-					</Popover.Root>
+					</Popover.Root> */}
 
 					<button type="submit" data-btn="primary" disabled={isLoading}>
 						{isLoading ? (
