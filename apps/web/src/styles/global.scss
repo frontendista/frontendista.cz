@@ -65,6 +65,12 @@
 	:root {
 		--view-height: 100vh;
 
+		font-size: 0.8rem;
+
+		@media (min-width: theme("screens.md")) {
+			font-size: 1rem;
+		}
+
 		@media (min-width: theme("screens.uw")) {
 			font-size: 1.25rem;
 		}
