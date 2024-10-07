@@ -165,11 +165,12 @@ export const ContactForm: FunctionComponent = () => {
 			onClearServerErrors={() => setServerErrors(null)}
 			ref={form}
 		>
-			<Field name="email">
+			<Field name="email" serverInvalid={!!serverInvalid.email}>
 				<FieldHeader>
 					<Form.Label>Email</Form.Label>
 					<MessageWithIcon match="typeMismatch">Please provide a valid email</MessageWithIcon>
 					<MessageWithIcon match="tooLong">Email too long</MessageWithIcon>
+					{serverInvalid.email ? <MessageWithIcon forceMatch>{serverInvalid.email}</MessageWithIcon> : null}
 				</FieldHeader>
 
 				<Form.Control asChild onChange={() => clearServerError("email")}>

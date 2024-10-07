@@ -1,4 +1,4 @@
-import { email, type InferOutput, maxLength, minLength, object, optional, pipe, string, trim } from "valibot";
+import { check, email, type InferOutput, maxLength, minLength, object, optional, pipe, string, trim } from "valibot";
 
 import { ContactFormValidation } from "..";
 
@@ -29,7 +29,8 @@ export const MESSAGE_BODY = object({
 		pipe(
 			string("Server: Email is required"),
 			trim(),
-			email("Server: Email is invalid")
+			email("Server: Email is invalid"),
+			check(email => !email.endsWith("frontendista.cz"), "Server: Email must not be from frontendista.cz domain")
 		)
 	)
 });
