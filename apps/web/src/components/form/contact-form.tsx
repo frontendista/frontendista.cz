@@ -12,6 +12,7 @@ import { Icon } from "../common/icon";
 import { CLIENT_EVENT_TOASTER } from "../../config";
 
 import { delayPromise } from "~/utils/promise";
+import { track } from "~/utils/analytics";
 import { toast } from "~/stores/toast";
 
 import { useState, type JSX, type FunctionComponent, type ComponentProps, useMemo, useRef, useEffect } from "preact/compat";
@@ -84,6 +85,10 @@ export const ContactForm: FunctionComponent = () => {
 	};
 	
 	const onDialogClose = () => {
+		if (!hasDownloaded) {
+			track("contact-dialog-closed-without-download");
+		}
+
 		if (form.current) {
 			form.current.reset();
 			form.current.querySelectorAll("textarea").forEach(textarea => {
@@ -147,12 +152,15 @@ export const ContactForm: FunctionComponent = () => {
 				name: contentDisposition?.split("filename=")[1] ?? "message.svg",
 				src: image,
 			});
+
 		} catch (error) {
+			track("contact-form-error");
+
 			if (error instanceof Error) {
 				return toast({ type: "error", content: error.message });
 			}
-
-			toast({ type: "error", content: "Something went wrong. Please try again later. fsdfdsa fsdfasd fas fs" });
+			
+			toast({ type: "error", content: "Something went wrong. Please try again later." });
 		} finally {
 			setLoading(false);
 		}

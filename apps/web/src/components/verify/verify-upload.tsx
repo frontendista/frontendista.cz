@@ -4,6 +4,7 @@ import clsx from "clsx";
 import { base64ToUint8Array } from "@frontendista/validation/utils";
 
 import { Icon } from "../common/icon"; 
+import { track } from "~/utils/analytics";
 
 import type { FunctionComponent, ComponentProps } from "preact";
 
@@ -18,14 +19,14 @@ type FileTriggerProps = ComponentProps<typeof FileTrigger>
 
 const PUBLIC_KEY = base64ToUint8Array("MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEgFcPEW0BhrmqHm+4P4UIPGa7cXCniPP2GCr6ZYWEeimkJwwsZir6fXAEv4hTDnfYtM1NzAYDX8uheQO8Z+bXZQ==");
 
-// TODO: Error handling
-
 export const VerifyUpload: FunctionComponent = () => {
 	const [file, setFile] = useState<File | null>(null);
 	const [url, setUrl] = useState<string | null>(null);
 	const [isValid, setValid] = useState<boolean | null>(null);
 
 	const onVerify = () => {
+		track("verify-attempt");
+
 		if (!file) {
 			return;
 		}
@@ -39,8 +40,7 @@ export const VerifyUpload: FunctionComponent = () => {
 				const commentMatch = svg.match(/<!--(.*?)-->/);
 
 				if (!commentMatch || !commentMatch[1]) {
-					// TODO: Handle
-					return;
+					throw new Error("Couldn't find signature.");
 				}
 
 				const signatureString = commentMatch[1].trim();
@@ -74,12 +74,14 @@ export const VerifyUpload: FunctionComponent = () => {
 
 				setValid(isValid);
 			} catch (error) {
+				track("verify-error");
 				console.log(error);
 				setValid(false);
 			}
 		};
 
 		reader.onerror = () => {
+			setValid(false);
 		};
 
 		reader.readAsText(file);
@@ -114,7 +116,6 @@ export const VerifyUpload: FunctionComponent = () => {
 		onClear();
 
 		if (!e) {
-			console.error("TODO: Handle");
 			return;
 		}
 
@@ -122,7 +123,6 @@ export const VerifyUpload: FunctionComponent = () => {
 			.filter(file => file.type === "image/svg+xml");
 
 		if (!file) {
-			console.error("TODO: Handle");
 			return;
 		}
 
