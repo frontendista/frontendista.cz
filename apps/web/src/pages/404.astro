@@ -8,8 +8,12 @@ import Link from "~/components/common/link.astro";
 	favicon="404"
 	title={{
 		default: "404 — Page not found"
-	}}>
-	<header class="min-h-view flex-col gap-lg center">
+	}}
+	classNames={{
+		main: "min-h-view center"
+	}}
+>
+	<header class="flex flex-col items-center gap-lg">
 		<h1 class="text-h1">404</h1>
 		<p class="text-center">
 			Page couldn't be find. <Link kind="text" href="/" class="whitespace-nowrap">Return to homepage</Link>
