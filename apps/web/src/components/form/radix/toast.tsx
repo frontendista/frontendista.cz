@@ -49,7 +49,7 @@ export const Toast: FunctionComponent<IToast> = ({ id, type, content, duration =
 				fill: "forwards",
 				easing: "ease-in-out"
 			});
-			
+
 			animation.play();
 			animation.onfinish = () => removeToast(id);
 		}
@@ -106,7 +106,7 @@ export const Toast: FunctionComponent<IToast> = ({ id, type, content, duration =
 					<p>{content}</p>
 				</Description>
 			</div>
-			<div aria-hidden="true" ref={progress} className="absolute inset-0 z-40 origin-left bg-black/25" />
+			<div aria-hidden="true" ref={progress} className="absolute inset-0 z-40 origin-left bg-white/25 night:bg-black/25" />
 		</Root>
 	);
 };
