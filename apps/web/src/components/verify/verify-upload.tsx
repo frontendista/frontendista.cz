@@ -3,7 +3,7 @@ import { DropZone, Button, FileTrigger } from "react-aria-components";
 import clsx from "clsx";
 import { base64ToUint8Array } from "@frontendista/validation/utils";
 
-import { Icon } from "../common/icon"; 
+import { Icon } from "../common/icon";
 import { track } from "~/utils/analytics";
 
 import type { FunctionComponent, ComponentProps } from "preact";
@@ -104,7 +104,7 @@ export const VerifyUpload: FunctionComponent = () => {
 			console.error("Invalid file type");
 			return;
 		}
-		
+
 		const file = await droppedFile.getFile();
 		const url = await createObjectURL(file);
 
@@ -133,7 +133,7 @@ export const VerifyUpload: FunctionComponent = () => {
 	};
 
 	const className: DropzoneProps["className"] = ({ isDropTarget }) => clsx(
-		"box-content flex aspect-video flex-col justify-center gap-lg border-[3px] p-lg transition-colors",
+		"box-content flex aspect-square flex-col justify-center gap-lg border-[3px] p-lg transition-colors",
 		{
 			"border-dashed bg-brand-500/5": !isDropTarget && !url,
 			"bg-brand-500/25": isDropTarget,
@@ -167,7 +167,7 @@ export const VerifyUpload: FunctionComponent = () => {
 			{file ? (
 				<ul className="mt-lg flex flex-wrap-reverse gap-lg">
 					<li className="grow basis-[calc(50%-theme('gap.lg'))]">
-						<button className="whitespace-nowrap" data-btn={isValid !== null ? "primary": "secondary"} disabled={!file} onClick={onClear}>
+						<button className="whitespace-nowrap" data-btn={isValid !== null ? "primary" : "secondary"} disabled={!file} onClick={onClear}>
 							Remove
 							<Icon icon="trash-2" />
 						</button>
