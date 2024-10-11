@@ -1,0 +1,48 @@
+name: api@production
+
+on:
+  push:
+    tags:
+      - "api@*"
+
+env:
+  pnpm-version: 9
+  node-version: 20
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: ${{ env.pnpm-version }}
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.node-version }}
+          cache: "pnpm"
+
+      - run: pnpm install -P
+
+      - run: pnpm build
+        working-directory: apps/cloudflare
+
+  deploy:
+    needs: [build]
+    runs-on: ubuntu-latest
+    environment:
+      name: api:production
+      url: https://cloudflare.frontendista.cz
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Deploy
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          workingDirectory: apps/cloudflare
