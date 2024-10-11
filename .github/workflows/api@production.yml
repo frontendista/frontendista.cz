@@ -57,6 +57,8 @@ jobs:
           node-version: ${{ env.node-version }}
           cache: "pnpm"
 
+      - run: pnpm install -P
+
       - name: Deploy
         run: pnpm deploy:prod
         working-directory: apps/cloudflare

@@ -5,7 +5,7 @@
 		"build": "mjml emails/contact-form-submit.mjml -o dist/contact-form-submit.html"
 	},
 	"dependencies": {
-		"mjml": "^4.15.3"
+		"mjml": "4.15.3"
 	},
 	"license": "MIT"
 }
