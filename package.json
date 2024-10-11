@@ -32,5 +32,8 @@
 			"react-dom": "npm:@preact/compat@latest"
 		}
 	},
+	"volta": {
+		"node": "20.18.0"
+	},
 	"license": "MIT"
 }
