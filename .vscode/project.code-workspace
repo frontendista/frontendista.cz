@@ -9,6 +9,10 @@
 			"path": "../apps/api"
 		},
 		{
+			"name": "🚀 blog",
+			"path": "../apps/blog"
+		},
+		{
 			"name": "🚀 cloudflare",
 			"path": "../apps/cloudflare"
 		},
@@ -26,10 +30,19 @@
 		}
 	],
 	"settings": {
-		"eslint.validate": ["astro", "svelte", "typescript", "typescriptreact"],
+		"eslint.validate": [
+			"astro",
+			"svelte",
+			"typescript",
+			"typescriptreact"
+		],
 		"eslint.workingDirectories": [
-			{ "pattern": "./packages/*/" },
-			{ "pattern": "./apps/*/" }
+			{
+				"pattern": "./packages/*/"
+			},
+			{
+				"pattern": "./apps/*/"
+			}
 		],
 		"stylelint.validate": [
 			"scss"
@@ -39,8 +52,12 @@
 			"*.mdx": "markdown"
 		},
 		"tailwindCSS.experimental.classRegex": [
-			["withClass\\([^,]+,\\s*\"([^\"]*)\""],
-			["withClass\\([^,]+,\\s*`([^`]*)`"]
+			[
+				"withClass\\([^,]+,\\s*\"([^\"]*)\""
+			],
+			[
+				"withClass\\([^,]+,\\s*`([^`]*)`"
+			]
 		]
 	},
 }
