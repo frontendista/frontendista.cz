@@ -4,7 +4,6 @@
 @import "./animations";
 @import "./components";
 @import "./utilities";
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -98,6 +97,7 @@
 			height: calc(100% + 1rem + 6px);
 		}
 
+		/* stylelint-disable-next-line scss/operator-no-unspaced */
 		@supports selector(:has(+ *)) {
 			box-shadow: none;
 		}
