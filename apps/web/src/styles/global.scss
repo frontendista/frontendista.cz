@@ -3,8 +3,8 @@
 @import "./themes";
 @import "./animations";
 @import "./components";
+@import "./utilities";
 
-// NOTE: TailwindCSS entrypoint.
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -54,7 +54,7 @@
 
 	:root[data-motion="on"] {
 		scroll-behavior: smooth;
-	}	
+	}
 
 	:root[data-js="off"] {
 		@media (prefers-reduced-motion: no-preference) {
@@ -98,7 +98,7 @@
 			height: calc(100% + 1rem + 6px);
 		}
 
-		@supports selector(:has(+ * )) {
+		@supports selector(:has(+ *)) {
 			box-shadow: none;
 		}
 	}
@@ -126,7 +126,7 @@
 				background: theme("backgroundColor.primary / 90%");
 			}
 		}
-	
+
 		&:not(:has(:focus-visible:not(:is([role="dialog"] *), [data-nofocus] *))) {
 			&::after {
 				background: theme("backgroundColor.primary / 0%");
@@ -141,7 +141,10 @@
 		line-height: 1.5;
 	}
 
-	a, button, summary, input {
+	a,
+	button,
+	summary,
+	input {
 		position: relative;
 	}
 

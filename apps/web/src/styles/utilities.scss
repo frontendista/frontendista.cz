@@ -1,0 +1,5 @@
+@layer utilities {
+	.anchor-content::after {
+		content: "\00a0#";
+	}
+}

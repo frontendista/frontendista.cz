@@ -13,8 +13,7 @@ export const footer: IFooterDisclosure[] = [
 			{ name: "Home", href: "/" },
 			{ name: "Licence", href: "/legal.txt" },
 			{ name: "Privacy policy", href: "/privacy" },
-			{ name: "Sitemap", href: "/sitemap-index.xml" },
-			{ name: "Verify", href: "/verify" }
+			{ name: "Sitemap", href: "/sitemap-index.xml" }
 		]
 	},
 	{
@@ -25,6 +24,7 @@ export const footer: IFooterDisclosure[] = [
 			{ name: "GitHub", href: "https://github.com/susickypavel" },
 			{ name: "Gravatar", href: "https://gravatar.com/susickypavel" },
 			{ name: "LinkedIn", href: "https://linkedin.com/in/susickypavel" },
+			{ name: "Product Hunt", href: "https://producthunt.com/@susickypavel" },
 			{ name: "X", href: "https://x.com/susickypavel" },
 		]
 	},
@@ -64,7 +64,7 @@ const year = new Date().getFullYear();
 const { createdAt, tagCommit, tagName, url } = repository.latestRelease;
 ---
 
-<footer class="mt-lg max-w-content p-lg lg:mt-xl lg:p-2xl mx-auto pt-0 lg:pt-0">
+<footer class="mt-lg max-w-content py-lg lg:mt-xl lg:px-2xl mx-auto pt-0 lg:pt-0">
 	<ul class="gap-lg border-t-primary/10 pt-lg lg:pt-xl flex grid-cols-3 flex-col border-t-2 lg:grid">
 		{footer.map(section => (
 			<li>
@@ -72,7 +72,7 @@ const { createdAt, tagCommit, tagName, url } = repository.latestRelease;
 			</li>
 		))}
 	</ul>
-	<p class="mt-lg gap-lg border-t-primary/10 pt-lg lg:mt-xl lg:pt-2xl flex grid-cols-[1fr_3rem_1fr] flex-col border-t-2 text-center lg:grid">
+	<p class="mt-lg gap-lg border-t-primary/10 lg:mt-xl pt-lg flex grid-cols-[1fr_3rem_1fr] flex-col border-t-2 text-center lg:grid text-sm">
 		<Link class="self-center justify-self-start" href={url}>{tagName.split("@")[1]}@{tagCommit.oid.substring(0, 7)} on <time datetime={createdAt}>{new Date(createdAt).toLocaleString("en-US", { month: "short", year: "numeric", day: "numeric" })}</time></Link>
 		<a class="order-1 max-w-12 self-center justify-self-center lg:order-none" href="#main">
 			<span class="sr-only">Back to top</span>

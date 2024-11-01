@@ -30,6 +30,7 @@
 		}
 	],
 	"settings": {
+		"editor.formatOnSave": false,
 		"eslint.validate": [
 			"astro",
 			"svelte",

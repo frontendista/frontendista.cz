@@ -10,8 +10,7 @@ projects.sort((a, b) => a.data.year - b.data.year);
 ---
 
 <section id="oss" class="mt-xl">
-	<Heading as="h3" href="#oss">Open-source
-	</Heading>
+	<Heading as="h3" class="lg:justify-center" href="#oss">Open-source</Heading>
 	<ul class="mt-xl grid gap-lg lg:grid-cols-2 xl:grid-cols-3">
 		{projects.map(async project => {
 			const { Content } = await project.render();

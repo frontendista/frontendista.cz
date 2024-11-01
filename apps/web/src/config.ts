@@ -22,6 +22,10 @@ export const links = [
 		href: "/#contact",
 	},
 	{
+		name: "FAQ",
+		href: "/faq",
+	},
+	{
 		name: "Verify",
 		href: "/verify"
 	}
