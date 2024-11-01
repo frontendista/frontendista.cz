@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /legal.txt
+
+Sitemap: https://frontendista.cz/sitemap-index.xml
