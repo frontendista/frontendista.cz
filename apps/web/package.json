@@ -26,6 +26,7 @@
 		"@frontendista/validation": "workspace:",
 		"@nanostores/preact": "0.5.2",
 		"@octokit/graphql": "7.1.0",
+		"@radix-ui/react-accordion": "1.2.1",
 		"@radix-ui/react-dialog": "1.1.1",
 		"@radix-ui/react-form": "0.1.0",
 		"@radix-ui/react-popover": "1.1.1",
