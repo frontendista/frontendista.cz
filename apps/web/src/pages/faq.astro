@@ -1,7 +1,11 @@
 ---
 import HMFLayout from "~/layouts/hmf-layout.astro";
+
+import { FAQ } from "~/components/faq/faq";
 ---
 
-<HMFLayout>
-	<h1>Test</h1>
+<HMFLayout classNames={{
+	main: "md:mb-[-5rem]"
+}}>
+	<FAQ client:idle />
 </HMFLayout>

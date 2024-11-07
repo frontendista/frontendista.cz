@@ -148,6 +148,8 @@ const config: Config = {
 				"fade-in": "fade-in 0.5s ease-in-out forwards",
 				"fade-in-and-zoom": "fade-in 0.5s ease-in-out forwards, picture-zoom 6s ease-in-out alternate infinite",
 				"slide-in": "slide-in 0.5s ease-in-out forwards",
+				"slide-up": "slide-up 0.3s ease-out",
+				"slide-down": "slide-down 0.3s ease-out",
 			},
 			colors: {
 				ok: {
