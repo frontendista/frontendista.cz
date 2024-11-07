@@ -4,8 +4,12 @@ import HMFLayout from "~/layouts/hmf-layout.astro";
 import { FAQ } from "~/components/faq/faq";
 ---
 
-<HMFLayout classNames={{
-	main: "md:mb-[-5rem]"
-}}>
+<HMFLayout
+	title={{
+		default: "Pavel Sušický — Frequently asked questions"
+	}}
+	classNames={{
+		main: "md:mb-[-5rem]"
+	}}>
 	<FAQ client:idle />
 </HMFLayout>
