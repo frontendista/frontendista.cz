@@ -2,6 +2,7 @@ import { IconButton } from "~/components/common/icon-button";
 import * as Dialog from "~/components/form/radix/dialog";
 
 import { links } from "../../config";
+import { Icon } from "../../components/common/icon";
 
 import type { FunctionComponent } from "preact";
 
@@ -15,6 +16,8 @@ export const NavigationMobile: FunctionComponent = () => {
 			<Dialog.Portal>
 				<Dialog.Overlay />
 				<Dialog.Content className="flex items-center justify-end bg-primary">
+					<Icon viewBox="0 0 30 375" icon="logo-90" className="mr-auto h-full" />
+
 					<Dialog.Title className="sr-only">
 						Navigation
 					</Dialog.Title>
@@ -27,7 +30,7 @@ export const NavigationMobile: FunctionComponent = () => {
 						<IconButton className="absolute bottom-lg right-lg text-icon" icon="octagon-x">Close navigation</IconButton>
 					</Dialog.Close>
 
-					<ul className="flex flex-col gap-lg text-right">
+					<ul className="flex flex-col gap-lg text-right text-h2">
 						{links.map(({ href, name }) => {
 							return (
 								<li key={name}>
