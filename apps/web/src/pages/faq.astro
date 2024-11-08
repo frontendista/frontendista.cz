@@ -1,7 +1,7 @@
 ---
 import HMFLayout from "~/layouts/hmf-layout.astro";
 
-import { FAQ } from "~/components/faq/faq";
+import { FAQAccordion } from "~/components/faq/faq";
 ---
 
 <HMFLayout
@@ -11,5 +11,18 @@ import { FAQ } from "~/components/faq/faq";
 	classNames={{
 		main: "md:mb-[-5rem]"
 	}}>
-	<FAQ client:idle />
+	<section class="mx-auto max-w-content p-lg lg:px-2xl">
+		<h2 class="mb-lg">Background</h2>
+		<FAQAccordion category="background" client:idle />
+	</section>
+
+	<section class="mx-auto max-w-content p-lg lg:px-2xl">
+		<h2 class="mb-lg">Hardware & Software</h2>
+		<FAQAccordion category="hardware-software" client:idle />
+	</section>
+
+	<section class="mx-auto max-w-content p-lg lg:px-2xl">
+		<h2 class="mb-lg">Technologies</h2>
+		<FAQAccordion category="technologies" client:idle />
+	</section>
 </HMFLayout>
