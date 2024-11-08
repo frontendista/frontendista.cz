@@ -37,11 +37,21 @@ export const faq: Record<FAQCategories, FAQItem[]> = {
 	background: [
 		{
 			question: "How long are you involved in development?",
-			answer: "TODO"
+			answer: (
+				<>
+					<p>I started web development in 2017.</p>
+				</>
+			)
 		},
 		{
 			question: "What is your education?",
-			answer: "TODO"
+			answer: (
+				<>
+					<p>I have graduated from an industrial secondary school in 2020 and completed my bachelor's degree with honours in 2024.</p>
+					<p>My thesis (UI toolkit for accessible web components) was about building accessible <abbr title="User interface">UI</abbr> primitives in Solid.js.</p>
+					<p>Currently, I'm doing my masters degree at Czech Technical University in Prague.</p>
+				</>
+			)
 		},
 		{
 			question: "What is your work experience?",
@@ -62,7 +72,7 @@ export const faq: Record<FAQCategories, FAQItem[]> = {
 					<ul data-list="text">
 						<li>JetBrains DataGrip for database management.</li>
 						<li>JetBrains Pycharm for Python development.</li>
-						<li>JetBrains Rider for C# development.</li>
+						<li>JetBrains Rider for <abbr title="C Sharp">C#</abbr> development.</li>
 					</ul>
 				</>
 			)
@@ -73,9 +83,9 @@ export const faq: Record<FAQCategories, FAQItem[]> = {
 				<>
 					<p>Core components</p>
 					<ul data-list="text">
-						<li>CPU - AMD Ryzen 5 3600</li>
-						<li>GPU - GIGABYTE RTX 2070 Super</li>
-						<li>RAM - 32GB DDR4</li>
+						<li>AMD Ryzen 5 3600</li>
+						<li>GIGABYTE RTX 2070 Super</li>
+						<li>32GB DDR4</li>
 					</ul>
 
 					<p>Storage</p>
@@ -92,14 +102,18 @@ export const faq: Record<FAQCategories, FAQItem[]> = {
 
 					<p>Other</p>
 					<ul data-list="text">
-						<li>Phantenks case</li>
+						<li>Phanteks case</li>
 					</ul>
 				</>
 			)
 		},
 		{
 			question: "What laptop are you running on?",
-			answer: "TODO"
+			answer: (
+				<>
+					<p>I'm running on Macbook Air 13" M1.</p>
+				</>
+			)
 		},
 		{
 			question: "What software have you found useful?",
