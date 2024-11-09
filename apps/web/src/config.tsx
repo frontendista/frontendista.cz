@@ -55,7 +55,11 @@ export const faq: Record<FAQCategories, FAQItem[]> = {
 		},
 		{
 			question: "What is your work experience?",
-			answer: "TODO"
+			answer: (
+				<>
+					<p>I joined my first job as a front-end developer back in 2019 in Avocode, Inc.</p>
+				</>
+			)
 		},
 	],
 	"hardware-software": [
@@ -122,8 +126,24 @@ export const faq: Record<FAQCategories, FAQItem[]> = {
 	],
 	technologies: [
 		{
+			question: "What programming languages are you proficient in?",
+			answer: (
+				<>
+					<p>TODO</p>
+				</>
+			)
+		},
+		{
 			question: "What is your usual front-end techstack?",
-			answer: "TODO"
+			answer: (
+				<>
+					<p>My most used technologies are:</p>
+					<ul data-list="text">
+						<li>React</li>
+						<li>Vue</li>
+					</ul>
+				</>
+			)
 		},
 		{
 			question: "What is your usual back-end techstack?",
