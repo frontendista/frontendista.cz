@@ -114,6 +114,7 @@ export default defineConfig({
 		],
 	},
 	site: SITES[process.env.VERCEL_ENV] || SITES.development,
+	prefetch: true,
 	trailingSlash: "never",
 	build: {
 		format: "file",

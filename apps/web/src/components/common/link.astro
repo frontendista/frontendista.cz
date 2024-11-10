@@ -35,7 +35,14 @@ const domains = is_external ? new URL(href).hostname.split(".") : null;
 const second_level_domain = domains ? domains[domains.length - 2] : null
 ---
 
-<a href={href} rel={is_external ? "noopener" : null} target={is_external ? "_blank" : null} data-sld={second_level_domain} {...attributes}>{icon ? (
+<a
+	href={href}
+	rel={is_external ? "noopener" : null}
+	target={is_external ? "_blank" : null}
+	data-sld={second_level_domain}
+	data-astro-prefetch={!is_external ? true : null}
+	{...attributes}
+>{icon ? (
 	<span class="sr-only">
 		<slot />
 	</span>
