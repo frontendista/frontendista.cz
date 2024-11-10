@@ -118,10 +118,6 @@ export const faq: Record<FAQCategories, FAQItem[]> = {
 					<p>I'm running on Macbook Air 13" M1.</p>
 				</>
 			)
-		},
-		{
-			question: "What software have you found useful?",
-			answer: "TODO"
 		}
 	],
 	technologies: [
@@ -129,7 +125,16 @@ export const faq: Record<FAQCategories, FAQItem[]> = {
 			question: "What programming languages are you proficient in?",
 			answer: (
 				<>
-					<p>TODO</p>
+					<p>My most used languages are:</p>
+					<ul data-list="text">
+						<li>TypeScript</li>
+						<li><abbr title="C Sharp">C#</abbr></li>
+					</ul>
+
+					<p>Other languages I often use are:</p>
+					<ul data-list="text">
+						<li>Python</li>
+					</ul>
 				</>
 			)
 		},
@@ -141,17 +146,10 @@ export const faq: Record<FAQCategories, FAQItem[]> = {
 					<ul data-list="text">
 						<li>React</li>
 						<li>Vue</li>
+						<li>Astro</li>
 					</ul>
 				</>
 			)
-		},
-		{
-			question: "What is your usual back-end techstack?",
-			answer: "TODO"
-		},
-		{
-			question: "What other technologies do you frequently use?",
-			answer: "TODO"
 		}
 	]
 };
